@@ -21,6 +21,7 @@ const BUTTON_HOST_ATTRIBUTES = [
   'xcu-button--primary',
   'xcu-button--secondary',
   'xcu-button--tertiary',
+  'xcu-button--warning',
 ];
 
 class XcuButtonBase {
@@ -34,7 +35,8 @@ const XcuButtonMixinBase_: CanDisableCtor &
   selector: `button[xcu-button],
     button[xcu-button--primary],
     button[xcu-button--secondary],
-    button[xcu-button--tertiary]`,
+    button[xcu-button--tertiary],
+    button[xcu-button--warning]`,
   exportAs: 'xcuButton',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
@@ -98,7 +100,8 @@ export class XcuButtonComponent extends XcuButtonMixinBase_
   selector: `a[xcu-button],
     a[xcu-button--primary],
     a[xcu-button--secondary],
-    a[xcu-button--tertiary]`,
+    a[xcu-button--tertiary],
+    a[xcu-button--warning]`,
   exportAs: 'xcuButton, xcuAnchor',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],

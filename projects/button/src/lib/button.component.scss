@@ -64,4 +64,10 @@
   &.xcu-button--tertiary:not([disabled]) {
     background: none;
   }
+
+  &.xcu-button--warning:not([disabled]) {
+    border-color: var(--theme-warning);
+    background-color: var(--theme-warning);
+    color: var(--button-text-on-warning);
+  }
 }
