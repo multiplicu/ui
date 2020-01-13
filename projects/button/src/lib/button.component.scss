@@ -4,14 +4,14 @@
   border: 1px solid transparent;
   color: #241c15;
   display: inline-block;
-  font-family: system-ui;
+  font-family: inherit;
   font-size: 1.4rem;
-  font-weight: 500;
-  height: 36px;
-  line-height: 34px;
-  margin-right: 18px;
+  font-weight: 600;
+  height: 40px;
+  line-height: 38px;
+  margin-right: 16px;
   overflow: hidden;
-  padding: 0 18px;
+  padding: 0 16px;
   text-align: center;
   text-decoration: none;
   text-transform: capitalize;
@@ -32,8 +32,8 @@
   }
 
   &:focus {
-    border: 1px solid var(--theme-secondary);
-    box-shadow: inset 0 0 0 1px var(--theme-secondary);
+    border: 1px solid var(--theme-primary);
+    box-shadow: inset 0 0 0 1px var(--theme-primary);
     outline-width: 0;
   }
 
@@ -52,13 +52,13 @@
   }
 
   &.xcu-button--primary:not([disabled]) {
-    background-color: var(--theme-secondary);
-    color: var(--button-text-on-dark);
+    background-color: var(--theme-primary);
+    color: var(--button-text--on-dark);
   }
 
   &.xcu-button--secondary:not([disabled]) {
     background-color: var(--theme-background);
-    border: 1px solid var(--theme-secondary);
+    border: 1px solid var(--theme-primary);
   }
 
   &.xcu-button--tertiary:not([disabled]) {
@@ -68,6 +68,6 @@
   &.xcu-button--warning:not([disabled]) {
     border-color: var(--theme-warning);
     background-color: var(--theme-warning);
-    color: var(--button-text-on-warning);
+    color: var(--button-text--on-warning);
   }
 }
