@@ -1,8 +1,10 @@
 :host {
-  background-color: #efeeea;
+  --button__background-color: #edeeed;
+
+  background-color: var(--button__background-color);
   border-radius: 2px;
   border: 1px solid transparent;
-  color: #241c15;
+  color: var(--textcolor);
   display: inline-block;
   font-family: inherit;
   font-size: 1.4rem;
@@ -22,12 +24,12 @@
   white-space: nowrap;
 
   &:visited {
-    color: #241c15;
+    color: var(--textcolor);
   }
 
   &:hover {
     cursor: pointer;
-    color: #241c15;
+    color: var(--textcolor);
     background-color: #d9d7cd;
   }
 
