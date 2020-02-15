@@ -24,6 +24,10 @@
       ],
       "core": [
         "dist/core"
+      ],
+      "ui": [
+        "dist/ui/ui",
+        "dist/ui"
       ]
     }
   },
