@@ -133,8 +133,8 @@ export class XcuAnchorComponent extends XcuButtonComponent {
     super(elementRef, injector_);
   }
 
-  @HostListener('click')
-  private haltDisabledEvents_(event: Event): void {
+  @HostListener('click', ['$event'])
+  public haltDisabledEvents(event: Event): void {
     // A disabled button shouldn't apply any actions
     if (this.disabled) {
       event.preventDefault();
