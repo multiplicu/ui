@@ -3,38 +3,38 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "button": {
+    "ui": {
       "projectType": "library",
-      "root": "projects/button",
-      "sourceRoot": "projects/button/src",
+      "root": "projects/ui",
+      "sourceRoot": "projects/ui/src",
       "prefix": "xcu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/button/tsconfig.lib.json",
-            "project": "projects/button/ng-package.json"
+            "tsConfig": "projects/ui/tsconfig.lib.json",
+            "project": "projects/ui/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/button/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/button/src/test.ts",
-            "tsConfig": "projects/button/tsconfig.spec.json",
-            "karmaConfig": "projects/button/karma.conf.js"
+            "main": "projects/ui/src/test.ts",
+            "tsConfig": "projects/ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ui/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/button/tsconfig.lib.json",
-              "projects/button/tsconfig.spec.json"
+              "projects/ui/tsconfig.lib.json",
+              "projects/ui/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -83,38 +83,38 @@
         }
       }
     },
-    "ui": {
+    "button": {
       "projectType": "library",
-      "root": "projects/ui",
-      "sourceRoot": "projects/ui/src",
+      "root": "projects/button",
+      "sourceRoot": "projects/button/src",
       "prefix": "xcu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ui/tsconfig.lib.json",
-            "project": "projects/ui/ng-package.json"
+            "tsConfig": "projects/button/tsconfig.lib.json",
+            "project": "projects/button/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
+              "tsConfig": "projects/button/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ui/src/test.ts",
-            "tsConfig": "projects/ui/tsconfig.spec.json",
-            "karmaConfig": "projects/ui/karma.conf.js"
+            "main": "projects/button/src/test.ts",
+            "tsConfig": "projects/button/tsconfig.spec.json",
+            "karmaConfig": "projects/button/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ui/tsconfig.lib.json",
-              "projects/ui/tsconfig.spec.json"
+              "projects/button/tsconfig.lib.json",
+              "projects/button/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -124,5 +124,5 @@
       }
     }
   },
-  "defaultProject": "button"
+  "defaultProject": "ui"
 }

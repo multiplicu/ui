@@ -6,11 +6,10 @@ import {
   HostListener,
   Injector,
   Input,
-  ViewEncapsulation,
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { CanDisableCtor, mixinDisabled } from '@multiplicu/core';
+import { CanDisableCtor, mixinDisabled } from '@multiplicu/ui/core';
 
 /**
  * List of classes to add to XcuButton instances based on host attributes to

@@ -1,5 +1,5 @@
 {
-  "name": "@multiplicu/button",
+  "name": "@multiplicu/ui/button",
   "version": "0.0.1",
   "repository": {
     "url": "git://github.com/multiplicu/ui.git"
@@ -8,11 +8,8 @@
     "registry": "https://npm.pkg.github.com"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.1",
-    "@angular/core": "^9.0.1",
+    "@angular/common": "^9.0.0",
+    "@angular/core": "^9.0.0",
     "tslib": "^1.10.0"
-  },
-  "dependencies": {
-    "@multiplicu/core": "link:/Users/andy/Projects/multipli-ui/dist/core"
   }
 }

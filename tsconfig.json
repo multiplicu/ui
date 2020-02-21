@@ -19,15 +19,18 @@
       "dom"
     ],
     "paths": {
-      "button": [
-        "dist/button"
+      "@multiplicu/ui/button": ["dist/ui/button"],
+      "@multiplicu/ui/core": ["dist/ui/core"],
+      "ui": [
+        "dist/ui"
       ],
       "core": [
+        "dist/core/core",
         "dist/core"
       ],
-      "ui": [
-        "dist/ui/ui",
-        "dist/ui"
+      "button": [
+        "dist/button/button",
+        "dist/button"
       ]
     }
   },
