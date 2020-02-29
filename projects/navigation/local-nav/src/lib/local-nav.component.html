@@ -1,0 +1,18 @@
+<div class="mobile-nav" [class.mobile-nav--active]="isActive">
+  <a (click)="toggle($event)" href="#">
+    Navigation
+
+    <i class="material-icons-outlined">
+      {{ isActive ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+    </i>
+  </a>
+</div>
+
+<ng-content></ng-content>
+
+<nav *ngIf="links" class="links" role="navigation" aria-label="Local">
+  <ng-container *ngFor="let link of links">
+    <a *ngIf="!link.links" [routerLink]="'.'" [fragment]="link.fragment || ''">{{ link.title }}</a>
+    <div *ngIf="link.links" xcu-switcher [link]="link"></div>
+  </ng-container>
+</nav>
