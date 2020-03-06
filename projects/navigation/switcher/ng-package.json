@@ -4,8 +4,12 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "@multiplicu/ui/core": "@multiplicu/ui/core"
+      "@multiplicu/ui/core": "@multiplicu/ui/core",
+      "@multiplicu/ui/keycodes": "@multiplicu/ui/keycodes"
     }
   },
-  "whitelistedNonPeerDependencies": ["@multiplicu/ui/core"]
+  "whitelistedNonPeerDependencies": [
+    "@multiplicu/ui/core",
+    "@multiplicu/ui/core/keycodes"
+  ]
 }

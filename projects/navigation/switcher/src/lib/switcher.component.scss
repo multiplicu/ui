@@ -1,0 +1,115 @@
+:host {
+  display: inline-flex;
+  position: relative;
+
+  &.xcu-switcher--active {
+    nav {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  & > a {
+    align-items: center;
+    display: inline-flex;
+  }
+}
+
+i.material-icons-outlined {
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 4px;
+  transform: rotate(360deg);
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+}
+
+nav {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  right: auto;
+  left: -18px;
+  border: 1px solid #dedddc;
+  background-color: #ffffff;
+  white-space: nowrap;
+  border-radius: 2px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-height: 480px;
+  overflow: hidden;
+  overflow-y: auto;
+  top: calc(100% + 0.8rem);
+
+  a {
+    color: var(--textcolor);
+    font-size: 1.4rem;
+    padding: 12px 18px;
+    transition: background-color 0.18s ease-in-out 0s;
+
+    &:hover {
+      background-color: #e7f0f3;
+    }
+  }
+}
+
+// Styles for when a switcher is used in a local nav
+:host-context(.xcu-local-nav) {
+  & > a {
+    align-items: center;
+    color: var(--textcolor);
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: 600;
+    justify-content: space-between;
+    line-height: 24px;
+    padding: 16px 24px 16px 0;
+
+    &:hover {
+      color: var(--theme-primary);
+    }
+  }
+
+  nav {
+    border-radius: 0 0 6px 6px;
+    top: calc(100%);
+  }
+
+  @media screen and (max-width: 40em) {
+    border-bottom: 1px solid #d3dddc;
+    flex-direction: column;
+
+    & > a {
+      padding: 16px;
+    }
+
+    &.xcu-switcher--active {
+      & > a {
+        color: var(--theme-primary);
+        background-color: #e7f0f3;
+      }
+
+      i {
+        transform: rotate(180deg);
+      }
+    }
+
+    nav {
+      position: relative;
+      border-radius: 0;
+      border: 0 none;
+      box-shadow: none;
+      left: 0;
+      top: calc(100%);
+
+      a {
+        border: 0 none;
+        padding: 16px;
+
+        &:hover {
+          color: var(--theme-primary);
+        }
+      }
+    }
+  }
+}
