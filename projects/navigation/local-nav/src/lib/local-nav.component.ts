@@ -3,8 +3,6 @@ import {
   Component,
   ElementRef,
   Input,
-  ViewEncapsulation,
-  HostBinding,
 } from '@angular/core';
 import { NavLink } from '@multiplicu/ui/core';
 
@@ -19,7 +17,6 @@ const NAV_HOST_ATTRIBUTES = ['xcu-local-nav'];
   exportAs: 'xcuLocalNav',
   templateUrl: './local-nav.component.html',
   styleUrls: ['./local-nav.component.scss'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuLocalNavComponent {

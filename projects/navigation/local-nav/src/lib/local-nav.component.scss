@@ -1,4 +1,4 @@
-.xcu-local-nav {
+:host {
   border-bottom: 1px solid #d3dddc;
 
   .xcu-local-nav {
@@ -42,15 +42,24 @@
     font-size: 16px;
     line-height: 24px;
     margin-left: 4px;
+    transform: rotate(360deg);
+    transition: transform 0.2s ease-in-out;
+    will-change: transform;
   }
 }
 
 @media screen and (max-width: 40em) {
-  .xcu-local-nav {
+  :host {
     border-bottom: 0;
 
     .mobile-nav {
       display: block;
+
+      &--active {
+        i {
+          transform: rotate(180deg);
+        }
+      }
 
       &--active + nav {
         display: flex;
@@ -62,8 +71,11 @@
       flex-direction: column;
 
       a {
-        border-bottom: 1px solid #d3dddc;
         padding: 16px;
+      }
+
+      & > a {
+        border-bottom: 1px solid #d3dddc;
       }
     }
   }

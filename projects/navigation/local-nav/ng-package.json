@@ -8,5 +8,8 @@
       "@multiplicu/ui/navigation/switcher": "@multiplicu/ui/navigation/switcher"
     }
   },
-  "whitelistedNonPeerDependencies": ["@multiplicu/ui/core", "@multiplicu/ui/navigation/switcher"]
+  "whitelistedNonPeerDependencies": [
+    "@multiplicu/ui/core",
+    "@multiplicu/ui/navigation/switcher"
+  ]
 }
