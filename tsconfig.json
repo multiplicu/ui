@@ -19,31 +19,25 @@
       "dom"
     ],
     "paths": {
-      "@multiplicu/ui/button": [
-        "dist/ui/button"
-      ],
-      "@multiplicu/ui/core": [
-        "dist/ui/core"
-      ],
       "ui": [
         "dist/ui"
       ],
       "core": [
-        "dist/core/core",
-        "dist/core"
+        "dist/ui/core/core",
+        "dist/ui/core"
       ],
       "button": [
-        "dist/button/button",
-        "dist/button"
+        "dist/ui/button/button",
+        "dist/ui/button"
       ],
       "local-nav": [
-        "dist/navigation/local-nav/local-nav",
-        "dist/navigation/local-nav"
+        "dist/ui/navigation/local-nav/local-nav",
+        "dist/ui/navigation/local-nav"
       ],
       "switcher": [
-        "dist/navigation/switcher/switcher",
-        "dist/navigation/switcher"
-      ]
+        "dist/ui/navigation/switcher/switcher",
+        "dist/ui/navigation/switcher"
+      ],
     }
   },
   "angularCompilerOptions": {
