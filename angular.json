@@ -192,6 +192,44 @@
           }
         }
       }
+    },
+    "tabs": {
+      "projectType": "library",
+      "root": "projects/navigation/tabs",
+      "sourceRoot": "projects/navigation/tabs/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/tabs/tsconfig.lib.json",
+            "project": "projects/navigation/tabs/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/tabs/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/tabs/src/test.ts",
+            "tsConfig": "projects/navigation/tabs/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/tabs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/tabs/tsconfig.lib.json",
+              "projects/navigation/tabs/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ui"

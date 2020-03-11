@@ -1027,11 +1027,6 @@
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.2.tgz#26520bf09abe4a5644cd5414e37125a8954241dd"
   integrity sha512-tsAQNx32a8CoFhjhijUIhI4kccIAgmGhy8LZMZgGfmXcpMbPRUqn5LWmgRttILi6yeGmBJd2xsPkFMs0PzgPCw==
 
-"@multiplicu/ui@^0.0.1":
-  version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@multiplicu/ui/0.0.1/18e9ccfd2aa3704059bab01bdcc53be6afbaa14c18aaf7379af60f271515c5a3#30b60c2b9baa3d0c3e1f79e11e8d7f64c231a21b"
-  integrity sha512-Pcf7onh6rucRYnPyP8DRjj4zDILjCdl5Ml4juQYm+TT31kDHS9zuT7OQLDZv1qHSyNyMgdbDAZi2WK2soVF5yA==
-
 "@ngtools/webpack@9.0.1":
   version "9.0.1"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-9.0.1.tgz#36fff5b269959b37eee4c23c8c22bd7686aa4860"

@@ -38,6 +38,10 @@
         "dist/ui/navigation/switcher/switcher",
         "dist/ui/navigation/switcher"
       ],
+      "tabs": [
+        "dist/ui/navigation/tabs/tabs",
+        "dist/ui/navigation/tabs"
+      ]
     }
   },
   "angularCompilerOptions": {
