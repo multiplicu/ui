@@ -41,6 +41,14 @@
       "tabs": [
         "dist/ui/navigation/tabs/tabs",
         "dist/ui/navigation/tabs"
+      ],
+      "form-field": [
+        "dist/ui/form/form-field/form-field",
+        "dist/ui/form/form-field"
+      ],
+      "input": [
+        "dist/ui/form/input/input",
+        "dist/ui/form/input"
       ]
     }
   },
