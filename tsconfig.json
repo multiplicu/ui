@@ -42,6 +42,10 @@
         "dist/ui/navigation/tabs/tabs",
         "dist/ui/navigation/tabs"
       ],
+      "mega-menu": [
+        "dist/ui/navigation/mega-menu",
+        "dist/ui/navigation"
+      ],
       "form-field": [
         "dist/ui/form/form-field/form-field",
         "dist/ui/form/form-field"
