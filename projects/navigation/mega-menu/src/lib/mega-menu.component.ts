@@ -1,13 +1,21 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { NavLink } from '@multiplicu/ui/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+} from '@angular/core';
 
 @Component({
-  selector: `xcu-mena-menu, div[xcu-mena-menu], ul[xcu-mena-menu], nav[xcu-mena-menu]`,
+  selector: `xcu-mega-menu, div[xcu-mega-menu], ul[xcu-mega-menu], nav[xcu-mega-menu]`,
   exportAs: 'xcuMegaMenu',
   templateUrl: './mega-menu.component.html',
   styleUrls: ['./mega-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MegaMenuComponent implements OnInit {
+  @Input() public link: NavLink;
+
   public constructor() {}
 
   public ngOnInit(): void {}
