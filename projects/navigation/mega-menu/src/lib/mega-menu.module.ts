@@ -6,4 +6,4 @@ import { MegaMenuComponent } from './mega-menu.component';
   imports: [],
   exports: [MegaMenuComponent],
 })
-export class MegaMenuModule {}
+export class XcuMegaMenuModule {}
