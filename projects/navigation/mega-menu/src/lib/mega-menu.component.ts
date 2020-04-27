@@ -4,6 +4,7 @@ import {
   OnInit,
   ChangeDetectionStrategy,
   Input,
+  EventEmitter,
 } from '@angular/core';
 
 @Component({
@@ -14,6 +15,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MegaMenuComponent implements OnInit {
+  @Input()
+  public isActive: boolean;
   @Input() public link: NavLink;
 
   public constructor() {}
