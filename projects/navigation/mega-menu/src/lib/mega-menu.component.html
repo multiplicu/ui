@@ -1,3 +1,4 @@
-<button type="button">
-  <span>{{ link?.title || 'Solutions' }}</span>
-</button>
+<xcu-nav-toggle [title]="link?.title || 'Solutions'" (toggled)="isActive = $event"></xcu-nav-toggle>
+
+
+<ng-content #links></ng-content>

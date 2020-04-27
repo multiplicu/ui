@@ -1,0 +1,44 @@
+:host {
+  & > button {
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--font-family--base);
+    outline: none;
+  }
+}
+
+i.material-icons-outlined {
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 4px;
+  transform: rotate(360deg);
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+}
+
+// Styles for when a switcher is used in a local nav
+:host-context(.xcu-local-nav) {
+  & > button {
+    align-items: center;
+    color: var(--textcolor);
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: var(--font-weight--semi-bold);
+    justify-content: space-between;
+    line-height: 24px;
+    padding: 16px 24px 16px 0;
+
+    &:hover {
+      color: var(--theme-primary);
+    }
+  }
+
+  @media screen and (max-width: 40em) {
+    & > button {
+      padding: 16px;
+    }
+  }
+}

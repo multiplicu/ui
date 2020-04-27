@@ -8,20 +8,6 @@
       flex-direction: column;
     }
   }
-
-  & > a {
-    align-items: center;
-    display: inline-flex;
-  }
-}
-
-i.material-icons-outlined {
-  font-size: 16px;
-  line-height: 24px;
-  margin-left: 4px;
-  transform: rotate(360deg);
-  transition: transform 0.2s ease-in-out;
-  will-change: transform;
 }
 
 nav {
@@ -55,21 +41,6 @@ nav {
 
 // Styles for when a switcher is used in a local nav
 :host-context(.xcu-local-nav) {
-  & > a {
-    align-items: center;
-    color: var(--textcolor);
-    display: flex;
-    font-size: 1.6rem;
-    font-weight: 600;
-    justify-content: space-between;
-    line-height: 24px;
-    padding: 16px 24px 16px 0;
-
-    &:hover {
-      color: var(--theme-primary);
-    }
-  }
-
   nav {
     border-radius: 0 0 6px 6px;
     top: calc(100%);
@@ -78,10 +49,6 @@ nav {
   @media screen and (max-width: 40em) {
     border-bottom: 1px solid #d3dddc;
     flex-direction: column;
-
-    & > a {
-      padding: 16px;
-    }
 
     &.xcu-switcher--active {
       & > a {

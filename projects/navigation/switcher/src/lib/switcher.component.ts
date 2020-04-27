@@ -2,14 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Input,
   HostBinding,
-  Output,
-  EventEmitter,
-  OnDestroy,
-  HostListener,
+  Input,
 } from '@angular/core';
-import { NavLink, ESCAPE, hasModifierKey } from '@multiplicu/ui/core';
+import { NavLink } from '@multiplicu/ui/core';
 
 /**
  * List of classes to add to XcuSwitcher instances based on host attributes to
@@ -25,17 +21,12 @@ const SWITCHER_HOST_ATTRIBUTES = ['xcu-switcher'];
   styleUrls: ['./switcher.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class XcuSwitcherComponent implements OnDestroy {
+export class XcuSwitcherComponent {
   @HostBinding('class.xcu-switcher--active')
   @Input()
   public isActive: boolean;
   @Input() public link: NavLink;
   @Input() public shouldShowArrow: boolean = true;
-
-  /** Event emitted when the menu is closed. */
-  @Output() readonly closed: EventEmitter<
-    void | 'click' | 'keydown' | 'tab'
-  > = new EventEmitter<void | 'click' | 'keydown' | 'tab'>();
 
   public constructor(public elementRef: ElementRef) {
     // For each of the variant selectors that is present in the button's host
@@ -52,46 +43,9 @@ export class XcuSwitcherComponent implements OnDestroy {
     elementRef.nativeElement.classList.add('xcu-switcher');
   }
 
-  public ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    this.closed.complete();
-  }
-
-  @HostListener('document:keydown', ['$event'])
-  public handleKeydown(event: KeyboardEvent): void {
-    const keycode: number = event.keyCode;
-
-    if (keycode === ESCAPE) {
-      if (!hasModifierKey(event)) {
-        event.preventDefault();
-        this.closed.emit('keydown');
-      }
-    }
-  }
-
-  @HostListener('document:click', ['$event'])
-  public handleClick(event: Event): void {
-    if (event.target !== this.elementRef.nativeElement) {
-      this.closed.emit('click');
-    }
-  }
-
-  public toggle(event: Event): boolean {
-    event.preventDefault();
-    event.stopPropagation();
-
-    this.isActive = !this.isActive;
-
-    if (this.isActive) {
-      this.closed.asObservable().subscribe(() => (this.isActive = false));
-    }
-
-    return this.isActive;
-  }
-
   /** Gets whether the button has one of the given attributes. */
   private hasHostAttributes_(...attributes: string[]): boolean {
-    return attributes.some(attribute =>
+    return attributes.some((attribute) =>
       this.getHostElement_().hasAttribute(attribute)
     );
   }

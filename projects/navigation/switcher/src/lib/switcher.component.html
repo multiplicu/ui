@@ -1,8 +1,4 @@
-<a (click)="toggle($event)" [routerLink]="'.'">
-  {{ link.title }}
-
-  <i *ngIf="shouldShowArrow" class="material-icons-outlined">keyboard_arrow_down</i>
-</a>
+<xcu-nav-toggle [title]="link.title" (toggled)="isActive = $event"></xcu-nav-toggle>
 
 <nav role="navigation" [attr.aria-label]="link.title">
   <a *ngFor="let sublink of link.links" [routerLink]="'.'" [fragment]="sublink.fragment || ''">{{ sublink.title }}</a>
