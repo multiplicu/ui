@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MegaMenuComponent } from './mega-menu.component';
 import { XcuNavToggleModule } from '@multiplicu/ui/navigation/toggle';
+import { MegaMenuItemComponent } from './mega-menu-item/mega-menu-item.component';
+import { MegaMenuComponent } from './mega-menu.component';
 
 @NgModule({
-  declarations: [MegaMenuComponent],
-  imports: [XcuNavToggleModule],
-  exports: [MegaMenuComponent],
+  declarations: [MegaMenuComponent, MegaMenuItemComponent],
+  imports: [CommonModule, XcuNavToggleModule],
+  exports: [MegaMenuComponent, MegaMenuItemComponent],
 })
 export class XcuMegaMenuModule {}
