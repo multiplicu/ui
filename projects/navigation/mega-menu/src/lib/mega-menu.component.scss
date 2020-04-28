@@ -1,0 +1,39 @@
+:host.xcu-mega-menu--active {
+  .mega-menu__container {
+    display: block;
+  }
+}
+
+.mega-menu__container {
+  border: 1px solid #dedddc;
+  display: none;
+  margin-left: -2.4rem;
+  margin-top: 2.4rem;
+  max-width: 76.8rem;
+  position: absolute;
+  width: max-content;
+
+  .mega-menu-shadow--bottom {
+    border-radius: 2px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .mega-menu-shadow--top {
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+}
+
+.mega-menu__content {
+  display: grid;
+  gap: 3.2rem;
+  // grid-gap: 3.2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  background-color: #fff;
+  padding: 3.2rem;
+  position: relative;
+  z-index: 20;
+}
