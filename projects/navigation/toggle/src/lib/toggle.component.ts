@@ -18,8 +18,7 @@ import { ESCAPE, hasModifierKey } from '@multiplicu/ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuNavToggleComponent implements OnDestroy {
-  @Input()
-  public isActive: boolean;
+  @Input() public isActive: boolean;
   @Input() public title: string;
   @Input() public shouldShowArrow: boolean = true;
 
