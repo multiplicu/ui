@@ -21,13 +21,30 @@
 }
 
 .title {
-  margin: 0;
-  padding: 0;
-  font-weight: var(--font-weight--bold);
-  color: var(--textcolor);
+  display: flex;
+  align-items: center;
+
+  & > :first-child {
+    font-weight: var(--font-weight--bold);
+    color: var(--textcolor);
+  }
 }
 
 .description {
   --font-size: 1.4rem;
+  --baseline-offset: 2px;
+
   color: var(--textcolor--secondary);
+}
+
+.badge {
+  align-items: center;
+  background-color: #e1effe;
+  border-radius: 9999px;
+  color: var(--theme-primary);
+  display: inline-flex;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight--bold);
+  margin-left: 1.2rem;
+  padding: 0 1.2rem;
 }
