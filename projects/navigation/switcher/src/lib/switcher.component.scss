@@ -2,30 +2,35 @@
   display: inline-flex;
   position: relative;
 
-  &.xcu-switcher--active {
-    nav {
-      display: flex;
-      flex-direction: column;
+  &.menu--active {
+    .shadow {
+      display: block;
     }
   }
 }
 
-nav {
+.shadow {
   display: none;
   position: absolute;
   z-index: 999;
   right: auto;
   left: -18px;
+  top: 100%;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #dedddc;
   background-color: #ffffff;
   white-space: nowrap;
   border-radius: 2px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  margin-top: 0.8rem;
   max-height: 480px;
   overflow: hidden;
   overflow-y: auto;
-  top: calc(100% + 0.8rem);
 
   a {
     color: var(--textcolor);
@@ -43,14 +48,14 @@ nav {
 :host-context(.xcu-local-nav) {
   nav {
     border-radius: 0 0 6px 6px;
-    top: calc(100%);
+    margin-top: 0;
   }
 
   @media screen and (max-width: 40em) {
     border-bottom: 1px solid #d3dddc;
     flex-direction: column;
 
-    &.xcu-switcher--active {
+    &.menu--active {
       & > a {
         color: var(--theme-primary);
         background-color: #e7f0f3;
@@ -61,13 +66,16 @@ nav {
       }
     }
 
-    nav {
+    .shadow {
       position: relative;
+      left: 0;
+    }
+
+    nav {
       border-radius: 0;
       border: 0 none;
       box-shadow: none;
-      left: 0;
-      top: calc(100%);
+      margin-top: 0;
 
       a {
         border: 0 none;

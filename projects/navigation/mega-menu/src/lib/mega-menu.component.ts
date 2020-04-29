@@ -2,10 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  HostBinding,
   Input,
 } from '@angular/core';
-import { NavLink } from '@multiplicu/ui/core';
+import { NavLink, HoverMenu } from '@multiplicu/ui/core';
 
 @Component({
   selector: `xcu-mega-menu, div[xcu-mega-menu], ul[xcu-mega-menu], nav[xcu-mega-menu]`,
@@ -14,14 +13,12 @@ import { NavLink } from '@multiplicu/ui/core';
   styleUrls: ['./mega-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MegaMenuComponent {
-  @HostBinding('class.xcu-mega-menu--active')
-  @Input()
-  public isActive: boolean;
-
+export class MegaMenuComponent extends HoverMenu {
   @Input() public link: NavLink;
 
   public constructor(public elementRef: ElementRef) {
+    super(elementRef);
+
     // Add a class that applies to all mega menus. This makes it easier to target if somebody
     // wants to target all mega menus. We do it here rather than `host` to ensure that
     // the class is applied to derived classes.

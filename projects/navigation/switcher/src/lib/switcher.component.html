@@ -1,5 +1,8 @@
-<xcu-nav-toggle [title]="link.title" [isActive]="isActive" (toggled)="isActive = $event"></xcu-nav-toggle>
+<xcu-nav-toggle [title]="link.title" [isActive]="isActive" (toggled)="isActive = $event" [openOnHover]="openOnHover">
+</xcu-nav-toggle>
 
-<nav role="navigation" [attr.aria-label]="link.title">
-  <a *ngFor="let sublink of link.links" [routerLink]="'.'" [fragment]="sublink.fragment || ''">{{ sublink.title }}</a>
-</nav>
+<div (mouseleave)="onHoverOut($event)" (touchend)="onHoverOut($event)" class="shadow">
+  <nav role="navigation" [attr.aria-label]="link.title">
+    <a *ngFor="let sublink of link.links" [routerLink]="'.'" [fragment]="sublink.fragment || ''">{{ sublink.title }}</a>
+  </nav>
+</div>

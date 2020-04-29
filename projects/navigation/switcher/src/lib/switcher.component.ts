@@ -2,10 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  HostBinding,
   Input,
 } from '@angular/core';
-import { NavLink } from '@multiplicu/ui/core';
+import { HoverMenu, NavLink } from '@multiplicu/ui/core';
 
 /**
  * List of classes to add to XcuSwitcher instances based on host attributes to
@@ -21,14 +20,14 @@ const SWITCHER_HOST_ATTRIBUTES = ['xcu-switcher'];
   styleUrls: ['./switcher.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class XcuSwitcherComponent {
-  @HostBinding('class.xcu-switcher--active')
-  @Input()
-  public isActive: boolean;
+export class XcuSwitcherComponent extends HoverMenu {
+  @Input() public openOnHover: boolean;
   @Input() public link: NavLink;
   @Input() public shouldShowArrow: boolean = true;
 
   public constructor(public elementRef: ElementRef) {
+    super(elementRef);
+
     // For each of the variant selectors that is present in the button's host
     // attributes, add the correct corresponding class.
     for (const attr of SWITCHER_HOST_ATTRIBUTES) {

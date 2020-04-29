@@ -21,6 +21,7 @@ export class XcuNavToggleComponent implements OnDestroy {
   @Input() public isActive: boolean;
   @Input() public title: string;
   @Input() public shouldShowArrow: boolean = true;
+  @Input() public openOnHover: boolean = false;
 
   /** Event emitted when the menu is closed. */
   @Output() readonly toggled: EventEmitter<boolean> = new EventEmitter<
@@ -54,13 +55,29 @@ export class XcuNavToggleComponent implements OnDestroy {
   public handleClick(event: Event): void {
     if (!this.isActive) return;
 
-    if ((event.target as any).parentElement !== this.elementRef.nativeElement) {
+    if (!this.elementRef.nativeElement.contains(event.target as any)) {
       this.toggled.emit(false);
     }
   }
 
+  /**
+   * If we're supposed to toggle on hover, set the active state to True
+   * @param event
+   */
+  @HostListener('mouseenter', ['$event'])
+  @HostListener('touchstart', ['$event'])
+  public onHover(event: Event): boolean {
+    if (!this.openOnHover) return;
+
+    return this.setActiveState(true);
+  }
+
   public toggle(event: Event): boolean {
-    this.isActive = !this.isActive;
+    return this.setActiveState(!this.isActive);
+  }
+
+  private setActiveState(active: boolean): boolean {
+    this.isActive = active;
 
     this.toggled.emit(this.isActive);
 
