@@ -3,8 +3,9 @@ import {
   Component,
   ElementRef,
   Input,
+  HostBinding,
 } from '@angular/core';
-import { NavLink, HoverMenu } from '@multiplicu/ui/core';
+import { NavLink, HoverMenu, coerceBooleanProperty } from '@multiplicu/ui/core';
 
 @Component({
   selector: `xcu-mega-menu, div[xcu-mega-menu], ul[xcu-mega-menu], nav[xcu-mega-menu]`,
@@ -15,6 +16,18 @@ import { NavLink, HoverMenu } from '@multiplicu/ui/core';
 })
 export class MegaMenuComponent extends HoverMenu {
   @Input() public link: NavLink;
+
+  private horizontal_: boolean = false;
+
+  @HostBinding('class.horizontal')
+  @Input()
+  public get horizontal(): any {
+    return this.horizontal_;
+  }
+
+  public set horizontal(value: any) {
+    this.horizontal_ = coerceBooleanProperty(value);
+  }
 
   public constructor(public elementRef: ElementRef) {
     super(elementRef);

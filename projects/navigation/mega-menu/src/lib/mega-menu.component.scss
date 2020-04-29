@@ -1,6 +1,14 @@
-:host.menu--active {
-  .mega-menu__container {
-    display: block;
+:host {
+  &.menu--active {
+    .mega-menu__container {
+      display: block;
+    }
+  }
+
+  &.horizontal {
+    .mega-menu__container .mega-menu-shadow--top {
+      flex-direction: row;
+    }
   }
 }
 
@@ -23,6 +31,9 @@
     border-radius: 2px;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
     overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
   }
 }
 

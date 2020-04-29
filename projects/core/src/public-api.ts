@@ -2,6 +2,7 @@
  * Public API Surface of core
  */
 
+export * from './lib/coercion/boolean-property';
 export * from './lib/common-behaviors/constructor';
 export * from './lib/common-behaviors/disabled';
 export * from './lib/common-behaviors/openOnHover';
