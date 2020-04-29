@@ -10,6 +10,10 @@
       flex-direction: row;
     }
   }
+
+  &.single-column .mega-menu__content {
+    --columns: 1;
+  }
 }
 
 .mega-menu__container {
@@ -38,10 +42,12 @@
 }
 
 .mega-menu__content {
+  --columns: 2;
+
   display: grid;
   gap: 3.2rem;
   // grid-gap: 3.2rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 
   background-color: #fff;
   padding: 3.2rem;

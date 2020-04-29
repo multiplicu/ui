@@ -18,6 +18,7 @@ export class MegaMenuComponent extends HoverMenu {
   @Input() public link: NavLink;
 
   private horizontal_: boolean = false;
+  private singleColumn_: boolean = false;
 
   @HostBinding('class.horizontal')
   @Input()
@@ -27,6 +28,16 @@ export class MegaMenuComponent extends HoverMenu {
 
   public set horizontal(value: any) {
     this.horizontal_ = coerceBooleanProperty(value);
+  }
+
+  @HostBinding('class.single-column')
+  @Input('single-column')
+  public get singleColumn(): any {
+    return this.singleColumn_;
+  }
+
+  public set singleColumn(value: any) {
+    this.singleColumn_ = coerceBooleanProperty(value);
   }
 
   public constructor(public elementRef: ElementRef) {
