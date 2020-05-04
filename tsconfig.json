@@ -57,6 +57,10 @@
       "input": [
         "dist/ui/form/input/input",
         "dist/ui/form/input"
+      ],
+      "badge": [
+        "dist/badge/badge",
+        "dist/badge"
       ]
     }
   },
