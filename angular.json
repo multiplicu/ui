@@ -310,6 +310,86 @@
           }
         }
       }
+    },
+    "mega-menu": {
+      "projectType": "library",
+      "root": "projects/navigation/mega-menu",
+      "sourceRoot": "projects/navigation/mega-menu/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/mega-menu/tsconfig.lib.json",
+            "project": "projects/navigation/mega-menu/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/mega-menu/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/mega-menu/src/test.ts",
+            "tsConfig": "projects/navigation/mega-menu/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/mega-menu/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/mega-menu/tsconfig.lib.json",
+              "projects/navigation/mega-menu/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "nav-toggle": {
+      "projectType": "library",
+      "root": "projects/navigation/toggle",
+      "sourceRoot": "projects/navigation/toggle/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/toggle/tsconfig.lib.json",
+            "project": "projects/navigation/toggle/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/toggle/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/toggle/src/test.ts",
+            "tsConfig": "projects/navigation/toggle/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/toggle/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/toggle/tsconfig.lib.json",
+              "projects/navigation/toggle/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ui"

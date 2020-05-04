@@ -1,0 +1,83 @@
+:host {
+  & > button {
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--font-family--base);
+    font-weight: inherit;
+    outline: none;
+    padding: 0;
+    position: relative;
+  }
+}
+
+i.material-icons-outlined {
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 4px;
+  transform: rotate(360deg);
+  transition: transform 0.2s ease-in-out;
+  will-change: transform;
+}
+
+.menu__chevron {
+  display: none;
+}
+
+// Styles for when a switcher is used in a mega menu
+:host-context(.xcu-mega-menu) {
+  .menu__chevron {
+    --transform-translate-x: 0.5rem;
+    --transform-translate-y: 3.7rem;
+    --transform-rotate: 45deg;
+    --transform-skew-x: 0;
+    --transform-skew-y: 0;
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+    transform: translateX(var(--transform-translate-x))
+      translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
+      skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
+      scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid #dedddc;
+    height: 2.4rem;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    width: 2.4rem;
+    z-index: 10;
+  }
+
+  .menu__chevron--active {
+    display: block;
+  }
+}
+
+// Styles for when a switcher is used in a local nav
+:host-context(.xcu-local-nav) {
+  & > button {
+    align-items: center;
+    color: var(--textcolor);
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: var(--font-weight--semi-bold);
+    justify-content: space-between;
+    line-height: 24px;
+    padding: 16px 24px 16px 0;
+    width: 100%;
+
+    &:hover {
+      color: var(--theme-primary);
+    }
+  }
+
+  @media screen and (max-width: 40em) {
+    & > button {
+      padding: 16px;
+    }
+  }
+}

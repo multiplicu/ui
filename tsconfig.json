@@ -38,9 +38,17 @@
         "dist/ui/navigation/switcher/switcher",
         "dist/ui/navigation/switcher"
       ],
+      "nav-toggle": [
+        "dist/ui/navigation/toggle/toggle",
+        "dist/ui/navigation/toggle"
+      ],
       "tabs": [
         "dist/ui/navigation/tabs/tabs",
         "dist/ui/navigation/tabs"
+      ],
+      "mega-menu": [
+        "dist/ui/navigation/mega-menu/mega-menu",
+        "dist/ui/navigation/mega-menu"
       ],
       "form-field": [
         "dist/ui/form/form-field/form-field",

@@ -1,0 +1,7 @@
+<button type="button" (click)="toggle($event)">
+  {{ title }}
+
+  <i *ngIf="shouldShowArrow" class="material-icons-outlined">keyboard_arrow_down</i>
+
+  <span class="menu__chevron" [class.menu__chevron--active]="isActive" aria-hidden="true"></span>
+</button>
