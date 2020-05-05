@@ -4,7 +4,7 @@
 <div>
   <div *ngIf="title" class="title">
     <span>{{ title }}</span>
-    <span *ngIf="badge" class="badge">{{ badge }}</span>
+    <span *ngIf="badge" xcu-badge [color]="badgeColor">{{ badge }}</span>
   </div>
   <p *ngIf="description" class="description">{{ description }}</p>
 </div>

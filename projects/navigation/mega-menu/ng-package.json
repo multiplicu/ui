@@ -4,13 +4,15 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "@multiplicu/ui/navigation/toggle": "@multiplicu/ui/navigation/oggle",
+      "@multiplicu/ui/navigation/toggle": "@multiplicu/ui/navigation/toggle",
+      "@multiplicu/ui/badge": "@multiplicu/ui/badge",
       "@multiplicu/ui/core": "@multiplicu/ui/core",
       "@multiplicu/ui/keycodes": "@multiplicu/ui/keycodes"
     }
   },
   "whitelistedNonPeerDependencies": [
     "@multiplicu/ui/navigation/toggle",
+    "@multiplicu/ui/badge",
     "@multiplicu/ui/core",
     "@multiplicu/ui/core/keycodes"
   ]

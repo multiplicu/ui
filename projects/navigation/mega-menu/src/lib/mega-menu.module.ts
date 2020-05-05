@@ -4,6 +4,7 @@ import { XcuNavToggleModule } from '@multiplicu/ui/navigation/toggle';
 import { MegaMenuItemComponent } from './mega-menu-item/mega-menu-item.component';
 import { MegaMenuComponent } from './mega-menu.component';
 import { MegaMenuFooterComponent } from './mega-menu-footer/mega-menu-footer.component';
+import { XcuBadgeModule } from '@multiplicu/ui/badge';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import { MegaMenuFooterComponent } from './mega-menu-footer/mega-menu-footer.com
     MegaMenuItemComponent,
     MegaMenuFooterComponent,
   ],
-  imports: [CommonModule, XcuNavToggleModule],
+  imports: [CommonModule, XcuNavToggleModule, XcuBadgeModule],
   exports: [MegaMenuComponent, MegaMenuItemComponent, MegaMenuFooterComponent],
 })
 export class XcuMegaMenuModule {}
