@@ -59,8 +59,16 @@
         "dist/ui/form/input"
       ],
       "badge": [
-        "dist/badge/badge",
-        "dist/badge"
+        "dist/ui/badge/badge",
+        "dist/ui/badge"
+      ],
+      "avatar": [
+        "dist/ui/avatar/avatar",
+        "dist/ui/avatar"
+      ],
+      "avatar-stack": [
+        "dist/ui/avatar/avatar-stack/avatar-stack",
+        "dist/ui/avatar/avatar-stack"
       ]
     }
   },
