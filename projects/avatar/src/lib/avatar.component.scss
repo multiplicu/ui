@@ -35,3 +35,12 @@ img {
   width: 4rem;
   vertical-align: middle;
 }
+
+// Styles for when an avatar is used in a stack
+:host-context(.xcu-avatar-stack) {
+  margin-left: -4px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
