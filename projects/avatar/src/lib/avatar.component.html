@@ -1,1 +1,2 @@
-<img src="{{ imageUrl }}" alt="{{ alt }}">
+<img *ngIf="imageUrl" src="{{ imageUrl }}" alt="{{ alt }}">
+<div *ngIf="hasNotification" class="dot"></div>

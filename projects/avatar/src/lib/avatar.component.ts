@@ -17,7 +17,20 @@ import { coerceBooleanProperty } from '@multiplicu/ui/core';
 export class AvatarComponent {
   @Input() public imageUrl: string;
   @Input() public alt: string = '';
-  @Input() public notificationPosition: 'top' | 'bottom' = 'top';
+
+  private _notificationPosition: 'top' | 'bottom' = 'top';
+  @Input()
+  public get notificationPosition(): 'top' | 'bottom' {
+    return this._notificationPosition;
+  }
+  public set notificationPosition(value: 'top' | 'bottom') {
+    this._notificationPosition = value;
+
+    (this.getHostElement_() as HTMLElement).classList.remove(
+      ...['dot--top', 'dot--bottom']
+    );
+    (this.getHostElement_() as HTMLElement).classList.add(`dot--${value}`);
+  }
 
   private size_: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   private rounded_: boolean = false;
@@ -29,6 +42,8 @@ export class AvatarComponent {
   }
 
   public set size(value: 'xs' | 'sm' | 'md' | 'lg' | 'xl') {
+    this.size_ = value;
+
     const sizeClasses: string[] = [
       'size--xs',
       'size--sm',
@@ -49,6 +64,15 @@ export class AvatarComponent {
 
   public set rounded(value: any) {
     this.rounded_ = coerceBooleanProperty(value);
+  }
+
+  @Input()
+  public get hasNotification(): any {
+    return this.hasNotification_;
+  }
+
+  public set hasNotification(value: any) {
+    this.hasNotification_ = coerceBooleanProperty(value);
   }
 
   public constructor(public elementRef: ElementRef) {}

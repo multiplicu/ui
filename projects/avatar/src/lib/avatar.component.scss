@@ -1,26 +1,82 @@
 :host {
-  &.rounded img {
-    border-radius: 4px;
+  position: relative;
+
+  &.dot--bottom {
+    .dot {
+      bottom: 0;
+      top: auto;
+    }
   }
 
-  &.size--xs img {
-    height: 2.4rem;
-    width: 2.4rem;
+  &.rounded {
+    img {
+      border-radius: 4px;
+    }
+
+    .dot {
+      top: calc(var(--dot-height) / 2 * -1);
+      right: calc(var(--dot-width) / 2 * -1);
+    }
   }
 
-  &.size--sm img {
-    height: 3.2rem;
-    width: 3.2rem;
+  &.size--xs {
+    img {
+      height: 2.4rem;
+      width: 2.4rem;
+    }
+
+    .dot {
+      --dot-height: 0.6rem;
+      --dot-width: 0.6rem;
+
+      height: var(--dot-height);
+      width: var(--dot-width);
+    }
   }
 
-  &.size--lg img {
-    height: 4.8rem;
-    width: 4.8rem;
+  &.size--sm {
+    img {
+      height: 3.2rem;
+      width: 3.2rem;
+    }
+
+    .dot {
+      --dot-height: 0.8rem;
+      --dot-width: 0.8rem;
+
+      height: var(--dot-height);
+      width: var(--dot-width);
+    }
   }
 
-  &.size--xl img {
-    height: 5.6rem;
-    width: 5.6rem;
+  &.size--lg {
+    img {
+      height: 4.8rem;
+      width: 4.8rem;
+    }
+
+    .dot {
+      --dot-height: 1.2rem;
+      --dot-width: 1.2rem;
+
+      height: var(--dot-height);
+      width: var(--dot-width);
+    }
+  }
+
+  &.size--xl {
+    img {
+      height: 5.6rem;
+      width: 5.6rem;
+    }
+
+    .dot {
+      --dot-height: 1.4rem;
+      --dot-width: 1.4rem;
+
+      height: var(--dot-height);
+      width: var(--dot-width);
+    }
   }
 }
 
@@ -34,6 +90,22 @@ img {
   height: 4rem;
   width: 4rem;
   vertical-align: middle;
+}
+
+.dot {
+  --dot-height: 1rem;
+  --dot-width: 1rem;
+
+  background: var(--theme-primary);
+  border-radius: 9999px;
+  border-style: solid;
+  box-shadow: 0 0 0 2px currentColor;
+  color: #fff;
+  height: var(--dot-height);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--dot-width);
 }
 
 // Styles for when an avatar is used in a stack
