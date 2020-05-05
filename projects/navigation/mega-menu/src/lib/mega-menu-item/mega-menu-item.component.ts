@@ -18,6 +18,7 @@ export class MegaMenuItemComponent {
   @Input() public title: string;
   @Input() public description: string;
   @Input() public badge: string;
+  @Input() public badgeColor: string = 'gray';
 
   @HostBinding('style.--icon-bg-color')
   @Input()

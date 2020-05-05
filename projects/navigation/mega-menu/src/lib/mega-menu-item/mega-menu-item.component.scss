@@ -37,14 +37,6 @@
   color: var(--textcolor--secondary);
 }
 
-.badge {
-  align-items: center;
-  background-color: #e1effe;
-  border-radius: 9999px;
-  color: var(--theme-primary);
-  display: inline-flex;
-  font-size: 1.2rem;
-  font-weight: var(--font-weight--bold);
+[xcu-badge] {
   margin-left: 1.2rem;
-  padding: 0 1.2rem;
 }
