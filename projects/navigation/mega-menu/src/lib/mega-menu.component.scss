@@ -54,3 +54,21 @@
   position: relative;
   z-index: 20;
 }
+
+@media screen and (max-width: 48em) {
+  :host {
+    &.horizontal {
+      .mega-menu__container {
+        max-width: calc(100% + 1.6rem);
+
+        .mega-menu-shadow--top {
+          flex-direction: column;
+        }
+      }
+    }
+
+    .mega-menu__content {
+      --columns: 1;
+    }
+  }
+}
