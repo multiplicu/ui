@@ -470,46 +470,6 @@
           }
         }
       }
-    },
-    "avatar-stack": {
-      "projectType": "library",
-      "root": "projects/avatar/avatar-stack",
-      "sourceRoot": "projects/avatar/avatar-stack/src",
-      "prefix": "xcu",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/avatar/avatar-stack/tsconfig.lib.json",
-            "project": "projects/avatar/avatar-stack/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/avatar/avatar-stack/tsconfig.lib.prod.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/avatar/avatar-stack/src/test.ts",
-            "tsConfig": "projects/avatar/avatar-stack/tsconfig.spec.json",
-            "karmaConfig": "projects/avatar/avatar-stack/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/avatar/avatar-stack/tsconfig.lib.json",
-              "projects/avatar/avatar-stack/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "defaultProject": "ui"

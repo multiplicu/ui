@@ -65,10 +65,6 @@
       "avatar": [
         "dist/ui/avatar/avatar",
         "dist/ui/avatar"
-      ],
-      "avatar-stack": [
-        "dist/ui/avatar/avatar-stack/avatar-stack",
-        "dist/ui/avatar/avatar-stack"
       ]
     }
   },
