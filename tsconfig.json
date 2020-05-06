@@ -65,6 +65,10 @@
       "avatar": [
         "dist/ui/avatar/avatar",
         "dist/ui/avatar"
+      ],
+      "snackbar": [
+        "dist/ui/snackbar/snackbar",
+        "dist/ui/snackbar"
       ]
     }
   },
