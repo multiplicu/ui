@@ -21,6 +21,7 @@ const BUTTON_HOST_ATTRIBUTES = [
   'xcu-button--secondary',
   'xcu-button--tertiary',
   'xcu-button--warning',
+  'xcu-button--raised',
 ];
 
 class XcuButtonBase {
@@ -35,7 +36,8 @@ const XcuButtonMixinBase_: CanDisableCtor &
     button[xcu-button--primary],
     button[xcu-button--secondary],
     button[xcu-button--tertiary],
-    button[xcu-button--warning]`,
+    button[xcu-button--warning],
+    button[xcu-button--raised]`,
   exportAs: 'xcuButton',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
@@ -85,7 +87,7 @@ export class XcuButtonComponent extends XcuButtonMixinBase_
 
   /** Gets whether the button has one of the given attributes. */
   private hasHostAttributes_(...attributes: string[]): boolean {
-    return attributes.some(attribute =>
+    return attributes.some((attribute) =>
       this.getHostElement_().hasAttribute(attribute)
     );
   }
@@ -100,7 +102,8 @@ export class XcuButtonComponent extends XcuButtonMixinBase_
     a[xcu-button--primary],
     a[xcu-button--secondary],
     a[xcu-button--tertiary],
-    a[xcu-button--warning]`,
+    a[xcu-button--warning],
+    a[xcu-button--raised]`,
   exportAs: 'xcuButton, xcuAnchor',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
