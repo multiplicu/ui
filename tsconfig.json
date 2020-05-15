@@ -69,6 +69,10 @@
       "snackbar": [
         "dist/ui/snackbar/snackbar",
         "dist/ui/snackbar"
+      ],
+      "faq": [
+        "dist/faq/faq",
+        "dist/faq"
       ]
     }
   },

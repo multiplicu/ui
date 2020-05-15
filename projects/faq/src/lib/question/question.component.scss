@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.faq-question {
+  --font-size: 1.8rem;
+}
+
+.faq-answer {
+  color: var(--textcolor--secondary);
+}

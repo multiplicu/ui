@@ -510,6 +510,46 @@
           }
         }
       }
+    },
+    "faq": {
+      "projectType": "library",
+      "root": "projects/faq",
+      "sourceRoot": "projects/faq/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/faq/tsconfig.lib.json",
+            "project": "projects/faq/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/faq/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/faq/src/test.ts",
+            "tsConfig": "projects/faq/tsconfig.spec.json",
+            "karmaConfig": "projects/faq/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/faq/tsconfig.lib.json",
+              "projects/faq/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ui"
