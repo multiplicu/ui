@@ -4,16 +4,17 @@
   --button__padding: 0 16px;
   --button__height: 40px;
   --button__font-size: 1.4rem;
+  --button__border-width: 1px;
 
   background-color: var(--button__background-color);
   border-radius: 2px;
-  border: 1px solid transparent;
+  border: var(--button__border-width) solid transparent;
   color: var(--button__color);
   display: inline-block;
   font-family: inherit;
   font-size: var(--button__font-size);
   font-weight: 600;
-  height: var(--button__height);
+  height: calc(var(--button__height) + var(--button__border-width));
   line-height: var(--button__height);
   margin-right: 16px;
   overflow: hidden;
