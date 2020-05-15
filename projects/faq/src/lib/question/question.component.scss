@@ -6,8 +6,31 @@
 
 .faq-question {
   --font-size: 1.8rem;
+  font-weight: var(--font-weight--semi-bold);
+
+  strong {
+    --baseline-multi: 3;
+    margin-bottom: calc(var(--font-line-height) - var(--baseline-offset));
+    display: block;
+  }
 }
 
 .faq-answer {
   color: var(--textcolor--secondary);
+}
+
+@media screen and (min-width: 841px) {
+  :host-context(.side-by-side) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 3.2rem;
+    border-top: 1px solid #d3dddc;
+    padding-top: 1.6rem;
+
+    .faq-question strong {
+      --baseline-multi: 3;
+      margin-bottom: calc(var(--font-line-height) - var(--baseline-offset));
+      display: block;
+    }
+  }
 }
