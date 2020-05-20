@@ -1,7 +1,27 @@
-<div class="faq-question">
+<ng-template #question>
   <ng-content select=".faq-question"></ng-content>
+</ng-template>
+<ng-template #answer>
+  <ng-content select=".faq-answer"></ng-content>
+</ng-template>
+
+<div *ngIf="!isAccordion" class="faq-question">
+  <ng-container *ngTemplateOutlet="question"></ng-container>
 </div>
 
-<span class="faq-answer">
-  <ng-content select=".faq-answer"></ng-content>
-</span>
+<div *ngIf="!isAccordion" class="faq-answer">
+  <ng-container *ngTemplateOutlet="answer"></ng-container>
+</div>
+
+<a (click)="toggle()" *ngIf="isAccordion" [attr.aria-expanded]="isExpanded" tabindex="0" role="button"
+  class="faq-question" [class.faq-question--active]="isExpanded">
+  <ng-container *ngTemplateOutlet="question"></ng-container>
+
+  <i class="material-icons-outlined">keyboard_arrow_down</i>
+</a>
+
+<div *ngIf="isAccordion" class="faq-answer__container">
+  <div class="faq-answer" [class.faq-answer--active]="isExpanded">
+    <ng-container *ngTemplateOutlet="answer"></ng-container>
+  </div>
+</div>

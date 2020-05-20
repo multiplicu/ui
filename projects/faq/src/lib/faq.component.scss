@@ -1,3 +1,14 @@
+:host.accordion {
+  h3 {
+    text-align: center;
+  }
+
+  .questions {
+    margin: 0 auto;
+    max-width: 635px;
+  }
+}
+
 @media screen and (min-width: 841px) {
   :host.two-columns {
     .questions {

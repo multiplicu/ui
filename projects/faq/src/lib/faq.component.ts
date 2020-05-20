@@ -3,8 +3,12 @@ import {
   ChangeDetectionStrategy,
   HostBinding,
   Input,
+  ContentChildren,
+  QueryList,
+  AfterViewInit,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@multiplicu/ui/core';
+import { QuestionComponent } from './question/question.component';
 
 @Component({
   selector: `xcu-faq, div[xcu-faq]`,
@@ -13,7 +17,9 @@ import { coerceBooleanProperty } from '@multiplicu/ui/core';
   styleUrls: ['./faq.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FaqComponent {
+export class FaqComponent implements AfterViewInit {
+  @ContentChildren(QuestionComponent) questions: QueryList<QuestionComponent>;
+
   private isAccordion_: boolean;
   private isSideBySide_: boolean;
   private isTwoColumns_: boolean;
@@ -49,4 +55,16 @@ export class FaqComponent {
   }
 
   public constructor() {}
+
+  public ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    if (this.isAccordion_) {
+      this.questions
+        .toArray()
+        .forEach((question: QuestionComponent) =>
+          setTimeout(() => (question.isAccordion = true), 0)
+        );
+    }
+  }
 }
