@@ -1,22 +1,26 @@
 :host {
   --button__background-color: #edeeed;
+  --button__color: var(--textcolor);
+  --button__padding: 0 16px;
+  --button__height: 40px;
+  --button__font-size: 1.4rem;
+  --button__border-width: 1px;
 
   background-color: var(--button__background-color);
   border-radius: 2px;
-  border: 1px solid transparent;
-  color: var(--textcolor);
+  border: var(--button__border-width) solid transparent;
+  color: var(--button__color);
   display: inline-block;
   font-family: inherit;
-  font-size: 1.4rem;
+  font-size: var(--button__font-size);
   font-weight: 600;
-  height: 40px;
-  line-height: 38px;
+  height: calc(var(--button__height) + var(--button__border-width));
+  line-height: var(--button__height);
   margin-right: 16px;
   overflow: hidden;
-  padding: 0 16px;
+  padding: var(--button__padding);
   text-align: center;
   text-decoration: none;
-  text-transform: capitalize;
   transition: border 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s,
     background-color 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s;
   user-select: none;
@@ -24,12 +28,12 @@
   white-space: nowrap;
 
   &:visited {
-    color: var(--textcolor);
+    color: var(--button__color);
   }
 
   &:hover {
     cursor: pointer;
-    color: var(--textcolor);
+    color: var(--button__color);
     background-color: #d9d7cd;
   }
 
@@ -71,5 +75,28 @@
     border-color: var(--theme-warning);
     background-color: var(--theme-warning);
     color: var(--button-text--on-warning);
+  }
+
+  &.xcu-button--raised:not([disabled]) {
+    --box-shadow--thin: 8px;
+    --button__height: 48px;
+    --deep-teal: #173f35;
+
+    --button__background-color: var(--theme-secondary);
+    --button__color: var(--deep-teal);
+    --button__font-size: var(--font-size);
+
+    background: var(--button__background-color);
+    box-shadow: var(--box-shadow--thin) var(--box-shadow--thin) var(--deep-teal);
+    font-size: var(--button__font-size);
+    font-weight: var(--font-weight--bold);
+
+    &:active {
+      box-shadow: 4px 4px var(--deep-teal);
+    }
+
+    &:hover {
+      box-shadow: 6px 6px var(--deep-teal);
+    }
   }
 }

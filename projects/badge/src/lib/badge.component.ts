@@ -1,10 +1,9 @@
 import {
-  Component,
-  OnInit,
   ChangeDetectionStrategy,
-  Input,
-  HostBinding,
+  Component,
   ElementRef,
+  HostBinding,
+  Input,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@multiplicu/ui/core';
 
