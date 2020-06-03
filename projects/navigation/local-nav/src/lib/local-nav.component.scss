@@ -38,7 +38,7 @@
     }
   }
 
-  i.material-icons-outlined {
+  .nav__arrow {
     font-size: 16px;
     line-height: 24px;
     margin-left: 4px;
@@ -56,7 +56,7 @@
       display: block;
 
       &--active {
-        i {
+        .nav__arrow {
           transform: rotate(180deg);
         }
       }
