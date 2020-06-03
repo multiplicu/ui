@@ -22,38 +22,46 @@ i.material-icons-outlined {
   will-change: transform;
 }
 
-.menu__chevron {
-  display: none;
-}
-
 // Styles for when a switcher is used in a mega menu
 :host-context(.xcu-mega-menu) {
   .menu__chevron {
     --transform-translate-x: 0.5rem;
-    --transform-translate-y: 3.7rem;
+    --transform-translate-y: 5.4rem;
     --transform-rotate: 45deg;
     --transform-skew-x: 0;
     --transform-skew-y: 0;
     --transform-scale-x: 1;
     --transform-scale-y: 1;
-    transform: translateX(var(--transform-translate-x))
-      translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
-      skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
-      scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+
+    transform: translateX(
+        var(--chevron-translateX, var(--transform-translate-x))
+      )
+      translateY(var(--chevron-translateY, var(--transform-translate-y)))
+      rotate(var(--transform-rotate)) skewX(var(--transform-skew-x))
+      skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x))
+      scaleY(var(--transform-scale-y));
 
     background: #fff;
-    border-radius: 2px;
-    border: 1px solid #dedddc;
+    border-radius: 2px 0 0 0;
+    box-shadow: -1px -1px 0 #dedddc;
+    display: block;
     height: 2.4rem;
+    opacity: 0;
     pointer-events: none;
     position: absolute;
     right: 0;
+    transform-origin: var(--transform-origin, 50% 50%);
+    transition: var(--menu-transition, 250ms);
+    transition-property: transform, opacity;
     width: 2.4rem;
+    will-change: transform, opacity;
     z-index: 10;
   }
 
   .menu__chevron--active {
-    display: block;
+    --chevron-translateY: var(--chevron-active-translateY, 3.7rem);
+
+    opacity: 1;
   }
 }
 

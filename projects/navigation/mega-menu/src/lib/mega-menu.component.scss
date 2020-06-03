@@ -1,7 +1,10 @@
 :host {
   &.menu--active {
     .mega-menu__container {
-      display: block;
+      --menu-rotateX: 0;
+
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 
@@ -17,13 +20,22 @@
 }
 
 .mega-menu__container {
+  --menu-rotateX: -15deg;
+
   border: 1px solid #dedddc;
-  display: none;
-  margin-left: -2.4rem;
+  display: block;
+  margin-left: var(--menu-margin-left, -2.4rem);
   margin-top: 2.4rem;
   max-width: 76.8rem;
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
+  transform: translateX(var(--menu-translateX, 0)) rotateX(var(--menu-rotateX));
+  transform-origin: 50% -50px;
+  transition: var(--menu-transition, 250ms);
+  transition-property: transform, opacity;
   width: max-content;
+  will-change: transform, opacity;
 
   .mega-menu-shadow--bottom {
     border-radius: 2px;
