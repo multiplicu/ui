@@ -17,6 +17,7 @@ export class HoverMenu extends XcuMenuBase_ {
   @Input()
   public isActive: boolean;
 
+  @Input() public shouldShowArrow: boolean = true;
   @Input() public openOnHover: boolean;
 
   public constructor(public elementRef: ElementRef) {

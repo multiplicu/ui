@@ -1,4 +1,5 @@
-<xcu-nav-toggle [title]="link?.title" [isActive]="isActive" (toggled)="isActive = $event" [openOnHover]="openOnHover">
+<xcu-nav-toggle [title]="link?.title" [isActive]="isActive" (toggled)="isActive = $event" [openOnHover]="openOnHover"
+  [shouldShowArrow]="shouldShowArrow">
 </xcu-nav-toggle>
 
 <div (mouseleave)="onHoverOut($event)" (touchend)="onHoverOut($event)" class="mega-menu__container">

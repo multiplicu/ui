@@ -11,7 +11,7 @@
     justify-content: space-between;
 
     &--active {
-      i {
+      .faq-question__arrow {
         transform: rotate(180deg);
       }
     }
@@ -46,7 +46,7 @@
   margin-bottom: calc(var(--font-line-height) - var(--baseline-offset));
   padding-top: var(--baseline-offset);
 
-  i {
+  .faq-question__arrow {
     pointer-events: none;
     transform: rotate(360deg);
     transition: transform 0.2s ease-in-out;
