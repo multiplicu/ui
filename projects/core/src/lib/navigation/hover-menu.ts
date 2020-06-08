@@ -2,7 +2,7 @@ import {
   CanOpenOnHoverCtor,
   mixinOpenOnHover,
 } from './../common-behaviors/openOnHover';
-import { HostListener, Input, HostBinding, ElementRef } from '@angular/core';
+import { HostListener, Input, HostBinding, ElementRef, Directive } from '@angular/core';
 
 class XcuMenuBase {
   public constructor(public elementRef: ElementRef) {}
@@ -12,6 +12,7 @@ const XcuMenuBase_: CanOpenOnHoverCtor & typeof XcuMenuBase = mixinOpenOnHover(
   XcuMenuBase
 );
 
+@Directive()
 export class HoverMenu extends XcuMenuBase_ {
   @HostBinding('class.menu--active')
   @Input()

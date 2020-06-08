@@ -6,5 +6,8 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
   }
 }
