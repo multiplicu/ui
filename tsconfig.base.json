@@ -73,6 +73,10 @@
       "faq": [
         "dist/faq/faq",
         "dist/faq"
+      ],
+      "page-nav": [
+        "dist/page-nav/page-nav",
+        "dist/page-nav"
       ]
     }
   },

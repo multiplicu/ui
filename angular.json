@@ -155,6 +155,47 @@
         }
       }
     },
+
+    "page-nav": {
+      "projectType": "library",
+      "root": "projects/navigation/page-nav",
+      "sourceRoot": "projects/navigation/page-nav/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/page-nav/tsconfig.lib.json",
+            "project": "projects/navigation/page-nav/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/page-nav/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/page-nav/src/test.ts",
+            "tsConfig": "projects/navigation/page-nav/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/page-nav/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/page-nav/tsconfig.lib.json",
+              "projects/navigation/page-nav/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
     "switcher": {
       "projectType": "library",
       "root": "projects/navigation/switcher",

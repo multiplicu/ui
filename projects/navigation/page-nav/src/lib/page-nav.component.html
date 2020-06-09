@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="separator colorize"></div>
+
+  <ng-content #home></ng-content>
+
+  <div *ngIf="links" class="mask-container">
+    <ul role="navigation" aria-label="Page navigation">
+      <ng-container *ngFor="let link of links">
+        <li>
+          <a [routerLink]="'.'" [fragment]="link.fragment || ''" class="colorize">{{ link.title }}</a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+
+</div>
