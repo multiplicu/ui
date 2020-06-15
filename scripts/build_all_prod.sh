@@ -26,4 +26,6 @@ ng build local-nav --prod &&
 ng build mega-menu --prod &&
 ng build page-nav --prod &&
 ### SNACKBAR ###
-ng build snackbar --prod
+ng build snackbar --prod &&
+# Copy UI package.json file
+cp projects/ui/package.json dist/ui
