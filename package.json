@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "copyDist": "rm -r node_modules/@multiplicu/ui && cp -R dist/ui node_modules/@multiplicu/ui"
+    "copyDist": "rm -r node_modules/@multiplicu/ui && cp -R dist/ui node_modules/@multiplicu/ui",
+    "build:all": "./scripts/build_all.sh",
+    "build:all:prod": "./scripts/build_all_prod.sh"
   },
   "private": true,
   "repository": {
