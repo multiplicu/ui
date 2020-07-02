@@ -4,7 +4,7 @@
   <ng-content #home></ng-content>
 
   <div *ngIf="links" class="mask-container">
-    <ul role="navigation" aria-label="Page navigation">
+    <ul role="list" aria-label="Page navigation">
       <ng-container *ngFor="let link of links">
         <li>
           <a [routerLink]="[{}, link.fragment]" routerLinkActive="active" class="colorize">{{ link.title }}</a>
