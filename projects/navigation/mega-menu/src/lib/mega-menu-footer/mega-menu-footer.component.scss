@@ -1,5 +1,19 @@
-:host {
+.xcu-mega-menu-footer {
   background-color: #f9fafb;
+  height: 100%;
   padding: 2.4rem 3.6rem;
+  width: 100%;
   z-index: 20;
+}
+
+.title {
+  font-weight: var(--font-weight--bold);
+  color: var(--textcolor);
+}
+
+.description {
+  --font-size: 1.4rem;
+  --baseline-offset: 2px;
+
+  color: var(--textcolor--secondary);
 }

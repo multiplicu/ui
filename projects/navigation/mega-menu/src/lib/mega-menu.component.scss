@@ -1,4 +1,20 @@
 :host {
+  @media screen and (max-width: 48em) {
+    &.horizontal {
+      .mega-menu__container {
+        max-width: calc(100% + 1.6rem);
+
+        .mega-menu-shadow--top {
+          flex-direction: column;
+        }
+      }
+    }
+
+    .mega-menu__content {
+      --columns: 1;
+    }
+  }
+
   &.menu--active {
     .mega-menu__container {
       --menu-rotateX: 0;
@@ -67,20 +83,22 @@
   z-index: 20;
 }
 
-@media screen and (max-width: 48em) {
-  :host {
-    &.horizontal {
-      .mega-menu__container {
-        max-width: calc(100% + 1.6rem);
+.xcu-mega-menu-footer {
+  background-color: #f9fafb;
+  height: 100%;
+  padding: 2.4rem 3.6rem;
+  width: 100%;
+  z-index: 20;
+}
 
-        .mega-menu-shadow--top {
-          flex-direction: column;
-        }
-      }
-    }
+.title {
+  font-weight: var(--font-weight--bold);
+  color: var(--textcolor);
+}
 
-    .mega-menu__content {
-      --columns: 1;
-    }
-  }
+.description {
+  --font-size: 1.4rem;
+  --baseline-offset: 2px;
+
+  color: var(--textcolor--secondary);
 }

@@ -6,6 +6,7 @@
     "umdModuleIds": {
       "@multiplicu/ui/navigation/toggle": "@multiplicu/ui/navigation/toggle",
       "@multiplicu/ui/badge": "@multiplicu/ui/badge",
+      "@multiplicu/ui/button": "@multiplicu/ui/button",
       "@multiplicu/ui/core": "@multiplicu/ui/core",
       "@multiplicu/ui/keycodes": "@multiplicu/ui/keycodes"
     }
@@ -13,6 +14,7 @@
   "whitelistedNonPeerDependencies": [
     "@multiplicu/ui/navigation/toggle",
     "@multiplicu/ui/badge",
+    "@multiplicu/ui/button",
     "@multiplicu/ui/core",
     "@multiplicu/ui/core/keycodes"
   ]

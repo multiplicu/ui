@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'xcu-mega-menu-footer, div[xcu-mega-menu-footer]',
@@ -6,6 +10,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   templateUrl: './mega-menu-footer.component.html',
   styleUrls: ['./mega-menu-footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class MegaMenuFooterComponent {
   public constructor() {}
