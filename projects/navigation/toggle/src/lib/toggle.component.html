@@ -1,4 +1,4 @@
-<button type="button" (click)="toggle($event)">
+<ng-template #contents>
   {{ title }}
 
   <svg *ngIf="shouldShowArrow" fill="currentColor" viewBox="0 0 20 20" height="20" width="20" class="menu__arrow">
@@ -8,4 +8,12 @@
   </svg>
 
   <span class="menu__chevron" [class.menu__chevron--active]="isActive" aria-hidden="true"></span>
+</ng-template>
+
+<button *ngIf="!href" class="toggle" type="button" (click)="toggle($event)">
+  <ng-container *ngTemplateOutlet="contents"></ng-container>
 </button>
+
+<a *ngIf="href" class="toggle" [routerLink]="href">
+  <ng-container *ngTemplateOutlet="contents"></ng-container>
+</a>

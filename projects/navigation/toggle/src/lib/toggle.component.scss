@@ -1,8 +1,9 @@
 :host {
-  & > button {
+  .toggle {
     align-items: center;
     background: transparent;
     border: none;
+    color: inherit;
     cursor: pointer;
     display: inline-flex;
     font-family: var(--font-family--base);
@@ -67,7 +68,7 @@
 
 // Styles for when a switcher is used in a local nav
 :host-context(.xcu-local-nav) {
-  & > button {
+  .toggle {
     align-items: center;
     color: var(--textcolor);
     display: flex;
@@ -84,7 +85,7 @@
   }
 
   @media screen and (max-width: 40em) {
-    & > button {
+    .toggle {
       padding: 16px;
     }
 

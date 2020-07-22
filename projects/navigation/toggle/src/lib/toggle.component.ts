@@ -20,6 +20,7 @@ import { ESCAPE, hasModifierKey } from '@multiplicu/ui/core';
 export class XcuNavToggleComponent implements OnDestroy {
   @Input() public isActive: boolean;
   @Input() public title: string;
+  @Input() public href: string;
   @Input() public shouldShowArrow: boolean = true;
   @Input() public openOnHover: boolean = false;
 
