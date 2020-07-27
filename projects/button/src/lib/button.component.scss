@@ -1,6 +1,11 @@
 :host {
   --button__background-color: #edeeed;
+  --button__background-color--hover: #d9d7cd;
+  --button__background-color--active: #cecbbf;
   --button__color: var(--textcolor);
+  --button__color--visited: var(--button__color);
+  --button__color--hover: var(--textcolor);
+  --button__color--active: var(--textcolor);
   --button__padding: 0 16px;
   --button__height: 40px;
   --button__font-size: 1.4rem;
@@ -28,17 +33,21 @@
   white-space: nowrap;
 
   @media (prefers-color-scheme: dark) {
-    --button__background-color: #2D3748;
+    --button__background-color: #4A5568;
+    --button__background-color--hover: #505c71;
+    --button__background-color--active: #444e5f;
+    // --button__color--hover: var(--color--bunker);
+    // --button__color--active: var(--color--bunker);
   }
 
   &:visited {
-    color: var(--button__color);
+    color: var(--button__color--visited);
   }
 
   &:hover {
     cursor: pointer;
-    color: var(--button__color);
-    background-color: #d9d7cd;
+    color: var(--button__color--hover);
+    background-color: var(--button__background-color--hover);
   }
 
   &:focus {
@@ -49,7 +58,8 @@
 
   &:active,
   &.active {
-    background-color: #cecbbf;
+    background-color: var(--button__background-color--active);
+    color: var(--button__color--active);
   }
 
   &[disabled],
@@ -87,6 +97,8 @@
 
     --button__background-color: var(--theme-secondary);
     --button__color: var(--color--deep-teal);
+    --button__color--active: var(--button__color);
+    --button__color--hover: var(--button__color);
     --button__font-size: var(--font-size);
     --button__box-shadow-color: var(--color--deep-teal);
 
@@ -99,11 +111,12 @@
       --button__background-color: var(--color--silver-tree);
     }
 
-    &:active {
+    &:active, &:focus {
       box-shadow: 4px 4px var(--button__box-shadow-color);
     }
 
     &:hover {
+      --button__color--hover: var(--color--deep-teal);
       box-shadow: 6px 6px var(--button__box-shadow-color);
     }
   }
