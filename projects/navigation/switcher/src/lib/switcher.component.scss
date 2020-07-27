@@ -1,6 +1,12 @@
 :host {
+  --switcher__border-color: #d3dddc;
+
   display: inline-flex;
   position: relative;
+
+  @media (prefers-color-scheme: dark) {
+    --switcher__border-color: var(--color--deep-teal);
+  }
 
   &.menu--active {
     .shadow {
@@ -19,27 +25,36 @@
 }
 
 nav {
+  --nav-link__hover-color: #e7f0f3;
+
   display: flex;
   flex-direction: column;
-  border: 1px solid #dedddc;
-  background-color: #ffffff;
+  // border: 1px solid #dedddc;
+  background-color: var(--theme-background);
   white-space: nowrap;
   border-radius: 2px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%),
+    0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
   margin-top: 0.8rem;
   max-height: 480px;
   overflow: hidden;
   overflow-y: auto;
 
+  @media (prefers-color-scheme: dark) {
+    --nav-link__hover-color: rgb(32 48 64 / 30%);
+
+    box-shadow: 0 0 0 1px rgb(136 152 170 / 10%),
+      0 15px 35px 0 rgb(49 61 93 / 24%), 0 5px 15px 0 rgb(0 0 0 / 69%);
+  }
+
   a {
-    color: var(--textcolor);
+    color: inherit;
     font-size: 1.4rem;
     padding: 12px 18px;
     transition: background-color 0.18s ease-in-out 0s;
 
     &:hover {
-      background-color: #e7f0f3;
+      background-color: var(--nav-link__hover-color);
     }
   }
 }
@@ -52,16 +67,16 @@ nav {
   }
 
   @media screen and (max-width: 40em) {
-    border-bottom: 1px solid #d3dddc;
+    border-bottom: 1px solid var(--switcher__border-color);
     flex-direction: column;
 
     &.menu--active {
-      & > a {
+      & > xcu-nav-toggle {
         color: var(--theme-primary);
-        background-color: #e7f0f3;
+        background-color: var(--nav-link__hover-color);
       }
 
-      i {
+      .menu__arrow {
         transform: rotate(180deg);
       }
     }

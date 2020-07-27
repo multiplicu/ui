@@ -1,19 +1,26 @@
 .xcu-mega-menu-footer {
-  background-color: #f9fafb;
+  --footer__background-color: #f9fafb;
+
+  background-color: var(--footer__background-color);
   height: 100%;
   padding: 2.4rem 3.6rem;
   width: 100%;
   z-index: 20;
+
+  @media (prefers-color-scheme: dark) {
+    --footer__background-color: #223344;
+    --menu-chevron__border-color: #223344;
+  }
 }
 
 .title {
   font-weight: var(--font-weight--bold);
-  color: var(--textcolor);
+  color: var(--footer-title__color, var(--textcolor));
 }
 
 .description {
   --font-size: 1.4rem;
   --baseline-offset: 2px;
 
-  color: var(--textcolor--secondary);
+  color: var(--footer-description__color, var(--textcolor--secondary));
 }

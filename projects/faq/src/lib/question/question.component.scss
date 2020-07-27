@@ -1,7 +1,13 @@
 :host {
+  --question__border-color: #d3dddc;
+
   display: flex;
   flex-direction: column;
   margin-top: 16px;
+
+  @media (prefers-color-scheme: dark) {
+    --question__border-color: var(--color--deep-teal);
+  }
 }
 
 :host-context(.faq-question--accordion) {
@@ -63,7 +69,7 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 3.2rem;
-    border-top: 1px solid #d3dddc;
+    border-top: 1px solid var(--question__border-color);
     padding-top: 1.6rem;
 
     .faq-question strong {

@@ -35,7 +35,7 @@
     max-width: 635px;
     width: 100%;
     min-height: 36px;
-    background-color: #ffffff;
+    // background-color: #ffffff;
     border: 1px solid rgba(36, 28, 21, 0.3);
     transition: all 0.2s ease-in-out 0s;
     font-size: 1.6rem;
@@ -68,7 +68,7 @@
 
     &:after {
       float: right;
-      color: rgba(36, 28, 21, 0.65);
+      color: var(--textcolor--secondary);
       font-weight: var(--font-weight--semi-bold);
     }
   }

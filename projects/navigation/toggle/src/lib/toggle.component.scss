@@ -26,6 +26,9 @@
 // Styles for when a switcher is used in a mega menu
 :host-context(.xcu-mega-menu) {
   .menu__chevron {
+    --menu-transition: .1s;
+    --menu-transition-delay: .1s;
+    --menu-chevron__border-color: #dedddc;
     --transform-translate-x: 0.5rem;
     --transform-translate-y: 5.4rem;
     --transform-rotate: 45deg;
@@ -42,9 +45,9 @@
       skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x))
       scaleY(var(--transform-scale-y));
 
-    background: #fff;
+    background: var(--theme-background);
     border-radius: 2px 0 0 0;
-    box-shadow: -1px -1px 0 #dedddc;
+    box-shadow: -1px -1px 0 var(--menu-chevron__border-color);
     display: block;
     height: 2.4rem;
     opacity: 0;
@@ -53,13 +56,20 @@
     right: 0;
     transform-origin: var(--transform-origin, 50% 50%);
     transition: var(--menu-transition, 250ms);
+    transition-delay: var(--menu-transition-delay, 0s);
     transition-property: transform, opacity;
     width: 2.4rem;
     will-change: transform, opacity;
     z-index: 10;
+
+    @media (prefers-color-scheme: dark) {
+      --menu-chevron__border-color: #223344;
+    }
   }
 
   .menu__chevron--active {
+    --menu-transition: .1s;
+    --menu-transition-delay: .1s;
     --chevron-translateY: var(--chevron-active-translateY, 3.7rem);
 
     opacity: 1;
@@ -70,7 +80,7 @@
 :host-context(.xcu-local-nav) {
   .toggle {
     align-items: center;
-    color: var(--textcolor);
+    color: inherit;
     display: flex;
     font-size: 1.6rem;
     font-weight: var(--font-weight--semi-bold);

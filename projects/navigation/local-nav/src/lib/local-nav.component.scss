@@ -1,5 +1,11 @@
 :host {
-  border-bottom: 1px solid #d3dddc;
+  --local-nav__border-color: #d3dddc;
+
+  border-bottom: 1px solid var(--local-nav__border-color);
+
+  @media (prefers-color-scheme: dark) {
+    --local-nav__border-color: var(--color--deep-teal);
+  }
 
   .xcu-local-nav {
     border-bottom: 0;
@@ -9,8 +15,8 @@
     display: none;
 
     a {
-      border-bottom: 1px solid #d3dddc;
-      border-top: 1px solid #d3dddc;
+      border-bottom: 1px solid var(--local-nav__border-color);
+      border-top: 1px solid var(--local-nav__border-color);
       display: flex;
       font-weight: var(--font-weight--semi-bold);
       justify-content: space-between;
@@ -75,7 +81,7 @@
       }
 
       & > a {
-        border-bottom: 1px solid #d3dddc;
+        border-bottom: 1px solid var(--local-nav__border-color);
       }
     }
   }

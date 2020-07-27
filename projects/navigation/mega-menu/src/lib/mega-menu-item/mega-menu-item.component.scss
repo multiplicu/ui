@@ -26,7 +26,7 @@
 
   & > :first-child {
     font-weight: var(--font-weight--bold);
-    color: var(--textcolor);
+    color: var(--mega-menu-title__color, var(--textcolor));
   }
 }
 
@@ -34,7 +34,7 @@
   --font-size: 1.4rem;
   --baseline-offset: 2px;
 
-  color: var(--textcolor--secondary);
+  color: var(--mega-menu-description__color, var(--textcolor--secondary));
 }
 
 [xcu-badge] {
