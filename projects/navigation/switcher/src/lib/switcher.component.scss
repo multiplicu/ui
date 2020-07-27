@@ -1,0 +1,105 @@
+:host {
+  --switcher__border-color: #d3dddc;
+
+  display: inline-flex;
+  position: relative;
+
+  @media (prefers-color-scheme: dark) {
+    --switcher__border-color: var(--color--deep-teal);
+  }
+
+  &.menu--active {
+    .shadow {
+      display: block;
+    }
+  }
+}
+
+.shadow {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  right: auto;
+  left: -18px;
+  top: 100%;
+}
+
+nav {
+  --nav-link__hover-color: #e7f0f3;
+
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid #dedddc;
+  background-color: var(--theme-background);
+  white-space: nowrap;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgb(136 152 170 / 10%),
+    0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
+  margin-top: 0.8rem;
+  max-height: 480px;
+  overflow: hidden;
+  overflow-y: auto;
+
+  @media (prefers-color-scheme: dark) {
+    --nav-link__hover-color: rgb(32 48 64 / 30%);
+
+    box-shadow: 0 0 0 1px rgb(136 152 170 / 10%),
+      0 15px 35px 0 rgb(49 61 93 / 24%), 0 5px 15px 0 rgb(0 0 0 / 69%);
+  }
+
+  a {
+    color: inherit;
+    font-size: 1.4rem;
+    padding: 12px 18px;
+    transition: background-color 0.18s ease-in-out 0s;
+
+    &:hover {
+      background-color: var(--nav-link__hover-color);
+    }
+  }
+}
+
+// Styles for when a switcher is used in a local nav
+:host-context(.xcu-local-nav) {
+  nav {
+    border-radius: 0 0 6px 6px;
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: 40em) {
+    border-bottom: 1px solid var(--switcher__border-color);
+    flex-direction: column;
+
+    &.menu--active {
+      & > xcu-nav-toggle {
+        color: var(--theme-primary);
+        background-color: var(--nav-link__hover-color);
+      }
+
+      .menu__arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+    .shadow {
+      position: relative;
+      left: 0;
+    }
+
+    nav {
+      border-radius: 0;
+      border: 0 none;
+      box-shadow: none;
+      margin-top: 0;
+
+      a {
+        border: 0 none;
+        padding: 16px;
+
+        &:hover {
+          color: var(--theme-primary);
+        }
+      }
+    }
+  }
+}

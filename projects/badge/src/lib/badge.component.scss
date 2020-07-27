@@ -1,0 +1,107 @@
+:host {
+  --bg-gray: #f7fafc;
+  --bg-red: #fff5f5;
+  --bg-orange: #fffaf0;
+  --bg-yellow: ivory;
+  --bg-green: #f0fff4;
+  --bg-teal: #e6fffa;
+  --bg-blue: #ebf8ff;
+  --bg-indigo: #ebf4ff;
+  --bg-purple: #faf5ff;
+  --bg-pink: #fff5f7;
+  --text-gray: #2d3748;
+  --text-red: #9b2c2c;
+  --text-orange: #9c4221;
+  --text-yellow: #975a16;
+  --text-green: #276749;
+  --text-teal: #285e61;
+  --text-blue: #2c5282;
+  --text-indigo: #434190;
+  --text-purple: #553c9a;
+  --text-pink: #97266d;
+
+  align-items: center;
+  background-color: var(--bg-gray);
+  border-radius: 9999px;
+  color: var(--text-gray);
+  display: inline-flex;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight--bold);
+  line-height: 1.6rem;
+  // margin-right: 1.2rem;
+  padding: 0.4rem 1.2rem;
+
+  &.rounded {
+    border-radius: 4px;
+  }
+
+  &.large {
+    font-size: 1.4rem;
+    padding: 0.4rem 1.4rem;
+  }
+
+  // Colors
+  &.gray {
+    background-color: var(--bg-gray);
+    color: var(--text-gray);
+  }
+
+  &.red,
+  &.error {
+    background-color: var(--bg-red);
+    color: var(--text-red);
+  }
+
+  &.orange {
+    background-color: var(--bg-orange);
+    color: var(--text-orange);
+  }
+
+  &.yellow,
+  &.warning {
+    background-color: var(--bg-yellow);
+    color: var(--text-yellow);
+  }
+
+  &.green,
+  &.success {
+    background-color: var(--bg-green);
+    color: var(--text-green);
+  }
+
+  &.teal {
+    background-color: var(--bg-teal);
+    color: var(--text-teal);
+  }
+
+  &.blue,
+  &.info {
+    background-color: var(--bg-blue);
+    color: var(--text-blue);
+  }
+
+  &.indigo {
+    background-color: var(--bg-indigo);
+    color: var(--text-indigo);
+  }
+
+  &.purple {
+    background-color: var(--bg-purple);
+    color: var(--text-purple);
+  }
+
+  &.pink {
+    background-color: var(--bg-pink);
+    color: var(--text-pink);
+  }
+
+  &.primary {
+    background-color: var(--theme-primary);
+    color: #fff;
+  }
+
+  &.secondary {
+    background-color: var(--theme-secondary);
+    color: var(--textcolor);
+  }
+}

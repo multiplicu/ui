@@ -3,42 +3,40 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "button": {
+    "ui": {
       "projectType": "library",
-      "root": "projects/button",
-      "sourceRoot": "projects/button/src",
+      "root": "projects/ui",
+      "sourceRoot": "projects/ui/src",
       "prefix": "xcu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/button/tsconfig.lib.json",
-            "project": "projects/button/ng-package.json"
+            "tsConfig": "projects/ui/tsconfig.lib.json",
+            "project": "projects/ui/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/button/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/button/src/test.ts",
-            "tsConfig": "projects/button/tsconfig.spec.json",
-            "karmaConfig": "projects/button/karma.conf.js"
+            "main": "projects/ui/src/test.ts",
+            "tsConfig": "projects/ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ui/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/button/tsconfig.lib.json",
-              "projects/button/tsconfig.spec.json"
+              "projects/ui/tsconfig.lib.json",
+              "projects/ui/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -76,6 +74,121 @@
               "projects/core/tsconfig.lib.json",
               "projects/core/tsconfig.spec.json"
             ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "button": {
+      "projectType": "library",
+      "root": "projects/button",
+      "sourceRoot": "projects/button/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/button/tsconfig.lib.json",
+            "project": "projects/button/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/button/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/button/src/test.ts",
+            "tsConfig": "projects/button/tsconfig.spec.json",
+            "karmaConfig": "projects/button/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/button/tsconfig.lib.json",
+              "projects/button/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "local-nav": {
+      "projectType": "library",
+      "root": "projects/navigation/local-nav",
+      "sourceRoot": "projects/navigation/local-nav/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/local-nav/tsconfig.lib.json",
+            "project": "projects/navigation/local-nav/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/local-nav/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/local-nav/src/test.ts",
+            "tsConfig": "projects/navigation/local-nav/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/local-nav/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/local-nav/tsconfig.lib.json",
+              "projects/navigation/local-nav/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+
+    "page-nav": {
+      "projectType": "library",
+      "root": "projects/navigation/page-nav",
+      "sourceRoot": "projects/navigation/page-nav/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/page-nav/tsconfig.lib.json",
+            "project": "projects/navigation/page-nav/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/page-nav/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/page-nav/src/test.ts",
+            "tsConfig": "projects/navigation/page-nav/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/page-nav/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/page-nav/tsconfig.lib.json",
+              "projects/navigation/page-nav/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
@@ -83,38 +196,394 @@
         }
       }
     },
-    "ui": {
+    "switcher": {
       "projectType": "library",
-      "root": "projects/ui",
-      "sourceRoot": "projects/ui/src",
+      "root": "projects/navigation/switcher",
+      "sourceRoot": "projects/navigation/switcher/src",
       "prefix": "xcu",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ui/tsconfig.lib.json",
-            "project": "projects/ui/ng-package.json"
+            "tsConfig": "projects/navigation/switcher/tsconfig.lib.json",
+            "project": "projects/navigation/switcher/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ui/tsconfig.lib.prod.json"
+              "tsConfig": "projects/navigation/switcher/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ui/src/test.ts",
-            "tsConfig": "projects/ui/tsconfig.spec.json",
-            "karmaConfig": "projects/ui/karma.conf.js"
+            "main": "projects/navigation/switcher/src/test.ts",
+            "tsConfig": "projects/navigation/switcher/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/switcher/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ui/tsconfig.lib.json",
-              "projects/ui/tsconfig.spec.json"
+              "projects/navigation/switcher/tsconfig.lib.json",
+              "projects/navigation/switcher/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "tabs": {
+      "projectType": "library",
+      "root": "projects/navigation/tabs",
+      "sourceRoot": "projects/navigation/tabs/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/tabs/tsconfig.lib.json",
+            "project": "projects/navigation/tabs/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/tabs/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/tabs/src/test.ts",
+            "tsConfig": "projects/navigation/tabs/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/tabs/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/tabs/tsconfig.lib.json",
+              "projects/navigation/tabs/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "form-field": {
+      "projectType": "library",
+      "root": "projects/form/form-field",
+      "sourceRoot": "projects/form/form-field/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/form/form-field/tsconfig.lib.json",
+            "project": "projects/form/form-field/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/form/form-field/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/form/form-field/src/test.ts",
+            "tsConfig": "projects/form/form-field/tsconfig.spec.json",
+            "karmaConfig": "projects/form/form-field/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/form/form-field/tsconfig.lib.json",
+              "projects/form/form-field/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "input": {
+      "projectType": "library",
+      "root": "projects/form/input",
+      "sourceRoot": "projects/form/input/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/form/input/tsconfig.lib.json",
+            "project": "projects/form/input/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/form/input/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/form/input/src/test.ts",
+            "tsConfig": "projects/form/input/tsconfig.spec.json",
+            "karmaConfig": "projects/form/input/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/form/input/tsconfig.lib.json",
+              "projects/form/input/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "mega-menu": {
+      "projectType": "library",
+      "root": "projects/navigation/mega-menu",
+      "sourceRoot": "projects/navigation/mega-menu/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/mega-menu/tsconfig.lib.json",
+            "project": "projects/navigation/mega-menu/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/mega-menu/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/mega-menu/src/test.ts",
+            "tsConfig": "projects/navigation/mega-menu/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/mega-menu/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/mega-menu/tsconfig.lib.json",
+              "projects/navigation/mega-menu/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "nav-toggle": {
+      "projectType": "library",
+      "root": "projects/navigation/toggle",
+      "sourceRoot": "projects/navigation/toggle/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/navigation/toggle/tsconfig.lib.json",
+            "project": "projects/navigation/toggle/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/toggle/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/toggle/src/test.ts",
+            "tsConfig": "projects/navigation/toggle/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/toggle/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/toggle/tsconfig.lib.json",
+              "projects/navigation/toggle/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "badge": {
+      "projectType": "library",
+      "root": "projects/badge",
+      "sourceRoot": "projects/badge/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/badge/tsconfig.lib.json",
+            "project": "projects/badge/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/badge/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/badge/src/test.ts",
+            "tsConfig": "projects/badge/tsconfig.spec.json",
+            "karmaConfig": "projects/badge/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/badge/tsconfig.lib.json",
+              "projects/badge/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "avatar": {
+      "projectType": "library",
+      "root": "projects/avatar",
+      "sourceRoot": "projects/avatar/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/avatar/tsconfig.lib.json",
+            "project": "projects/avatar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/avatar/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/avatar/src/test.ts",
+            "tsConfig": "projects/avatar/tsconfig.spec.json",
+            "karmaConfig": "projects/avatar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/avatar/tsconfig.lib.json",
+              "projects/avatar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "snackbar": {
+      "projectType": "library",
+      "root": "projects/snackbar",
+      "sourceRoot": "projects/snackbar/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/snackbar/tsconfig.lib.json",
+            "project": "projects/snackbar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/snackbar/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/snackbar/src/test.ts",
+            "tsConfig": "projects/snackbar/tsconfig.spec.json",
+            "karmaConfig": "projects/snackbar/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/snackbar/tsconfig.lib.json",
+              "projects/snackbar/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "faq": {
+      "projectType": "library",
+      "root": "projects/faq",
+      "sourceRoot": "projects/faq/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/faq/tsconfig.lib.json",
+            "project": "projects/faq/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/faq/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/faq/src/test.ts",
+            "tsConfig": "projects/faq/tsconfig.spec.json",
+            "karmaConfig": "projects/faq/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/faq/tsconfig.lib.json",
+              "projects/faq/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -124,5 +593,5 @@
       }
     }
   },
-  "defaultProject": "button"
+  "defaultProject": "ui"
 }

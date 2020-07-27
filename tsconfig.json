@@ -1,38 +1,97 @@
+// This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’slanguage server to improve development experience.
+// It is not intended to be used to perform a compilation.
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "paths": {
-      "button": [
-        "dist/button"
-      ],
-      "core": [
-        "dist/core"
-      ],
-      "ui": [
-        "dist/ui/ui",
-        "dist/ui"
-      ]
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/ui/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ui/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/core/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/core/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/button/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/button/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/navigation/local-nav/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/navigation/local-nav/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/navigation/switcher/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/navigation/switcher/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/navigation/tabs/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/navigation/tabs/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/form/form-field/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/form/form-field/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/form/input/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/form/input/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/navigation/mega-menu/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/navigation/mega-menu/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/navigation/toggle/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/navigation/toggle/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/badge/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/badge/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/avatar/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/avatar/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/snackbar/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/snackbar/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/faq/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/faq/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/page-nav/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/page-nav/tsconfig.spec.json"
     }
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  }
+  ]
 }

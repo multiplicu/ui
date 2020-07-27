@@ -1,0 +1,10 @@
+<div *ngIf="icons.length" class="icon">
+  <ng-content #icon select="svg"></ng-content>
+</div>
+<div>
+  <div *ngIf="title" class="title">
+    <span>{{ title }}</span>
+    <span *ngIf="badge" xcu-badge [color]="badgeColor">{{ badge }}</span>
+  </div>
+  <p *ngIf="description" class="description">{{ description }}</p>
+</div>

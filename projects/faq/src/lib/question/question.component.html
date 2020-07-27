@@ -1,0 +1,31 @@
+<ng-template #question>
+  <ng-content select=".faq-question"></ng-content>
+</ng-template>
+<ng-template #answer>
+  <ng-content select=".faq-answer"></ng-content>
+</ng-template>
+
+<div *ngIf="!isAccordion" class="faq-question">
+  <ng-container *ngTemplateOutlet="question"></ng-container>
+</div>
+
+<div *ngIf="!isAccordion" class="faq-answer">
+  <ng-container *ngTemplateOutlet="answer"></ng-container>
+</div>
+
+<a (click)="toggle()" *ngIf="isAccordion" [attr.aria-expanded]="isExpanded" tabindex="0" role="button"
+  class="faq-question" [class.faq-question--active]="isExpanded">
+  <ng-container *ngTemplateOutlet="question"></ng-container>
+
+  <svg fill="currentColor" viewBox="0 0 20 20" height="20" width="20" class="faq-question__arrow">
+    <path fill-rule="evenodd"
+      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+      clip-rule="evenodd"></path>
+  </svg>
+</a>
+
+<div *ngIf="isAccordion" class="faq-answer__container">
+  <div class="faq-answer" [class.faq-answer--active]="isExpanded">
+    <ng-container *ngTemplateOutlet="answer"></ng-container>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/ui/navigation/page-nav",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@multiplicu/ui/core": "@multiplicu/ui/core",
+      "@multiplicu/ui/navigation/switcher": "@multiplicu/ui/navigation/switcher"
+    }
+  },
+  "whitelistedNonPeerDependencies": [
+    "@multiplicu/ui/core",
+    "@multiplicu/ui/navigation/switcher"
+  ]
+}

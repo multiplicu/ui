@@ -1,36 +1,53 @@
 :host {
   --button__background-color: #edeeed;
+  --button__background-color--hover: #d9d7cd;
+  --button__background-color--active: #cecbbf;
+  --button__color: var(--textcolor);
+  --button__color--visited: var(--button__color);
+  --button__color--hover: var(--textcolor);
+  --button__color--active: var(--textcolor);
+  --button__padding: 0 16px;
+  --button__height: 40px;
+  --button__font-size: 1.4rem;
+  --button__border-width: 1px;
 
   background-color: var(--button__background-color);
   border-radius: 2px;
-  border: 1px solid transparent;
-  color: var(--textcolor);
+  border: var(--button__border-width) solid transparent;
+  color: var(--button__color);
   display: inline-block;
   font-family: inherit;
-  font-size: 1.4rem;
+  font-size: var(--button__font-size);
   font-weight: 600;
-  height: 40px;
-  line-height: 38px;
+  height: calc(var(--button__height) + var(--button__border-width));
+  line-height: var(--button__height);
   margin-right: 16px;
   overflow: hidden;
-  padding: 0 16px;
+  padding: var(--button__padding);
   text-align: center;
   text-decoration: none;
-  text-transform: capitalize;
   transition: border 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s,
     background-color 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
 
+  @media (prefers-color-scheme: dark) {
+    --button__background-color: #4A5568;
+    --button__background-color--hover: #505c71;
+    --button__background-color--active: #444e5f;
+    // --button__color--hover: var(--color--bunker);
+    // --button__color--active: var(--color--bunker);
+  }
+
   &:visited {
-    color: var(--textcolor);
+    color: var(--button__color--visited);
   }
 
   &:hover {
     cursor: pointer;
-    color: var(--textcolor);
-    background-color: #d9d7cd;
+    color: var(--button__color--hover);
+    background-color: var(--button__background-color--hover);
   }
 
   &:focus {
@@ -41,7 +58,8 @@
 
   &:active,
   &.active {
-    background-color: #cecbbf;
+    background-color: var(--button__background-color--active);
+    color: var(--button__color--active);
   }
 
   &[disabled],
@@ -54,7 +72,7 @@
   }
 
   &.xcu-button--primary:not([disabled]) {
-    background-color: var(--theme-primary);
+    background-color: var(--button__background-color);
     color: var(--button-text--on-dark);
   }
 
@@ -71,5 +89,35 @@
     border-color: var(--theme-warning);
     background-color: var(--theme-warning);
     color: var(--button-text--on-warning);
+  }
+
+  &.xcu-button--raised:not([disabled]) {
+    --box-shadow--thin: 8px;
+    --button__height: 48px;
+
+    --button__background-color: var(--theme-secondary);
+    --button__color: var(--color--deep-teal);
+    --button__color--active: var(--button__color);
+    --button__color--hover: var(--button__color);
+    --button__font-size: var(--font-size);
+    --button__box-shadow-color: var(--color--deep-teal);
+
+    background: var(--button__background-color);
+    box-shadow: var(--box-shadow--thin) var(--box-shadow--thin) var(--button__box-shadow-color);
+    font-size: var(--button__font-size);
+    font-weight: var(--font-weight--bold);
+
+    @media (prefers-color-scheme: dark) {
+      --button__background-color: var(--color--silver-tree);
+    }
+
+    &:active, &:focus {
+      box-shadow: 4px 4px var(--button__box-shadow-color);
+    }
+
+    &:hover {
+      --button__color--hover: var(--color--deep-teal);
+      box-shadow: 6px 6px var(--button__box-shadow-color);
+    }
   }
 }

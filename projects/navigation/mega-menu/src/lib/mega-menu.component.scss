@@ -1,0 +1,95 @@
+:host {
+  @media screen and (max-width: 48em) {
+    &.horizontal {
+      .mega-menu__container {
+        max-width: calc(100% + 1.6rem);
+
+        .mega-menu-shadow--top {
+          flex-direction: column;
+        }
+      }
+    }
+
+    .mega-menu__content {
+      --columns: 1;
+    }
+  }
+
+  &.menu--active {
+    .mega-menu__container {
+      --menu-transition: .1s;
+      --menu-transition-delay: .1s;
+      --menu-rotateX: 0;
+
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &.horizontal {
+    .mega-menu__container .mega-menu-shadow--top {
+      flex-direction: row;
+    }
+  }
+
+  &.single-column .mega-menu__content {
+    --columns: 1;
+  }
+}
+
+.mega-menu__container {
+  --menu-transition: .25s;
+  --menu-transition-delay: .25s;
+  --mega-menu__border-color: #dedddc;
+  --menu-rotateX: -15deg;
+ 
+  @media (prefers-color-scheme: dark) {
+    --mega-menu__border-color: #223344;
+  }
+
+  border: 1px solid var(--mega-menu__border-color);
+  display: block;
+  margin-left: var(--menu-margin-left, -2.4rem);
+  margin-top: 2.4rem;
+  max-width: 76.8rem;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(var(--menu-translateX, 0)) rotateX(var(--menu-rotateX));
+  transform-origin: 50% -50px;
+  transition: var(--menu-transition, 250ms);
+    transition-delay: var(--menu-transition-delay, 0s);
+  transition-property: transform, opacity;
+  width: max-content;
+  will-change: transform, opacity;
+  z-index: 1;
+
+  .mega-menu-shadow--bottom {
+    border-radius: 2px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .mega-menu-shadow--top {
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.mega-menu__content {
+  --columns: 2;
+
+  display: grid;
+  gap: 3.2rem;
+  // grid-gap: 3.2rem;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+
+  background-color: var(--theme-background);
+  padding: 3.2rem;
+  position: relative;
+  z-index: 20;
+}
