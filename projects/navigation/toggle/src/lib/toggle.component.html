@@ -14,6 +14,9 @@
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </button>
 
-<a *ngIf="href" class="toggle" [routerLink]="href">
+<a *ngIf="href && href.startsWith('http')" class="toggle" [href]="href">
+  <ng-container *ngTemplateOutlet="contents"></ng-container>
+</a>
+<a *ngIf="href && !href.startsWith('http')" class="toggle" [routerLink]="href" routerLinkActive="active">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </a>
