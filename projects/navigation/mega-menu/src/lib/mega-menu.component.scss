@@ -17,8 +17,8 @@
 
   &.menu--active {
     .mega-menu__container {
-      --menu-transition: .1s;
-      --menu-transition-delay: .1s;
+      --menu-transition: 0.05s;
+      --menu-transition-delay: 0.05s;
       --menu-rotateX: 0;
 
       opacity: 1;
@@ -38,11 +38,11 @@
 }
 
 .mega-menu__container {
-  --menu-transition: .25s;
-  --menu-transition-delay: .25s;
+  --menu-transition: 0.2s;
+  --menu-transition-delay: 0.2s;
   --mega-menu__border-color: #dedddc;
   --menu-rotateX: -15deg;
- 
+
   @media (prefers-color-scheme: dark) {
     --mega-menu__border-color: #223344;
   }
@@ -58,7 +58,7 @@
   transform: translateX(var(--menu-translateX, 0)) rotateX(var(--menu-rotateX));
   transform-origin: 50% -50px;
   transition: var(--menu-transition, 250ms);
-    transition-delay: var(--menu-transition-delay, 0s);
+  transition-delay: var(--menu-transition-delay, 0s);
   transition-property: transform, opacity;
   width: max-content;
   will-change: transform, opacity;
