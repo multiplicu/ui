@@ -14,7 +14,7 @@ import { NavLink, HoverMenu, coerceBooleanProperty } from '@multiplicu/ui/core';
   styleUrls: ['./mega-menu.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MegaMenuComponent extends HoverMenu {
+export class XcuMegaMenuComponent extends HoverMenu {
   @Input() public link: NavLink;
 
   private horizontal_: boolean = false;
