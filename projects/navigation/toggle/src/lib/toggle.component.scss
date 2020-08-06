@@ -26,8 +26,8 @@
 // Styles for when a switcher is used in a mega menu
 :host-context(.xcu-mega-menu) {
   .menu__chevron {
-    --menu-transition: 0.05s;
-    --menu-transition-delay: 0.05s;
+    --menu-transition: var(--transition, 0.05s);
+    --menu-transition-delay: var(--transition-delay, 0.05s);
     --menu-chevron__border-color: #dedddc;
     --transform-translate-x: 0.5rem;
     --transform-translate-y: 5.4rem;

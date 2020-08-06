@@ -38,8 +38,8 @@
 }
 
 .mega-menu__container {
-  --menu-transition: 0.2s;
-  --menu-transition-delay: 0.2s;
+  --menu-transition: var(--transition, 0.2s);
+  --menu-transition-delay: var(--transition-delay, 0.2s);
   --mega-menu__border-color: #dedddc;
   --menu-rotateX: -15deg;
 
