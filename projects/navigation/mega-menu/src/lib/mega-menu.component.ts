@@ -4,8 +4,10 @@ import {
   ElementRef,
   Input,
   HostBinding,
+  ViewChild,
 } from '@angular/core';
 import { NavLink, HoverMenu, coerceBooleanProperty } from '@multiplicu/ui/core';
+import { XcuNavToggleComponent } from '@multiplicu/ui/navigation/toggle';
 
 @Component({
   selector: `xcu-mega-menu, div[xcu-mega-menu], ul[xcu-mega-menu], nav[xcu-mega-menu]`,
@@ -16,6 +18,8 @@ import { NavLink, HoverMenu, coerceBooleanProperty } from '@multiplicu/ui/core';
 })
 export class XcuMegaMenuComponent extends HoverMenu {
   @Input() public link: NavLink;
+
+  @ViewChild(XcuNavToggleComponent) public toggle: XcuNavToggleComponent;
 
   private horizontal_: boolean = false;
   private singleColumn_: boolean = false;
