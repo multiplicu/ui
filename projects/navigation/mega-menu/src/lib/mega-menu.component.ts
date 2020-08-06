@@ -14,12 +14,11 @@ import { XcuNavToggleComponent } from '@multiplicu/ui/navigation/toggle';
   exportAs: 'xcuMegaMenu',
   templateUrl: './mega-menu.component.html',
   styleUrls: ['./mega-menu.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuMegaMenuComponent extends HoverMenu {
-  @Input() public link: NavLink;
+  @ViewChild(XcuNavToggleComponent) public navToggle: XcuNavToggleComponent;
 
-  @ViewChild(XcuNavToggleComponent) public toggle: XcuNavToggleComponent;
+  @Input() public link: NavLink;
 
   private horizontal_: boolean = false;
   private singleColumn_: boolean = false;
@@ -51,5 +50,15 @@ export class XcuMegaMenuComponent extends HoverMenu {
     // wants to target all mega menus. We do it here rather than `host` to ensure that
     // the class is applied to derived classes.
     elementRef.nativeElement.classList.add('xcu-mega-menu');
+  }
+
+  public toggle(state: boolean, emitEvent: boolean = true): boolean {
+    this.isActive = state;
+
+    if (emitEvent) {
+      this.toggled.emit(state);
+    }
+
+    return state;
   }
 }

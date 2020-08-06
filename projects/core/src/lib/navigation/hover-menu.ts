@@ -2,7 +2,14 @@ import {
   CanOpenOnHoverCtor,
   mixinOpenOnHover,
 } from './../common-behaviors/openOnHover';
-import { HostListener, Input, HostBinding, ElementRef, Directive } from '@angular/core';
+import {
+  Input,
+  HostBinding,
+  ElementRef,
+  Directive,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 class XcuMenuBase {
   public constructor(public elementRef: ElementRef) {}
@@ -21,6 +28,8 @@ export class HoverMenu extends XcuMenuBase_ {
   @Input() public shouldShowArrow: boolean = true;
   @Input() public openOnHover: boolean;
 
+  @Output() public toggled: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   public constructor(public elementRef: ElementRef) {
     super(elementRef);
   }
@@ -33,5 +42,7 @@ export class HoverMenu extends XcuMenuBase_ {
     if (!this.openOnHover) return;
 
     this.isActive = false;
+
+    this.toggled.emit(false);
   }
 }
