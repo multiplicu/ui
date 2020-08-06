@@ -14,7 +14,7 @@ import {
   styleUrls: ['./mega-menu-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MegaMenuItemComponent {
+export class XcuMegaMenuItemComponent {
   @Input() public title: string;
   @Input() public description: string;
   @Input() public badge: string;
