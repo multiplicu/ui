@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { XcuNavToggleModule } from '@multiplicu/ui/navigation/toggle';
 import { XcuMegaMenuItemComponent } from './mega-menu-item/mega-menu-item.component';
 import { XcuMegaMenuComponent } from './mega-menu.component';
-import { MegaMenuFooterComponent } from './mega-menu-footer/mega-menu-footer.component';
+import { XcuMegaMenuFooterComponent } from './mega-menu-footer/mega-menu-footer.component';
 import { XcuBadgeModule } from '@multiplicu/ui/badge';
 import { XcuButtonModule } from '@multiplicu/ui/button';
 
@@ -11,13 +11,13 @@ import { XcuButtonModule } from '@multiplicu/ui/button';
   declarations: [
     XcuMegaMenuComponent,
     XcuMegaMenuItemComponent,
-    MegaMenuFooterComponent,
+    XcuMegaMenuFooterComponent,
   ],
   imports: [CommonModule, XcuNavToggleModule, XcuBadgeModule, XcuButtonModule],
   exports: [
     XcuMegaMenuComponent,
     XcuMegaMenuItemComponent,
-    MegaMenuFooterComponent,
+    XcuMegaMenuFooterComponent,
   ],
 })
 export class XcuMegaMenuModule {}

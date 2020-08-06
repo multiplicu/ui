@@ -12,6 +12,6 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class MegaMenuFooterComponent {
+export class XcuMegaMenuFooterComponent {
   public constructor() {}
 }
