@@ -10,13 +10,14 @@
   <span class="menu__chevron" [class.menu__chevron--active]="isActive" aria-hidden="true"></span>
 </ng-template>
 
-<button *ngIf="!href" class="toggle" type="button" (click)="toggle($event)">
+<button *ngIf="!href" class="toggle" type="button" (click)="toggle($event)" [attr.aria-expanded]="isActive">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </button>
 
 <a *ngIf="href && href.startsWith('http')" class="toggle" [href]="href">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </a>
-<a *ngIf="href && !href.startsWith('http')" class="toggle" [routerLink]="href" routerLinkActive="active">
+<a *ngIf="href && !href.startsWith('http')" class="toggle" [routerLink]="href" routerLinkActive="active"
+  [attr.aria-expanded]="isActive">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </a>
