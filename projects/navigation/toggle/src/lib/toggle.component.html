@@ -1,7 +1,9 @@
 <ng-template #contents>
   {{ title }}
 
-  <svg *ngIf="shouldShowArrow" fill="currentColor" viewBox="0 0 20 20" height="20" width="20" class="menu__arrow">
+  <svg *ngIf="shouldShowArrow" fill="currentColor" viewBox="0 0 20 20" height="20" width="20" class="menu__arrow"
+    aria-labelledby="toggle-description">
+    <desc id="label-description">Toggle menu</desc>
     <path fill-rule="evenodd"
       d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
       clip-rule="evenodd"></path>
@@ -10,14 +12,15 @@
   <span class="menu__chevron" [class.menu__chevron--active]="isActive" aria-hidden="true"></span>
 </ng-template>
 
-<button *ngIf="!href" class="toggle" type="button" (click)="toggle($event)" [attr.aria-expanded]="isActive">
+<button *ngIf="!href" class="toggle" type="button" (keyup)="toggle($event)" (click)="toggle($event)"
+  [attr.aria-expanded]="isActive">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </button>
 
-<a *ngIf="href && href.startsWith('http')" class="toggle" [href]="href">
+<a *ngIf="href && href.startsWith('http')" class="toggle" (keyup)="toggle($event)" [href]="href">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </a>
-<a *ngIf="href && !href.startsWith('http')" class="toggle" [routerLink]="href" routerLinkActive="active"
-  [attr.aria-expanded]="isActive">
+<a *ngIf="href && !href.startsWith('http')" class="toggle" (keyup)="toggle($event)" [routerLink]="href"
+  routerLinkActive="active" [attr.aria-expanded]="isActive">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </a>

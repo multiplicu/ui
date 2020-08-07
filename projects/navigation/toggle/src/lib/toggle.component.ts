@@ -8,7 +8,14 @@ import {
   OnDestroy,
   Output,
 } from '@angular/core';
-import { ESCAPE, hasModifierKey } from '@multiplicu/ui/core';
+import {
+  ESCAPE,
+  DOWN_ARROW,
+  UP_ARROW,
+  SPACE,
+  ENTER,
+  hasModifierKey,
+} from '@multiplicu/ui/core';
 
 @Component({
   selector: `xcu-nav-toggle, div[xcu-nav-toggle], button[xcu-nav-toggle], a[xcu-nav-toggle]`,
@@ -73,7 +80,24 @@ export class XcuNavToggleComponent implements OnDestroy {
     return this.setActiveState(true);
   }
 
-  public toggle(event: Event): boolean {
+  public toggle(event: KeyboardEvent | MouseEvent): boolean {
+    if (event instanceof KeyboardEvent) {
+      switch (event.keyCode) {
+        case DOWN_ARROW:
+          return this.setActiveState(true);
+
+        case UP_ARROW:
+          return this.setActiveState(false);
+
+        case SPACE:
+        case ENTER:
+          return this.setActiveState(!this.isActive);
+
+        default:
+          return;
+      }
+    }
+
     return this.setActiveState(!this.isActive);
   }
 

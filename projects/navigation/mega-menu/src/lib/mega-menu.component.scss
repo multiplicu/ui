@@ -15,15 +15,14 @@
     }
   }
 
-  &.menu--active {
-    .mega-menu__container {
-      --menu-transition: 0.05s;
-      --menu-transition-delay: 0.05s;
-      --menu-rotateX: 0;
+  &.menu--active .mega-menu__container,
+  .mega-menu__container:focus-within {
+    --menu-transition: 0.05s;
+    --menu-transition-delay: 0.05s;
+    --menu-rotateX: 0;
 
-      opacity: 1;
-      pointer-events: auto;
-    }
+    opacity: 1;
+    pointer-events: auto;
   }
 
   &.horizontal {

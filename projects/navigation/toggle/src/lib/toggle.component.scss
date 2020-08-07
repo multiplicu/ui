@@ -2,15 +2,21 @@
   .toggle {
     align-items: center;
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     color: inherit;
     cursor: pointer;
     display: inline-flex;
     font-family: var(--font-family--base);
     font-weight: inherit;
-    outline: none;
     padding: 0;
     position: relative;
+
+    &:focus {
+      outline: none;
+      border-color: var(--toggle__border-color--focus, rgb(0 79 113));
+      box-shadow: 0 0 0 3px
+        var(--toggle__box-shadow--focus, rgb(0 79 113 / 0.5));
+    }
   }
 }
 
