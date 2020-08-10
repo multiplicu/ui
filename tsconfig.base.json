@@ -75,8 +75,12 @@
         "dist/faq"
       ],
       "page-nav": [
-        "dist/page-nav/page-nav",
-        "dist/page-nav"
+        "dist/navigation/page-nav/page-nav",
+        "dist/navigation/page-nav"
+      ],
+      "checkbox": [
+        "dist/form/checkbox/checkbox",
+        "dist/form/checkbox"
       ]
     }
   },

@@ -14,6 +14,7 @@ ng build faq &&
 ### FORM ###
 ng build form-field &&
 ng build input &&
+ng build checkbox &&
 ### NAVIGATION ###
 ng build nav-toggle &&
 # Copy Toggle to be used in other projects
