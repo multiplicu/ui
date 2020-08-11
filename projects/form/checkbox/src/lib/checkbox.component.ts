@@ -1,16 +1,21 @@
-import { 
+import {
   ChangeDetectionStrategy,
   ElementRef,
   ChangeDetectorRef,
   Input,
   Output,
   EventEmitter,
+  HostBinding,
   ViewChild,
   forwardRef,
-  Component 
+  Component,
 } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import { CanDisableCtor, mixinDisabled, coerceBooleanProperty } from '@multiplicu/ui/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  CanDisableCtor,
+  mixinDisabled,
+  coerceBooleanProperty,
+} from '@multiplicu/ui/core';
 
 // Increasing integer for generating unique ids for checkbox components.
 let nextUniqueId: number = 0;
@@ -23,7 +28,7 @@ let nextUniqueId: number = 0;
 export const CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => XcuCheckboxComponent),
-  multi: true
+  multi: true,
 };
 
 /** Change event object emitted by MatCheckbox. */
@@ -46,13 +51,10 @@ export const enum TransitionCheckState {
   /** The state representing the component when it's becoming unchecked. */
   Unchecked,
   /** The state representing the component when it's becoming indeterminate. */
-  Indeterminate
+  Indeterminate,
 }
 
-const CHECKBOX_HOST_ATTRIBUTES = [
-  'xcu-checkbox',
-  'xcu-checkbox--small',
-];
+const CHECKBOX_HOST_ATTRIBUTES = ['xcu-checkbox', 'xcu-checkbox--small'];
 
 class XcuCheckboxBase {
   public constructor(public elementRef: ElementRef) {}
@@ -67,9 +69,10 @@ const XcuCheckboxMixinBase_: CanDisableCtor &
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [CHECKBOX_CONTROL_VALUE_ACCESSOR]
+  providers: [CHECKBOX_CONTROL_VALUE_ACCESSOR],
 })
-export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements ControlValueAccessor {
+export class XcuCheckboxComponent extends XcuCheckboxMixinBase_
+  implements ControlValueAccessor {
   /**
    * Attached to the aria-label attribute of the host element. In most cases, aria-labelledby will
    * take precedence so this may be omitted.
@@ -93,12 +96,18 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
   @Input() public name: string | null = null;
 
   /** Returns the unique id for the visual hidden input. */
-  public get inputId(): string { return `${this.id || this.uniqueId_}-input`; }
+  public get inputId(): string {
+    return `${this.id || this.uniqueId_}-input`;
+  }
 
   /** Whether the checkbox is required. */
   @Input()
-  public get required(): boolean { return this.required_; }
-  public set required(value: boolean) { this.required_ = coerceBooleanProperty(value); }
+  public get required(): boolean {
+    return this.required_;
+  }
+  public set required(value: boolean) {
+    this.required_ = coerceBooleanProperty(value);
+  }
   private required_: boolean;
 
   /**
@@ -106,7 +115,10 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
    * mixinDisabled, but the mixin is still required because mixinTabIndex requires it.
    */
   @Input()
-  public get disabled() { return this.disabled_; }
+  @HostBinding('class.disabled')
+  public get disabled() {
+    return this.disabled_;
+  }
   public set disabled(value: any) {
     const newValue = coerceBooleanProperty(value);
 
@@ -117,12 +129,13 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
   }
   private disabled_: boolean = false;
 
-
   /**
    * Whether the checkbox is checked.
    */
   @Input()
-  public get checked(): boolean { return this.checked_; }
+  public get checked(): boolean {
+    return this.checked_;
+  }
   public set checked(value: boolean) {
     if (value !== this.checked) {
       this.checked_ = value;
@@ -138,7 +151,9 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
    * set to false.
    */
   @Input()
-  public get indeterminate(): boolean { return this.indeterminate_; }
+  public get indeterminate(): boolean {
+    return this.indeterminate_;
+  }
   public set indeterminate(value: boolean) {
     const changed: boolean = value !== this.indeterminate_;
     this.indeterminate_ = coerceBooleanProperty(value);
@@ -148,9 +163,12 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
         this.transitionCheckState_(TransitionCheckState.Indeterminate);
       } else {
         this.transitionCheckState_(
-          this.checked ? TransitionCheckState.Checked : TransitionCheckState.Unchecked);
+          this.checked
+            ? TransitionCheckState.Checked
+            : TransitionCheckState.Unchecked
+        );
       }
-      
+
       this.indeterminateChange.emit(this.indeterminate_);
     }
 
@@ -159,11 +177,14 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
   private indeterminate_: boolean = false;
 
   /** Event emitted when the checkbox's `checked` value changes. */
-  @Output() public readonly change: EventEmitter<XcuCheckboxChange> =
-      new EventEmitter<XcuCheckboxChange>();
+  @Output() public readonly change: EventEmitter<
+    XcuCheckboxChange
+  > = new EventEmitter<XcuCheckboxChange>();
 
   /** Event emitted when the checkbox's `indeterminate` value changes. */
-  @Output() public readonly indeterminateChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() public readonly indeterminateChange: EventEmitter<
+    boolean
+  > = new EventEmitter<boolean>();
 
   /** The native `<input type="checkbox">` element */
   @ViewChild('input') private inputElement_: ElementRef<HTMLInputElement>;
@@ -229,7 +250,11 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
 
     if (!this.disabled) {
       this.toggle();
-      this.transitionCheckState_(this.checked_ ? TransitionCheckState.Checked : TransitionCheckState.Unchecked);
+      this.transitionCheckState_(
+        this.checked_
+          ? TransitionCheckState.Checked
+          : TransitionCheckState.Unchecked
+      );
 
       // Emit our custom change event if the native input emitted one.
       // It is important to only emit it, if the native input triggered one, because
@@ -265,7 +290,6 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
   public setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
-
 
   private transitionCheckState_(newState: TransitionCheckState): void {
     let oldState: TransitionCheckState = this.currentCheckState_;
@@ -314,4 +338,3 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_ implements Contr
     return this.elementRef.nativeElement;
   }
 }
-
