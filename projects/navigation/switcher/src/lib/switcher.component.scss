@@ -20,7 +20,7 @@
   position: absolute;
   z-index: 999;
   right: auto;
-  left: -18px;
+  left: calc(-18px + var(--shadow-offset, 0));
   top: 100%;
 }
 
