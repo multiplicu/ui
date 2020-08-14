@@ -1,6 +1,7 @@
 export interface NavLink {
   title: string;
   fragment?: string;
+  href?: string;
   links?: NavLink[];
-  prefix?: string;
+  dividerPosition?: 'ABOVE' | 'BELOW' | 'NONE';
 }

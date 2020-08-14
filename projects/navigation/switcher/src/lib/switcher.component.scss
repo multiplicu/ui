@@ -15,6 +15,15 @@
   }
 }
 
+.divider {
+  border-top: 1px solid var(--switcher__border-color);
+}
+
+a + .divider,
+.divider + a {
+  margin-top: 0.4rem;
+}
+
 .shadow {
   display: none;
   position: absolute;

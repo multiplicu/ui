@@ -4,7 +4,10 @@
 
 <div (mouseleave)="onHoverOut($event)" (touchend)="onHoverOut($event)" class="shadow">
   <nav role="navigation" [attr.aria-label]="link?.title">
-    <a *ngFor="let sublink of link?.links" [routerLink]="'.'"
-      [fragment]="sublink.fragment || ''">{{ sublink.title }}</a>
+    <ng-container *ngFor="let sublink of link?.links">
+      <div *ngIf="sublink.dividerPosition === 'ABOVE'" class='divider'></div>
+      <a [routerLink]="sublink?.href || '.'" [fragment]="sublink?.fragment || null">{{ sublink.title }}</a>
+      <div *ngIf="sublink.dividerPosition === 'BELOW'" class='divider'></div>
+    </ng-container>
   </nav>
 </div>
