@@ -91,6 +91,12 @@
     },
     {
       "path": "./projects/form/checkbox/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/navigation/list/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/navigation/list/tsconfig.spec.json"
     }
   ]
 }

@@ -81,6 +81,10 @@
       "checkbox": [
         "dist/form/checkbox/checkbox",
         "dist/form/checkbox"
+      ],
+      "list": [
+        "dist/navigation/list/list",
+        "dist/navigation/list"
       ]
     }
   },
