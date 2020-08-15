@@ -23,6 +23,10 @@
   }
 }
 
+.pre:empty {
+  display: none;
+}
+
 .pre:not(:empty) + .title {
   margin-left: 1.2rem;
 }
