@@ -1,11 +1,14 @@
 :host {
   --list-group__border-color: #dedddc;
-  margin-bottom: 3.2rem;
-  padding-bottom: 1.6rem;
 
   @media (prefers-color-scheme: dark) {
     --list-group__border-color: var(--color--deep-teal);
   }
+}
+
+:host-context(.xcu-list):not(:last-of-type) {
+  margin-bottom: 3.2rem;
+  padding-bottom: 1.6rem;
 }
 
 :host-context(.divided):not(:last-of-type) {
