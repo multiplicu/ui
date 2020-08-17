@@ -26,6 +26,7 @@ ng build tabs &&
 ng build local-nav &&
 ng build mega-menu &&
 ng build page-nav &&
+ng build list &&
 ### SNACKBAR ###
 ng build snackbar &&
 # Copy UI package.json file

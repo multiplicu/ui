@@ -1,0 +1,13 @@
+:host {
+  --list-group__border-color: #dedddc;
+  margin-bottom: 3.2rem;
+  padding-bottom: 1.6rem;
+
+  @media (prefers-color-scheme: dark) {
+    --list-group__border-color: var(--color--deep-teal);
+  }
+}
+
+:host-context(.divided):not(:last-of-type) {
+  border-bottom: 1px solid var(--list-group__border-color);
+}

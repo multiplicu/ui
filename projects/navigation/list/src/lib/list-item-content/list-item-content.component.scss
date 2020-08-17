@@ -1,0 +1,9 @@
+.list-item__content {
+  display: flex;
+  align-items: center;
+
+  svg {
+    fill: var(--textcolor--secondary, currentColor);
+    margin-right: 1.6rem;
+  }
+}

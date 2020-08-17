@@ -1,0 +1,12 @@
+:host {
+  a {
+    color: inherit;
+  }
+}
+.list__subheader {
+  font-size: var(--font-size--small);
+  font-weight: var(--font-weight--bold);
+  letter-spacing: 0.009375em;
+  margin: 0 0 1.2rem 1.6rem;
+  text-transform: uppercase;
+}
