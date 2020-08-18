@@ -22,6 +22,7 @@
   &.size--xs {
     img {
       height: 2.4rem;
+      min-width: 2.4rem;
       width: 2.4rem;
     }
 
@@ -37,6 +38,7 @@
   &.size--sm {
     img {
       height: 3.2rem;
+      min-width: 3.2rem;
       width: 3.2rem;
     }
 
@@ -52,6 +54,7 @@
   &.size--lg {
     img {
       height: 4.8rem;
+      min-width: 4.8rem;
       width: 4.8rem;
     }
 
@@ -67,6 +70,7 @@
   &.size--xl {
     img {
       height: 5.6rem;
+      min-width: 5.6rem;
       width: 5.6rem;
     }
 
@@ -83,7 +87,6 @@
 img {
   border-radius: 9999px;
   border-style: solid;
-  box-shadow: 0 0 0 2px currentColor;
   color: #fff;
   display: inline-block;
   max-width: 100%;
@@ -114,5 +117,9 @@ img {
 
   &:first-child {
     margin-left: 0;
+  }
+
+  img {
+    box-shadow: 0 0 0 2px currentColor;
   }
 }

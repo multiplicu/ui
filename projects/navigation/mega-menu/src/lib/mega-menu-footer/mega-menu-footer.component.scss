@@ -11,16 +11,16 @@
     --footer__background-color: #223344;
     --menu-chevron__border-color: #223344;
   }
-}
 
-.title {
-  font-weight: var(--font-weight--bold);
-  color: var(--footer-title__color, var(--textcolor));
-}
+  .title {
+    font-weight: var(--font-weight--bold);
+    color: var(--footer-title__color, var(--textcolor));
+  }
 
-.description {
-  --font-size: 1.4rem;
-  --baseline-offset: 2px;
+  .description {
+    --font-size: 1.4rem;
+    --baseline-offset: 2px;
 
-  color: var(--footer-description__color, var(--textcolor--secondary));
+    color: var(--footer-description__color, var(--textcolor--secondary));
+  }
 }

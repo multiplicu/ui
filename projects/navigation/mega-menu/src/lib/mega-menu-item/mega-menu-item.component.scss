@@ -3,6 +3,19 @@
 
   display: flex;
   align-items: flex-start;
+
+  &:hover {
+    .title > :first-child {
+      color: var(--mega-menu-title__color--hover, var(--textcolor));
+    }
+
+    .description {
+      color: var(
+        --mega-menu-description__color--hover,
+        var(--textcolor--secondary)
+      );
+    }
+  }
 }
 
 .icon {

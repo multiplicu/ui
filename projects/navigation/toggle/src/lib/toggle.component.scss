@@ -1,17 +1,34 @@
 :host {
+  display: flex;
+  align-items: center;
+
   .toggle {
     align-items: center;
     background: transparent;
-    border: none;
+    border: 1px solid transparent;
     color: inherit;
     cursor: pointer;
     display: inline-flex;
     font-family: var(--font-family--base);
     font-weight: inherit;
-    outline: none;
     padding: 0;
     position: relative;
+
+    &:focus {
+      outline: none;
+      border-color: var(--toggle__border-color--focus, rgb(0 79 113));
+      box-shadow: 0 0 0 3px
+        var(--toggle__box-shadow--focus, rgb(0 79 113 / 0.5));
+    }
   }
+}
+
+.pre:empty {
+  display: none;
+}
+
+.pre:not(:empty) + .title {
+  margin-left: 1.2rem;
 }
 
 .menu__arrow {
@@ -26,10 +43,10 @@
 // Styles for when a switcher is used in a mega menu
 :host-context(.xcu-mega-menu) {
   .menu__chevron {
-    --menu-transition: .1s;
-    --menu-transition-delay: .1s;
+    --menu-transition: var(--transition, 0.05s);
+    --menu-transition-delay: var(--transition-delay, 0.05s);
     --menu-chevron__border-color: #dedddc;
-    --transform-translate-x: 0.5rem;
+    --transform-translate-x: 0.2rem;
     --transform-translate-y: 5.4rem;
     --transform-rotate: 45deg;
     --transform-skew-x: 0;
@@ -68,8 +85,8 @@
   }
 
   .menu__chevron--active {
-    --menu-transition: .1s;
-    --menu-transition-delay: .1s;
+    --menu-transition: 0.1s;
+    --menu-transition-delay: 0.1s;
     --chevron-translateY: var(--chevron-active-translateY, 3.7rem);
 
     opacity: 1;

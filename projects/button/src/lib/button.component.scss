@@ -33,7 +33,7 @@
   white-space: nowrap;
 
   @media (prefers-color-scheme: dark) {
-    --button__background-color: #4A5568;
+    --button__background-color: #4a5568;
     --button__background-color--hover: #505c71;
     --button__background-color--active: #444e5f;
     // --button__color--hover: var(--color--bunker);
@@ -103,7 +103,8 @@
     --button__box-shadow-color: var(--color--deep-teal);
 
     background: var(--button__background-color);
-    box-shadow: var(--box-shadow--thin) var(--box-shadow--thin) var(--button__box-shadow-color);
+    box-shadow: var(--box-shadow--thin) var(--box-shadow--thin)
+      var(--button__box-shadow-color);
     font-size: var(--button__font-size);
     font-weight: var(--font-weight--bold);
 
@@ -111,7 +112,8 @@
       --button__background-color: var(--color--silver-tree);
     }
 
-    &:active, &:focus {
+    &:active,
+    &:focus {
       box-shadow: 4px 4px var(--button__box-shadow-color);
     }
 

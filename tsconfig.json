@@ -2,14 +2,7 @@
 // It is not intended to be used to perform a compilation.
 {
   "files": [],
-  "references": [
-    {
-      "path": "./projects/ui/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/ui/tsconfig.spec.json"
-    },
-    {
+  "references": [{
       "path": "./projects/core/tsconfig.lib.json"
     },
     {
@@ -88,10 +81,22 @@
       "path": "./projects/faq/tsconfig.spec.json"
     },
     {
-      "path": "./projects/page-nav/tsconfig.lib.json"
+      "path": "./projects/navigation/page-nav/tsconfig.lib.json"
     },
     {
-      "path": "./projects/page-nav/tsconfig.spec.json"
+      "path": "./projects/navigation/page-nav/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/form/checkbox/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/form/checkbox/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/navigation/list/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/navigation/list/tsconfig.spec.json"
     }
   ]
 }

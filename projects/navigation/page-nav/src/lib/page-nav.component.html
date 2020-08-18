@@ -7,7 +7,7 @@
     <ul role="list" aria-label="Page navigation">
       <ng-container *ngFor="let link of links">
         <li>
-          <a [routerLink]="[{}, link.fragment]" routerLinkActive="active" class="colorize">{{ link.title }}</a>
+          <a [routerLink]="link.href" routerLinkActive="active" class="colorize">{{ link.title }}</a>
         </li>
       </ng-container>
     </ul>

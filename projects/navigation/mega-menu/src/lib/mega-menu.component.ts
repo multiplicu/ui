@@ -4,17 +4,20 @@ import {
   ElementRef,
   Input,
   HostBinding,
+  ViewChild,
 } from '@angular/core';
 import { NavLink, HoverMenu, coerceBooleanProperty } from '@multiplicu/ui/core';
+import { XcuNavToggleComponent } from '@multiplicu/ui/navigation/toggle';
 
 @Component({
   selector: `xcu-mega-menu, div[xcu-mega-menu], ul[xcu-mega-menu], nav[xcu-mega-menu]`,
   exportAs: 'xcuMegaMenu',
   templateUrl: './mega-menu.component.html',
   styleUrls: ['./mega-menu.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MegaMenuComponent extends HoverMenu {
+export class XcuMegaMenuComponent extends HoverMenu {
+  @ViewChild(XcuNavToggleComponent) public navToggle: XcuNavToggleComponent;
+
   @Input() public link: NavLink;
 
   private horizontal_: boolean = false;
@@ -47,5 +50,15 @@ export class MegaMenuComponent extends HoverMenu {
     // wants to target all mega menus. We do it here rather than `host` to ensure that
     // the class is applied to derived classes.
     elementRef.nativeElement.classList.add('xcu-mega-menu');
+  }
+
+  public toggle(state: boolean, emitEvent: boolean = true): boolean {
+    this.isActive = state;
+
+    if (emitEvent) {
+      this.toggled.emit(state);
+    }
+
+    return state;
   }
 }

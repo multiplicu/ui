@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MegaMenuFooterComponent } from './mega-menu-footer.component';
+import { XcuMegaMenuFooterComponent } from './mega-menu-footer.component';
 
-describe('MegaMenuFooterComponent', () => {
-  let component: MegaMenuFooterComponent;
-  let fixture: ComponentFixture<MegaMenuFooterComponent>;
+describe('XcuMegaMenuFooterComponent', () => {
+  let component: XcuMegaMenuFooterComponent;
+  let fixture: ComponentFixture<XcuMegaMenuFooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MegaMenuFooterComponent ]
-    })
-    .compileComponents();
+      declarations: [XcuMegaMenuFooterComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MegaMenuFooterComponent);
+    fixture = TestBed.createComponent(XcuMegaMenuFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

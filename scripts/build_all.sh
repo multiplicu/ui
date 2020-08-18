@@ -14,6 +14,7 @@ ng build faq &&
 ### FORM ###
 ng build form-field &&
 ng build input &&
+ng build checkbox &&
 ### NAVIGATION ###
 ng build nav-toggle &&
 # Copy Toggle to be used in other projects
@@ -25,6 +26,7 @@ ng build tabs &&
 ng build local-nav &&
 ng build mega-menu &&
 ng build page-nav &&
+ng build list &&
 ### SNACKBAR ###
 ng build snackbar &&
 # Copy UI package.json file

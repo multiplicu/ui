@@ -15,12 +15,21 @@
   }
 }
 
+.divider {
+  border-top: 1px solid var(--switcher__border-color);
+}
+
+a + .divider,
+.divider + a {
+  margin-top: 0.4rem;
+}
+
 .shadow {
   display: none;
   position: absolute;
   z-index: 999;
   right: auto;
-  left: -18px;
+  left: calc(-18px + var(--shadow-offset, 0));
   top: 100%;
 }
 
