@@ -97,7 +97,7 @@
 
   &.primary {
     background-color: var(--theme-primary);
-    color: #fff;
+    color: var(--color--bunker, #101820);
   }
 
   &.secondary {
