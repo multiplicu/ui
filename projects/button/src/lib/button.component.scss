@@ -15,7 +15,9 @@
   border-radius: 2px;
   border: var(--button__border-width) solid transparent;
   color: var(--button__color);
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-family: inherit;
   font-size: var(--button__font-size);
   font-weight: 600;
@@ -122,4 +124,10 @@
       box-shadow: 6px 6px var(--button__box-shadow-color);
     }
   }
+}
+
+.xcu-button__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
