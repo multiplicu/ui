@@ -2,6 +2,14 @@
   display: flex;
   align-items: center;
 
+  &.bordered {
+    .toggle {
+      border-color: var(--theme-background--accent);
+      border-radius: 0.2rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
   .toggle {
     align-items: center;
     background: transparent;
@@ -23,12 +31,18 @@
   }
 }
 
-.pre:empty {
+.toggle-start:empty {
   display: none;
 }
 
-.pre:not(:empty) + .title {
-  margin-left: 1.2rem;
+.toggle-start:not(:empty) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & + .title {
+    margin-left: 1.2rem;
+  }
 }
 
 .menu__arrow {

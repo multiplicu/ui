@@ -112,3 +112,23 @@ nav {
     }
   }
 }
+
+.toggle-start:empty,
+.toggle-end:empty {
+  display: none;
+}
+
+.toggle-start:not(:empty),
+.toggle-end:not(:empty) {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.toggle-start:not(:empty) {
+  margin-right: 1.2rem;
+}
+
+.toggle-end:not(:empty) {
+  margin-left: 1.2rem;
+}

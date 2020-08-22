@@ -3,18 +3,20 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostBinding,
   HostListener,
   Input,
   OnDestroy,
   Output,
 } from '@angular/core';
 import {
-  ESCAPE,
+  coerceBooleanProperty,
   DOWN_ARROW,
-  UP_ARROW,
-  SPACE,
   ENTER,
+  ESCAPE,
   hasModifierKey,
+  SPACE,
+  UP_ARROW,
 } from '@multiplicu/ui/core';
 
 @Component({
@@ -30,6 +32,19 @@ export class XcuNavToggleComponent implements OnDestroy {
   @Input() public href: string;
   @Input() public shouldShowArrow: boolean = true;
   @Input() public openOnHover: boolean = false;
+  @Input() public parentEl: ElementRef;
+
+  private _bordered: boolean = false;
+
+  @HostBinding('class.bordered')
+  @Input()
+  public get bordered(): any {
+    return this._bordered;
+  }
+
+  public set bordered(value: any) {
+    this._bordered = coerceBooleanProperty(value);
+  }
 
   /** Event emitted when the menu is closed. */
   @Output() readonly toggled: EventEmitter<boolean> = new EventEmitter<
@@ -63,7 +78,12 @@ export class XcuNavToggleComponent implements OnDestroy {
   public handleClick(event: Event): void {
     if (!this.isActive) return;
 
-    if (!this.elementRef.nativeElement.contains(event.target as any)) {
+    if (
+      !this.elementRef.nativeElement.contains(event.target as any) &&
+      (!this.parentEl ||
+        (this.parentEl &&
+          !this.parentEl.nativeElement.contains(event.target as any)))
+    ) {
       this.toggled.emit(false);
     }
   }

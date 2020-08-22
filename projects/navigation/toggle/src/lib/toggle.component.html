@@ -1,11 +1,11 @@
 <ng-template #contents>
-  <span class="pre">
-    <ng-content></ng-content>
-  </span>
+  <ng-content select=".toggle-start"></ng-content>
 
   <span *ngIf="title" class="title">
     {{ title }}
   </span>
+
+  <ng-content select=".toggle-end"></ng-content>
 
   <svg *ngIf="shouldShowArrow" fill="currentColor" viewBox="0 0 20 20" height="20" width="20" class="menu__arrow"
     aria-labelledby="toggle-description">

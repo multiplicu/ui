@@ -1,5 +1,14 @@
-<xcu-nav-toggle [title]="link?.title" [isActive]="isActive" (toggled)="isActive = $event" [openOnHover]="openOnHover">
+<xcu-nav-toggle [title]="link?.title" [isActive]="isActive" (toggled)="isActive = $event" [openOnHover]="openOnHover"
+  [shouldShowArrow]="shouldShowArrow" [parentEl]="elementRef" [bordered]="bordered">
+  <span class="toggle-start">
+    <ng-content select="[start]"></ng-content>
+  </span>
+
   <ng-content></ng-content>
+
+  <span class="toggle-end">
+    <ng-content select="[end]"></ng-content>
+  </span>
 </xcu-nav-toggle>
 
 <div (mouseleave)="onHoverOut($event)" (touchend)="onHoverOut($event)" class="shadow">
@@ -11,5 +20,7 @@
       <a *ngIf="sublink.onClick" (click)="sublink.onClick()">{{ sublink.title }}</a>
       <div *ngIf="sublink.dividerPosition === 'BELOW'" class='divider'></div>
     </ng-container>
+
+    <ng-content select=".content"></ng-content>
   </nav>
 </div>
