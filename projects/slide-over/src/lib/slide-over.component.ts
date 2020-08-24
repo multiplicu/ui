@@ -1,9 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   HostBinding,
   Input,
-  OnInit,
+  Output,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@multiplicu/ui/core';
 
@@ -18,6 +19,10 @@ import { coerceBooleanProperty } from '@multiplicu/ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuSlideOverComponent {
+  // Close button position
+  @Input()
+  public closePosition: 'OUTSIDE' | 'INSIDE' = 'INSIDE';
+
   // Open
   private open_: boolean = false;
 
@@ -57,6 +62,12 @@ export class XcuSlideOverComponent {
     this.overlay_ = coerceBooleanProperty(value);
   }
 
+  // Outputs
+  @Output()
+  public onClose: EventEmitter<void> = new EventEmitter<void>();
+  @Output()
+  public onOpen: EventEmitter<void> = new EventEmitter<void>();
+
   public constructor() {}
 
   /**
@@ -79,6 +90,17 @@ export class XcuSlideOverComponent {
   public setOpen(state: boolean): boolean {
     this.open = state;
 
+    // Emit output events based on the new state
+    this.open ? this._open() : this._close();
+
     return state;
+  }
+
+  private _close(): void {
+    this.onClose.emit();
+  }
+
+  private _open(): void {
+    this.onOpen.emit();
   }
 }
