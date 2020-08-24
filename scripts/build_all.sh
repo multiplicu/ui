@@ -29,5 +29,7 @@ ng build page-nav &&
 ng build list &&
 ### SNACKBAR ###
 ng build snackbar &&
+### SLIDE-OVER ###
+ng build slide-over &&
 # Copy UI package.json file
 cp projects/ui/package.json dist/ui

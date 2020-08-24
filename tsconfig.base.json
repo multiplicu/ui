@@ -85,6 +85,10 @@
       "list": [
         "dist/navigation/list/list",
         "dist/navigation/list"
+      ],
+      "slide-over": [
+        "dist/slide-over/slide-over",
+        "dist/slide-over"
       ]
     }
   },
