@@ -13,6 +13,7 @@ ng build button --prod &&
 ng build faq --prod &&
 ### FORM ###
 ng build form-field --prod &&
+npm run copyDist &&
 ng build input --prod &&
 ng build checkbox --prod &&
 ### NAVIGATION ###

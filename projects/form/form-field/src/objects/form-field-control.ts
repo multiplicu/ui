@@ -12,7 +12,7 @@ import { Directive } from '@angular/core';
 
 /** An interface which allows a control to work inside of a `FormField`. */
 @Directive()
-export abstract class FormFieldControl<T> {
+export abstract class XcuFormFieldControl<T> {
   /** The value of the control. */
   public value: T | null;
 
@@ -37,9 +37,6 @@ export abstract class FormFieldControl<T> {
   /** Whether the control is empty. */
   readonly empty: boolean;
 
-  /** Whether the `FormField` label should try to float. */
-  readonly shouldLabelFloat: boolean;
-
   /** Whether the control is required. */
   readonly required: boolean;
 
@@ -61,6 +58,12 @@ export abstract class FormFieldControl<T> {
    * control it is assumed to be false.
    */
   readonly autofilled?: boolean;
+
+  /**
+   * Value of `aria-describedby` that should be merged with the described-by ids
+   * which are set by the form-field.
+   */
+  readonly userAriaDescribedBy?: string;
 
   /** Sets the list of element IDs that currently describe this control. */
   abstract setDescribedByIds(ids: string[]): void;

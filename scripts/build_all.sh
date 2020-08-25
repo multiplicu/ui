@@ -13,6 +13,7 @@ ng build button &&
 ng build faq &&
 ### FORM ###
 ng build form-field &&
+npm run copyDist &&
 ng build input &&
 ng build checkbox &&
 ### NAVIGATION ###

@@ -2,4 +2,8 @@
 
 <ng-content #input select="input"></ng-content>
 
-<ng-content #help select="p"></ng-content>
+<ng-container [ngSwitch]="getDisplayedMessages()">
+  <ng-container *ngSwitchCase="'error'">
+    <ng-content #hint select="[xcu-hint]"></ng-content>
+  </ng-container>
+</ng-container>
