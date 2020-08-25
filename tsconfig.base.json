@@ -89,6 +89,10 @@
       "slide-over": [
         "dist/slide-over/slide-over",
         "dist/slide-over"
+      ],
+      "select": [
+        "dist/form/select/select",
+        "dist/form/select"
       ]
     }
   },

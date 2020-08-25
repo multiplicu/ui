@@ -15,6 +15,7 @@ ng build faq &&
 ng build form-field &&
 npm run copyDist &&
 ng build input &&
+ng build select &&
 ng build checkbox &&
 ### NAVIGATION ###
 ng build nav-toggle &&
