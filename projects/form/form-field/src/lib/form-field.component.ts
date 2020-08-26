@@ -1,3 +1,4 @@
+import { XcuError } from './../objects/error';
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
@@ -7,6 +8,7 @@ import {
   ContentChildren,
   ElementRef,
   HostBinding,
+  InjectionToken,
   Input,
   OnDestroy,
   QueryList,
@@ -16,6 +18,15 @@ import { Subject } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
 import { XcuFormFieldControl } from './../objects/form-field-control';
 import { XcuHint } from './../objects/hint';
+
+/**
+ * Injection token that can be used to inject an instances of `XcuFormField`. It serves
+ * as alternative token to the actual `XcuFormField` class which would cause unnecessary
+ * retention of the `XcuFormField` class and its component metadata.
+ */
+export const XCU_FORM_FIELD = new InjectionToken<XcuFormFieldComponent>(
+  'XcuFormField'
+);
 
 @Component({
   selector: 'xcu-form-field, div[xcu-form-field]',
@@ -30,6 +41,7 @@ import { XcuHint } from './../objects/hint';
   styleUrls: ['./form-field.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  providers: [{ provide: XCU_FORM_FIELD, useExisting: XcuFormFieldComponent }],
 })
 export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
   public required_: boolean;
@@ -53,7 +65,7 @@ export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
   }
 
   @ContentChild(XcuFormFieldControl)
-  private _formFieldControl: XcuFormFieldControl<any>;
+  public _formFieldControl: XcuFormFieldControl<any>;
 
   @ContentChild(XcuFormFieldControl) controlNonStatic: XcuFormFieldControl<any>;
   @ContentChild(XcuFormFieldControl, { static: true })
@@ -70,6 +82,9 @@ export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
   }
   private _explicitFormFieldControl: XcuFormFieldControl<any>;
 
+  @ContentChildren(XcuError, { descendants: true })
+  private _errorChildren: QueryList<XcuError> = new QueryList<XcuError>();
+
   @ContentChildren(XcuHint, { descendants: true })
   private _hintChildren: QueryList<XcuHint> = new QueryList<XcuHint>();
 
@@ -82,6 +97,11 @@ export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
 
   public ngAfterContentInit(): void {
     const control: XcuFormFieldControl<any> = this.control;
+    if (control.controlType) {
+      this.elementRef.nativeElement.classList.add(
+        `xcu-form-field-type-${control.controlType}`
+      );
+    }
 
     // Subscribe to changes in the child control state in order to update the form field UI.
     control.stateChanges.pipe(startWith(null!)).subscribe(() => {
@@ -96,6 +116,18 @@ export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
         .pipe(takeUntil(this._destroyed))
         .subscribe(() => this._changeDetectorRef.markForCheck());
     }
+
+    // Re-validate when the number of hints changes.
+    this._hintChildren.changes.pipe(startWith(null)).subscribe(() => {
+      this._processHints();
+      this._changeDetectorRef.markForCheck();
+    });
+
+    // Update the aria-described by when the number of errors changes.
+    this._errorChildren.changes.pipe(startWith(null)).subscribe(() => {
+      this._syncDescribedByIds();
+      this._changeDetectorRef.markForCheck();
+    });
   }
 
   public ngOnDestroy(): void {
@@ -105,8 +137,8 @@ export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
 
   /** Determines whether to display hints or errors. */
   public getDisplayedMessages(): 'error' | 'hint' {
-    return this._hintChildren &&
-      this._hintChildren.length > 0 &&
+    return this._errorChildren &&
+      this._errorChildren.length > 0 &&
       this.control.errorState
       ? 'error'
       : 'hint';
@@ -124,7 +156,7 @@ export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
         ids.push(...this.control.userAriaDescribedBy.split(' '));
       }
 
-      if (this.getDisplayedMessages() === 'error') {
+      if (this.getDisplayedMessages() === 'hint') {
         const startHint: XcuHint = this._hintChildren
           ? this._hintChildren.find((hint: XcuHint) => hint.align === 'start')
           : null;
@@ -139,9 +171,42 @@ export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
         if (endHint) {
           ids.push(endHint.id);
         }
+      } else if (this._errorChildren) {
+        ids = this._errorChildren.map((error: XcuError) => error.id);
       }
 
       this.control.setDescribedByIds(ids);
+    }
+  }
+
+  /** Does any extra processing that is required when handling the hints. */
+  private _processHints(): void {
+    this._validateHints();
+    this._syncDescribedByIds();
+  }
+
+  /**
+   * Ensure that there is a maximum of one of each `<mat-hint>` alignment specified, with the
+   * attribute being considered as `align="start"`.
+   */
+  private _validateHints(): void {
+    if (this._hintChildren) {
+      let startHint: XcuHint;
+      let endHint: XcuHint;
+
+      // this._hintChildren.forEach((hint: XcuHint) => {
+      //   if (hint.align === 'start') {
+      //     if (startHint || this.hintLabel) {
+      //       throw getMatFormFieldDuplicatedHintError('start');
+      //     }
+      //     startHint = hint;
+      //   } else if (hint.align === 'end') {
+      //     if (endHint) {
+      //       throw getMatFormFieldDuplicatedHintError('end');
+      //     }
+      //     endHint = hint;
+      //   }
+      // });
     }
   }
 }

@@ -1,0 +1,23 @@
+<div cdk-overlay-origin class="mat-select-trigger" (click)="toggle()" #trigger>
+  <div class="mat-select-value" [ngSwitch]="empty" [attr.id]="_valueId">
+    <span class="mat-select-placeholder" *ngSwitchCase="true">{{placeholder || '\u00A0'}}</span>
+    <span class="mat-select-value-text" *ngSwitchCase="false">
+      <ng-content select="mat-select-trigger" *ngSwitchCase="true"></ng-content>
+    </span>
+  </div>
+
+  <div class="mat-select-arrow-wrapper">
+    <div class="mat-select-arrow"></div>
+  </div>
+</div>
+
+<ng-template>
+  <div class="mat-select-panel-wrap">
+    <div #panel role="listbox" tabindex="-1" class="mat-select-panel" [attr.id]="id + '-panel'"
+      [attr.aria-multiselectable]="multiple" [attr.aria-label]="ariaLabel || null"
+      [attr.aria-labelledby]="_getPanelAriaLabelledby()" [style.font-size.px]="_triggerFontSize"
+      (keydown)="_handleKeydown($event)">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</ng-template>

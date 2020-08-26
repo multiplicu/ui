@@ -93,7 +93,7 @@
       "select": [
         "dist/form/select/select",
         "dist/form/select"
-      ]
+      ],
     }
   },
   "angularCompilerOptions": {

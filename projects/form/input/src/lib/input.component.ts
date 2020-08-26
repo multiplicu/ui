@@ -36,7 +36,7 @@ const _XcuInputMixinBase: CanUpdateErrorStateCtor &
   typeof XcuInputBase = mixinErrorState(XcuInputBase);
 
 @Component({
-  selector: 'input[xcu-input], textarea[xcu-input]',
+  selector: 'input[xcu-input], textarea[xcu-input], select[xcu-native-control]',
   exportAs: 'xcuInput',
   host: {
     class: 'xcu-input-element',
@@ -45,7 +45,7 @@ const _XcuInputMixinBase: CanUpdateErrorStateCtor &
     '[attr.id]': 'id',
     '[disabled]': 'disabled',
     '[required]': 'required',
-    '[attr.readonly]': 'readonly || null',
+    '[attr.readonly]': 'readonly && !_isNativeSelect || null',
     '[attr.aria-invalid]': 'errorState',
     '[attr.aria-required]': 'required.toString()',
   },
@@ -59,6 +59,9 @@ export class XcuInputComponent extends _XcuInputMixinBase
   protected _uid = `xcu-input-${nextUniqueId++}`;
   protected _previousNativeValue: any;
   private _inputValueAccessor: { value: any };
+
+  /** Whether the component is a native html select. */
+  readonly _isNativeSelect: boolean;
 
   /** Whether the component is a textarea. */
   readonly _isTextarea: boolean;
@@ -242,7 +245,9 @@ export class XcuInputComponent extends _XcuInputMixinBase
   }
 
   public constructor(
-    protected _elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
+    protected _elementRef: ElementRef<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
     @Optional() @Self() public ngControl: NgControl,
     @Optional() _parentForm: NgForm,
     @Optional() _parentFormGroup: FormGroupDirective,
@@ -250,10 +255,26 @@ export class XcuInputComponent extends _XcuInputMixinBase
   ) {
     super(_defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl);
 
-    const element: HTMLInputElement | HTMLTextAreaElement = this._elementRef
-      .nativeElement;
+    const element:
+      | HTMLInputElement
+      | HTMLSelectElement
+      | HTMLTextAreaElement = this._elementRef.nativeElement;
+    const nodeName = element.nodeName.toLowerCase();
 
     this._inputValueAccessor = element;
+    this._previousNativeValue = this.value;
+
+    // Force setter to be called in case id was not specified.
+    this.id = this.id;
+
+    this._isNativeSelect = nodeName === 'select';
+    this._isTextarea = nodeName === 'textarea';
+
+    if (this._isNativeSelect) {
+      this.controlType = (element as HTMLSelectElement).multiple
+        ? 'xcu-native-select-multiple'
+        : 'xcu-native-select';
+    }
   }
 
   public ngDoCheck(): void {
