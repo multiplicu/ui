@@ -81,7 +81,7 @@ nav {
 
     &.menu--active {
       & > xcu-nav-toggle {
-        color: var(--theme-primary);
+        color: var(--theme--primary);
         background-color: var(--nav-link__hover-color);
       }
 
@@ -106,7 +106,7 @@ nav {
         padding: 16px;
 
         &:hover {
-          color: var(--theme-primary);
+          color: var(--theme--primary);
         }
       }
     }

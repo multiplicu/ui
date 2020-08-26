@@ -96,7 +96,7 @@
   }
 
   &.primary {
-    background-color: var(--theme-primary);
+    background-color: var(--theme--primary);
     color: #fff;
 
     @media (prefers-color-scheme: dark) {

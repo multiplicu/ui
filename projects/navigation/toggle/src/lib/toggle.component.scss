@@ -4,7 +4,7 @@
 
   &.bordered {
     .toggle {
-      border-color: var(--theme--background--accent);
+      border-color: var(--theme--background-accent);
       border-radius: 0.2rem;
       padding: 0.4rem 0.8rem;
     }
@@ -121,7 +121,7 @@
     width: 100%;
 
     &:hover {
-      color: var(--theme-primary);
+      color: var(--theme--primary);
     }
   }
 

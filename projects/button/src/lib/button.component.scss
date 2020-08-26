@@ -53,8 +53,8 @@
   }
 
   &:focus {
-    border: 1px solid var(--theme-primary);
-    box-shadow: inset 0 0 0 1px var(--theme-primary);
+    border: 1px solid var(--theme--primary);
+    box-shadow: inset 0 0 0 1px var(--theme--primary);
     outline-width: 0;
   }
 
@@ -78,10 +78,15 @@
     color: var(--button-text--on-dark);
   }
 
-  &.xcu-button--secondary:not([disabled]) {
+  &.xcu-button--secondary.xcu-button--warning:not([disabled]) {
     --bg-opacity: 0;
+  }
+
+  &.xcu-button--secondary:not([disabled]) {
+    --bg-opacity: 1;
     background-color: var(--theme--background);
-    border: 1px solid var(--theme-primary);
+    background-color: rgba(var(--theme-rgb--background), var(--bg-opacity, 1));
+    border: 1px solid var(--theme--primary);
   }
 
   &.xcu-button--tertiary:not([disabled]) {
@@ -91,6 +96,7 @@
   &.xcu-button--warning:not([disabled]) {
     border-color: var(--color--warning);
     background-color: var(--color--warning);
+    background-color: rgba(var(--color-rgb--warning), var(--bg-opacity, 1));
     color: var(--button-text--on-warning);
   }
 
