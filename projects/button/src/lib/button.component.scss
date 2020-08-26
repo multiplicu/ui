@@ -79,7 +79,8 @@
   }
 
   &.xcu-button--secondary:not([disabled]) {
-    background-color: var(--theme-background);
+    --bg-opacity: 0;
+    background-color: var(--theme--background);
     border: 1px solid var(--theme-primary);
   }
 
@@ -88,8 +89,8 @@
   }
 
   &.xcu-button--warning:not([disabled]) {
-    border-color: var(--theme-warning);
-    background-color: var(--theme-warning);
+    border-color: var(--color--warning);
+    background-color: var(--color--warning);
     color: var(--button-text--on-warning);
   }
 
@@ -97,7 +98,7 @@
     --box-shadow--thin: 8px;
     --button__height: 48px;
 
-    --button__background-color: var(--theme-secondary);
+    --button__background-color: var(--theme--secondary);
     --button__color: var(--color--deep-teal);
     --button__color--active: var(--button__color);
     --button__color--hover: var(--button__color);

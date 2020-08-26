@@ -4,7 +4,7 @@
 
   &.bordered {
     .toggle {
-      border-color: var(--theme-background--accent);
+      border-color: var(--theme--background--accent);
       border-radius: 0.2rem;
       padding: 0.4rem 0.8rem;
     }
@@ -76,7 +76,7 @@
       skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x))
       scaleY(var(--transform-scale-y));
 
-    background: var(--theme-background);
+    background: var(--theme--background);
     border-radius: 2px 0 0 0;
     box-shadow: -1px -1px 0 var(--menu-chevron__border-color);
     display: block;

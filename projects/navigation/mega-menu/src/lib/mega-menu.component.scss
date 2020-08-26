@@ -87,7 +87,7 @@
   // grid-gap: 3.2rem;
   grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 
-  background-color: var(--theme-background);
+  background-color: var(--theme--background);
   padding: 3.2rem;
   position: relative;
   z-index: 20;
