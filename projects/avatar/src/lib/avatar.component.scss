@@ -82,6 +82,10 @@
       width: var(--dot-width);
     }
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
 img {
