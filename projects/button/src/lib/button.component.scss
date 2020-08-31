@@ -75,7 +75,7 @@
 
   &.xcu-button--primary:not([disabled]) {
     background-color: var(--button__background-color);
-    color: var(--button-text--on-dark);
+    color: var(--button-text);
   }
 
   &.xcu-button--secondary.xcu-button--warning:not([disabled]) {
