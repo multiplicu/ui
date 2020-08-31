@@ -10,7 +10,7 @@ import {
   selector: 'xcu-cell, td, td[xcu-cell], div[xcu-cell]',
   exportAs: 'xcuTableCell',
   host: {
-    class: 'table-cell',
+    class: 'table-cell typography',
   },
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.scss'],

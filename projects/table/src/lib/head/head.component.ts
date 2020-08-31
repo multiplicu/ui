@@ -10,7 +10,7 @@ import {
   selector: 'xcu-head, th, th[xcu-head], div[xcu-head]',
   exportAs: 'xcuTableHead',
   host: {
-    class: 'table-head',
+    class: 'table-head typography',
     role: 'columnheader',
   },
   templateUrl: './head.component.html',
