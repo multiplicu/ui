@@ -94,6 +94,10 @@
         "dist/form/select/select",
         "dist/form/select"
       ],
+      "table": [
+        "dist/table/table",
+        "dist/table"
+      ]
     }
   },
   "angularCompilerOptions": {

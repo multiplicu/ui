@@ -110,5 +110,11 @@
     {
       "path": "./projects/form/select/tsconfig.spec.json"
     },
+    {
+      "path": "./projects/table/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/table/tsconfig.spec.json"
+    },
   ]
 }
