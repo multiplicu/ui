@@ -34,6 +34,7 @@ export class XcuAvatarComponent {
 
   private size_: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   private _hidden: boolean = false;
+  private _highlight: boolean = false;
   private _rounded: boolean = false;
   private _hasNotification: boolean = false;
 
@@ -55,6 +56,16 @@ export class XcuAvatarComponent {
 
     (this.getHostElement_() as HTMLElement).classList.remove(...sizeClasses);
     (this.getHostElement_() as HTMLElement).classList.add(`size--${value}`);
+  }
+
+  @HostBinding('class.highlight')
+  @Input()
+  public get highlight(): any {
+    return this._highlight;
+  }
+
+  public set highlight(value: any) {
+    this._highlight = coerceBooleanProperty(value);
   }
 
   @HostBinding('class.rounded')

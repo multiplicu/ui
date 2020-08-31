@@ -1,6 +1,11 @@
 :host {
   position: relative;
 
+  &.highlight img {
+    color: var(--theme--primary);
+    box-shadow: 0 0 0 4px currentColor !important;
+  }
+
   &.dot--bottom {
     .dot {
       bottom: 0;
