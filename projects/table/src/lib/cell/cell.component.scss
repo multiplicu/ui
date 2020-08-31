@@ -1,0 +1,10 @@
+td,
+.table-cell {
+  --font-size: var(--font-size--small);
+  white-space: nowrap;
+  padding: 1.6rem 2.4rem !important;
+  vertical-align: middle;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: var(--border-color);
+}
