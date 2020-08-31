@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { AvatarComponent } from './avatar.component';
-import { AvatarStackComponent } from './avatar-stack/avatar-stack.component';
+import { XcuAvatarComponent } from './avatar.component';
+import { XcuAvatarStackComponent } from './avatar-stack/avatar-stack.component';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  declarations: [AvatarComponent, AvatarStackComponent],
+  declarations: [XcuAvatarComponent, XcuAvatarStackComponent],
   imports: [CommonModule],
-  exports: [AvatarComponent, AvatarStackComponent],
+  exports: [XcuAvatarComponent, XcuAvatarStackComponent],
 })
 export class XcuAvatarModule {}

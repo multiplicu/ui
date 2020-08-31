@@ -97,6 +97,18 @@
     },
     {
       "path": "./projects/navigation/list/tsconfig.spec.json"
-    }
+    },
+    {
+      "path": "./projects/slide-over/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/slide-over/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/form/select/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/form/select/tsconfig.spec.json"
+    },
   ]
 }

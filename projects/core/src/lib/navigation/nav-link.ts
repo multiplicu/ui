@@ -5,4 +5,5 @@ export interface NavLink {
   links?: NavLink[];
   onClick?: any;
   dividerPosition?: 'ABOVE' | 'BELOW' | 'NONE';
+  icon?: string;
 }

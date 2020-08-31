@@ -39,13 +39,13 @@ nav {
   display: flex;
   flex-direction: column;
   // border: 1px solid #dedddc;
-  background-color: var(--theme-background);
+  background-color: var(--theme--background);
   white-space: nowrap;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgb(136 152 170 / 10%),
     0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
   margin-top: 0.8rem;
-  max-height: 480px;
+  max-height: var(--switcher--max-height, 48rem);
   overflow: hidden;
   overflow-y: auto;
 
@@ -81,7 +81,7 @@ nav {
 
     &.menu--active {
       & > xcu-nav-toggle {
-        color: var(--theme-primary);
+        color: var(--theme--primary);
         background-color: var(--nav-link__hover-color);
       }
 
@@ -106,9 +106,29 @@ nav {
         padding: 16px;
 
         &:hover {
-          color: var(--theme-primary);
+          color: var(--theme--primary);
         }
       }
     }
   }
+}
+
+.toggle-start:empty,
+.toggle-end:empty {
+  display: none;
+}
+
+.toggle-start:not(:empty),
+.toggle-end:not(:empty) {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.toggle-start:not(:empty) {
+  margin-right: 1.2rem;
+}
+
+.toggle-end:not(:empty) {
+  margin-left: 1.2rem;
 }

@@ -15,13 +15,15 @@
   border-radius: 2px;
   border: var(--button__border-width) solid transparent;
   color: var(--button__color);
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   font-family: inherit;
   font-size: var(--button__font-size);
   font-weight: 600;
   height: calc(var(--button__height) + var(--button__border-width));
   line-height: var(--button__height);
-  margin-right: 16px;
+  // margin-right: 16px;
   overflow: hidden;
   padding: var(--button__padding);
   text-align: center;
@@ -51,8 +53,8 @@
   }
 
   &:focus {
-    border: 1px solid var(--theme-primary);
-    box-shadow: inset 0 0 0 1px var(--theme-primary);
+    border: 1px solid var(--theme--primary);
+    box-shadow: inset 0 0 0 1px var(--theme--primary);
     outline-width: 0;
   }
 
@@ -76,9 +78,15 @@
     color: var(--button-text--on-dark);
   }
 
+  &.xcu-button--secondary.xcu-button--warning:not([disabled]) {
+    --bg-opacity: 0;
+  }
+
   &.xcu-button--secondary:not([disabled]) {
-    background-color: var(--theme-background);
-    border: 1px solid var(--theme-primary);
+    --bg-opacity: 1;
+    background-color: var(--theme--background);
+    background-color: rgba(var(--theme-rgb--background), var(--bg-opacity, 1));
+    border: 1px solid var(--theme--primary);
   }
 
   &.xcu-button--tertiary:not([disabled]) {
@@ -86,8 +94,9 @@
   }
 
   &.xcu-button--warning:not([disabled]) {
-    border-color: var(--theme-warning);
-    background-color: var(--theme-warning);
+    border-color: var(--color--warning);
+    background-color: var(--color--warning);
+    background-color: rgba(var(--color-rgb--warning), var(--bg-opacity, 1));
     color: var(--button-text--on-warning);
   }
 
@@ -95,7 +104,7 @@
     --box-shadow--thin: 8px;
     --button__height: 48px;
 
-    --button__background-color: var(--theme-secondary);
+    --button__background-color: var(--theme--secondary);
     --button__color: var(--color--deep-teal);
     --button__color--active: var(--button__color);
     --button__color--hover: var(--button__color);
@@ -122,4 +131,10 @@
       box-shadow: 6px 6px var(--button__box-shadow-color);
     }
   }
+}
+
+.xcu-button__label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -96,12 +96,16 @@
   }
 
   &.primary {
-    background-color: var(--theme-primary);
+    background-color: var(--theme--primary);
     color: #fff;
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--color--bunker, #101820);
+    }
   }
 
   &.secondary {
-    background-color: var(--theme-secondary);
+    background-color: var(--theme--secondary);
     color: var(--textcolor);
   }
 }

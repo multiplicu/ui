@@ -14,7 +14,7 @@ import { coerceBooleanProperty } from '@multiplicu/ui/core';
   styleUrls: ['./avatar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AvatarComponent {
+export class XcuAvatarComponent {
   @Input() public imageUrl: string;
   @Input() public alt: string = '';
 
@@ -33,8 +33,9 @@ export class AvatarComponent {
   }
 
   private size_: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
-  private rounded_: boolean = false;
-  private hasNotification_: boolean = false;
+  private _hidden: boolean = false;
+  private _rounded: boolean = false;
+  private _hasNotification: boolean = false;
 
   @Input()
   public get size(): 'xs' | 'sm' | 'md' | 'lg' | 'xl' {
@@ -59,20 +60,30 @@ export class AvatarComponent {
   @HostBinding('class.rounded')
   @Input()
   public get rounded(): any {
-    return this.rounded_;
+    return this._rounded;
   }
 
   public set rounded(value: any) {
-    this.rounded_ = coerceBooleanProperty(value);
+    this._rounded = coerceBooleanProperty(value);
   }
 
   @Input()
   public get hasNotification(): any {
-    return this.hasNotification_;
+    return this._hasNotification;
   }
 
   public set hasNotification(value: any) {
-    this.hasNotification_ = coerceBooleanProperty(value);
+    this._hasNotification = coerceBooleanProperty(value);
+  }
+
+  @HostBinding('class.hidden')
+  @Input()
+  public get hidden(): any {
+    return this._hidden;
+  }
+
+  public set hidden(value: any) {
+    this._hidden = coerceBooleanProperty(value);
   }
 
   public constructor(public elementRef: ElementRef) {}

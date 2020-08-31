@@ -18,3 +18,7 @@ export const LEFT_ARROW = 37;
 export const UP_ARROW = 38;
 export const RIGHT_ARROW = 39;
 export const DOWN_ARROW = 40;
+export const ZERO = 48;
+export const NINE = 57;
+export const A = 65;
+export const Z = 90;

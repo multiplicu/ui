@@ -82,6 +82,10 @@
       width: var(--dot-width);
     }
   }
+
+  &.hidden {
+    display: none;
+  }
 }
 
 img {
@@ -99,7 +103,7 @@ img {
   --dot-height: 1rem;
   --dot-width: 1rem;
 
-  background: var(--theme-primary);
+  background: var(--theme--primary);
   border-radius: 9999px;
   border-style: solid;
   box-shadow: 0 0 0 2px currentColor;

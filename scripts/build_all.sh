@@ -13,7 +13,9 @@ ng build button &&
 ng build faq &&
 ### FORM ###
 ng build form-field &&
+npm run copyDist &&
 ng build input &&
+ng build select &&
 ng build checkbox &&
 ### NAVIGATION ###
 ng build nav-toggle &&
@@ -29,5 +31,7 @@ ng build page-nav &&
 ng build list &&
 ### SNACKBAR ###
 ng build snackbar &&
+### SLIDE-OVER ###
+ng build slide-over &&
 # Copy UI package.json file
 cp projects/ui/package.json dist/ui

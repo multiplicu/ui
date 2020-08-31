@@ -2,6 +2,14 @@
   display: flex;
   align-items: center;
 
+  &.bordered {
+    .toggle {
+      border-color: var(--theme--background-accent);
+      border-radius: 0.2rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+
   .toggle {
     align-items: center;
     background: transparent;
@@ -23,12 +31,18 @@
   }
 }
 
-.pre:empty {
+.toggle-start:empty {
   display: none;
 }
 
-.pre:not(:empty) + .title {
-  margin-left: 1.2rem;
+.toggle-start:not(:empty) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & + .title {
+    margin-left: 1.2rem;
+  }
 }
 
 .menu__arrow {
@@ -62,7 +76,7 @@
       skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x))
       scaleY(var(--transform-scale-y));
 
-    background: var(--theme-background);
+    background: var(--theme--background);
     border-radius: 2px 0 0 0;
     box-shadow: -1px -1px 0 var(--menu-chevron__border-color);
     display: block;
@@ -107,7 +121,7 @@
     width: 100%;
 
     &:hover {
-      color: var(--theme-primary);
+      color: var(--theme--primary);
     }
   }
 

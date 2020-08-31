@@ -2,9 +2,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
+  HostBinding,
   Input,
 } from '@angular/core';
-import { HoverMenu, NavLink } from '@multiplicu/ui/core';
+import { coerceBooleanProperty, HoverMenu, NavLink } from '@multiplicu/ui/core';
 
 /**
  * List of classes to add to XcuSwitcher instances based on host attributes to
@@ -24,6 +25,18 @@ export class XcuSwitcherComponent extends HoverMenu {
   @Input() public openOnHover: boolean;
   @Input() public link: NavLink;
   @Input() public shouldShowArrow: boolean = true;
+
+  private _bordered: boolean = false;
+
+  @HostBinding('class.bordered')
+  @Input()
+  public get bordered(): any {
+    return this._bordered;
+  }
+
+  public set bordered(value: any) {
+    this._bordered = coerceBooleanProperty(value);
+  }
 
   public constructor(public elementRef: ElementRef) {
     super(elementRef);

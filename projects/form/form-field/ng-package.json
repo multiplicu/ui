@@ -2,10 +2,6 @@
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/ui/form/form-field",
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdModuleIds": {
-      "@multiplicu/ui/form/input": "@multiplicu/ui/form/input"
-    }
-  },
-  "whitelistedNonPeerDependencies": ["@multiplicu/ui/form/input"]
+    "entryFile": "src/public-api.ts"
+  }
 }
