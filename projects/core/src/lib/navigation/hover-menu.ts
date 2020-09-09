@@ -41,8 +41,28 @@ export class HoverMenu extends XcuMenuBase_ {
   public onHoverOut(event: Event): void {
     if (!this.openOnHover) return;
 
+    this.close();
+  }
+
+  /**
+   * Closes the menu and emits the toggled event to False
+   *
+   * @memberof HoverMenu
+   */
+  public close(): void {
     this.isActive = false;
 
     this.toggled.emit(false);
+  }
+
+  /**
+   * Opens the menu and emits the toggled event to True
+   *
+   * @memberof HoverMenu
+   */
+  public open(): void {
+    this.isActive = true;
+
+    this.toggled.emit(true);
   }
 }
