@@ -33,18 +33,34 @@ export class XcuSwitcherComponent extends HoverMenu {
 
   /** The y-axis position of the menu. */
   @Input()
-  public position: 'above' | 'below' = 'below';
+  public yPosition: 'above' | 'below' = 'below';
+
+  /** The x-axis position of the menu. */
+  @Input()
+  public xPosition: 'before' | 'after' = 'after';
 
   /** If the menu is positioned above the toggle button. */
   @HostBinding('class.above')
   public get isPositionedAbove(): boolean {
-    return this.position === 'above';
+    return this.yPosition === 'above';
   }
 
   /** If the menu is positioned below the toggle button. */
   @HostBinding('class.below')
   public get isPositionedBelow(): boolean {
-    return this.position === 'below';
+    return this.yPosition === 'below';
+  }
+
+  /** If the menu is positioned before the toggle button. */
+  @HostBinding('class.before')
+  public get isPositionedBefore(): boolean {
+    return this.xPosition === 'before';
+  }
+
+  /** If the menu is positioned after the toggle button. */
+  @HostBinding('class.after')
+  public get isPositionedAfter(): boolean {
+    return this.xPosition === 'after';
   }
 
   private _bordered: boolean = false;
