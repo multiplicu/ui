@@ -1,0 +1,38 @@
+:host {
+  --profile-gap: 1.6rem;
+  --profile-name--font-weight: var(--font-weight--bold);
+  --profile-display: flex;
+
+  display: var(--profile-display, flex);
+  align-items: center;
+
+  &.inline {
+    --profile-display: inline-flex;
+    --profile-gap: 0.8rem;
+    --profile-name--font-weight: var(--font-weight--medium);
+  }
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--profile-gap);
+
+  &__name {
+    color: var(--name-color, currentColor);
+    font-weight: var(--profile-name--font-weight);
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__subtitle {
+    --font-size: var(--font-size--small);
+    color: var(--subtitle-color, currentColor);
+
+    &:empty {
+      display: none;
+    }
+  }
+}
