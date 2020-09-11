@@ -17,6 +17,11 @@ export class XcuProfileName {}
 })
 export class XcuProfileSubtitle {}
 
+@Directive({
+  selector: '[profile-image]',
+})
+export class XcuProfileImage {}
+
 @Component({
   selector: 'xcu-profile, div[xcu-profile], span[xcu-profile], a[xcu-profile]',
   exportAs: 'xcuProfile',

@@ -4,6 +4,7 @@ import { XcuAvatarStackComponent } from './avatar-stack/avatar-stack.component';
 import { XcuAvatarComponent } from './avatar.component';
 import {
   XcuProfileComponent,
+  XcuProfileImage,
   XcuProfileName,
   XcuProfileSubtitle,
 } from './profile/profile.component';
@@ -15,6 +16,7 @@ import {
     XcuProfileComponent,
     XcuProfileName,
     XcuProfileSubtitle,
+    XcuProfileImage,
   ],
   imports: [CommonModule],
   exports: [
@@ -23,6 +25,7 @@ import {
     XcuProfileComponent,
     XcuProfileName,
     XcuProfileSubtitle,
+    XcuProfileImage,
   ],
 })
 export class XcuAvatarModule {}
