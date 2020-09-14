@@ -92,7 +92,7 @@ nav {
 :host-context(.before) {
   .shadow {
     left: auto;
-    right: calc(var(--shadow__offset, 1.6rem) + var(--shadow-offset, 0px));
+    right: calc(var(--shadow__offset, 0px) + var(--shadow-offset, 0px));
   }
 }
 
@@ -109,6 +109,12 @@ nav {
 :host-context(.bordered) {
   .shadow {
     --shadow__offset: 0.8rem;
+  }
+}
+
+:host-context(.has-arrow.before) {
+  .shadow {
+    --shadow__offset: 0px;
   }
 }
 

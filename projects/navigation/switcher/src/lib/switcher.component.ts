@@ -28,6 +28,7 @@ export class XcuSwitcherComponent extends HoverMenu {
   public link: NavLink;
 
   /** Wether the toggle button should show an arrow. */
+  @HostBinding('class.has-arrow')
   @Input()
   public shouldShowArrow: boolean = true;
 
