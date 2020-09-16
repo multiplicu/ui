@@ -115,6 +115,6 @@
     },
     {
       "path": "./projects/table/tsconfig.spec.json"
-    },
+    }
   ]
 }
