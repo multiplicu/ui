@@ -90,6 +90,7 @@ nav {
 
 // Menu is positioned before
 :host-context(.before) {
+  --shadow__offset: 0px;
   .shadow {
     left: auto;
     right: calc(var(--shadow__offset, 0px) + var(--shadow-offset, 0px));
@@ -109,12 +110,6 @@ nav {
 :host-context(.bordered) {
   .shadow {
     --shadow__offset: 0.8rem;
-  }
-}
-
-:host-context(.has-arrow.before) {
-  .shadow {
-    --shadow__offset: 0px;
   }
 }
 
