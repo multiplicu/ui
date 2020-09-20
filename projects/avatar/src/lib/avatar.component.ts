@@ -32,7 +32,7 @@ export class XcuAvatarComponent {
     (this.getHostElement_() as HTMLElement).classList.add(`dot--${value}`);
   }
 
-  private size_: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+  private _size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   private _hidden: boolean = false;
   private _highlight: boolean = false;
   private _rounded: boolean = false;
@@ -40,11 +40,11 @@ export class XcuAvatarComponent {
 
   @Input()
   public get size(): 'xs' | 'sm' | 'md' | 'lg' | 'xl' {
-    return this.size_;
+    return this._size;
   }
 
   public set size(value: 'xs' | 'sm' | 'md' | 'lg' | 'xl') {
-    this.size_ = value;
+    this._size = value;
 
     const sizeClasses: string[] = [
       'size--xs',
