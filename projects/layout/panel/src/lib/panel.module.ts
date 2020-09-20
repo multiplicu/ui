@@ -6,4 +6,4 @@ import { XcuPanelComponent } from './panel.component';
   imports: [],
   exports: [XcuPanelComponent],
 })
-export class PanelModule {}
+export class XcuPanelModule {}
