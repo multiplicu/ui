@@ -10,7 +10,7 @@ import { coerceBooleanProperty } from '@multiplicu/ui/core';
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.scss'],
 })
-export class PanelComponent {
+export class XcuPanelComponent {
   private _depth: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' = 'md';
   private _well: boolean = false;
   private _wellOnGray: boolean = false;

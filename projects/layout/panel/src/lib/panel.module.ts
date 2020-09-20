@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
-import { PanelComponent } from './panel.component';
-
-
+import { XcuPanelComponent } from './panel.component';
 
 @NgModule({
-  declarations: [PanelComponent],
-  imports: [
-  ],
-  exports: [PanelComponent]
+  declarations: [XcuPanelComponent],
+  imports: [],
+  exports: [XcuPanelComponent],
 })
-export class PanelModule { }
+export class PanelModule {}

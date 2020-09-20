@@ -1,20 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PanelComponent } from './panel.component';
+import { XcuPanelComponent } from './panel.component';
 
-describe('PanelComponent', () => {
-  let component: PanelComponent;
-  let fixture: ComponentFixture<PanelComponent>;
+describe('XcuPanelComponent', () => {
+  let component: XcuPanelComponent;
+  let fixture: ComponentFixture<XcuPanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PanelComponent ]
-    })
-    .compileComponents();
+      declarations: [XcuPanelComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PanelComponent);
+    fixture = TestBed.createComponent(XcuPanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
