@@ -97,6 +97,10 @@
       "table": [
         "dist/table/table",
         "dist/table"
+      ],
+      "panel": [
+        "dist/layout/panel/panel",
+        "dist/layout/panel"
       ]
     }
   },

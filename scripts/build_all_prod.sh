@@ -35,5 +35,7 @@ ng build snackbar --prod &&
 ng build slide-over --prod &&
 ### TABLE ###
 ng build table --prod &&
+### PANEL ###
+ng build panel --prod &&
 # Copy UI package.json file
 cp projects/ui/package.json dist/ui
