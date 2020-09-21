@@ -1,0 +1,8 @@
+:host {
+  border-top: 1px solid transparent;
+  padding: var(--footer--padding, 2.4rem);
+
+  &.bordered {
+    border-color: var(--theme--background-accent);
+  }
+}

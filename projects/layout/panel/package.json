@@ -1,5 +1,5 @@
 {
-  "name": "@mutliplicu/ui/layout/panel",
+  "name": "@multiplicu/ui/layout/panel",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^10.1.1",
