@@ -3,6 +3,9 @@ import { coerceBooleanProperty } from '@multiplicu/ui/core';
 
 @Component({
   selector: 'xcu-panel-header, [xcu-panel-header]',
+  host: {
+    class: 'xcu-panel-header',
+  },
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })

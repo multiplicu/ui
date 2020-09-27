@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'xcu-panel-content, [xcu-panel-content]',
+  host: {
+    class: 'xcu-panel-content',
+  },
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.scss'],
 })
