@@ -1,4 +1,4 @@
-<input #input class="xcu-checkbox-input" type="checkbox" [id]="inputId" [required]="required" [checked]="checked"
+<input #input class="xcu-checkbox-input" [type]="type" [id]="inputId" [required]="required" [checked]="checked"
   [disabled]="disabled" [attr.name]="name" [attr.aria-label]="ariaLabel || null" [attr.aria-labelledBy]="ariaLabelledby"
   [attr.aria-checked]="getAriaChecked()" [attr.aria-describedby]="ariaDescribedby" (change)="onInteractionEvent($event)"
   (click)="onInputClick($event)">

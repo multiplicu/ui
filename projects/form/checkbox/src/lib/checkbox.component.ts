@@ -71,7 +71,8 @@ const XcuCheckboxMixinBase_: CanDisableCtor &
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [CHECKBOX_CONTROL_VALUE_ACCESSOR],
 })
-export class XcuCheckboxComponent extends XcuCheckboxMixinBase_
+export class XcuCheckboxComponent
+  extends XcuCheckboxMixinBase_
   implements ControlValueAccessor {
   /**
    * Attached to the aria-label attribute of the host element. In most cases, aria-labelledby will
@@ -98,6 +99,11 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_
   /** Returns the unique id for the visual hidden input. */
   public get inputId(): string {
     return `${this.id || this.uniqueId_}-input`;
+  }
+
+  /** Returns the type of input, generally a checkbox. */
+  public get type(): string {
+    return this.radio ? 'radio' : 'checkbox';
   }
 
   /** Whether the checkbox is required. */
@@ -143,6 +149,18 @@ export class XcuCheckboxComponent extends XcuCheckboxMixinBase_
     }
   }
   private checked_: boolean = false;
+
+  /**
+   * Whether the input should be a radio element styled as a checkbox.
+   */
+  @Input()
+  public get radio(): boolean {
+    return this.radio_;
+  }
+  public set radio(value: boolean) {
+    this.radio_ = coerceBooleanProperty(value);
+  }
+  private radio_: boolean = false;
 
   /**
    * Whether the checkbox is indeterminate. This is also known as "mixed" mode and can be used to
