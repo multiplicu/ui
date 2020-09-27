@@ -12,4 +12,8 @@
   .xcu-button:not(:first-of-type) {
     border-left-width: 0 !important;
   }
+
+  .xcu-button {
+    border-radius: 0;
+  }
 }
