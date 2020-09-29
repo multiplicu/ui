@@ -1,0 +1,152 @@
+:host {
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  position: fixed;
+  pointer-events: none;
+
+  &.xcu-dialog--open {
+    pointer-events: auto;
+
+    .dialog-overlay {
+      opacity: 1;
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+
+    .dialog {
+      --transform-translate-y: 0;
+
+      opacity: 1;
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+
+      @media (min-width: 640px) {
+        --transform-scale-x: 1;
+        --transform-scale-y: 1;
+      }
+    }
+  }
+}
+
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 0.2s;
+  will-change: opacity;
+  opacity: 0;
+
+  &__background {
+    --bg-opacity: 1;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.75;
+    background-color: #6b7280;
+    background-color: rgba(107, 114, 128, var(--bg-opacity));
+  }
+}
+
+.dialog-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 1.6rem 1.6rem 8rem;
+
+  @media (min-width: 640px) {
+    padding: 0;
+    display: block;
+  }
+}
+
+.dialog-trick {
+  display: none;
+
+  @media (min-width: 640px) {
+    display: inline-block;
+    height: 100vh;
+    vertical-align: middle;
+  }
+}
+
+.dialog {
+  --transform-translate-x: 0;
+  --transform-translate-y: 1.6rem;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  --bg-opacity: 1;
+
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 0.2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  text-align: left;
+  vertical-align: bottom;
+  transform: translateX(var(--transform-translate-x))
+    translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
+    skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
+    scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  transition-duration: 0.2s;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  opacity: 0;
+
+  @media (min-width: 640px) {
+    --transform-scale-x: 0.95;
+    --transform-scale-y: 0.95;
+
+    --transform-translate-y: 0;
+
+    margin-bottom: 3.2rem;
+    margin-top: 3.2rem;
+    max-width: 51.2rem;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--theme--background-accent);
+  }
+}
+
+.dialog__content {
+  --bg-opacity: 1;
+
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  padding: 1.6rem;
+
+  @media (min-width: 640px) {
+    padding: 2.4rem 2.4rem 1.6rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--theme--background-accent);
+  }
+}
+
+.content-container {
+  @media (min-width: 640px) {
+    display: flex;
+    align-items: flex-start;
+  }
+}

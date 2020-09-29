@@ -101,6 +101,10 @@
       "panel": [
         "dist/layout/panel/panel",
         "dist/layout/panel"
+      ],
+      "dialog": [
+        "dist/feedback/dialog/dialog",
+        "dist/feedback/dialog"
       ]
     }
   },

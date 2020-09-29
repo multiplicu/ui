@@ -37,5 +37,7 @@ ng build slide-over --prod &&
 ng build table --prod &&
 ### PANEL ###
 ng build panel --prod &&
+### DIALOG ###
+ng build dialog --prod &&
 # Copy UI package.json file
 cp projects/ui/package.json dist/ui
