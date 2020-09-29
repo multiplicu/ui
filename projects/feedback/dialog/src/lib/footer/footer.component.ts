@@ -12,7 +12,7 @@ import { coerceBooleanProperty } from '@multiplicu/ui/core';
 })
 export class XcuFooterComponent {
   @HostBinding('class.centered-wide')
-  @Input()
+  @Input('centered-wide')
   public get centerWide(): any {
     return this._centerWide;
   }
