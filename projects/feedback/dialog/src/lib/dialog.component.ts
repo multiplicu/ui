@@ -12,17 +12,15 @@ import { DialogService } from './dialog.service';
 })
 export class XcuDialogComponent {
   @HostBinding('class.xcu-dialog--open')
-  public get isOpen(): boolean {
-    return this.dialogService.isOpen;
-  }
+  public isOpen: boolean = false;
 
   public constructor(public dialogService: DialogService) {}
 
   public open(): void {
-    this.dialogService.open();
+    this.isOpen = true;
   }
 
   public close(): void {
-    this.dialogService.close();
+    this.isOpen = false;
   }
 }
