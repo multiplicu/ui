@@ -59,6 +59,7 @@ nav {
     font-size: 1.4rem;
     padding: 12px 16px;
     transition: background-color 0.18s ease-in-out 0s;
+    cursor: pointer;
 
     &:hover {
       background-color: var(--nav-link__hover-color);
