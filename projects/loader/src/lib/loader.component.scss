@@ -1,0 +1,65 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 32px auto;
+
+  & > div {
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
+
+  & > *:nth-child(1) {
+    background-color: var(--color--conifer);
+  }
+
+  & > *:nth-child(2) {
+    background-color: var(--color--hippie-green);
+  }
+
+  & > *:nth-child(3) {
+    background-color: var(--color--green-pea);
+  }
+
+  & > *:nth-child(4) {
+    background-color: var(--color--deep-teal);
+  }
+}
+
+.bounce1 {
+  animation-delay: -0.48s !important;
+}
+
+.bounce2 {
+  animation-delay: -0.32s !important;
+}
+
+.bounce3 {
+  animation-delay: -0.16s !important;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}

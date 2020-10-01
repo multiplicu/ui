@@ -105,6 +105,10 @@
       "dialog": [
         "dist/feedback/dialog/dialog",
         "dist/feedback/dialog"
+      ],
+      "loader": [
+        "dist/loader/loader",
+        "dist/loader"
       ]
     }
   },

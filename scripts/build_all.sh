@@ -39,5 +39,7 @@ ng build table &&
 ng build panel &&
 ### DIALOG ###
 ng build dialog &&
+### LOADER ###
+ng build loader &&
 # Copy UI package.json file
 cp projects/ui/package.json dist/ui
