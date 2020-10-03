@@ -136,7 +136,7 @@
     transition-property: background-color, border-color, color, fill, stroke,
       opacity, box-shadow, transform;
 
-    color: var(--textcolor);
+    color: var(--textcolor-reverse);
     padding: 0;
     line-height: 1rem;
     cursor: pointer;
