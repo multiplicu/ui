@@ -26,6 +26,7 @@
   // margin-right: 16px;
   overflow: hidden;
   padding: var(--button__padding);
+  position: relative;
   text-align: center;
   text-decoration: none;
   transition: border 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s,
@@ -137,4 +138,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+xcu-mark {
+  --mark-size: 2px;
 }

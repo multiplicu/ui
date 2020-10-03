@@ -4,8 +4,9 @@
   "lib": {
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
-      "@multiplicu/ui/core": "@multiplicu/ui/core"
+      "@multiplicu/ui/core": "@multiplicu/ui/core",
+      "@multiplicu/ui/loader": "@multiplicu/ui/loader"
     }
   },
-  "whitelistedNonPeerDependencies": ["@multiplicu/ui/core"]
+  "whitelistedNonPeerDependencies": ["@multiplicu/ui/core", "@multiplicu/ui/loader"]
 }

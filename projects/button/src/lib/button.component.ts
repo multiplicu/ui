@@ -9,7 +9,11 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { CanDisableCtor, mixinDisabled } from '@multiplicu/ui/core';
+import {
+  CanDisableCtor,
+  coerceBooleanProperty,
+  mixinDisabled,
+} from '@multiplicu/ui/core';
 
 /**
  * List of classes to add to XcuButton instances based on host attributes to
@@ -44,7 +48,8 @@ const XcuButtonMixinBase_: CanDisableCtor &
   // encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class XcuButtonComponent extends XcuButtonMixinBase_
+export class XcuButtonComponent
+  extends XcuButtonMixinBase_
   implements OnChanges {
   @HostBinding('attr.disabled')
   public get isDisabled(): boolean {
@@ -52,6 +57,17 @@ export class XcuButtonComponent extends XcuButtonMixinBase_
   }
 
   @Input() public disabled: boolean;
+
+  @Input('loading')
+  public get loading(): any {
+    return this._loading;
+  }
+
+  public set loading(value: any) {
+    this._loading = coerceBooleanProperty(value);
+  }
+
+  private _loading: boolean = false;
 
   public constructor(
     public elementRef: ElementRef,
