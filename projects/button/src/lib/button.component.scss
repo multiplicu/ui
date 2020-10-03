@@ -69,9 +69,14 @@
   &.disabled,
   &.loading {
     pointer-events: none;
-    border: 1px solid #dedddc;
-    color: #bdbbb9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.4);
     background-color: transparent;
+
+    @media (prefers-color-scheme: dark) {
+      border-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.3);
+    }
   }
 
   &.xcu-button--primary:not([disabled]) {
