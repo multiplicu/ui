@@ -44,24 +44,24 @@ export const XCU_FORM_FIELD = new InjectionToken<XcuFormFieldComponent>(
   providers: [{ provide: XCU_FORM_FIELD, useExisting: XcuFormFieldComponent }],
 })
 export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
-  public required_: boolean;
+  public _required: boolean;
   @HostBinding('class.required')
   @Input('required')
   public get required(): boolean {
-    return this.required_;
+    return this._required;
   }
   public set required(v: boolean) {
-    this.required_ = v || v !== undefined;
+    this._required = v || v !== undefined;
   }
 
-  public optional_: boolean;
+  public _optional: boolean;
   @HostBinding('class.optional')
   @Input('optional')
   public get optional(): boolean {
-    return this.optional_;
+    return this._optional;
   }
   public set optional(v: boolean) {
-    this.optional_ = v || v !== undefined;
+    this._optional = v || v !== undefined;
   }
 
   @ContentChild(XcuFormFieldControl)

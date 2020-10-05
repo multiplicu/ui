@@ -22,16 +22,16 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuListComponent implements OnChanges, OnDestroy {
-  private divided_: boolean = false;
+  private _divided: boolean = false;
 
   @HostBinding('class.divided')
   @Input()
   public get divided(): any {
-    return this.divided_;
+    return this._divided;
   }
 
   public set divided(value: any) {
-    this.divided_ = coerceBooleanProperty(value);
+    this._divided = coerceBooleanProperty(value);
   }
 
   private _stateChanges: Subject<void> = new Subject<void>();

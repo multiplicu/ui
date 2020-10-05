@@ -33,8 +33,8 @@ export class XcuPanelComponent {
       'depth--2xl',
     ];
 
-    (this.getHostElement_() as HTMLElement).classList.remove(...depthClasses);
-    (this.getHostElement_() as HTMLElement).classList.add(`depth--${value}`);
+    (this._getHostElement() as HTMLElement).classList.remove(...depthClasses);
+    (this._getHostElement() as HTMLElement).classList.add(`depth--${value}`);
   }
 
   @HostBinding('class.well')
@@ -59,7 +59,7 @@ export class XcuPanelComponent {
 
   public constructor(public elementRef: ElementRef) {}
 
-  private getHostElement_(): any {
+  private _getHostElement(): any {
     return this.elementRef.nativeElement;
   }
 }

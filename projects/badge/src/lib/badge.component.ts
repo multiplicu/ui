@@ -38,40 +38,40 @@ const BADGE_COLORS: string[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BadgeComponent {
-  private color_: string;
-  private rounded_: boolean = false;
-  private large_: boolean = false;
+  private _color: string;
+  private _rounded: boolean = false;
+  private _large: boolean = false;
 
   @Input()
   public get color(): string {
-    return this.color_;
+    return this._color;
   }
 
   public set color(value: string) {
     if (BADGE_COLORS.includes(value)) {
-      (this.getHostElement_() as HTMLElement).classList.remove(...BADGE_COLORS);
-      (this.getHostElement_() as HTMLElement).classList.add(value);
+      (this._getHostElement() as HTMLElement).classList.remove(...BADGE_COLORS);
+      (this._getHostElement() as HTMLElement).classList.add(value);
     }
   }
 
   @HostBinding('class.rounded')
   @Input()
   public get rounded(): any {
-    return this.rounded_;
+    return this._rounded;
   }
 
   public set rounded(value: any) {
-    this.rounded_ = coerceBooleanProperty(value);
+    this._rounded = coerceBooleanProperty(value);
   }
 
   @HostBinding('class.large')
   @Input()
   public get large(): any {
-    return this.large_;
+    return this._large;
   }
 
   public set large(value: any) {
-    this.large_ = coerceBooleanProperty(value);
+    this._large = coerceBooleanProperty(value);
   }
 
   public constructor(public elementRef: ElementRef) {}
@@ -79,11 +79,11 @@ export class BadgeComponent {
   /** Gets whether the button has one of the given attributes. */
   private hasHostAttributes_(...attributes: string[]): boolean {
     return attributes.some((attribute) =>
-      this.getHostElement_().hasAttribute(attribute)
+      this._getHostElement().hasAttribute(attribute)
     );
   }
 
-  private getHostElement_(): any {
+  private _getHostElement(): any {
     return this.elementRef.nativeElement;
   }
 }

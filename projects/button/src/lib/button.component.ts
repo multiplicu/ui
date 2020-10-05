@@ -32,7 +32,7 @@ class XcuButtonBase {
   public constructor(public elementRef: ElementRef) {}
 }
 
-const XcuButtonMixinBase_: CanDisableCtor &
+const _XcuButtonMixinBase: CanDisableCtor &
   typeof XcuButtonBase = mixinDisabled(XcuButtonBase);
 
 @Component({
@@ -49,7 +49,7 @@ const XcuButtonMixinBase_: CanDisableCtor &
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuButtonComponent
-  extends XcuButtonMixinBase_
+  extends _XcuButtonMixinBase
   implements OnChanges {
   @HostBinding('attr.disabled')
   public get isDisabled(): boolean {
@@ -71,15 +71,15 @@ export class XcuButtonComponent
 
   public constructor(
     public elementRef: ElementRef,
-    protected injector_: Injector
+    protected _injector: Injector
   ) {
     super(elementRef);
 
     // For each of the variant selectors that is present in the button's host
     // attributes, add the correct corresponding class.
     for (const attr of BUTTON_HOST_ATTRIBUTES) {
-      if (this.hasHostAttributes_(attr)) {
-        (this.getHostElement_() as HTMLElement).classList.add(attr);
+      if (this._hasHostAttributes(attr)) {
+        (this._getHostElement() as HTMLElement).classList.add(attr);
       }
     }
 
@@ -89,7 +89,7 @@ export class XcuButtonComponent
     elementRef.nativeElement.classList.add('xcu-button');
 
     // const ButtonElement: any = createCustomElement(XcuButtonComponent, {
-    //   injector: this.injector_,
+    //   injector: this._injector,
     // });
     // customElements.define('xcu-button', ButtonElement);
   }
@@ -102,13 +102,13 @@ export class XcuButtonComponent
   }
 
   /** Gets whether the button has one of the given attributes. */
-  private hasHostAttributes_(...attributes: string[]): boolean {
+  private _hasHostAttributes(...attributes: string[]): boolean {
     return attributes.some((attribute) =>
-      this.getHostElement_().hasAttribute(attribute)
+      this._getHostElement().hasAttribute(attribute)
     );
   }
 
-  private getHostElement_(): any {
+  private _getHostElement(): any {
     return this.elementRef.nativeElement;
   }
 }
@@ -146,9 +146,9 @@ export class XcuAnchorComponent extends XcuButtonComponent {
 
   public constructor(
     public elementRef: ElementRef,
-    protected injector_: Injector
+    protected _injector: Injector
   ) {
-    super(elementRef, injector_);
+    super(elementRef, _injector);
   }
 
   @HostListener('click', ['$event'])

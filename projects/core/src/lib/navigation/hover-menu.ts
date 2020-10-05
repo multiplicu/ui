@@ -15,12 +15,12 @@ class XcuMenuBase {
   public constructor(public elementRef: ElementRef) {}
 }
 
-const XcuMenuBase_: CanOpenOnHoverCtor & typeof XcuMenuBase = mixinOpenOnHover(
+const _XcuMenuBase: CanOpenOnHoverCtor & typeof XcuMenuBase = mixinOpenOnHover(
   XcuMenuBase
 );
 
 @Directive()
-export class HoverMenu extends XcuMenuBase_ {
+export class HoverMenu extends _XcuMenuBase {
   @HostBinding('class.menu--active')
   @Input()
   public isActive: boolean;

@@ -27,7 +27,7 @@ export class XcuPageNavComponent {
     // attributes, add the correct corresponding class.
     for (const attr of NAV_HOST_ATTRIBUTES) {
       if (this.hasHostAttributes_(attr)) {
-        (this.getHostElement_() as HTMLElement).classList.add(attr);
+        (this._getHostElement() as HTMLElement).classList.add(attr);
       }
     }
 
@@ -40,11 +40,11 @@ export class XcuPageNavComponent {
   /** Gets whether the button has one of the given attributes. */
   private hasHostAttributes_(...attributes: string[]): boolean {
     return attributes.some((attribute) =>
-      this.getHostElement_().hasAttribute(attribute)
+      this._getHostElement().hasAttribute(attribute)
     );
   }
 
-  private getHostElement_(): any {
+  private _getHostElement(): any {
     return this.elementRef.nativeElement;
   }
 }
