@@ -338,7 +338,7 @@ export class XcuCheckboxComponent
    * server-side rendering.
    */
   private _syncIndeterminate(value: boolean): void {
-    const nativeCheckbox: ElementRef<HTMLInputElement> = this.inputElement_;
+    const nativeCheckbox: ElementRef<HTMLInputElement> = this._inputElement;
 
     if (nativeCheckbox) {
       nativeCheckbox.nativeElement.indeterminate = value;

@@ -16,12 +16,12 @@ export class DialogService {
   public open(): void {
     this.isOpen = true;
 
-    this.onOpen.next();
+    this.onOpen.emit();
   }
 
   public close(): void {
     this.isOpen = false;
 
-    this.onClose.next();
+    this.onClose.emit();
   }
 }
