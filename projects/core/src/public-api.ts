@@ -2,7 +2,6 @@
  * Public API Surface of core
  */
 
-export * from './lib/a11y/a11y.module';
 export * from './lib/a11y/focus-monitor/focus-monitor';
 export * from './lib/a11y/key-manager/activedescendant-key-manager';
 export * from './lib/a11y/key-manager/focus-key-manager';
