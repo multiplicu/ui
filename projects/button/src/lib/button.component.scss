@@ -81,7 +81,7 @@
 
   &.xcu-button--primary:not([disabled]) {
     background-color: var(--button__background-color);
-    color: var(--button-text);
+    color: var(--button__color);
   }
 
   &.xcu-button--secondary.xcu-button--warning:not([disabled]) {
@@ -103,7 +103,7 @@
     border-color: var(--color--warning);
     background-color: var(--color--warning);
     background-color: rgba(var(--color-rgb--warning), var(--bg-opacity, 1));
-    color: var(--button-text--on-warning);
+    color: var(--button__color--on-warning);
   }
 
   &.xcu-button--raised:not([disabled]) {
