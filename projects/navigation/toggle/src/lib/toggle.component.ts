@@ -19,6 +19,8 @@ import {
   UP_ARROW,
 } from '@multiplicu/ui/core';
 
+let nextUniqueId: number = 0;
+
 @Component({
   selector: `xcu-nav-toggle, div[xcu-nav-toggle], button[xcu-nav-toggle], a[xcu-nav-toggle]`,
   exportAs: 'xcuNavToggle',
@@ -27,6 +29,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuNavToggleComponent implements OnDestroy {
+  protected _uid: string = `xcu-toggle-${nextUniqueId++}`;
+
   @Input() public isActive: boolean;
   @Input() public title: string;
   @Input() public href: string;
@@ -34,7 +38,14 @@ export class XcuNavToggleComponent implements OnDestroy {
   @Input() public openOnHover: boolean = false;
   @Input() public parentEl: ElementRef;
 
-  private _bordered: boolean = false;
+  @Input()
+  public get id(): string {
+    return this._id;
+  }
+  public set id(value: string) {
+    this._id = value || this._uid;
+  }
+  protected _id: string;
 
   @HostBinding('class.bordered')
   @Input()
@@ -46,6 +57,8 @@ export class XcuNavToggleComponent implements OnDestroy {
     this._bordered = coerceBooleanProperty(value);
   }
 
+  private _bordered: boolean = false;
+
   /** Event emitted when the menu is closed. */
   @Output() readonly toggled: EventEmitter<boolean> = new EventEmitter<
     boolean
@@ -55,6 +68,8 @@ export class XcuNavToggleComponent implements OnDestroy {
     this.toggled
       .asObservable()
       .subscribe((active: boolean) => (this.isActive = active));
+
+    this.id = this._uid;
   }
 
   public ngOnDestroy(): void {
