@@ -49,8 +49,8 @@
 
   &:hover {
     cursor: pointer;
-    color: var(--button__color--hover);
-    background-color: var(--button__background-color--hover);
+    color: var(--button__color--hover) !important;
+    background-color: var(--button__background-color--hover) !important;
   }
 
   &:focus {
@@ -61,8 +61,8 @@
 
   &:active,
   &.active {
-    background-color: var(--button__background-color--active);
-    color: var(--button__color--active);
+    background-color: var(--button__background-color--active) !important;
+    color: var(--button__color--active) !important;
   }
 
   &[disabled],
@@ -89,10 +89,9 @@
   }
 
   &.xcu-button--secondary:not([disabled]) {
-    --bg-opacity: 1;
-    background-color: var(--theme--background);
-    background-color: rgba(var(--theme-rgb--background), var(--bg-opacity, 1));
-    border: 1px solid var(--theme--primary);
+    --button__background-color: transparent;
+    background-color: var(--button__background-color, transparent);
+    border: 1px solid var(--button__border-color, var(--theme--primary));
   }
 
   &.xcu-button--tertiary:not([disabled]) {
