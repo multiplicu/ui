@@ -33,6 +33,9 @@ const BADGE_COLORS: string[] = [
 @Component({
   selector: `xcu-badge, div[xcu-badge], span[xcu-badge], button[xcu-badge]`,
   exportAs: 'xcuBadge',
+  host: {
+    class: 'xcu-badge',
+  },
   templateUrl: './badge.component.html',
   styleUrls: ['./badge.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
