@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { XcuMegaMenuComponent } from './mega-menu.component';
 
@@ -6,7 +6,7 @@ describe('XcuMegaMenuComponent', () => {
   let component: XcuMegaMenuComponent;
   let fixture: ComponentFixture<XcuMegaMenuComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [XcuMegaMenuComponent],
     }).compileComponents();

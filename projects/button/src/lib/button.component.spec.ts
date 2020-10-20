@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { XcuButtonComponent } from './button.component';
 
 describe('XcuButtonComponent', () => {
   let component: XcuButtonComponent;
   let fixture: ComponentFixture<XcuButtonComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [XcuButtonComponent],
     }).compileComponents();

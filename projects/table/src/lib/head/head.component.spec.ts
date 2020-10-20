@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { XcuHeadComponent } from './head.component';
 
@@ -6,7 +6,7 @@ describe('XcuHeadComponent', () => {
   let component: XcuHeadComponent;
   let fixture: ComponentFixture<XcuHeadComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [XcuHeadComponent],
     }).compileComponents();

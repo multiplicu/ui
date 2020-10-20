@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { XcuCheckboxComponent } from './checkbox.component';
 
@@ -6,7 +6,7 @@ describe('XcuCheckboxComponent', () => {
   let component: XcuCheckboxComponent;
   let fixture: ComponentFixture<XcuCheckboxComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [XcuCheckboxComponent],
     }).compileComponents();
