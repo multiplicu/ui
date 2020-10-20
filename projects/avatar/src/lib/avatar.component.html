@@ -1,2 +1,3 @@
-<img *ngIf="imageUrl" src="{{ imageUrl }}" alt="{{ alt }}" loading="lazy">
+<img *ngIf="imageUrl" src="{{ imageUrl }}" alt="{{ alt }}" height="{{ sizeInPixels }}" width="{{ sizeInPixels }}"
+  loading="lazy">
 <div *ngIf="hasNotification" class="dot"></div>

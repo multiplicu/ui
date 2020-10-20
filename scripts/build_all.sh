@@ -7,6 +7,9 @@ npm run copyDist &&
 ng build avatar &&
 ### BADGE ###
 ng build badge &&
+### LOADER ###
+ng build loader &&
+npm run copyDist &&
 ### BUTTON ###
 ng build button &&
 ### FAQ ###
@@ -33,5 +36,11 @@ ng build list &&
 ng build snackbar &&
 ### SLIDE-OVER ###
 ng build slide-over &&
+### TABLE ###
+ng build table &&
+### PANEL ###
+ng build panel &&
+### DIALOG ###
+ng build dialog &&
 # Copy UI package.json file
 cp projects/ui/package.json dist/ui

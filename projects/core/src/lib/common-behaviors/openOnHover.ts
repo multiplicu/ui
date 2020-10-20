@@ -12,14 +12,14 @@ export function mixinOpenOnHover<T extends Constructor<{}>>(
   base: T
 ): CanOpenOnHoverCtor & T {
   return class extends base {
-    private openOnHover_: boolean = false;
+    private _openOnHover: boolean = false;
 
     public get openOnHover(): any {
-      return this.openOnHover_;
+      return this._openOnHover;
     }
 
     public set openOnHover(value: any) {
-      this.openOnHover_ = coerceBooleanProperty(value);
+      this._openOnHover = coerceBooleanProperty(value);
     }
 
     public constructor(...args: any[]) {

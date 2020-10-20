@@ -1,6 +1,11 @@
 :host {
   position: relative;
 
+  &.highlight img {
+    color: var(--theme--primary);
+    box-shadow: 0 0 0 4px currentColor !important;
+  }
+
   &.dot--bottom {
     .dot {
       bottom: 0;
@@ -31,6 +36,7 @@
       --dot-width: 0.6rem;
 
       height: var(--dot-height);
+      min-width: var(--dot-width);
       width: var(--dot-width);
     }
   }
@@ -47,6 +53,7 @@
       --dot-width: 0.8rem;
 
       height: var(--dot-height);
+      min-width: var(--dot-width);
       width: var(--dot-width);
     }
   }
@@ -63,6 +70,7 @@
       --dot-width: 1.2rem;
 
       height: var(--dot-height);
+      min-width: var(--dot-width);
       width: var(--dot-width);
     }
   }
@@ -79,6 +87,7 @@
       --dot-width: 1.4rem;
 
       height: var(--dot-height);
+      min-width: var(--dot-width);
       width: var(--dot-width);
     }
   }
@@ -95,6 +104,7 @@ img {
   display: inline-block;
   max-width: 100%;
   height: 4rem;
+  min-width: 4rem;
   width: 4rem;
   vertical-align: middle;
 }
@@ -112,6 +122,7 @@ img {
   position: absolute;
   right: 0;
   top: 0;
+  min-width: var(--dot-width);
   width: var(--dot-width);
 }
 

@@ -19,8 +19,6 @@ import {
   BooleanInput,
   coerceBooleanProperty,
   ENTER,
-  FocusableOption,
-  FocusOrigin,
   hasModifierKey,
   SPACE,
 } from '@multiplicu/ui/core';
@@ -65,8 +63,7 @@ export const XCU_OPTION_PARENT_COMPONENT = new InjectionToken<
 >('XCU_OPTION_PARENT_COMPONENT');
 
 @Directive()
-export class _XcuOptionBase
-  implements FocusableOption, AfterViewChecked, OnDestroy {
+export class _XcuOptionBase implements AfterViewChecked, OnDestroy {
   private _selected = false;
   private _active = false;
   private _disabled = false;
@@ -157,16 +154,16 @@ export class _XcuOptionBase
     }
   }
 
-  /** Sets focus onto this option. */
-  public focus(_origin?: FocusOrigin, options?: FocusOptions): void {
-    // Note that we aren't using `_origin`, but we need to keep it because some internal consumers
-    // use `XcuOptionComponent` in a `FocusKeyManager` and we need it to match `FocusableOption`.
-    const element = this._getHostElement();
+  // /** Sets focus onto this option. */
+  // public focus(_origin?: FocusOrigin, options?: FocusOptions): void {
+  //   // Note that we aren't using `_origin`, but we need to keep it because some internal consumers
+  //   // use `XcuOptionComponent` in a `FocusKeyManager` and we need it to match `FocusableOption`.
+  //   const element = this._getHostElement();
 
-    if (typeof element.focus === 'function') {
-      element.focus(options);
-    }
-  }
+  //   if (typeof element.focus === 'function') {
+  //     element.focus(options);
+  //   }
+  // }
 
   /**
    * This method sets display styles on the option to make it appear

@@ -1,9 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { XcuButtonComponent, XcuAnchorComponent } from './button.component';
+import { XcuLoaderModule } from '@multiplicu/ui/loader';
+import { XcuButtonGroupComponent } from './button-group/button-group.component';
+import { XcuAnchorComponent, XcuButtonComponent } from './button.component';
 
 @NgModule({
-  declarations: [XcuButtonComponent, XcuAnchorComponent],
-  imports: [],
-  exports: [XcuButtonComponent, XcuAnchorComponent],
+  declarations: [
+    XcuButtonComponent,
+    XcuAnchorComponent,
+    XcuButtonGroupComponent,
+  ],
+  imports: [CommonModule, XcuLoaderModule],
+  exports: [XcuButtonComponent, XcuAnchorComponent, XcuButtonGroupComponent],
 })
 export class XcuButtonModule {}

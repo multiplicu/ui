@@ -20,38 +20,38 @@ import { QuestionComponent } from './question/question.component';
 export class FaqComponent implements AfterViewInit {
   @ContentChildren(QuestionComponent) questions: QueryList<QuestionComponent>;
 
-  private isAccordion_: boolean;
-  private isSideBySide_: boolean;
-  private isTwoColumns_: boolean;
+  private _isAccordion: boolean;
+  private _isSideBySide: boolean;
+  private _isTwoColumns: boolean;
 
   @HostBinding('class.accordion')
   @Input()
   public get accordion(): any {
-    return this.isAccordion_;
+    return this._isAccordion;
   }
 
   public set accordion(value: any) {
-    this.isAccordion_ = coerceBooleanProperty(value);
+    this._isAccordion = coerceBooleanProperty(value);
   }
 
   @HostBinding('class.side-by-side')
   @Input('side-by-side')
   public get sideBySide(): any {
-    return this.isSideBySide_;
+    return this._isSideBySide;
   }
 
   public set sideBySide(value: any) {
-    this.isSideBySide_ = coerceBooleanProperty(value);
+    this._isSideBySide = coerceBooleanProperty(value);
   }
 
   @HostBinding('class.two-columns')
   @Input('two-columns')
   public get twoColumns(): any {
-    return this.isTwoColumns_;
+    return this._isTwoColumns;
   }
 
   public set twoColumns(value: any) {
-    this.isTwoColumns_ = coerceBooleanProperty(value);
+    this._isTwoColumns = coerceBooleanProperty(value);
   }
 
   public constructor() {}
@@ -59,7 +59,7 @@ export class FaqComponent implements AfterViewInit {
   public ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
-    if (this.isAccordion_) {
+    if (this._isAccordion) {
       this.questions
         .toArray()
         .forEach((question: QuestionComponent) =>

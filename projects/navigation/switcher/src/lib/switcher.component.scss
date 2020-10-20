@@ -1,5 +1,6 @@
 :host {
   --switcher__border-color: #d3dddc;
+  --shadow__offset: 1.6rem;
 
   display: inline-flex;
   position: relative;
@@ -28,9 +29,6 @@ a + .divider,
   display: none;
   position: absolute;
   z-index: 999;
-  right: auto;
-  left: calc(-18px + var(--shadow-offset, 0));
-  top: 100%;
 }
 
 nav {
@@ -44,7 +42,6 @@ nav {
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgb(136 152 170 / 10%),
     0 15px 35px 0 rgb(49 49 93 / 10%), 0 5px 15px 0 rgb(0 0 0 / 8%);
-  margin-top: 0.8rem;
   max-height: var(--switcher--max-height, 48rem);
   overflow: hidden;
   overflow-y: auto;
@@ -56,15 +53,64 @@ nav {
       0 15px 35px 0 rgb(49 61 93 / 24%), 0 5px 15px 0 rgb(0 0 0 / 69%);
   }
 
-  a {
+  .nav__link {
+    display: block;
     color: inherit;
     font-size: 1.4rem;
-    padding: 12px 18px;
+    padding: 12px 16px;
     transition: background-color 0.18s ease-in-out 0s;
+    cursor: pointer;
 
     &:hover {
       background-color: var(--nav-link__hover-color);
     }
+  }
+}
+
+// Menu is positioned below
+:host-context(.below) {
+  .shadow {
+    top: 100%;
+
+    nav {
+      margin-top: 0.8rem;
+    }
+  }
+}
+
+// Menu is positioned above
+:host-context(.above) {
+  .shadow {
+    bottom: 100%;
+
+    nav {
+      margin-bottom: 0.8rem;
+    }
+  }
+}
+
+// Menu is positioned before
+:host-context(.before) {
+  --shadow__offset: 0px;
+  .shadow {
+    left: auto;
+    right: calc(var(--shadow__offset, 0px) + var(--shadow-offset, 0px));
+  }
+}
+
+// Menu is positioned after
+:host-context(.after) {
+  .shadow {
+    right: auto;
+    left: calc(
+      (-1 * var(--shadow__offset, 1.6rem)) + var(--shadow-offset, 0px)
+    );
+  }
+}
+
+:host-context(.bordered) {
+  .shadow {
+    --shadow__offset: 0.8rem;
   }
 }
 
@@ -126,9 +172,9 @@ nav {
 }
 
 .toggle-start:not(:empty) {
-  margin-right: 1.2rem;
+  margin-right: var(--toggle__inner-padding, 1.2rem);
 }
 
 .toggle-end:not(:empty) {
-  margin-left: 1.2rem;
+  margin-left: var(--toggle__inner-padding, 1.2rem);
 }

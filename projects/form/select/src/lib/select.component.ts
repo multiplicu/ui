@@ -136,7 +136,8 @@ const _XcuSelectMixinBase: CanDisableCtor &
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class XcuSelectComponent extends _XcuSelectMixinBase
+export class XcuSelectComponent
+  extends _XcuSelectMixinBase
   implements
     AfterContentInit,
     OnInit,

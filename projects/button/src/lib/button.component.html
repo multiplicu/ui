@@ -1,3 +1,8 @@
+<ng-content select=".start"></ng-content>
+
 <span class="xcu-button__label">
-  <ng-content></ng-content>
+  <ng-content *ngIf="!loading"></ng-content>
+  <xcu-mark *ngIf="loading"></xcu-mark>
 </span>
+
+<ng-content select=".end"></ng-content>

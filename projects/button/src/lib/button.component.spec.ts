@@ -1,20 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { XcuButtonComponent } from './button.component';
 
-import { ButtonComponent } from './button.component';
+describe('XcuButtonComponent', () => {
+  let component: XcuButtonComponent;
+  let fixture: ComponentFixture<XcuButtonComponent>;
 
-describe('ButtonComponent', () => {
-  let component: ButtonComponent;
-  let fixture: ComponentFixture<ButtonComponent>;
-
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [XcuButtonComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ButtonComponent);
+    fixture = TestBed.createComponent(XcuButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

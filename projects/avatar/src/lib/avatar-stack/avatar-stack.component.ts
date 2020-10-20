@@ -48,11 +48,13 @@ export class XcuAvatarStackComponent implements AfterContentInit {
   public ngAfterContentInit(): void {
     if (this.max) {
       // Hide the avatars after the max length
-      this.avatars.forEach((avatar: XcuAvatarComponent, index: number) => {
-        if (index >= this.max) {
-          avatar.hidden = true;
-        }
-      });
+      setTimeout(() =>
+        this.avatars.forEach((avatar: XcuAvatarComponent, index: number) => {
+          if (index >= this.max) {
+            avatar.hidden = true;
+          }
+        })
+      );
 
       // Show a counter with the length of the hidden avatars
       this.maxLengthDifference = this.avatars.length - this.max;

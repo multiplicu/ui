@@ -15,12 +15,12 @@ class XcuMenuBase {
   public constructor(public elementRef: ElementRef) {}
 }
 
-const XcuMenuBase_: CanOpenOnHoverCtor & typeof XcuMenuBase = mixinOpenOnHover(
+const _XcuMenuBase: CanOpenOnHoverCtor & typeof XcuMenuBase = mixinOpenOnHover(
   XcuMenuBase
 );
 
 @Directive()
-export class HoverMenu extends XcuMenuBase_ {
+export class HoverMenu extends _XcuMenuBase {
   @HostBinding('class.menu--active')
   @Input()
   public isActive: boolean;
@@ -41,8 +41,28 @@ export class HoverMenu extends XcuMenuBase_ {
   public onHoverOut(event: Event): void {
     if (!this.openOnHover) return;
 
+    this.close();
+  }
+
+  /**
+   * Closes the menu and emits the toggled event to False
+   *
+   * @memberof HoverMenu
+   */
+  public close(): void {
     this.isActive = false;
 
     this.toggled.emit(false);
+  }
+
+  /**
+   * Opens the menu and emits the toggled event to True
+   *
+   * @memberof HoverMenu
+   */
+  public open(): void {
+    this.isActive = true;
+
+    this.toggled.emit(true);
   }
 }

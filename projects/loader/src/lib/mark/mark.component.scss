@@ -1,0 +1,178 @@
+:host {
+  font-size: var(--mark-size, 10px);
+  width: 100%;
+  height: 100%;
+  max-height: 14.4em;
+  max-width: 15.2em;
+  position: relative;
+  color: var(--textcolor);
+
+  .diamond {
+    animation-name: spin;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    background-color: currentColor;
+    height: 3.4em;
+    width: 3.4em;
+    display: block;
+    position: absolute;
+    left: calc(50% - 1.7em);
+    top: calc(50% - 1.8em);
+    transform: rotate(45deg);
+    transform-origin: center;
+  }
+
+  .vl {
+    animation-name: vl;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.4s;
+
+    background-color: currentColor;
+    height: 0;
+    width: 2.8em;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .vr {
+    animation-name: vl;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-delay: 0.4s;
+
+    background-color: currentColor;
+    height: 0;
+    width: 2.8em;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .xtl {
+    animation-name: xt;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    background-color: currentColor;
+    transform: rotate(-45deg);
+    width: 3.4em;
+    position: absolute;
+    left: calc(50% - 3.6em);
+    bottom: calc(50% + 2.6em);
+    transform-origin: bottom right;
+  }
+
+  .xtr {
+    animation-name: xt;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    background-color: currentColor;
+    transform: rotate(45deg);
+    width: 3.4em;
+    position: absolute;
+    right: calc(50% - 3.6em);
+    bottom: calc(50% + 2.6em);
+    transform-origin: bottom left;
+  }
+
+  .xbl {
+    animation-name: xb;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    border: solid transparent;
+    border-width: 0 0.3em 0.3em;
+    transform: rotate(45deg);
+    width: 3.4em;
+    height: 0;
+    position: absolute;
+    left: calc(50% - 3.4em);
+    top: calc(50% + 2.3em);
+    transform-origin: top right;
+  }
+
+  .xbr {
+    animation-name: xb;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    border: solid transparent;
+    border-width: 0 0.3em 0.3em;
+    transform: rotate(-45deg);
+    width: 3.4em;
+    height: 0;
+    position: absolute;
+    right: calc(50% - 3.4em);
+    top: calc(50% + 2.3em);
+    transform-origin: top left;
+  }
+}
+
+@keyframes xt {
+  0% {
+    height: 0;
+  }
+  5% {
+    height: 45%;
+  }
+  75% {
+    height: 45%;
+  }
+  80% {
+    height: 0;
+  }
+}
+
+@keyframes xb {
+  0% {
+    height: 0;
+    border-color: transparent;
+  }
+  5% {
+    height: 48%;
+    border-color: currentColor;
+  }
+  75% {
+    height: 48%;
+    border-color: currentColor;
+  }
+  80% {
+    height: 0;
+    border-color: transparent;
+  }
+}
+
+@keyframes vl {
+  0% {
+    height: 0;
+  }
+  5% {
+    height: 100%;
+  }
+  65% {
+    height: 100%;
+  }
+  70% {
+    height: 0;
+  }
+}
+
+@keyframes spin {
+  80% {
+    transform: rotate(45deg);
+    border-radius: 0;
+  }
+  90% {
+    transform: rotate(225deg);
+    border-radius: 50%;
+  }
+  91% {
+    transform: rotate(45deg);
+  }
+}

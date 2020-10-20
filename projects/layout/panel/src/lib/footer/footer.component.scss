@@ -1,0 +1,12 @@
+:host {
+  border-top: 1px solid transparent;
+  padding: var(--footer--padding, 2.4rem);
+
+  &.bordered {
+    border-color: rgba(0, 0, 0, 0.05);
+
+    @media (prefers-color-scheme: dark) {
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+}

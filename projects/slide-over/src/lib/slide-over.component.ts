@@ -24,42 +24,42 @@ export class XcuSlideOverComponent {
   public closePosition: 'OUTSIDE' | 'INSIDE' = 'INSIDE';
 
   // Open
-  private open_: boolean = false;
+  private _open: boolean = false;
 
   @HostBinding('class.open')
   @Input()
   public get open(): any {
-    return this.open_;
+    return this._open;
   }
 
   public set open(value: any) {
-    this.open_ = coerceBooleanProperty(value);
+    this._open = coerceBooleanProperty(value);
   }
 
   // Wide
-  private wide_: boolean = false;
+  private _wide: boolean = false;
 
   @HostBinding('class.wide')
   @Input()
   public get wide(): any {
-    return this.wide_;
+    return this._wide;
   }
 
   public set wide(value: any) {
-    this.wide_ = coerceBooleanProperty(value);
+    this._wide = coerceBooleanProperty(value);
   }
 
   // Overlay
-  private overlay_: boolean = false;
+  private _overlay: boolean = false;
 
   @HostBinding('class.overlay')
   @Input()
   public get overlay(): any {
-    return this.overlay_;
+    return this._overlay;
   }
 
   public set overlay(value: any) {
-    this.overlay_ = coerceBooleanProperty(value);
+    this._overlay = coerceBooleanProperty(value);
   }
 
   // Outputs
@@ -91,16 +91,16 @@ export class XcuSlideOverComponent {
     this.open = state;
 
     // Emit output events based on the new state
-    this.open ? this._open() : this._close();
+    this.open ? this._onOpen() : this._onClose();
 
     return state;
   }
 
-  private _close(): void {
+  private _onClose(): void {
     this.onClose.emit();
   }
 
-  private _open(): void {
+  private _onOpen(): void {
     this.onOpen.emit();
   }
 }

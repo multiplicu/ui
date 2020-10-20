@@ -54,7 +54,8 @@ const _XcuInputMixinBase: CanUpdateErrorStateCtor &
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: XcuFormFieldControl, useExisting: XcuInputComponent }],
 })
-export class XcuInputComponent extends _XcuInputMixinBase
+export class XcuInputComponent
+  extends _XcuInputMixinBase
   implements XcuFormFieldControl<any>, DoCheck, CanUpdateErrorState {
   protected _uid = `xcu-input-${nextUniqueId++}`;
   protected _previousNativeValue: any;

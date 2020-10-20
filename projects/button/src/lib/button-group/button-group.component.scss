@@ -1,0 +1,19 @@
+.xcu-button-group {
+  // First button in the group, with multiple buttons
+  .xcu-button:first-of-type:not(:last-of-type) {
+    border-radius: 2px 0 0 2px;
+  }
+
+  // Last button in the group, with multiple buttons
+  .xcu-button:last-of-type:not(:first-of-type) {
+    border-radius: 0 2px 2px 0;
+  }
+
+  .xcu-button:not(:first-of-type) {
+    border-left-width: 0 !important;
+  }
+
+  .xcu-button {
+    border-radius: 0;
+  }
+}

@@ -12,14 +12,14 @@ export function mixinDisabled<T extends Constructor<{}>>(
   base: T
 ): CanDisableCtor & T {
   return class extends base {
-    private disabled_: boolean = false;
+    private _disabled: boolean = false;
 
     public get disabled(): any {
-      return this.disabled_;
+      return this._disabled;
     }
 
     public set disabled(value: any) {
-      this.disabled_ = coerceBooleanProperty(value);
+      this._disabled = coerceBooleanProperty(value);
     }
 
     public constructor(...args: any[]) {

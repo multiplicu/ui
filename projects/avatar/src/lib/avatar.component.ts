@@ -26,24 +26,25 @@ export class XcuAvatarComponent {
   public set notificationPosition(value: 'top' | 'bottom') {
     this._notificationPosition = value;
 
-    (this.getHostElement_() as HTMLElement).classList.remove(
+    (this._getHostElement() as HTMLElement).classList.remove(
       ...['dot--top', 'dot--bottom']
     );
-    (this.getHostElement_() as HTMLElement).classList.add(`dot--${value}`);
+    (this._getHostElement() as HTMLElement).classList.add(`dot--${value}`);
   }
 
-  private size_: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
+  private _size: 'xs' | 'sm' | 'md' | 'lg' | 'xl' = 'md';
   private _hidden: boolean = false;
+  private _highlight: boolean = false;
   private _rounded: boolean = false;
   private _hasNotification: boolean = false;
 
   @Input()
   public get size(): 'xs' | 'sm' | 'md' | 'lg' | 'xl' {
-    return this.size_;
+    return this._size;
   }
 
   public set size(value: 'xs' | 'sm' | 'md' | 'lg' | 'xl') {
-    this.size_ = value;
+    this._size = value;
 
     const sizeClasses: string[] = [
       'size--xs',
@@ -53,8 +54,18 @@ export class XcuAvatarComponent {
       'size--xl',
     ];
 
-    (this.getHostElement_() as HTMLElement).classList.remove(...sizeClasses);
-    (this.getHostElement_() as HTMLElement).classList.add(`size--${value}`);
+    (this._getHostElement() as HTMLElement).classList.remove(...sizeClasses);
+    (this._getHostElement() as HTMLElement).classList.add(`size--${value}`);
+  }
+
+  @HostBinding('class.highlight')
+  @Input()
+  public get highlight(): any {
+    return this._highlight;
+  }
+
+  public set highlight(value: any) {
+    this._highlight = coerceBooleanProperty(value);
   }
 
   @HostBinding('class.rounded')
@@ -86,9 +97,27 @@ export class XcuAvatarComponent {
     this._hidden = coerceBooleanProperty(value);
   }
 
+  public get sizeInPixels(): string {
+    switch (this.size) {
+      case 'xs':
+        return '24';
+      case 'sm':
+        return '32';
+      case 'md':
+        return '40';
+      case 'lg':
+        return '48';
+      case 'xl':
+        return '56';
+
+      default:
+        break;
+    }
+  }
+
   public constructor(public elementRef: ElementRef) {}
 
-  private getHostElement_(): any {
+  private _getHostElement(): any {
     return this.elementRef.nativeElement;
   }
 }
