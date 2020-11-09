@@ -1,15 +1,21 @@
 <ng-content #label select="label"></ng-content>
 
-<ng-content #input select="input"></ng-content>
+<div class="input-wrapper">
+  <div class="form-field-prefix" *ngIf="prefixChildren.length">
+    <ng-content select="[xcu-prefix]"></ng-content>
+  </div>
 
-<div *ngIf="control.controlType === 'xcu-native-select'" class="select">
-  <ng-content #input select="input,select"></ng-content>
+  <ng-content #input select="input"></ng-content>
 
-  <span class="select-arrows">
-    <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor">
-      <path d="M7 7l3-3 3 3m0 6l-3 3-3-3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-    </svg>
-  </span>
+  <div *ngIf="control.controlType === 'xcu-native-select'" class="select">
+    <ng-content #input select="input,select"></ng-content>
+
+    <span class="select-arrows">
+      <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" width="20" height="20" fill="none" stroke="currentColor">
+        <path d="M7 7l3-3 3 3m0 6l-3 3-3-3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </span>
+  </div>
 </div>
 
 <ng-container [ngSwitch]="getDisplayedMessages()">

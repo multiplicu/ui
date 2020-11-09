@@ -1,4 +1,3 @@
-import { XcuError } from './../objects/error';
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
@@ -14,10 +13,13 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
+import { coerceBooleanProperty } from '@multiplicu/ui/core';
 import { Subject } from 'rxjs';
 import { startWith, takeUntil } from 'rxjs/operators';
+import { XcuError } from './../objects/error';
 import { XcuFormFieldControl } from './../objects/form-field-control';
 import { XcuHint } from './../objects/hint';
+import { XcuPrefix } from './../objects/prefix';
 
 /**
  * Injection token that can be used to inject an instances of `XcuFormField`. It serves
@@ -46,26 +48,31 @@ export const XCU_FORM_FIELD = new InjectionToken<XcuFormFieldComponent>(
 export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
   public _required: boolean;
   @HostBinding('class.required')
-  @Input('required')
-  public get required(): boolean {
+  @Input()
+  public get required(): any {
     return this._required;
   }
-  public set required(v: boolean) {
-    this._required = v || v !== undefined;
+
+  public set required(value: any) {
+    this._required = coerceBooleanProperty(value);
   }
 
   public _optional: boolean;
   @HostBinding('class.optional')
-  @Input('optional')
-  public get optional(): boolean {
+  @Input()
+  public get optional(): any {
     return this._optional;
   }
-  public set optional(v: boolean) {
-    this._optional = v || v !== undefined;
+
+  public set optional(value: any) {
+    this._optional = coerceBooleanProperty(value);
   }
 
   @ContentChild(XcuFormFieldControl)
   public _formFieldControl: XcuFormFieldControl<any>;
+
+  @ContentChildren(XcuPrefix, { descendants: true })
+  public prefixChildren: QueryList<XcuPrefix> = new QueryList<XcuPrefix>();
 
   @ContentChild(XcuFormFieldControl) controlNonStatic: XcuFormFieldControl<any>;
   @ContentChild(XcuFormFieldControl, { static: true })
