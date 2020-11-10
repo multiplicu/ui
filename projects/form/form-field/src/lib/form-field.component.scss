@@ -56,24 +56,39 @@
   height: 3.6rem;
 }
 
-.form-field-prefix {
+.form-field-prefix,
+.form-field-suffix {
   --margin-bottom: 8px;
   --border-color: rgba(var(--theme-rgb--primary), 0.3);
 
-  display: flex;
   align-items: center;
-  margin-bottom: var(--margin-bottom, 0);
-  padding: 0 0.8rem;
-
-  min-height: 3.6rem;
-  border-radius: 2px 0 0 2px;
   border: 1px solid var(--border-color);
+  display: flex;
+  font-size: var(--font-size--small);
+  margin-bottom: var(--margin-bottom, 0);
+  min-height: 3.6rem;
+  padding: 0 0.8rem;
+  white-space: nowrap;
+}
+
+.form-field-prefix {
   border-right-width: 0;
+  border-radius: 2px 0 0 2px;
 
   & + .xcu-input-element {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
+}
+
+.form-field-suffix {
+  border-left-width: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+.has-suffix .xcu-input-element {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .input-wrapper {

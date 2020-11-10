@@ -1,6 +1,6 @@
 <ng-content #label select="label"></ng-content>
 
-<div class="input-wrapper">
+<div class="input-wrapper" [class.has-suffix]="suffixChildren.length">
   <div class="form-field-prefix" *ngIf="prefixChildren.length">
     <ng-content select="[xcu-prefix]"></ng-content>
   </div>
@@ -15,6 +15,10 @@
         <path d="M7 7l3-3 3 3m0 6l-3 3-3-3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
       </svg>
     </span>
+  </div>
+
+  <div class="form-field-suffix" *ngIf="suffixChildren.length">
+    <ng-content select="[xcu-suffix]"></ng-content>
   </div>
 </div>
 

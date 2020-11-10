@@ -20,6 +20,7 @@ import { XcuError } from './../objects/error';
 import { XcuFormFieldControl } from './../objects/form-field-control';
 import { XcuHint } from './../objects/hint';
 import { XcuPrefix } from './../objects/prefix';
+import { XcuSuffix } from './../objects/suffix';
 
 /**
  * Injection token that can be used to inject an instances of `XcuFormField`. It serves
@@ -73,6 +74,9 @@ export class XcuFormFieldComponent implements AfterContentInit, OnDestroy {
 
   @ContentChildren(XcuPrefix, { descendants: true })
   public prefixChildren: QueryList<XcuPrefix> = new QueryList<XcuPrefix>();
+
+  @ContentChildren(XcuSuffix, { descendants: true })
+  public suffixChildren: QueryList<XcuSuffix> = new QueryList<XcuSuffix>();
 
   @ContentChild(XcuFormFieldControl) controlNonStatic: XcuFormFieldControl<any>;
   @ContentChild(XcuFormFieldControl, { static: true })

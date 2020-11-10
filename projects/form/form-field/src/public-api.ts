@@ -8,3 +8,4 @@ export * from './objects/error';
 export * from './objects/form-field-control';
 export * from './objects/hint';
 export * from './objects/prefix';
+export * from './objects/suffix';
