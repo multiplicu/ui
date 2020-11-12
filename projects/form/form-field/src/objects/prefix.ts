@@ -1,4 +1,5 @@
 import { Directive, InjectionToken } from '@angular/core';
+import { XcuAffix } from './affix';
 
 /**
  * Injection token that can be used to reference instances of `XcuPrefix`. It serves as
@@ -13,6 +14,9 @@ export const _XCU_PREFIX = new InjectionToken<XcuPrefix>('XcuPrefix');
 /** Hint text to be shown underneath the form field control. */
 @Directive({
   selector: '[xcu-prefix]',
+  host: {
+    class: 'xcu-prefix',
+  },
   providers: [{ provide: _XCU_PREFIX, useExisting: XcuPrefix }],
 })
-export class XcuPrefix {}
+export class XcuPrefix extends XcuAffix {}

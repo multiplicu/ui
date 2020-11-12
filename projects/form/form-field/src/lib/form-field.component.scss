@@ -10,6 +10,10 @@
     content: 'Required';
   }
 
+  &--invalid {
+    --border-color: var(--color--warning);
+  }
+
   label {
     --cap-height: 0.828;
     --font-size: var(--font-size--small);
@@ -56,10 +60,16 @@
   height: 3.6rem;
 }
 
-.form-field-prefix,
-.form-field-suffix {
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+// Affix stylings
+.xcu-prefix,
+.xcu-suffix {
   --margin-bottom: 8px;
-  --border-color: rgba(var(--theme-rgb--primary), 0.3);
+  --border-color: rgba(var(--theme-rgb--primary), 0.4);
 
   align-items: center;
   border: 1px solid var(--border-color);
@@ -69,9 +79,29 @@
   min-height: 3.6rem;
   padding: 0 0.8rem;
   white-space: nowrap;
+
+  &.dropdown {
+    border: 0;
+    padding: 0;
+    flex-shrink: 0;
+
+    .xcu-input-element {
+      margin-bottom: 0;
+      min-height: 3.4rem;
+      margin-right: 0.8rem;
+    }
+  }
 }
 
-.form-field-prefix {
+.xcu-prefix.dropdown .xcu-input-element {
+  border-radius: 2px 0 0 2px;
+}
+
+.xcu-suffix.dropdown .xcu-input-element {
+  border-radius: 0 2px 2px 0;
+}
+
+.xcu-prefix {
   border-right-width: 0;
   border-radius: 2px 0 0 2px;
 
@@ -79,19 +109,22 @@
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
+
+  &.inline + .xcu-input-element {
+    border-left-width: 0;
+  }
 }
 
-.form-field-suffix {
+.xcu-suffix {
   border-left-width: 0;
   border-radius: 0 2px 2px 0;
 }
 
-.has-suffix .xcu-input-element {
+.has-suffix > .xcu-input-element {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
 
-.input-wrapper {
-  display: flex;
-  align-items: center;
+.has-inline-suffix > .xcu-input-element {
+  border-right-width: 0 !important;
 }
