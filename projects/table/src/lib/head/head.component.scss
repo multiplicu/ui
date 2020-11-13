@@ -10,9 +10,6 @@ th,
 
   background-color: var(--background-color);
   background-color: rgb(var(--background-color--rgb) / var(--bg-opacity));
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: var(--border-color);
   color: var(--color);
   color: rgb(var(--color--rgb) / var(--text-opacity));
   font-weight: var(--font-weight--semi-bold);
@@ -25,5 +22,11 @@ th,
     --background-color--rgb: 24 51 68;
     --color--rgb: 255 255 255;
     --text-opacity: 0.87;
+  }
+
+  @media (min-width: 480px) {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--border-color);
   }
 }

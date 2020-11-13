@@ -10,3 +10,19 @@ table,
   //   --border-color--rgb: 32 92 64;
   // }
 }
+
+tr {
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 480px) {
+    display: table-row;
+  }
+}
+tbody tr {
+  border-bottom: 1px solid var(--border-color);
+
+  @media (min-width: 480px) {
+    border-bottom: 0;
+  }
+}

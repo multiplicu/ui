@@ -4,7 +4,10 @@ td,
   white-space: nowrap;
   padding: 1.6rem 2.4rem !important;
   vertical-align: middle;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  border-bottom-color: var(--border-color);
+
+  @media (min-width: 480px) {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--border-color);
+  }
 }
