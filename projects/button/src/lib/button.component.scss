@@ -6,8 +6,8 @@
   --button__color--visited: var(--button__color);
   --button__color--hover: var(--textcolor);
   --button__color--active: var(--textcolor);
-  --button__padding: 0 16px;
-  --button__height: 40px;
+  --button__padding: 0 12px;
+  --button__height: 36px;
   --button__font-size: 1.4rem;
   --button__font-weight: 600;
   --button__border-width: 1px;
@@ -23,7 +23,7 @@
   font-family: inherit;
   font-size: var(--button__font-size);
   font-weight: var(--button__font-weight, 600);
-  height: calc(var(--button__height) + var(--button__border-width));
+  height: var(--button__height);
   line-height: var(--button__height);
   // margin-right: 16px;
   overflow: hidden;
