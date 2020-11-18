@@ -3,11 +3,12 @@
 
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: var(--checkbox-align, center);
 
   &.xcu-checkbox--small {
     --checkbox-width: 1.6rem;
     --checkbox-font-size: 1.4rem;
+    --checkbox-margin--left: 0.8rem;
   }
 
   &.disabled {
@@ -37,7 +38,7 @@
   margin: 0;
 
   &:checked {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L7 8.586 5.707 7.293z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
     border-color: transparent;
     background-color: var(
       --checkbox-background-color--selected,
@@ -47,6 +48,10 @@
     background-position: 50%;
     background-repeat: no-repeat;
     color: var(--checkbox-color--selected, var(--theme--background));
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 00-1.414-1.414L7 8.586 5.707 7.293z'/%3E%3C/svg%3E");
+    }
   }
 
   &:focus {
@@ -78,13 +83,13 @@
 }
 
 .xcu-checkbox-label {
-  align-items: center;
+  align-items: var(--checkbox-align, center);
   cursor: inherit;
   display: flex;
   flex: 1;
   font-size: var(--checkbox-font-size, 1.6rem);
   justify-content: space-between;
-  margin-left: 0.8rem;
+  margin-left: var(--checkbox-margin--left, 1.2rem);
 }
 
 .end {
