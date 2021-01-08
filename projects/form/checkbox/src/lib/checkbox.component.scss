@@ -1,9 +1,9 @@
 :host {
-  --checkbox-width: 2.4rem;
+  --checkbox-width: 1.6rem;
 
   cursor: pointer;
   display: flex;
-  align-items: var(--checkbox-align, center);
+  align-items: var(--checkbox-align, flex-start);
 
   &.xcu-checkbox--small {
     --checkbox-width: 1.6rem;
@@ -83,13 +83,21 @@
 }
 
 .xcu-checkbox-label {
-  align-items: var(--checkbox-align, center);
-  cursor: inherit;
+  font-weight: var(--font-weight--medium);
+  color: var(--textcolor);
+}
+
+.input-container {
   display: flex;
-  flex: 1;
+  height: 2rem;
+  align-items: center;
+}
+
+.content {
   font-size: var(--checkbox-font-size, 1.6rem);
-  justify-content: space-between;
   margin-left: var(--checkbox-margin--left, 1.2rem);
+  line-height: 2rem;
+  color: var(--textcolor--secondary);
 }
 
 .end {
