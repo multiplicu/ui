@@ -21,7 +21,7 @@
 
     color: var(--textcolor);
     display: block;
-    font-weight: var(--font-weight--bold);
+    font-weight: var(--font-weight--semi-bold);
     margin-bottom: calc(var(--font-line-height) - var(--baseline-offset) - 4px);
     max-width: var(--paragraph--max-width);
     user-select: none;
@@ -29,7 +29,7 @@
     &:after {
       float: right;
       color: var(--textcolor--secondary);
-      font-weight: var(--font-weight--semi-bold);
+      font-weight: var(--font-weight--medium);
     }
   }
 
@@ -70,7 +70,7 @@
 .xcu-prefix,
 .xcu-suffix {
   // --margin-bottom: 8px;
-  --border-color: rgba(var(--theme-rgb--primary), 0.4);
+  --border-color: var(--color--gray-300);
 
   align-items: center;
   border: 1px solid var(--border-color);
@@ -80,6 +80,10 @@
   min-height: 3.6rem;
   padding: 0 0.8rem;
   white-space: nowrap;
+
+  @media (prefers-color-scheme: dark) {
+    --border-color: var(--color--gray-600);
+  }
 
   &.dropdown {
     border: 0;

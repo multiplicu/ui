@@ -873,6 +873,46 @@
           }
         }
       }
+    },
+    "radio": {
+      "projectType": "library",
+      "root": "projects/form/radio",
+      "sourceRoot": "projects/form/radio/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/form/radio/tsconfig.lib.json",
+            "project": "projects/form/radio/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/form/radio/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/form/radio/src/test.ts",
+            "tsConfig": "projects/form/radio/tsconfig.spec.json",
+            "karmaConfig": "projects/form/radio/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/form/radio/tsconfig.lib.json",
+              "projects/form/radio/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "core"

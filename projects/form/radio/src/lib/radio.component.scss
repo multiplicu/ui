@@ -1,0 +1,163 @@
+:host {
+  --radio-width: fit-content;
+  --radio-input-width: 1.6rem;
+
+  display: flex;
+  width: var(--radio-width, fit-content);
+
+  &.xcu-radio--small {
+    --radio-input-width: 1.6rem;
+    --radio-font-size: 1.4rem;
+  }
+
+  &.disabled {
+    cursor: default;
+  }
+
+  &.check {
+    .xcu-radio-input:checked {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+
+      @media (prefers-color-scheme: dark) {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+      }
+    }
+  }
+
+  &.bordered {
+    --radio-padding: 0.8rem 1.2rem;
+    --radio-border-radius: 2px;
+    --radio-border-width: 2px;
+
+    label {
+      border-radius: var(--radio-border-radius, 2px);
+      border-width: var(--radio-border-width, 2px);
+      transition: border-color 0.1s ease;
+      will-change: border-color;
+    }
+
+    &.xcu-radio-checked label {
+      border-color: var(--theme--primary);
+    }
+  }
+}
+
+label {
+  --radio-flex-direction: row;
+
+  cursor: pointer;
+  display: flex;
+  flex-direction: var(--radio-flex-direction, row);
+  align-items: var(--radio-align, flex-start);
+  padding: var(--radio-padding, 0);
+
+  &.radio--align-end {
+    --radio-flex-direction: row-reverse;
+  }
+}
+
+.xcu-radio-input__container {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.xcu-radio-input {
+  --radio-border-color: var(--color--gray-300);
+
+  appearance: none;
+  color-adjust: exact;
+  cursor: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  background-origin: border-box;
+  user-select: none;
+  flex-shrink: 0;
+  height: var(--radio-input-width);
+  width: var(--radio-input-width);
+  color: var(--radio-color, var(--theme--primary));
+  background-color: var(--radio-background-color, initial);
+  border: 2px solid var(--radio-border-color, var(--theme--primary));
+  border-radius: 100%;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+  margin: 0;
+
+  @media (prefers-color-scheme: dark) {
+    --radio-border-color: var(--color--gray-600);
+  }
+
+  &:checked {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+    border-color: transparent;
+    background-color: var(
+      --radio-background-color--selected,
+      var(--theme--primary)
+    );
+    background-size: 100% 100%;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    color: var(--radio-color--selected, var(--theme--background));
+
+    @media (prefers-color-scheme: dark) {
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(0 79 113 / 0.45);
+    border-color: var(--theme--primary);
+
+    @media (prefers-color-scheme: dark) {
+      box-shadow: 0 0 0 3px rgb(87 193 142 / 0.45);
+    }
+
+    &:invalid {
+      box-shadow: 0 0 0 3px rgb(211 47 47 / 0.45);
+    }
+  }
+
+  &:invalid {
+    border-color: var(--color--warning);
+  }
+
+  &[disabled],
+  &.disabled {
+    background-color: #b0b0b0;
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #686868;
+    }
+  }
+}
+
+.xcu-radio-label {
+  font-weight: var(--font-weight--semi-bold);
+  color: var(--textcolor);
+}
+
+.label-container {
+  --radio-label-margin: 0 0 0 1.2rem;
+
+  display: inline-flex;
+  flex-direction: column;
+  font-size: var(--radio-font-size, 1.4rem);
+  margin: var(--radio-label-margin, 0 0 0 1.2rem);
+  line-height: 2rem;
+  color: var(--textcolor--secondary);
+  font-weight: var(--font-weight--medium);
+}
+.radio--align-end .label-container {
+  --radio-label-margin: 0 1.2rem 0 0;
+}
+
+.end {
+  margin-left: 1.6rem;
+
+  &:empty {
+    display: none;
+  }
+}

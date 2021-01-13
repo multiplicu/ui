@@ -109,6 +109,10 @@
       "loader": [
         "dist/loader/loader",
         "dist/loader"
+      ],
+      "radio": [
+        "dist/form/radio/radio",
+        "dist/form/radio"
       ]
     }
   },

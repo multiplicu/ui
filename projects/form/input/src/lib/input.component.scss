@@ -1,6 +1,6 @@
 :host {
   --background-color: #fff;
-  --border-color: rgba(var(--theme-rgb--primary), 0.3);
+  --border-color: var(--color--gray-300);
   --color: var(--textcolor);
   appearance: none;
   background-color: var(--background-color);
@@ -22,7 +22,8 @@
   width: 100%;
 
   @media (prefers-color-scheme: dark) {
-    --background-color: #344056;
+    --background-color: transparent;
+    --border-color: var(--color--gray-600);
 
     &:-webkit-autofill {
       --background-color: #1e293c;
