@@ -6,7 +6,7 @@
   position: relative;
 
   @media (prefers-color-scheme: dark) {
-    --switcher__border-color: var(--color--deep-teal);
+    --switcher__border-color: var(--color--gray-800);
   }
 
   &.menu--active {
