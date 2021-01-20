@@ -100,7 +100,7 @@
 img {
   border-radius: 9999px;
   border-style: solid;
-  color: #fff;
+  color: var(--color--white);
   display: inline-block;
   max-width: 100%;
   height: 4rem;
@@ -117,7 +117,7 @@ img {
   border-radius: 9999px;
   border-style: solid;
   box-shadow: 0 0 0 2px currentColor;
-  color: #fff;
+  color: var(--color--white);
   height: var(--dot-height);
   position: absolute;
   right: 0;
