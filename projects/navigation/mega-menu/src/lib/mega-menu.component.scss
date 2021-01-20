@@ -39,11 +39,11 @@
 .mega-menu__container {
   --menu-transition: var(--transition, 0.2s);
   --menu-transition-delay: var(--transition-delay, 0.2s);
-  --mega-menu__border-color: #dedddc;
+  --mega-menu__border-color: var(--color--gray-200);
   --menu-rotateX: -15deg;
 
   @media (prefers-color-scheme: dark) {
-    --mega-menu__border-color: #223344;
+    --mega-menu__border-color: var(--color--gray-800);
   }
 
   border: 1px solid var(--mega-menu__border-color);
@@ -80,6 +80,7 @@
 }
 
 .mega-menu__content {
+  --mega-menu__background-color: var(--color--white);
   --columns: 2;
 
   display: grid;
@@ -87,8 +88,13 @@
   // grid-gap: 3.2rem;
   grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 
-  background-color: var(--theme--background);
+  background-color: var(--mega-menu__background-color);
   padding: 3.2rem;
   position: relative;
   z-index: 20;
+
+  @media (prefers-color-scheme: dark) {
+    --mega-menu__background-color: var(--color--gray-900);
+    --mega-menu__border-color: var(--theme--background);
+  }
 }

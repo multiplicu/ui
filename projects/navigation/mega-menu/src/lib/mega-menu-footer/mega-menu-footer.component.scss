@@ -1,5 +1,5 @@
 .xcu-mega-menu-footer {
-  --footer__background-color: #f9fafb;
+  --footer__background-color: var(--color--gray-50);
 
   background-color: var(--footer__background-color);
   height: 100%;
@@ -8,8 +8,8 @@
   z-index: 20;
 
   @media (prefers-color-scheme: dark) {
-    --footer__background-color: #223344;
-    --menu-chevron__border-color: #223344;
+    --footer__background-color: var(--color--gray-800);
+    --menu-chevron__border-color: var(--color--gray-800);
   }
 
   .title {

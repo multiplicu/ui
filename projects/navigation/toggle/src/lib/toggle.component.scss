@@ -59,7 +59,8 @@
   .menu__chevron {
     --menu-transition: var(--transition, 0.05s);
     --menu-transition-delay: var(--transition-delay, 0.05s);
-    --menu-chevron__border-color: #dedddc;
+    --menu-chevron__background-color: var(--color--white);
+    --menu-chevron__border-color: var(--color--gray-200);
     --transform-translate-x: 0.2rem;
     --transform-translate-y: 5.4rem;
     --transform-rotate: 45deg;
@@ -76,7 +77,7 @@
       skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x))
       scaleY(var(--transform-scale-y));
 
-    background: var(--theme--background);
+    background-color: var(--menu-chevron__background-color);
     border-radius: 2px 0 0 0;
     box-shadow: -1px -1px 0 var(--menu-chevron__border-color);
     display: block;
@@ -94,14 +95,15 @@
     z-index: 10;
 
     @media (prefers-color-scheme: dark) {
-      --menu-chevron__border-color: #223344;
+      --menu-chevron__background-color: var(--color--gray-900);
+      --menu-chevron__border-color: var(--color--gray-800);
     }
   }
 
   .menu__chevron--active {
     --menu-transition: 0.1s;
     --menu-transition-delay: 0.1s;
-    --chevron-translateY: var(--chevron-active-translateY, 3.7rem);
+    --chevron-translateY: var(--chevron-active-translateY, 3.8rem);
 
     opacity: 1;
   }

@@ -1,5 +1,5 @@
 :host {
-  --local-nav__border-color: #d3dddc;
+  --local-nav__border-color: var(--color--gray-200);
 
   border-bottom: 1px solid var(--local-nav__border-color);
 

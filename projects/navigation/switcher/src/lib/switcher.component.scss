@@ -1,5 +1,5 @@
 :host {
-  --switcher__border-color: #d3dddc;
+  --switcher__border-color: var(--color--gray-200);
   --shadow__offset: 1.6rem;
 
   display: inline-flex;

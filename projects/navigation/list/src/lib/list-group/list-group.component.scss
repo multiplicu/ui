@@ -1,8 +1,8 @@
 :host {
-  --list-group__border-color: #dedddc;
+  --list-group__border-color: var(--color--gray-200);
 
   @media (prefers-color-scheme: dark) {
-    --list-group__border-color: var(--color--deep-teal);
+    --list-group__border-color: var(--color--gray-800);
   }
 }
 

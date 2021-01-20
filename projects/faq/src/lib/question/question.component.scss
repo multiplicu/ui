@@ -1,5 +1,5 @@
 :host {
-  --question__border-color: #d3dddc;
+  --question__border-color: var(--color--gray-200);
 
   display: flex;
   flex-direction: column;
