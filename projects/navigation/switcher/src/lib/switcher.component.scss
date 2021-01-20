@@ -32,11 +32,11 @@ a + .divider,
 }
 
 nav {
-  --nav-link__hover-color: #e7f0f3;
+  --nav-link__hover-color: var(--color--gray-200);
 
   display: flex;
   flex-direction: column;
-  // border: 1px solid #dedddc;
+  border: 1px solid var(--color--gray-100);
   background-color: var(--theme--background);
   white-space: nowrap;
   border-radius: 2px;
@@ -47,8 +47,9 @@ nav {
   overflow-y: auto;
 
   @media (prefers-color-scheme: dark) {
-    --nav-link__hover-color: rgb(32 48 64 / 30%);
+    --nav-link__hover-color: var(--color--gray-800);
 
+    border: 1px solid var(--color--gray-900);
     box-shadow: 0 0 0 1px rgb(136 152 170 / 10%),
       0 15px 35px 0 rgb(49 61 93 / 24%), 0 5px 15px 0 rgb(0 0 0 / 69%);
   }
