@@ -1,13 +1,13 @@
 :host {
   --button__background-color: var(--theme--primary);
-  --button__background-color--hover: #d9d7cd;
+  --button__background-color--hover: var(--theme--primary);
   // --button__background-color--focus: #cecbbf;
   --button__color: var(--textcolor-reverse);
   --button__color--visited: var(--button__color);
-  --button__color--hover: var(--textcolor);
+  --button__color--hover: var(--textcolor-reverse);
   // --button__color--focus: var(--textcolor);
-  --button__padding: 0 12px;
-  --button__height: 36px;
+  --button__padding: 0 1.2rem;
+  --button__height: 3.6rem;
   --button__font-size: 1.4rem;
   --button__font-weight: 600;
   --button__border-width: 1px;
@@ -31,11 +31,13 @@
   position: relative;
   text-align: center;
   text-decoration: none;
-  transition: border 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s,
-    background-color 0.2s ease-in-out 0s, opacity 0.2s ease-in-out 0s;
+  transition: filter 0.2s ease-in-out 0s, border 0.2s ease-in-out 0s,
+    box-shadow 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s,
+    opacity 0.2s ease-in-out 0s;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  will-change: filter, background-color, color, border, box-shadow, opacity;
 
   @media (prefers-color-scheme: dark) {
     // --button__background-color: #4a5568;
@@ -51,8 +53,12 @@
 
   &:hover {
     cursor: pointer;
-    color: var(--button__color--hover) !important;
-    background-color: var(--button__background-color--hover) !important;
+    color: var(--button__color--hover, var(--button__color)) !important;
+    background-color: var(
+      --button__background-color--hover,
+      var(--button__background-color)
+    ) !important;
+    filter: var(--button__filter--hover, brightness(1.2));
   }
 
   &:focus {
@@ -96,27 +102,59 @@
   }
 
   &.xcu-button--secondary:not([disabled]) {
-    --button__color: var(--button__border-color, var(--theme--primary));
+    --button__color: var(--theme--primary);
+    --button__color--hover: var(--theme--primary);
+    --button__ring-color: var(--button__color);
+    --button__background-color: var(--color--gray-200);
+    --button__background-color--hover: var(--color--gray-300);
+
+    @media (prefers-color-scheme: dark) {
+      --button__background-color: var(--color--gray-800);
+      --button__background-color--hover: var(--color--gray-700);
+    }
+
+    &:hover {
+      --button__filter--hover: none;
+    }
+  }
+
+  &.xcu-button--outline.xcu-button--warning:not([disabled]) {
+    --bg-opacity: 0;
+  }
+
+  &.xcu-button--outline:not([disabled]) {
+    --button__border-color: rgba(var(--theme-rgb--primary), 0.4);
+    --button__color: var(--theme--primary);
     --button__ring-color: var(--button__color);
     --button__background-color: transparent;
 
     background-color: var(--button__background-color, transparent);
     border: var(--button__border-width) solid
       var(--button__border-color, var(--theme--primary));
+
+    &:hover {
+      --button__border-color: var(--theme--primary);
+      --button__background-color--hover: transparent;
+      --button__color--hover: var(--theme--primary);
+    }
   }
 
   &.xcu-button--tertiary:not([disabled]) {
+    --button__background-color--hover: transparent;
+    --button__color--hover: var(--theme--primary);
+
     background: none;
     color: var(--textcolor);
   }
 
   &.xcu-button--warning:not([disabled]) {
     --button__ring-color: var(--color--warning);
-
-    border-color: var(--color--warning);
-    background-color: var(--color--warning);
-    background-color: rgba(var(--color-rgb--warning), var(--bg-opacity, 1));
-    color: var(--button__color--on-warning);
+    --button__background-color: var(--color--warning);
+    --button__background-color--hover: var(--color--warning);
+    --button__border-color: var(--color--warning);
+    --button__border-color--hover: var(--color--warning);
+    --button__color: var(--button__color--on-warning);
+    --button__color--hover: var(--button__color--on-warning);
   }
 
   &.xcu-button--raised:not([disabled]) {
@@ -124,6 +162,7 @@
     --button__height: 48px;
 
     --button__background-color: var(--theme--secondary);
+    --button__background-color--hover: var(--theme--secondary);
     --button__color: var(--color--deep-teal);
     --button__color--focus: var(--button__color);
     --button__color--hover: var(--button__color);
