@@ -24,9 +24,9 @@
 
     &:focus {
       outline: none;
-      border-color: var(--toggle__border-color--focus, rgb(0 79 113));
+      border-color: var(--toggle__border-color--focus, var(--theme--primary));
       box-shadow: 0 0 0 3px
-        var(--toggle__box-shadow--focus, rgb(0 79 113 / 0.5));
+        var(--toggle__box-shadow--focus, rgba(var(--theme-rgb--primary), 0.5));
     }
   }
 }
