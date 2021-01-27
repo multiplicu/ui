@@ -1,3 +1,13 @@
 :host {
   padding: var(--header--padding, 2.4rem);
+
+  // Tablet
+  @media (max-width: 839px) and (min-width: 480px) {
+    --header--padding: var(--grid-margin-tablet, 1.6rem);
+  }
+
+  // Phone
+  @media (max-width: 479px) {
+    --header--padding: var(--grid-margin-phone, 1.6rem);
+  }
 }

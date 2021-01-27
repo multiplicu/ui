@@ -2,6 +2,16 @@
   border-top: 1px solid transparent;
   padding: var(--footer--padding, 2.4rem);
 
+  // Tablet
+  @media (max-width: 839px) and (min-width: 480px) {
+    --footer--padding: var(--grid-margin-tablet, 1.6rem);
+  }
+
+  // Phone
+  @media (max-width: 479px) {
+    --footer--padding: var(--grid-margin-phone, 1.6rem);
+  }
+
   &.bordered {
     border-color: rgba(0, 0, 0, 0.05);
 
