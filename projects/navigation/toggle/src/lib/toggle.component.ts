@@ -60,9 +60,8 @@ export class XcuNavToggleComponent implements OnDestroy {
   private _bordered: boolean = false;
 
   /** Event emitted when the menu is closed. */
-  @Output() readonly toggled: EventEmitter<boolean> = new EventEmitter<
-    boolean
-  >();
+  @Output()
+  readonly toggled: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public constructor(public elementRef: ElementRef) {
     this.toggled
@@ -108,7 +107,7 @@ export class XcuNavToggleComponent implements OnDestroy {
    * @param event
    */
   @HostListener('mouseenter', ['$event'])
-  @HostListener('touchstart', ['$event'])
+  // @HostListener('touchstart', ['$event'])
   public onHover(event: Event): boolean {
     if (!this.openOnHover) return;
 
