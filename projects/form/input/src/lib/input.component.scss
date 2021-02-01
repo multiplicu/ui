@@ -44,6 +44,17 @@
   &:invalid {
     --border-color: var(--color--warning);
   }
+
+  &:disabled {
+    --background-color: var(--color--gray-100);
+    --border-color: var(--color--gray-200);
+    --color: var(--color--gray-500);
+
+    @media (prefers-color-scheme: dark) {
+      --background-color: var(--color--gray-800);
+      --border-color: var(--color--gray-700);
+    }
+  }
 }
 
 :host(select) {
