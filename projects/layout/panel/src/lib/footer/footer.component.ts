@@ -22,5 +22,17 @@ export class XcuFooterComponent {
     this._bordered = coerceBooleanProperty(value);
   }
 
+  private _colored: boolean = false;
+
+  @HostBinding('class.colored')
+  @Input()
+  public get colored(): any {
+    return this._colored;
+  }
+
+  public set colored(value: any) {
+    this._colored = coerceBooleanProperty(value);
+  }
+
   public constructor() {}
 }

@@ -1,10 +1,17 @@
 :host {
+  display: flex;
+  flex-direction: row;
   border-top: 1px solid transparent;
   padding: var(--footer--padding, 2.4rem);
 
   // Tablet
   @media (max-width: 839px) and (min-width: 480px) {
     --footer--padding: var(--grid-margin-tablet, 1.6rem);
+  }
+
+  // Between phone and tablet
+  @media (max-width: 660px) {
+    flex-direction: column;
   }
 
   // Phone
@@ -17,6 +24,14 @@
 
     @media (prefers-color-scheme: dark) {
       border-color: rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &.colored {
+    background-color: var(--color--gray-50);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #27313f;
     }
   }
 }
