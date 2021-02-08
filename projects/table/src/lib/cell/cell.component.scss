@@ -2,7 +2,7 @@ td,
 .table-cell {
   --font-size: var(--font-size--small);
   white-space: nowrap;
-  padding: 1.6rem 2.4rem !important;
+  padding: var(--cell-padding, 1.6rem 2.4rem) !important;
   vertical-align: middle;
 }
 
