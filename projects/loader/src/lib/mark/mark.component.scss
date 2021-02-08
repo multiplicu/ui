@@ -5,7 +5,11 @@
   max-height: 14.4em;
   max-width: 15.2em;
   position: relative;
-  color: var(--textcolor);
+  color: var(--mark-color, var(--color--gray-50));
+
+  @media (prefers-color-scheme: dark) {
+    --mark-color: var(--color--gray-800);
+  }
 
   .diamond {
     animation-name: spin;
