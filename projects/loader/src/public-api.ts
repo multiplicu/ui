@@ -4,4 +4,5 @@
 
 export * from './lib/loader.service';
 export * from './lib/loader.component';
+export * from './lib/mark/mark.component';
 export * from './lib/loader.module';
