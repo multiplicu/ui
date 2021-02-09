@@ -1,11 +1,11 @@
 import {
-  Component,
+  AfterViewInit,
   ChangeDetectionStrategy,
+  Component,
+  ContentChildren,
   HostBinding,
   Input,
-  ContentChildren,
   QueryList,
-  AfterViewInit,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@multiplicu/ui/core';
 import { QuestionComponent } from './question/question.component';
@@ -18,7 +18,8 @@ import { QuestionComponent } from './question/question.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FaqComponent implements AfterViewInit {
-  @ContentChildren(QuestionComponent) questions: QueryList<QuestionComponent>;
+  @ContentChildren(QuestionComponent)
+  public questions: QueryList<QuestionComponent>;
 
   private _isAccordion: boolean;
   private _isSideBySide: boolean;
