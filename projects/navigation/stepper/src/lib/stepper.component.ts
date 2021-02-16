@@ -4,7 +4,6 @@ import {
   HostBinding,
   Input,
   QueryList,
-  ViewEncapsulation,
 } from '@angular/core';
 import { coerceBooleanProperty } from '@multiplicu/ui/core';
 import { XcuStepComponent } from './step/step.component';
@@ -14,14 +13,28 @@ import { XcuStepComponent } from './step/step.component';
   exportAs: 'xcuStepper',
   host: {
     class: 'xcu-stepper',
+    '[class.xcu-stepper--minimized-phone]': 'minimizedOn === "PHONE"',
+    '[class.xcu-stepper--minimized-tablet]': 'minimizedOn === "TABLET"',
+    '[class.xcu-stepper--minimized-desktop]': 'minimizedOn === "DESKTOP"',
+    '[class.xcu-stepper--horizontal]': 'orientation === "HORIZONTAL"',
+    '[class.xcu-stepper--vertical]': 'orientation === "VERTICAL"',
   },
   templateUrl: 'stepper.component.html',
   styleUrls: ['stepper.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class XcuStepperComponent {
+  @Input()
+  public step: number;
+
+  /** At what resolution do full sized steppers become minized */
+  @Input()
+  public minimizedOn: 'PHONE' | 'TABLET' | 'DESKTOP' = 'TABLET';
+
   @ContentChildren(XcuStepComponent, { descendants: false })
   public steps: QueryList<XcuStepComponent>;
+
+  @Input()
+  public orientation: 'HORIZONTAL' | 'VERTICAL' = 'VERTICAL';
 
   private _nested: boolean;
 
