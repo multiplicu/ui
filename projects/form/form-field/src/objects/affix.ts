@@ -1,6 +1,9 @@
-import { HostBinding, Input } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
 import { coerceBooleanProperty } from '@multiplicu/ui/core';
 
+@Directive({
+  selector: '[xcu-affix]',
+})
 export class XcuAffix {
   public _dropdown: boolean;
   @HostBinding('class.dropdown')
