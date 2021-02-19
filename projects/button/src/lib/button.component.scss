@@ -1,33 +1,47 @@
 :host {
-  --button__background-color: var(--theme--primary);
-  --button__background-color--hover: var(--theme--primary);
+  --xcu-button__background-color: var(
+    --button__background-color,
+    var(--theme--primary)
+  );
+  --xcu-button__background-color--hover: var(
+    --button__background-color--hover,
+    var(--theme--primary)
+  );
   // --button__background-color--focus: #cecbbf;
-  --button__color: var(--textcolor-reverse);
-  --button__color--visited: var(--button__color);
-  --button__color--hover: var(--textcolor-reverse);
+  --xcu-button__color: var(--button__color, var(--textcolor-reverse));
+  --xcu-button__color--visited: var(
+    --button__color--visited,
+    var(--button__color)
+  );
+  --xcu-button__color--hover: var(
+    --button__color--hover,
+    var(--textcolor-reverse)
+  );
   // --button__color--focus: var(--textcolor);
-  --button__padding: 0 1.2rem;
-  --button__height: 3.6rem;
-  --button__font-size: 1.4rem;
-  --button__font-weight: 600;
-  --button__border-width: 1px;
+  --xcu-button__padding: var(--button__padding, 0 1.2rem);
+  --xcu-button__height: var(--button__height, 3.6rem);
+  --xcu-button__width: var(--button__width, auto);
+  --xcu-button__font-size: var(--button__font-size, 1.4rem);
+  --xcu-button__line-height: var(--button__line-height, 2rem);
+  --xcu-button__font-weight: var(--button__font-weight, 600);
+  --xcu-button__border-width: var(--button__border-width, 1px);
 
-  background-color: var(--button__background-color);
+  background-color: var(--xcu-button__background-color);
   border-radius: 2px;
-  border: var(--button__border-width) solid
-    var(--button__border-color, transparent);
-  color: var(--button__color);
+  border: var(--xcu-button__border-width) solid
+    var(--xcu-button__border-color, transparent);
+  color: var(--xcu-button__color);
   display: inline-flex;
   justify-content: center;
   align-items: center;
   font-family: inherit;
-  font-size: var(--button__font-size);
-  font-weight: var(--button__font-weight, 600);
-  height: var(--button__height);
-  line-height: var(--button__height);
+  font-size: var(--xcu-button__font-size);
+  font-weight: var(--xcu-button__font-weight, 600);
+  min-height: var(--xcu-button__height);
+  line-height: var(--xcu-button__line-height);
   // margin-right: 16px;
   overflow: hidden;
-  padding: var(--button__padding);
+  padding: var(--xcu-button__padding);
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -38,6 +52,7 @@
   vertical-align: middle;
   white-space: nowrap;
   will-change: filter, background-color, color, border, box-shadow, opacity;
+  width: var(--xcu-button__width);
 
   @media (prefers-color-scheme: dark) {
     // --button__background-color: #4a5568;
@@ -48,22 +63,22 @@
   }
 
   &:visited {
-    color: var(--button__color--visited);
+    color: var(--xcu-button__color--visited);
   }
 
   &:hover {
     cursor: pointer;
-    color: var(--button__color--hover, var(--button__color)) !important;
+    color: var(--xcu-button__color--hover, var(--xcu-button__color)) !important;
     background-color: var(
       --button__background-color--hover,
-      var(--button__background-color)
+      var(--xcu-button__background-color)
     ) !important;
-    filter: var(--button__filter--hover, brightness(1.2));
+    filter: var(--xcu-button__filter--hover, brightness(1.2));
   }
 
   &:focus {
     --xcu-ring-opacity: 1;
-    --xcu-ring-color: var(--button__ring-color, var(--theme--primary));
+    --xcu-ring-color: var(--xcu-button__ring-color, var(--theme--primary));
 
     --xcu-ring-offset-width: 2px;
     --xcu-ring-offset-shadow: var(--xcu-ring-inset) 0 0 0
@@ -72,7 +87,7 @@
       calc(2px + var(--xcu-ring-offset-width)) var(--xcu-ring-color);
 
     box-shadow: var(--xcu-ring-offset-shadow), var(--xcu-ring-shadow),
-      var(--button__box-shadow, 0 0 #0000);
+      var(--xcu-button__box-shadow, 0 0 #0000);
     outline: 3px solid transparent;
     outline-offset: 2px;
     border-color: transparent;
@@ -93,8 +108,8 @@
   }
 
   &.xcu-button--primary:not([disabled]) {
-    background-color: var(--button__background-color);
-    color: var(--button__color);
+    background-color: var(--xcu-button__background-color);
+    color: var(--xcu-button__color);
   }
 
   &.xcu-button--secondary.xcu-button--warning:not([disabled]) {
@@ -102,19 +117,37 @@
   }
 
   &.xcu-button--secondary:not([disabled]) {
-    --button__color: var(--theme--primary);
-    --button__color--hover: var(--theme--primary);
-    --button__ring-color: var(--button__color);
-    --button__background-color: var(--color--gray-200);
-    --button__background-color--hover: var(--color--gray-300);
+    --xcu-button__color: var(--button__color, var(--theme--primary));
+    --xcu-button__color--hover: var(
+      --button__color--hover,
+      var(--theme--primary)
+    );
+    --xcu-button__ring-color: var(
+      --button__ring-color,
+      var(--xcu-button__color)
+    );
+    --xcu-button__background-color: var(
+      --button__background-color,
+      var(--color--gray-200)
+    );
+    --xcu-button__background-color--hover: var(
+      --button__background-color--hover,
+      var(--color--gray-300)
+    );
 
     @media (prefers-color-scheme: dark) {
-      --button__background-color: var(--color--gray-800);
-      --button__background-color--hover: var(--color--gray-700);
+      --xcu-button__background-color: var(
+        --button__background-color,
+        var(--color--gray-800)
+      );
+      --xcu-button__background-color--hover: var(
+        --button__background-color--hover,
+        var(--color--gray-700)
+      );
     }
 
     &:hover {
-      --button__filter--hover: none;
+      --xcu-button__filter--hover: var(--button__filter--hover, none);
     }
   }
 
@@ -123,70 +156,130 @@
   }
 
   &.xcu-button--outline:not([disabled]) {
-    --button__border-color: rgba(var(--theme-rgb--primary), 0.4);
-    --button__color: var(--theme--primary);
-    --button__ring-color: var(--button__color);
-    --button__background-color: transparent;
+    --xcu-button__border-color: var(
+      --button__border-color,
+      rgba(var(--theme-rgb--primary), 0.4)
+    );
+    --xcu-button__color: var(--button__color, var(--theme--primary));
+    --xcu-button__ring-color: var(
+      --button__ring-color,
+      var(--xcu-button__color)
+    );
+    --xcu-button__background-color: var(
+      --button__background-color,
+      transparent
+    );
 
-    background-color: var(--button__background-color, transparent);
-    border: var(--button__border-width) solid
-      var(--button__border-color, var(--theme--primary));
+    background-color: var(--xcu-button__background-color, transparent);
+    border: var(--xcu-button__border-width) solid
+      var(--xcu-button__border-color, var(--theme--primary));
 
     &:hover {
-      --button__border-color: var(--theme--primary);
-      --button__background-color--hover: transparent;
-      --button__color--hover: var(--theme--primary);
+      --xcu-button__border-color: var(
+        --button__border-color,
+        var(--theme--primary)
+      );
+      --xcu-button__background-color--hover: var(
+        --button__background-color--hover,
+        transparent
+      );
+      --xcu-button__color--hover: var(
+        --button__color--hover,
+        var(--theme--primary)
+      );
     }
   }
 
   &.xcu-button--tertiary:not([disabled]) {
-    --button__background-color--hover: transparent;
-    --button__color--hover: var(--theme--primary);
+    --xcu-button__background-color--hover: var(
+      --button__background-color--hover,
+      transparent
+    );
+    // --xcu-button__color--hover: var(
+    //   --button__color--hover,
+    //   var(--theme--primary)
+    // );
 
     background: none;
     color: var(--textcolor);
   }
 
   &.xcu-button--warning:not([disabled]) {
-    --button__ring-color: var(--color--warning);
-    --button__background-color: var(--color--warning);
-    --button__background-color--hover: var(--color--warning);
-    --button__border-color: var(--color--warning);
-    --button__border-color--hover: var(--color--warning);
-    --button__color: var(--button__color--on-warning);
-    --button__color--hover: var(--button__color--on-warning);
+    --xcu-button__ring-color: var(--button__ring-color, var(--color--warning));
+    --xcu-button__background-color: var(
+      --button__background-color,
+      var(--color--warning)
+    );
+    --xcu-button__background-color--hover: var(
+      --button__background-color--hover,
+      var(--color--warning)
+    );
+    --xcu-button__border-color: var(
+      --button__border-color,
+      var(--color--warning)
+    );
+    --xcu-button__border-color--hover: var(
+      --button__border-color--hover,
+      var(--color--warning)
+    );
+    --xcu-button__color: var(
+      --button__color,
+      var(--xcu-button__color--on-warning)
+    );
+    --xcu-button__color--hover: var(
+      --button__color--hover,
+      var(--xcu-button__color--on-warning)
+    );
   }
 
   &.xcu-button--raised:not([disabled]) {
     --box-shadow--thin: 8px;
-    --button__height: 48px;
+    --xcu-button__height: var(--button__height, 48px);
 
-    --button__background-color: var(--theme--secondary);
-    --button__background-color--hover: var(--theme--secondary);
-    --button__color: var(--color--deep-teal);
-    --button__color--focus: var(--button__color);
-    --button__color--hover: var(--button__color);
-    --button__font-size: var(--font-size);
-    --button__box-shadow-color: var(--color--deep-teal);
+    --xcu-button__background-color: var(
+      --button__background-color,
+      var(--theme--secondary)
+    );
+    --xcu-button__background-color--hover: var(
+      --button__background-color--hover,
+      var(--theme--secondary)
+    );
+    --xcu-button__color: var(--button__color, var(--color--deep-teal));
+    --xcu-button__color--focus: var(
+      --button__color--focus,
+      var(--xcu-button__color)
+    );
+    --xcu-button__color--hover: var(
+      --button__color--hover,
+      var(--xcu-button__color)
+    );
+    --xcu-button__font-size: var(--button__font-size, var(--font-size));
+    --xcu-button__box-shadow-color: var(
+      --button__box-shadow-color,
+      var(--color--deep-teal)
+    );
 
-    background: var(--button__background-color);
+    background: var(--xcu-button__background-color);
     box-shadow: var(--box-shadow--thin) var(--box-shadow--thin)
-      var(--button__box-shadow-color);
-    font-size: var(--button__font-size);
+      var(--xcu-button__box-shadow-color);
+    font-size: var(--xcu-button__font-size);
     font-weight: var(--font-weight--bold);
 
     @media (prefers-color-scheme: dark) {
-      --button__background-color: var(--color--silver-tree);
+      --xcu-button__background-color: var(
+        --button__background-color,
+        var(--color--silver-tree)
+      );
     }
 
     &:focus,
     &:focus {
-      box-shadow: 4px 4px var(--button__box-shadow-color);
+      box-shadow: 4px 4px var(--xcu-button__box-shadow-color);
     }
 
     &:hover {
       --button__color--hover: var(--color--deep-teal);
-      box-shadow: 6px 6px var(--button__box-shadow-color);
+      box-shadow: 6px 6px var(--xcu-button__box-shadow-color);
     }
   }
 }
@@ -196,6 +289,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  white-space: normal;
   width: 100%;
 }
 
