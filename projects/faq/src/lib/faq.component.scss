@@ -1,5 +1,5 @@
 :host.accordion {
-  h3 {
+  .faq__title {
     text-align: center;
   }
 
@@ -20,6 +20,6 @@
   }
 }
 
-h3 {
+.faq__title {
   font-weight: var(--font-weight--bold);
 }
