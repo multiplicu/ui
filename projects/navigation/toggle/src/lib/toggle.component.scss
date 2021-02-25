@@ -57,10 +57,10 @@
 // Styles for when a switcher is used in a mega menu
 :host-context(.xcu-mega-menu) {
   .menu__chevron {
-    --menu-transition: var(--transition, 0.05s);
-    --menu-transition-delay: var(--transition-delay, 0.05s);
-    --menu-chevron__background-color: var(--color--white);
-    --menu-chevron__border-color: var(--color--gray-200);
+    --xcu-menu-transition: var(--transition, 0.05s);
+    --xcu-menu-transition-delay: var(--transition-delay, 0.05s);
+    --xcu-menu-chevron__background-color: var(--color--white);
+    --xcu-menu-chevron__border-color: var(--color--gray-200);
     --transform-translate-x: 0.2rem;
     --transform-translate-y: 5.4rem;
     --transform-rotate: 45deg;
@@ -77,9 +77,12 @@
       skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x))
       scaleY(var(--transform-scale-y));
 
-    background-color: var(--menu-chevron__background-color);
+    background-color: var(
+      --menu-chevron__background-color,
+      var(--xcu-menu-chevron__background-color)
+    );
     border-radius: 2px 0 0 0;
-    box-shadow: -1px -1px 0 var(--menu-chevron__border-color);
+    box-shadow: -1px -1px 0 var(--menu-chevron__border-color, var(--xcu-menu-chevron__border-color));
     display: block;
     height: 2.4rem;
     opacity: 0;
@@ -87,22 +90,25 @@
     position: absolute;
     right: 0;
     transform-origin: var(--transform-origin, 50% 50%);
-    transition: var(--menu-transition, 250ms);
-    transition-delay: var(--menu-transition-delay, 0s);
+    transition: var(--menu-transition, var(--xcu-menu-transition, 250ms));
+    transition-delay: var(
+      --menu-transition-delay,
+      var(--xcu-menu-transition-delay, 0s)
+    );
     transition-property: transform, opacity;
     width: 2.4rem;
     will-change: transform, opacity;
     z-index: 10;
 
     @media (prefers-color-scheme: dark) {
-      --menu-chevron__background-color: var(--color--gray-900);
-      --menu-chevron__border-color: var(--color--gray-800);
+      --xcu-menu-chevron__background-color: var(--color--gray-900);
+      --xcu-menu-chevron__border-color: var(--color--gray-800);
     }
   }
 
   .menu__chevron--active {
-    --menu-transition: 0.1s;
-    --menu-transition-delay: 0.1s;
+    --xcu-menu-transition: 0.1s;
+    --xcu-menu-transition-delay: 0.1s;
     --chevron-translateY: var(--chevron-active-translateY, 3.8rem);
 
     opacity: 1;
