@@ -23,10 +23,11 @@
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </button>
 
-<a *ngIf="href && href.startsWith('http')" class="toggle" (keyup)="toggle($event)" [href]="href">
+<a *ngIf="href && href.startsWith('http')" class="toggle" (tap)="handleTouch($event)" (keyup)="toggle($event)"
+  [href]="href">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </a>
-<a *ngIf="href && !href.startsWith('http')" class="toggle" (keyup)="toggle($event)" [routerLink]="href"
-  routerLinkActive="active" [attr.aria-expanded]="isActive">
+<a *ngIf="href && !href.startsWith('http')" class="toggle" (tap)="handleTouch($event)" (keyup)="toggle($event)"
+  [routerLink]="href" routerLinkActive="active" [attr.aria-expanded]="isActive">
   <ng-container *ngTemplateOutlet="contents"></ng-container>
 </a>
