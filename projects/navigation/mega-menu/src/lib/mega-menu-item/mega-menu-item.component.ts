@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
+  ElementRef,
   HostBinding,
   Input,
   QueryList,
@@ -26,5 +27,5 @@ export class XcuMegaMenuItemComponent {
 
   @ContentChildren('icon') public icons: QueryList<any>;
 
-  public constructor() {}
+  public constructor(public elementRef: ElementRef) {}
 }

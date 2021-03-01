@@ -18,7 +18,7 @@
   &.menu--active .mega-menu__container,
   .mega-menu__container:focus-within {
     --menu-transition: 0.05s;
-    --menu-transition-delay: 0.05s;
+    --menu-transition-delay: 0.2s;
     --menu-rotateX: 0;
 
     opacity: 1;
@@ -38,7 +38,7 @@
 
 .mega-menu__container {
   --menu-transition: var(--transition, 0.2s);
-  --menu-transition-delay: var(--transition-delay, 0.2s);
+  --menu-transition-delay: var(--transition-delay, 0.05s);
   --mega-menu__border-color: var(--color--gray-200);
   --menu-rotateX: -15deg;
 
