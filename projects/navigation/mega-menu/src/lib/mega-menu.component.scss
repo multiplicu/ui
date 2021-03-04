@@ -1,3 +1,24 @@
+[data-theme='light'] :host {
+  .mega-menu__container {
+    --mega-menu__border-color: var(--color--gray-200);
+  }
+
+  .mega-menu__content {
+    --mega-menu__background-color: var(--color--white);
+  }
+}
+
+[data-theme='dark'] :host {
+  .mega-menu__container {
+    --mega-menu__border-color: var(--color--gray-800);
+  }
+
+  .mega-menu__content {
+    --mega-menu__background-color: var(--color--gray-900);
+    --mega-menu__border-color: var(--theme--background);
+  }
+}
+
 :host {
   @media screen and (max-width: 48em) {
     &.horizontal {
@@ -39,12 +60,7 @@
 .mega-menu__container {
   --menu-transition: var(--transition, 0.2s);
   --menu-transition-delay: var(--transition-delay, 0.05s);
-  --mega-menu__border-color: var(--color--gray-200);
   --menu-rotateX: -15deg;
-
-  @media (prefers-color-scheme: dark) {
-    --mega-menu__border-color: var(--color--gray-800);
-  }
 
   border: 1px solid var(--mega-menu__border-color);
   display: block;
@@ -80,7 +96,6 @@
 }
 
 .mega-menu__content {
-  --mega-menu__background-color: var(--color--white);
   --columns: 2;
 
   display: grid;
@@ -92,9 +107,4 @@
   padding: 3.2rem;
   position: relative;
   z-index: 20;
-
-  @media (prefers-color-scheme: dark) {
-    --mega-menu__background-color: var(--color--gray-900);
-    --mega-menu__border-color: var(--theme--background);
-  }
 }

@@ -1,9 +1,18 @@
+[data-theme='light'] :host {
+  --table__background-color: var(--color--gray-50);
+  --color: var(--color--gray-600);
+  --text-opacity: 1;
+}
+
+[data-theme='dark'] :host {
+  --table__background-color: var(--color--gray-800);
+  --color: var(--color--gray-300);
+  --text-opacity: 0.87;
+}
+
 th,
 .table-head {
   --font-size: 1.2rem;
-  --text-opacity: 1;
-  --table__background-color: var(--color--gray-50);
-  --color: var(--color--gray-600);
 
   background-color: var(--table__background-color);
   color: var(--color);
@@ -12,12 +21,6 @@ th,
   padding: 0.8rem 2.4rem !important;
   text-align: left;
   text-transform: uppercase;
-
-  @media (prefers-color-scheme: dark) {
-    --table__background-color: var(--color--gray-800);
-    --color: var(--color--gray-300);
-    --text-opacity: 0.87;
-  }
 
   @media (max-width: 479px) {
     &:empty {

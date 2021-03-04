@@ -1,3 +1,13 @@
+[data-theme='light'] .xcu-prefix,
+[data-theme='light'] .xcu-suffix {
+  --border-color: var(--color--gray-300);
+}
+
+[data-theme='dark'] .xcu-prefix,
+[data-theme='dark'] .xcu-suffix {
+  --border-color: var(--color--gray-600);
+}
+
 :host {
   display: block;
 }
@@ -70,7 +80,6 @@
 .xcu-prefix,
 .xcu-suffix {
   // --margin-bottom: 8px;
-  --border-color: var(--color--gray-300);
 
   align-items: center;
   border: 1px solid var(--border-color);
@@ -80,10 +89,6 @@
   min-height: 3.6rem;
   padding: 0 0.8rem;
   white-space: nowrap;
-
-  @media (prefers-color-scheme: dark) {
-    --border-color: var(--color--gray-600);
-  }
 
   &.dropdown {
     border: 0;

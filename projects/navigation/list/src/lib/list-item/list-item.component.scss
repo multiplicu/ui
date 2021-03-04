@@ -1,6 +1,14 @@
-:host {
+[data-theme='light'] :host {
   --list-item__active-color: var(--color--gray-300);
   --list-item__hover-color: var(--color--gray-200);
+}
+
+[data-theme='dark'] :host {
+  --list-item__hover-color: var(--color--green-pea);
+  --list-item__active-color: var(--color--deep-teal);
+}
+
+:host {
   align-items: center;
   border-radius: 2px;
   color: var(--list-item__color, inherit);
@@ -11,11 +19,6 @@
   padding: 0 1.6rem;
   position: relative;
   word-break: break-word;
-
-  @media (prefers-color-scheme: dark) {
-    --list-item__hover-color: var(--color--green-pea);
-    --list-item__active-color: var(--color--deep-teal);
-  }
 
   &:hover {
     background: var(--list-item__hover-color);

@@ -1,3 +1,11 @@
+[data-theme='light'] :host {
+  --dialog__background-color: var(--color--white);
+}
+
+[data-theme='dark'] :host {
+  --dialog__background-color: var(--theme--background-accent);
+}
+
 :host {
   z-index: 1000;
   top: 0;
@@ -90,7 +98,6 @@
   --transform-skew-y: 0;
   --transform-scale-x: 1;
   --transform-scale-y: 1;
-  --bg-opacity: 1;
 
   display: inline-block;
   overflow: hidden;
@@ -106,8 +113,7 @@
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
   transition-duration: 0.2s;
-  background-color: var(--color--white);
-  background-color: rgba(var(--color-rgb--white), var(--bg-opacity));
+  background-color: var(--dialog__background-color);
   opacity: 0;
 
   @media (min-width: 640px) {
@@ -122,25 +128,14 @@
     vertical-align: middle;
     width: 100%;
   }
-
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--theme--background-accent);
-  }
 }
 
 .dialog__content {
-  --bg-opacity: 1;
-
-  background-color: var(--color--white);
-  background-color: rgba(var(--color-rgb--white), var(--bg-opacity));
+  background-color: var(--dialog__background-color);
   padding: 1.6rem;
 
   @media (min-width: 640px) {
     padding: 2.4rem 2.4rem 1.6rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--theme--background-accent);
   }
 }
 

@@ -1,3 +1,13 @@
+[data-theme='light'] :host {
+  --xcu-menu-chevron__background-color: var(--color--white);
+  --xcu-menu-chevron__border-color: var(--color--gray-200);
+}
+
+[data-theme='dark'] :host {
+  --xcu-menu-chevron__background-color: var(--color--gray-900);
+  --xcu-menu-chevron__border-color: var(--color--gray-800);
+}
+
 :host {
   display: flex;
   align-items: center;
@@ -59,8 +69,6 @@
   .menu__chevron {
     --xcu-menu-transition: var(--transition, 0.05s);
     --xcu-menu-transition-delay: var(--transition-delay, 0.05s);
-    --xcu-menu-chevron__background-color: var(--color--white);
-    --xcu-menu-chevron__border-color: var(--color--gray-200);
     --transform-translate-x: 0.2rem;
     --transform-translate-y: 5.4rem;
     --transform-rotate: 45deg;
@@ -99,11 +107,6 @@
     width: 2.4rem;
     will-change: transform, opacity;
     z-index: 10;
-
-    @media (prefers-color-scheme: dark) {
-      --xcu-menu-chevron__background-color: var(--color--gray-900);
-      --xcu-menu-chevron__border-color: var(--color--gray-800);
-    }
   }
 
   .menu__chevron--active {

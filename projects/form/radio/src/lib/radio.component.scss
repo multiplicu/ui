@@ -1,3 +1,19 @@
+[data-theme='light'] :host {
+  --radio-border-color: var(--color--gray-300);
+  --radio__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+  --check__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+  --focus__box-shadow: 0 0 0 3px rgb(0 79 113 / 0.45);
+  --disabled__background-color: #b0b0b0;
+}
+
+[data-theme='dark'] :host {
+  --radio-border-color: var(--color--gray-600);
+  --radio__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+  --check__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+  --focus__box-shadow: 0 0 0 3px rgb(87 193 142 / 0.45);
+  --disabled__background-color: #686868;
+}
+
 :host {
   --radio-width: fit-content;
   --radio-input-width: 1.6rem;
@@ -20,11 +36,7 @@
 
   &.check {
     .xcu-radio-input:checked {
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
-
-      @media (prefers-color-scheme: dark) {
-        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
-      }
+      background-image: var(--check__background-image);
     }
   }
 
@@ -71,8 +83,6 @@ label {
 }
 
 .xcu-radio-input {
-  --radio-border-color: var(--color--gray-300);
-
   appearance: none;
   color-adjust: exact;
   cursor: inherit;
@@ -93,12 +103,8 @@ label {
   transition-duration: 0.15s;
   margin: 0;
 
-  @media (prefers-color-scheme: dark) {
-    --radio-border-color: var(--color--gray-600);
-  }
-
   &:checked {
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+    background-image: var(--radio__background-image);
     border-color: transparent;
     background-color: var(
       --radio-background-color--selected,
@@ -108,20 +114,12 @@ label {
     background-position: 50%;
     background-repeat: no-repeat;
     color: var(--radio-color--selected, var(--theme--background));
-
-    @media (prefers-color-scheme: dark) {
-      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-    }
   }
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgb(0 79 113 / 0.45);
+    box-shadow: var(--focus__box-shadow);
     border-color: var(--theme--primary);
-
-    @media (prefers-color-scheme: dark) {
-      box-shadow: 0 0 0 3px rgb(87 193 142 / 0.45);
-    }
 
     &:invalid {
       box-shadow: 0 0 0 3px rgb(211 47 47 / 0.45);
@@ -134,11 +132,7 @@ label {
 
   &[disabled],
   &.disabled {
-    background-color: #b0b0b0;
-
-    @media (prefers-color-scheme: dark) {
-      background-color: #686868;
-    }
+    background-color: var(--disabled__background-color);
   }
 }
 

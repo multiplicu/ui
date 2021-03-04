@@ -1,3 +1,7 @@
+[data-theme='dark'] :host {
+  --mark-color: var(--color--gray-800);
+}
+
 :host {
   font-size: var(--mark-size, 10px);
   width: 100%;
@@ -6,10 +10,6 @@
   max-width: 15.2em;
   position: relative;
   color: var(--mark-color, var(--color--gray-50));
-
-  @media (prefers-color-scheme: dark) {
-    --mark-color: var(--color--gray-800);
-  }
 
   .diamond {
     animation-name: spin;

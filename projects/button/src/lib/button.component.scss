@@ -1,3 +1,31 @@
+[data-theme='light'] :host {
+  --border-color--disabled: rgba(0, 0, 0, 0.1);
+  --color--disabled: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] :host {
+  --border-color--disabled: rgba(255, 255, 255, 0.1);
+  --color--disabled: rgba(255, 255, 255, 0.3);
+
+  &.xcu-button--secondary:not([disabled]) {
+    --xcu-button__background-color: var(
+      --button__background-color,
+      var(--color--gray-800)
+    );
+    --xcu-button__background-color--hover: var(
+      --button__background-color--hover,
+      var(--color--gray-700)
+    );
+  }
+
+  &.xcu-button--raised:not([disabled]) {
+    --xcu-button__background-color: var(
+      --button__background-color,
+      var(--color--silver-tree)
+    );
+  }
+}
+
 :host {
   --xcu-button__background-color: var(
     --button__background-color,
@@ -11,7 +39,7 @@
   --xcu-button__color: var(--button__color, var(--textcolor-reverse));
   --xcu-button__color--visited: var(
     --button__color--visited,
-    var(--button__color)
+    var(--xcu-button__color)
   );
   --xcu-button__color--hover: var(
     --button__color--hover,
@@ -54,14 +82,6 @@
   will-change: filter, background-color, color, border, box-shadow, opacity;
   width: var(--xcu-button__width);
 
-  @media (prefers-color-scheme: dark) {
-    // --button__background-color: #4a5568;
-    // --button__background-color--hover: #505c71;
-    // --button__background-color--focus: #444e5f;
-    // --button__color--hover: var(--color--bunker);
-    // --button__color--focus: var(--color--bunker);
-  }
-
   &:visited {
     color: var(--xcu-button__color--visited);
   }
@@ -97,14 +117,9 @@
   &.disabled,
   &.loading {
     pointer-events: none;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color--disabled);
+    color: var(--color--disabled);
     background-color: transparent;
-
-    @media (prefers-color-scheme: dark) {
-      border-color: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.3);
-    }
   }
 
   &.xcu-button--primary:not([disabled]) {
@@ -134,17 +149,6 @@
       --button__background-color--hover,
       var(--color--gray-300)
     );
-
-    @media (prefers-color-scheme: dark) {
-      --xcu-button__background-color: var(
-        --button__background-color,
-        var(--color--gray-800)
-      );
-      --xcu-button__background-color--hover: var(
-        --button__background-color--hover,
-        var(--color--gray-700)
-      );
-    }
 
     &:hover {
       --xcu-button__filter--hover: var(--button__filter--hover, none);
@@ -264,13 +268,6 @@
       var(--xcu-button__box-shadow-color);
     font-size: var(--xcu-button__font-size);
     font-weight: var(--font-weight--bold);
-
-    @media (prefers-color-scheme: dark) {
-      --xcu-button__background-color: var(
-        --button__background-color,
-        var(--color--silver-tree)
-      );
-    }
 
     &:focus,
     &:focus {

@@ -1,11 +1,13 @@
-:host {
+[data-theme='light'] :host {
   --local-nav__border-color: var(--color--gray-200);
+}
 
+[data-theme='dark'] :host {
+  --local-nav__border-color: var(--color--deep-teal);
+}
+
+:host {
   border-bottom: 1px solid var(--local-nav__border-color);
-
-  @media (prefers-color-scheme: dark) {
-    --local-nav__border-color: var(--color--deep-teal);
-  }
 
   .xcu-local-nav {
     border-bottom: 0;

@@ -1,13 +1,25 @@
+[data-theme='light'] :host {
+  --background-color: var(--color--white);
+
+  &.well-on-gray {
+    background-color: var(--color--gray-200);
+  }
+}
+
+[data-theme='dark'] :host {
+  --background-color: var(--theme--background-accent);
+
+  &.well-on-gray {
+    background-color: var(--color--gray-800);
+  }
+}
+
 :host {
   border-radius: 2px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  background-color: var(--color--white);
+  background-color: var(--background-color);
   display: flex;
   flex-direction: column;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--theme--background-accent);
-  }
 
   &.depth--xs {
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
@@ -37,17 +49,5 @@
   &.well {
     background-color: var(--color--gray-50);
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-
-    @media (prefers-color-scheme: dark) {
-      // background-color: #1a2632;
-    }
-  }
-
-  &.well-on-gray {
-    background-color: var(--color--gray-200);
-
-    @media (prefers-color-scheme: dark) {
-      background-color: var(--color--gray-800);
-    }
   }
 }
