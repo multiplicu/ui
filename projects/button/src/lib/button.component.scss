@@ -114,6 +114,11 @@
   }
 
   &[disabled],
+  &.disabled {
+    --mark-color: var(--button-loader__color, var(--color--gray-500));
+  }
+
+  &[disabled],
   &.disabled,
   &.loading {
     pointer-events: none;
