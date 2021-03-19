@@ -44,8 +44,10 @@
 
   &.menu--active .mega-menu__container,
   .mega-menu__container:focus-within {
-    --menu-transition: 0.05s;
-    --menu-transition-delay: 0.2s;
+    --menu-transition: 0s;
+    --menu-transition-delay: 0s;
+    // --menu-transition: 0.05s;
+    // --menu-transition-delay: 0.2s;
     --menu-rotateX: 0;
 
     opacity: 1;
