@@ -1,4 +1,5 @@
-import { Component, Input, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
+import { coerceBooleanProperty } from '@multiplicu/ui/core';
 
 @Component({
   selector: 'xcu-faq-question, div[xcu-faq-question], button[xcu-faq-question]',
@@ -11,7 +12,16 @@ export class QuestionComponent {
   @Input()
   public isAccordion: boolean = false;
 
-  public isExpanded: boolean = false;
+  @Input()
+  public get isExpanded(): any {
+    return this._isExpanded;
+  }
+
+  public set isExpanded(value: any) {
+    this._isExpanded = coerceBooleanProperty(value);
+  }
+
+  private _isExpanded: boolean = false;
 
   public constructor() {}
 

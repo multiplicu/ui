@@ -10,6 +10,7 @@ export * from './lib/coercion/boolean-property';
 export * from './lib/coercion/element';
 export * from './lib/coercion/number-property';
 export * from './lib/collections/selection-model';
+export * from './lib/collections/unique-selection-dispatcher';
 export * from './lib/common-behaviors/constructor';
 export * from './lib/common-behaviors/disabled';
 export * from './lib/common-behaviors/error-state';

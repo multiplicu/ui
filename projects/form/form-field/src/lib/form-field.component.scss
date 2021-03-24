@@ -1,3 +1,13 @@
+[data-theme='light'] .xcu-prefix,
+[data-theme='light'] .xcu-suffix {
+  --border-color: var(--color--gray-300);
+}
+
+[data-theme='dark'] .xcu-prefix,
+[data-theme='dark'] .xcu-suffix {
+  --border-color: var(--color--gray-600);
+}
+
 :host {
   display: block;
 }
@@ -10,6 +20,10 @@
     content: 'Required';
   }
 
+  &--invalid {
+    --border-color: var(--color--warning);
+  }
+
   label {
     --cap-height: 0.828;
     --font-size: var(--font-size--small);
@@ -17,7 +31,7 @@
 
     color: var(--textcolor);
     display: block;
-    font-weight: var(--font-weight--bold);
+    font-weight: var(--font-weight--semi-bold);
     margin-bottom: calc(var(--font-line-height) - var(--baseline-offset) - 4px);
     max-width: var(--paragraph--max-width);
     user-select: none;
@@ -25,7 +39,7 @@
     &:after {
       float: right;
       color: var(--textcolor--secondary);
-      font-weight: var(--font-weight--semi-bold);
+      font-weight: var(--font-weight--medium);
     }
   }
 
@@ -33,11 +47,13 @@
     font-size: 1.2rem;
     font-style: italic;
     padding: 0 0 0 1.2rem;
+    margin-top: 0.8rem;
   }
 }
 
 .select {
   position: relative;
+  flex: 1;
 }
 
 .select-arrows {
@@ -53,4 +69,72 @@
   color: #9fa6b2;
   color: rgba(159, 166, 178, var(--text-opacity));
   height: 3.6rem;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+// Affix stylings
+.xcu-prefix,
+.xcu-suffix {
+  // --margin-bottom: 8px;
+
+  align-items: center;
+  border: 1px solid var(--border-color);
+  display: flex;
+  font-size: var(--font-size--small);
+  // margin-bottom: var(--margin-bottom, 0);
+  min-height: 3.6rem;
+  padding: 0 0.8rem;
+  white-space: nowrap;
+
+  &.dropdown {
+    border: 0;
+    padding: 0;
+    flex-shrink: 0;
+
+    .xcu-input-element {
+      margin-bottom: 0;
+      min-height: 3.4rem;
+      margin-right: 0.8rem;
+    }
+  }
+}
+
+.xcu-prefix.dropdown .xcu-input-element {
+  border-radius: 2px 0 0 2px;
+}
+
+.xcu-suffix.dropdown .xcu-input-element {
+  border-radius: 0 2px 2px 0;
+}
+
+.xcu-prefix {
+  border-right-width: 0;
+  border-radius: 2px 0 0 2px;
+
+  & + .xcu-input-element {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &.inline + .xcu-input-element {
+    border-left-width: 0;
+  }
+}
+
+.xcu-suffix {
+  border-left-width: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+.has-suffix > .xcu-input-element {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.has-inline-suffix > .xcu-input-element {
+  border-right-width: 0 !important;
 }

@@ -1,9 +1,12 @@
-:host {
-  --list-group__border-color: #dedddc;
+[data-theme='light'] :host {
+  --list-group__border-color: var(--color--gray-200);
+}
 
-  @media (prefers-color-scheme: dark) {
-    --list-group__border-color: var(--color--deep-teal);
-  }
+[data-theme='dark'] :host {
+  --list-group__border-color: var(--color--gray-800);
+}
+
+:host {
 }
 
 :host-context(.xcu-list):not(:last-of-type) {

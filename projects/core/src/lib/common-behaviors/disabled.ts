@@ -1,5 +1,5 @@
-import { Constructor } from './constructor';
 import { coerceBooleanProperty } from '../coercion/boolean-property';
+import { Constructor } from './constructor';
 
 export interface CanDisable {
   // Whether the component is disabled

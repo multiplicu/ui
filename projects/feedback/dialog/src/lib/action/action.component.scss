@@ -29,8 +29,9 @@
       --button__color--active: var(--color--white);
 
       &:focus {
-        border: var(--button__border-width) solid transparent;
-        box-shadow: 0 0 0 3px rgba(248, 180, 180, 0.45);
+        --xcu-ring-color: var(--color--warning);
+        // border: var(--button__border-width) solid transparent;
+        // box-shadow: 0 0 0 3px rgba(248, 180, 180, 0.45);
       }
     }
   }

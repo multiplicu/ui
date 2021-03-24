@@ -20,8 +20,10 @@ npm run copyDist &&
 ng build input --prod &&
 ng build select --prod &&
 ng build checkbox --prod &&
+ng build radio --prod &&
 ### NAVIGATION ###
 ng build nav-toggle --prod &&
+ng build stepper --prod &&
 # Copy Toggle to be used in other projects
 npm run copyDist &&
 ng build switcher --prod &&

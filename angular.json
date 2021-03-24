@@ -873,6 +873,86 @@
           }
         }
       }
+    },
+    "radio": {
+      "projectType": "library",
+      "root": "projects/form/radio",
+      "sourceRoot": "projects/form/radio/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/form/radio/tsconfig.lib.json",
+            "project": "projects/form/radio/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/form/radio/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/form/radio/src/test.ts",
+            "tsConfig": "projects/form/radio/tsconfig.spec.json",
+            "karmaConfig": "projects/form/radio/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/form/radio/tsconfig.lib.json",
+              "projects/form/radio/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "stepper": {
+      "projectType": "library",
+      "root": "projects/navigation/stepper",
+      "sourceRoot": "projects/navigation/stepper/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/navigation/stepper/tsconfig.lib.json",
+            "project": "projects/navigation/stepper/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/navigation/stepper/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/navigation/stepper/src/test.ts",
+            "tsConfig": "projects/navigation/stepper/tsconfig.spec.json",
+            "karmaConfig": "projects/navigation/stepper/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/navigation/stepper/tsconfig.lib.json",
+              "projects/navigation/stepper/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "core"

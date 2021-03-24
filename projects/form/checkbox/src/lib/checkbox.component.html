@@ -3,8 +3,12 @@
   [attr.aria-checked]="getAriaChecked()" [attr.aria-describedby]="ariaDescribedby" (change)="onInteractionEvent($event)"
   (click)="onInputClick($event)">
 
-<label #checkboxLabel [attr.for]="inputId" class="xcu-checkbox-label">
-  <ng-content></ng-content>
+<div class="content">
+  <label #checkboxLabel [attr.for]="inputId" class="xcu-checkbox-label">
+    <ng-content></ng-content>
 
-  <ng-content select=".end"></ng-content>
-</label>
+    <ng-content select=".end"></ng-content>
+  </label>
+
+  <ng-content select=".description"></ng-content>
+</div>

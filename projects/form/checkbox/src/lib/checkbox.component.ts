@@ -21,7 +21,7 @@ import {
 let nextUniqueId: number = 0;
 
 /**
- * Provider Expression that allows mat-checkbox to register as a ControlValueAccessor.
+ * Provider Expression that allows xcu-checkbox to register as a ControlValueAccessor.
  * This allows it to support [(ngModel)].
  * @docs-private
  */
@@ -31,9 +31,9 @@ export const CHECKBOX_CONTROL_VALUE_ACCESSOR: any = {
   multi: true,
 };
 
-/** Change event object emitted by MatCheckbox. */
+/** Change event object emitted by XcuCheckbox. */
 export class XcuCheckboxChange {
-  /** The source MatCheckbox of the event. */
+  /** The source XcuCheckbox of the event. */
   source: XcuCheckboxComponent;
   /** The new `checked` value of the checkbox. */
   checked: boolean;

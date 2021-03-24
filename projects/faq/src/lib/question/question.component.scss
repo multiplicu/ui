@@ -1,13 +1,15 @@
-:host {
-  --question__border-color: #d3dddc;
+[data-theme='light'] :host {
+  --question__border-color: var(--color--gray-200);
+}
 
+[data-theme='dark'] :host {
+  --question__border-color: var(--color--gray-700);
+}
+
+:host {
   display: flex;
   flex-direction: column;
   margin-top: 16px;
-
-  @media (prefers-color-scheme: dark) {
-    --question__border-color: var(--color--deep-teal);
-  }
 }
 
 :host-context(.faq-question--accordion) {

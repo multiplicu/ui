@@ -1,0 +1,20 @@
+<label #radioLabel [attr.for]="inputId" [class.radio--align-end]="labelPosition == 'before'">
+  <span class="xcu-radio-input__container">
+    <input #input class="xcu-radio-input" type="radio" [id]="inputId" [required]="required" [checked]="checked"
+      [disabled]="disabled" [tabIndex]="tabIndex" [attr.name]="name" [attr.value]="value" [attr.aria-label]="ariaLabel"
+      [attr.aria-labelledBy]="ariaLabelledby" [attr.aria-describedby]="ariaDescribedby"
+      (change)="_onInputChange($event)" (click)="_onInputClick($event)">
+  </span>
+
+  <ng-content select=".start"></ng-content>
+
+  <span class="label-container">
+    <span class="xcu-radio-label">
+      <ng-content></ng-content>
+    </span>
+
+    <ng-content select=".description"></ng-content>
+  </span>
+
+  <ng-content select=".end"></ng-content>
+</label>

@@ -98,6 +98,10 @@
         "dist/table/table",
         "dist/table"
       ],
+      "stepper": [
+        "dist/stepper/stepper",
+        "dist/stepper"
+      ],
       "panel": [
         "dist/layout/panel/panel",
         "dist/layout/panel"
@@ -109,6 +113,10 @@
       "loader": [
         "dist/loader/loader",
         "dist/loader"
+      ],
+      "radio": [
+        "dist/form/radio/radio",
+        "dist/form/radio"
       ]
     }
   },

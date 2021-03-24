@@ -1,3 +1,30 @@
+[data-theme='light'] :host {
+  .mega-menu__container {
+    --mega-menu__border-color: var(--color--gray-200);
+  }
+
+  .mega-menu__content {
+    --xcu-mega-menu__background-color: var(
+      --mega-menu__background-color,
+      var(--color--white)
+    );
+  }
+}
+
+[data-theme='dark'] :host {
+  .mega-menu__container {
+    --mega-menu__border-color: var(--color--gray-800);
+  }
+
+  .mega-menu__content {
+    --xcu-mega-menu__background-color: var(
+      --mega-menu__background-color,
+      var(--color--gray-900)
+    );
+    --mega-menu__border-color: var(--theme--background);
+  }
+}
+
 :host {
   @media screen and (max-width: 48em) {
     &.horizontal {
@@ -17,8 +44,10 @@
 
   &.menu--active .mega-menu__container,
   .mega-menu__container:focus-within {
-    --menu-transition: 0.05s;
-    --menu-transition-delay: 0.05s;
+    --menu-transition: 0s;
+    --menu-transition-delay: 0s;
+    // --menu-transition: 0.05s;
+    // --menu-transition-delay: 0.2s;
     --menu-rotateX: 0;
 
     opacity: 1;
@@ -38,15 +67,10 @@
 
 .mega-menu__container {
   --menu-transition: var(--transition, 0.2s);
-  --menu-transition-delay: var(--transition-delay, 0.2s);
-  --mega-menu__border-color: #dedddc;
+  --menu-transition-delay: var(--transition-delay, 0.05s);
   --menu-rotateX: -15deg;
 
-  @media (prefers-color-scheme: dark) {
-    --mega-menu__border-color: #223344;
-  }
-
-  border: 1px solid var(--mega-menu__border-color);
+  border: 1px solid var(--xcu-mega-menu__border-color);
   display: block;
   margin-left: var(--menu-margin-left, -2.4rem);
   margin-top: 2.4rem;
@@ -83,11 +107,11 @@
   --columns: 2;
 
   display: grid;
-  gap: 3.2rem;
+  gap: var(--mega-menu__gap, 3.2rem);
   // grid-gap: 3.2rem;
   grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 
-  background-color: var(--theme--background);
+  background-color: var(--xcu-mega-menu__background-color);
   padding: 3.2rem;
   position: relative;
   z-index: 20;

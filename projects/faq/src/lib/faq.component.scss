@@ -1,11 +1,11 @@
 :host.accordion {
-  h3 {
+  .faq__title {
     text-align: center;
   }
 
   .questions {
     margin: 0 auto;
-    max-width: 635px;
+    max-width: 64rem;
   }
 }
 
@@ -20,6 +20,10 @@
   }
 }
 
-h3 {
+.faq__title {
+  --font-size: 2.8rem;
+  --baseline-multi: 4;
+  letter-spacing: -0.02rem;
   font-weight: var(--font-weight--bold);
+  margin-bottom: calc(2 * var(--font-line-height) - var(--baseline-offset));
 }

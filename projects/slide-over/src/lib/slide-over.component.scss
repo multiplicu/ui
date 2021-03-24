@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   overflow: hidden;
-  z-index: 10;
+  z-index: 50;
   pointer-events: none;
 
   &.open {
@@ -56,8 +56,8 @@
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.5s;
-  background-color: #6b7280;
-  background-color: rgba(107, 114, 128, var(--bg-opacity));
+  background-color: var(--color--gray-500);
+  background-color: rgba(var(--color-rgb--gray-500), var(--bg-opacity));
 }
 
 .slide-over {

@@ -1,12 +1,11 @@
 import {
-  ChangeDetectionStrategy,
   Component,
   ElementRef,
-  Input,
   HostBinding,
+  Input,
   ViewChild,
 } from '@angular/core';
-import { NavLink, HoverMenu, coerceBooleanProperty } from '@multiplicu/ui/core';
+import { coerceBooleanProperty, HoverMenu, NavLink } from '@multiplicu/ui/core';
 import { XcuNavToggleComponent } from '@multiplicu/ui/navigation/toggle';
 
 @Component({

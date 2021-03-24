@@ -1,12 +1,39 @@
+[data-theme='light'] :host {
+  --bordered__border-color: rgba(0, 0, 0, 0.05);
+  --colored__background-color: var(--color--gray-50);
+}
+
+[data-theme='dark'] :host {
+  --bordered__border-color: rgba(0, 0, 0, 0.15);
+  --colored__background-color: #27313f;
+}
+
 :host {
+  display: flex;
+  flex-direction: row;
   border-top: 1px solid transparent;
   padding: var(--footer--padding, 2.4rem);
 
-  &.bordered {
-    border-color: rgba(0, 0, 0, 0.05);
+  // Tablet
+  @media (max-width: 839px) and (min-width: 480px) {
+    --footer--padding: var(--grid-margin-tablet, 1.6rem);
+  }
 
-    @media (prefers-color-scheme: dark) {
-      border-color: rgba(0, 0, 0, 0.15);
-    }
+  // Between phone and tablet
+  @media (max-width: 660px) {
+    flex-direction: column;
+  }
+
+  // Phone
+  @media (max-width: 479px) {
+    --footer--padding: var(--grid-margin-phone, 1.6rem);
+  }
+
+  &.bordered {
+    border-color: var(--bordered__border-color);
+  }
+
+  &.colored {
+    background-color: var(--colored__background-color);
   }
 }
