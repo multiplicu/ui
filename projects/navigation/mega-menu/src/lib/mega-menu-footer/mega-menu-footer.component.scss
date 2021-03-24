@@ -16,7 +16,7 @@
 .xcu-mega-menu-footer {
   background-color: var(--xcu-footer__background-color);
   height: 100%;
-  padding: 2.4rem 3.6rem;
+  padding: var(--xcu-mega-menu-footer__padding, 2.4rem);
   width: 100%;
   z-index: 20;
 
