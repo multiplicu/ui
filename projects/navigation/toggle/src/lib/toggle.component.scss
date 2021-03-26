@@ -14,7 +14,10 @@
 
   &.bordered {
     .toggle {
-      border-color: var(--theme--background-accent);
+      border-color: var(
+        --toggle__border-color,
+        var(--theme--background-accent)
+      );
       border-radius: 0.2rem;
       padding: 0.4rem 0.8rem;
     }
