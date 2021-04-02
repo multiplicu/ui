@@ -6,4 +6,5 @@ export interface NavLink {
   onClick?: any;
   dividerPosition?: 'ABOVE' | 'BELOW' | 'NONE';
   icon?: string;
+  external?: boolean;
 }
