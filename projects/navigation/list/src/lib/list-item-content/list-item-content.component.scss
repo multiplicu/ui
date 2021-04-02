@@ -3,7 +3,8 @@
   align-items: center;
 
   svg {
-    fill: var(--textcolor--secondary, currentColor);
+    fill: var(--list-icon__fill, currentColor);
+    stroke: var(--list-icon__stroke, currentColor);
     margin-right: 1.6rem;
   }
 }

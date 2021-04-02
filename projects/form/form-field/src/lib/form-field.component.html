@@ -4,7 +4,7 @@
   [class.has-inline-suffix]="suffixChildren?.first?.inline">
   <ng-content select="[xcu-prefix]"></ng-content>
 
-  <ng-content #input select="input"></ng-content>
+  <ng-content #input select="input,textarea"></ng-content>
 
   <div *ngIf="control.controlType === 'xcu-native-select'" class="select">
     <ng-content #input select="input,select"></ng-content>
