@@ -1,14 +1,20 @@
-<input #input class="xcu-checkbox-input" [type]="type" [id]="inputId" [required]="required" [checked]="checked"
-  [disabled]="disabled" [attr.name]="name" [attr.aria-label]="ariaLabel || null" [attr.aria-labelledBy]="ariaLabelledby"
-  [attr.aria-checked]="getAriaChecked()" [attr.aria-describedby]="ariaDescribedby" (change)="onInteractionEvent($event)"
-  (click)="onInputClick($event)">
+<label #checkboxLabel [attr.for]="inputId" class="xcu-checkbox-label"
+  [class.checkbox--align-end]="labelPosition == 'before'">
+  <span class="xcu-checkbox-input__container">
+    <input #input class="xcu-checkbox-input" [type]="type" [id]="inputId" [required]="required" [checked]="checked"
+      [disabled]="disabled" [attr.name]="name" [attr.aria-label]="ariaLabel || null"
+      [attr.aria-labelledBy]="ariaLabelledby" [attr.aria-checked]="getAriaChecked()"
+      [attr.aria-describedby]="ariaDescribedby" (change)="onInteractionEvent($event)" (click)="onInputClick($event)">
+  </span>
 
-<div class="content">
-  <label #checkboxLabel [attr.for]="inputId" class="xcu-checkbox-label">
-    <ng-content></ng-content>
+  <ng-content select=".start"></ng-content>
 
-    <ng-content select=".end"></ng-content>
-  </label>
+  <span class="label-container">
+    <span class="xcu-checkbox-label">
+      <ng-content></ng-content>
+    </span>
 
-  <ng-content select=".description"></ng-content>
-</div>
+    <ng-content select=".description"></ng-content>
+  </span>
+  <ng-content select=".end"></ng-content>
+</label>

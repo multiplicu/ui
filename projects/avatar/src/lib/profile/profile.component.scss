@@ -30,6 +30,7 @@
   &__subtitle {
     --font-size: var(--font-size--small);
     color: var(--subtitle-color, currentColor);
+    white-space: var(--subtitle__white-space, normal);
 
     &:empty {
       display: none;
