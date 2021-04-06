@@ -68,12 +68,35 @@ const _XcuCheckboxMixinBase: CanDisableCtor &
   exportAs: 'xcuCheckbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
+  host: {
+    class: 'xcu-checkbox',
+    '[class.xcu-checkbox-checked]': 'checked',
+    '[class.xcu-checkbox-disabled]': 'disabled',
+    '[attr.tabindex]': 'disabled ? null : -1',
+    '[attr.id]': 'id',
+    '[attr.aria-label]': 'null',
+    '[attr.aria-labelledby]': 'null',
+    '[attr.aria-describedby]': 'null',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [CHECKBOX_CONTROL_VALUE_ACCESSOR],
 })
 export class XcuCheckboxComponent
   extends _XcuCheckboxMixinBase
   implements ControlValueAccessor {
+  // Bordered
+  private _bordered: boolean = false;
+
+  @HostBinding('class.bordered')
+  @Input()
+  public get bordered(): any {
+    return this._bordered;
+  }
+
+  public set bordered(value: any) {
+    this._bordered = coerceBooleanProperty(value);
+  }
+
   /**
    * Attached to the aria-label attribute of the host element. In most cases, aria-labelledby will
    * take precedence so this may be omitted.
@@ -104,6 +127,19 @@ export class XcuCheckboxComponent
   /** Returns the type of input, generally a checkbox. */
   public get type(): string {
     return this.radio ? 'radio' : 'checkbox';
+  }
+
+  /** Whether the labels should appear after or before the radio-buttons. Defaults to 'after' */
+  private _labelPosition: 'before' | 'after' = 'after';
+
+  /** Whether the labels should appear after or before the radio-buttons. Defaults to 'after' */
+  @Input()
+  get labelPosition(): 'before' | 'after' {
+    return this._labelPosition;
+  }
+  set labelPosition(v) {
+    this._labelPosition = v === 'before' ? 'before' : 'after';
+    this._changeDetectorRef.markForCheck();
   }
 
   /** Whether the checkbox is required. */
@@ -195,14 +231,12 @@ export class XcuCheckboxComponent
   private _indeterminate: boolean = false;
 
   /** Event emitted when the checkbox's `checked` value changes. */
-  @Output() public readonly change: EventEmitter<
-    XcuCheckboxChange
-  > = new EventEmitter<XcuCheckboxChange>();
+  @Output()
+  public readonly change: EventEmitter<XcuCheckboxChange> = new EventEmitter<XcuCheckboxChange>();
 
   /** Event emitted when the checkbox's `indeterminate` value changes. */
-  @Output() public readonly indeterminateChange: EventEmitter<
-    boolean
-  > = new EventEmitter<boolean>();
+  @Output()
+  public readonly indeterminateChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   /** The native `<input type="checkbox">` element */
   @ViewChild('input') private _inputElement: ElementRef<HTMLInputElement>;
