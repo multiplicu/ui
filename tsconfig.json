@@ -114,6 +114,10 @@
         "dist/loader/loader",
         "dist/loader"
       ],
+      "toast": [
+        "dist/feedback/toast/toast",
+        "dist/feedback/toast"
+      ],
       "radio": [
         "dist/form/radio/radio",
         "dist/form/radio"

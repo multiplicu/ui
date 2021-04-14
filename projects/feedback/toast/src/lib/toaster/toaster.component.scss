@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+  position: fixed;
+  z-index: 1;
+  right: 2.4rem;
+  bottom: 2.4rem;
+  gap: 1.2rem 0;
+  grid-template-columns: minmax(min-content, max-content);
+  max-height: 100vh;
+  overflow: visible;
+}

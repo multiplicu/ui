@@ -953,6 +953,46 @@
           }
         }
       }
+    },
+    "toast": {
+      "projectType": "library",
+      "root": "projects/feedback/toast",
+      "sourceRoot": "projects/feedback/toast/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/feedback/toast/tsconfig.lib.json",
+            "project": "projects/feedback/toast/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/feedback/toast/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/feedback/toast/src/test.ts",
+            "tsConfig": "projects/feedback/toast/tsconfig.spec.json",
+            "karmaConfig": "projects/feedback/toast/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/feedback/toast/tsconfig.lib.json",
+              "projects/feedback/toast/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "core"

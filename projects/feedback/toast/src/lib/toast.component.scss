@@ -1,0 +1,140 @@
+[data-theme='light'] :host {
+  --toast__background-color: var(--color--gray-100);
+}
+
+[data-theme='dark'] :host {
+  --toast__background-color: var(--color--gray-700);
+}
+
+:host {
+  --xcu-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  display: grid;
+  position: relative;
+  gap: 0 0.8rem;
+  grid-template-columns: min-content 1fr min-content;
+  align-items: center;
+  max-width: var(--paragraph--max-width);
+  padding: 1.6rem 1.2rem;
+  animation-name: xcu-toast-in, xcu-toast-out;
+  animation-duration: 300ms, 1000ms;
+  animation-delay: 0s, 5300ms;
+  border: 0;
+  border-radius: 0.2rem;
+  background-color: var(--color--blue-lagoon);
+  box-shadow: var(--xcu-ring-offset-shadow, 0 0 #0000),
+    var(--xcu-ring-shadow, 0 0 #0000), var(--xcu-shadow);
+  color: var(--color--white);
+
+  &:hover,
+  &:focus-within {
+    animation-delay: 0s, 300s;
+  }
+
+  & > * {
+    align-self: center;
+  }
+
+  // TODO: We should create default vars (e.g. $durationOut) since it is
+  // used here and on line 36.
+  &.is-toast-dismissed {
+    animation-name: xcu-toast-out;
+    animation-duration: 1000ms;
+    animation-delay: 1000ms; // TODO: play around with the timing here.
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.xcu-toast--success {
+    background-color: var(--color--hippie-green);
+  }
+
+  &.xcu-toast--caution {
+    background-color: #fbbf24;
+    color: var(--color--bunker);
+
+    .xcu-toast--icon {
+      color: var(--color--bunker);
+    }
+
+    .xcu-toast--title {
+      color: var(--color--bunker);
+    }
+
+    .xcu-toast--dismiss {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23101820'%3E%3Cpath fill-rule='evenodd' d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+    }
+  }
+
+  &.xcu-toast--danger {
+    background-color: var(--color--warning);
+  }
+}
+
+.xcu-toast--icon {
+  width: 2.4rem;
+  color: var(--color--white);
+  font-size: 2.4rem;
+}
+
+.xcu-toast--title {
+  --font-size: 1.8rem;
+  --baseline-multi: 3.5;
+
+  margin: 0;
+  padding-right: 2.4rem;
+  padding-top: 0;
+  color: var(--color--white);
+  font-weight: var(--font-weight--semi-bold);
+}
+
+.xcu-toast--dismiss {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-bottom: 0;
+  transform: translateY(-50%);
+  border: 0;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23fff'%3E%3Cpath fill-rule='evenodd' d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.6rem;
+
+  .xcu-toast--body + & {
+    top: 0.8rem;
+    transform: translateY(0);
+  }
+}
+
+.xcu-toast--body {
+  grid-column: 2;
+  margin-bottom: 0;
+}
+
+@keyframes xcu-toast-in {
+  0% {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes xcu-toast-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
