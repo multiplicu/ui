@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ToastComponent } from './toast.component';
-import { ToasterComponent } from './toaster/toaster.component';
+import { XcuToastComponent } from './toast.component';
+import { XcuToasterComponent } from './toaster/toaster.component';
 
 @NgModule({
-  declarations: [ToastComponent, ToasterComponent],
+  declarations: [XcuToastComponent, XcuToasterComponent],
   imports: [CommonModule],
-  exports: [ToastComponent, ToasterComponent],
+  exports: [XcuToastComponent, XcuToasterComponent],
 })
 export class XcuToastModule {}

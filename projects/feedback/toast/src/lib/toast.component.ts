@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'xcu-toast, aside[xcu-toast]',
@@ -9,7 +16,10 @@ import { Component, ElementRef, Input } from '@angular/core';
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.scss'],
 })
-export class ToastComponent {
+export class XcuToastComponent {
+  @Output()
+  public afterDismissed: EventEmitter<void> = new EventEmitter<void>();
+
   @Input()
   public title: string;
 
@@ -38,16 +48,26 @@ export class ToastComponent {
   }
 
   public isActive: boolean = true;
+  @HostBinding('class.is-toast-dismissed')
   public isDismissed: boolean = false;
 
   private _type: 'info' | 'success' | 'caution' | 'danger' = 'info';
 
-  public constructor(public elementRef: ElementRef) {}
+  public constructor(public elementRef: ElementRef) {
+    this.elementRef.nativeElement.addEventListener(
+      'animationend',
+      (event: AnimationEvent) => {
+        if (event.animationName === 'xcu-toast-out') {
+          this.isActive = false;
+
+          this.afterDismissed.emit();
+        }
+      }
+    );
+  }
 
   public dismiss(): void {
     this.isDismissed = true;
-
-    this.elementRef = null;
   }
 
   private _getHostElement(): any {
