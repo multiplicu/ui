@@ -8,5 +8,5 @@
       "@multiplicu/ui/loader": "@multiplicu/ui/loader"
     }
   },
-  "whitelistedNonPeerDependencies": ["@multiplicu/ui/core", "@multiplicu/ui/loader"]
+  "allowedNonPeerDependencies": ["@multiplicu/ui/core", "@multiplicu/ui/loader"]
 }

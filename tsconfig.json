@@ -26,6 +26,10 @@
         "dist/ui/core/core",
         "dist/ui/core"
       ],
+      "banner": [
+        "dist/ui/feedback/banner/banner",
+        "dist/ui/feedback/banner"
+      ],
       "button": [
         "dist/ui/button/button",
         "dist/ui/button"
@@ -71,52 +75,56 @@
         "dist/ui/snackbar"
       ],
       "faq": [
-        "dist/faq/faq",
-        "dist/faq"
+        "dist/ui/faq/faq",
+        "dist/ui/faq"
       ],
       "page-nav": [
-        "dist/navigation/page-nav/page-nav",
-        "dist/navigation/page-nav"
+        "dist/ui/navigation/page-nav/page-nav",
+        "dist/ui/navigation/page-nav"
       ],
       "checkbox": [
-        "dist/form/checkbox/checkbox",
-        "dist/form/checkbox"
+        "dist/ui/form/checkbox/checkbox",
+        "dist/ui/form/checkbox"
       ],
       "list": [
-        "dist/navigation/list/list",
-        "dist/navigation/list"
+        "dist/ui/navigation/list/list",
+        "dist/ui/navigation/list"
       ],
       "slide-over": [
-        "dist/slide-over/slide-over",
-        "dist/slide-over"
+        "dist/ui/slide-over/slide-over",
+        "dist/ui/slide-over"
       ],
       "select": [
-        "dist/form/select/select",
-        "dist/form/select"
+        "dist/ui/form/select/select",
+        "dist/ui/form/select"
       ],
       "table": [
-        "dist/table/table",
-        "dist/table"
+        "dist/ui/table/table",
+        "dist/ui/table"
       ],
       "stepper": [
-        "dist/stepper/stepper",
-        "dist/stepper"
+        "dist/ui/stepper/stepper",
+        "dist/ui/stepper"
       ],
       "panel": [
-        "dist/layout/panel/panel",
-        "dist/layout/panel"
+        "dist/ui/layout/panel/panel",
+        "dist/ui/layout/panel"
       ],
       "dialog": [
-        "dist/feedback/dialog/dialog",
-        "dist/feedback/dialog"
+        "dist/ui/feedback/dialog/dialog",
+        "dist/ui/feedback/dialog"
       ],
       "loader": [
-        "dist/loader/loader",
-        "dist/loader"
+        "dist/ui/loader/loader",
+        "dist/ui/loader"
+      ],
+      "toast": [
+        "dist/ui/feedback/toast/toast",
+        "dist/ui/feedback/toast"
       ],
       "radio": [
-        "dist/form/radio/radio",
-        "dist/form/radio"
+        "dist/ui/form/radio/radio",
+        "dist/ui/form/radio"
       ]
     }
   },

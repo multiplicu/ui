@@ -11,7 +11,7 @@
       "@multiplicu/ui/keycodes": "@multiplicu/ui/keycodes"
     }
   },
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "@multiplicu/ui/navigation/toggle",
     "@multiplicu/ui/badge",
     "@multiplicu/ui/button",

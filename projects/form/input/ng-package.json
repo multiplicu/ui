@@ -8,7 +8,7 @@
       "@multiplicu/ui/form/form-field": "@multiplicu/ui/form/form-field"
     }
   },
-  "whitelistedNonPeerDependencies": [
+  "allowedNonPeerDependencies": [
     "@multiplicu/ui/core",
     "@multiplicu/ui/form/form-field"
   ]
