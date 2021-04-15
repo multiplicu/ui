@@ -1,0 +1,231 @@
+:host {
+  --xcu-banner--color: var(--banner--color, var(--textcolor-reverse));
+
+  display: block;
+  color: var(--xcu-banner--color);
+
+  &:not(.floating) {
+    background-color: var(--banner--background-color, var(--theme--primary));
+  }
+
+  &.inactive {
+    display: none;
+  }
+
+  &.floating,
+  &.sticky {
+    left: 0;
+    right: 0;
+    z-index: 40;
+
+    animation-name: xcu-banner-in;
+    animation-duration: 300ms;
+    animation-delay: 0s;
+  }
+
+  &.floating {
+    position: absolute;
+
+    .content-container {
+      --xcu-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      padding: 0.8rem;
+      background-color: var(--banner--background-color, var(--theme--primary));
+      border-radius: 0.2rem;
+      box-shadow: var(--xcu-ring-offset-shadow, 0 0 #0000),
+        var(--xcu-ring-shadow, 0 0 #0000), var(--xcu-shadow);
+
+      @media (min-width: 640px) {
+        padding: 1.2rem;
+      }
+    }
+  }
+
+  &.sticky {
+    position: fixed;
+  }
+
+  &.justify--end {
+    bottom: 0;
+  }
+
+  &.justify--start {
+    --banner__translateY--in: -50%;
+  }
+
+  &.fit-width {
+    .banner__content {
+      width: fit-content;
+    }
+
+    .label {
+      width: auto;
+    }
+
+    .title {
+      margin-right: 1.2rem;
+    }
+  }
+
+  &.is-banner-dismissed {
+    animation-name: xcu-banner-out;
+    animation-duration: 1000ms;
+    animation-delay: 0; // TODO: play around with the timing here.
+  }
+}
+
+.banner__content {
+  padding: 1.2rem;
+  max-width: 130rem;
+  margin: 0 auto;
+
+  @media (min-width: 640px) {
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+  }
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  width: 0;
+  flex: 1 1 0%;
+}
+
+.icon {
+  display: flex;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+  background-color: var(--banner__icon--background-color, rgba(0, 0, 0, 0.1));
+
+  &:empty {
+    display: none;
+  }
+
+  &:not(:empty) + .title {
+    margin-left: 1.2rem;
+  }
+}
+
+.title {
+  font-weight: var(--font-weight--semi-bold);
+  color: var(--xcu-banner--color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+
+  .short {
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .long {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: inline;
+    }
+  }
+}
+
+.action {
+  --button__width: 100%;
+
+  flex-shrink: 0;
+  margin-top: 0.8rem;
+  order: 3;
+  width: 100%;
+
+  @media (min-width: 640px) {
+    --button__width: auto;
+
+    margin-top: 0;
+    width: auto;
+    order: 2;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+.dismiss {
+  order: 2;
+  flex-shrink: 0;
+
+  @media (min-width: 640px) {
+    margin-left: 1.2rem;
+    order: 3;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+.dismiss__button {
+  background-image: none;
+  background-color: transparent;
+  cursor: pointer;
+  line-height: inherit;
+  color: inherit;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+  height: 4rem;
+
+  span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  svg {
+    color: var(
+      --banner__dismiss--color,
+      var(--xcu-banner--color, var(--color--white))
+    );
+  }
+}
+
+@keyframes xcu-banner-in {
+  0% {
+    transform: translateY(var(--banner__translateY--in, 50%));
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes xcu-banner-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,48 +1,50 @@
 #!/usr/bin/env bash
 
-ng build core --prod &&
+ng build core --configuration production &&
 # Copy Core output to be used in other projects
 npm run copyDist &&
 ### AVATAR ###
-ng build avatar --prod &&
+ng build avatar --configuration production &&
 ### BADGE ###
-ng build badge --prod &&
+ng build badge --configuration production &&
 ### LOADER ###
-ng build loader --prod &&
+ng build loader --configuration production &&
 npm run copyDist &&
 ### BUTTON ###
-ng build button --prod &&
+ng build button --configuration production &&
 ### FAQ ###
-ng build faq --prod &&
+ng build faq --configuration production &&
 ### FORM ###
-ng build form-field --prod &&
+ng build form-field --configuration production &&
 npm run copyDist &&
-ng build input --prod &&
-ng build select --prod &&
-ng build checkbox --prod &&
-ng build radio --prod &&
+ng build input --configuration production &&
+ng build select --configuration production &&
+ng build checkbox --configuration production &&
+ng build radio --configuration production &&
 ### NAVIGATION ###
-ng build nav-toggle --prod &&
-ng build stepper --prod &&
+ng build nav-toggle --configuration production &&
+ng build stepper --configuration production &&
 # Copy Toggle to be used in other projects
 npm run copyDist &&
-ng build switcher --prod &&
+ng build switcher --configuration production &&
 # Copy Switcher to be used in other projects
 npm run copyDist &&
-ng build tabs --prod &&
-ng build local-nav --prod &&
-ng build mega-menu --prod &&
-ng build page-nav --prod &&
-ng build list --prod &&
+ng build tabs --configuration production &&
+ng build local-nav --configuration production &&
+ng build mega-menu --configuration production &&
+ng build page-nav --configuration production &&
+ng build list --configuration production &&
 ### SNACKBAR ###
-ng build snackbar --prod &&
+ng build snackbar --configuration production &&
 ### SLIDE-OVER ###
-ng build slide-over --prod &&
+ng build slide-over --configuration production &&
 ### TABLE ###
-ng build table --prod &&
+ng build table --configuration production &&
 ### PANEL ###
-ng build panel --prod &&
-### DIALOG ###
-ng build dialog --prod &&
+ng build panel --configuration production &&
+### FEEDBACK ###
+ng build banner --configuration production &&
+ng build dialog --configuration production &&
+ng build toast --configuration production &&
 # Copy UI package.json file
 cp projects/ui/package.json dist/ui

@@ -7,5 +7,5 @@
       "@multiplicu/ui/core": "@multiplicu/ui/core"
     }
   },
-  "whitelistedNonPeerDependencies": ["@multiplicu/ui/core"]
+  "allowedNonPeerDependencies": ["@multiplicu/ui/core"]
 }

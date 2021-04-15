@@ -1,0 +1,28 @@
+<div class="banner__content">
+  <div class="content-container">
+    <div class="label">
+      <span class="icon">
+        <ng-content select="svg"></ng-content>
+      </span>
+
+      <p *ngIf="title" class="title">
+        <span class="short">{{ shortTitle || title }}</span>
+        <span class="long">{{ title }}</span>
+      </p>
+    </div>
+
+    <div class="action">
+      <ng-content select="button"></ng-content>
+    </div>
+
+    <div class="dismiss">
+      <button *ngIf="dismissable" (click)="dismiss()" type="button" class="dismiss__button">
+        <span>Dismiss</span>
+        <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
