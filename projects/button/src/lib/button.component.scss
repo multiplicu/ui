@@ -210,7 +210,7 @@
     // );
 
     background: none;
-    color: var(--textcolor);
+    color: var(--button__color, var(--textcolor));
   }
 
   &.xcu-button--warning:not([disabled]) {
