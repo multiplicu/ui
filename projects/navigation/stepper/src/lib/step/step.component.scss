@@ -37,7 +37,7 @@
   position: relative;
 
   &.completed {
-    --step--accent-color: var(--theme--secondary);
+    --step--accent-color: var(--theme--primary);
 
     .indicator {
       --step-indicator--background-color: var(--theme--primary);
@@ -49,7 +49,7 @@
   }
 
   &.active {
-    --step--accent-color: var(--theme--secondary);
+    --step--accent-color: var(--theme--primary);
 
     .step__label {
       --step-label--color: var(--theme--primary);
