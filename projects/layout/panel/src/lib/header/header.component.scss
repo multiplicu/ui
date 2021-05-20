@@ -1,5 +1,14 @@
+[data-theme='light'] :host {
+  --bordered__border-color: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] :host {
+  --bordered__border-color: rgba(0, 0, 0, 0.15);
+}
+
 :host {
   padding: var(--header--padding, 2.4rem);
+  border-bottom: 1px solid transparent;
 
   // Tablet
   @media (max-width: 839px) and (min-width: 480px) {
@@ -9,5 +18,9 @@
   // Phone
   @media (max-width: 479px) {
     --header--padding: var(--grid-margin-phone, 1.6rem);
+  }
+
+  &.bordered {
+    border-color: var(--bordered__border-color);
   }
 }
