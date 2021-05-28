@@ -1,10 +1,16 @@
 [data-theme='light'] :host {
-  --border-color--disabled: rgba(0, 0, 0, 0.1);
+  --xcu-border-color--disabled: var(
+    --border-color--disabled,
+    rgba(0, 0, 0, 0.1)
+  );
   --color--disabled: rgba(0, 0, 0, 0.4);
 }
 
 [data-theme='dark'] :host {
-  --border-color--disabled: rgba(255, 255, 255, 0.1);
+  --xcu-border-color--disabled: var(
+    --border-color--disabled,
+    rgba(255, 255, 255, 0.1)
+  );
   --color--disabled: rgba(255, 255, 255, 0.3);
 
   &.xcu-button--secondary:not([disabled]) {
@@ -122,7 +128,7 @@
   &.disabled,
   &.loading {
     pointer-events: none;
-    border: 1px solid var(--border-color--disabled);
+    border: 1px solid var(--xcu-border-color--disabled);
     color: var(--color--disabled);
     background-color: transparent;
   }
