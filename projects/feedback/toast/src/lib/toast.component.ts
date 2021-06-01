@@ -6,6 +6,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { coerceBooleanProperty } from '@multiplicu/ui/core';
 
 @Component({
   selector: 'xcu-toast, aside[xcu-toast]',
@@ -47,11 +48,22 @@ export class XcuToastComponent {
     );
   }
 
+  @HostBinding('class.persistent')
+  @Input()
+  public get persistent(): any {
+    return this._persistent;
+  }
+
+  public set persistent(value: any) {
+    this._persistent = coerceBooleanProperty(value);
+  }
+
   public isActive: boolean = true;
   @HostBinding('class.is-toast-dismissed')
   public isDismissed: boolean = false;
 
   private _type: 'info' | 'success' | 'caution' | 'danger' = 'info';
+  private _persistent: boolean = false;
 
   public constructor(public elementRef: ElementRef) {
     this.elementRef.nativeElement.addEventListener(

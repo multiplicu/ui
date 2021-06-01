@@ -36,6 +36,10 @@
     align-self: center;
   }
 
+  &.persistent {
+    animation: none;
+  }
+
   // TODO: We should create default vars (e.g. $durationOut) since it is
   // used here and on line 36.
   &.is-toast-dismissed {
