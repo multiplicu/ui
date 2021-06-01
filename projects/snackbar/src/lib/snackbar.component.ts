@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
     class: 'xcu-snackbar',
   },
 })
-export class SnackbarComponent {
+export class XcuSnackbarComponent {
   @Input() public data: { message: string; action: string };
 
   public get hasAction(): boolean {
