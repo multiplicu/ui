@@ -181,7 +181,7 @@ export class SelectionModel<T> {
     if (
       values.length > 1 &&
       !this._multiple //&&
-      // (typeof ngDevMode === 'undefined' || ngDevMode)
+      // (false)
     ) {
       throw getMultipleValuesInSingleSelectionError();
     }

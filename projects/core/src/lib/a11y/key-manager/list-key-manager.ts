@@ -145,7 +145,7 @@ export class ListKeyManager<T extends ListKeyManagerOption> {
    */
   withTypeAhead(debounceInterval: number = 200): this {
     if (
-      // (typeof ngDevMode === 'undefined' || ngDevMode) &&
+      // (false) &&
       this._items.length &&
       this._items.some((item) => typeof item.getLabel !== 'function')
     ) {

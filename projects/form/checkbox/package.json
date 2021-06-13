@@ -4,7 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^10.0.5",
     "@angular/core": "^10.0.5",
-    "@multiplicu/ui": "^0.0.1"
+    "@multiplicu/ui": "^1.2.8"
   },
   "dependencies": {
     "tslib": "^2.0.0"

@@ -148,7 +148,8 @@ export class XcuSelectComponent
     CanDisable,
     HasTabIndex,
     XcuFormFieldControl<any>,
-    CanUpdateErrorState {
+    CanUpdateErrorState
+{
   /** Whether or not the overlay panel is open. */
   private _panelOpen: boolean = false;
 
@@ -242,7 +243,7 @@ export class XcuSelectComponent
   public set multiple(value: boolean) {
     // if (
     //   this._selectionModel &&
-    //   (typeof ngDevMode === 'undefined' || ngDevMode)
+    //   (false)
     // ) {
     //   throw getMatSelectDynamicMultipleError();
     // }
@@ -262,7 +263,7 @@ export class XcuSelectComponent
   public set compareWith(fn: (o1: any, o2: any) => boolean) {
     // if (
     //   typeof fn !== 'function' &&
-    //   (typeof ngDevMode === 'undefined' || ngDevMode)
+    //   (false)
     // ) {
     //   throw getMatSelectNonFunctionValueError();
     // }
@@ -360,30 +361,26 @@ export class XcuSelectComponent
   }
 
   /** Event emitted when the selected value has been changed by the user. */
-  @Output() readonly selectionChange: EventEmitter<
-    XcuSelectChange
-  > = new EventEmitter<XcuSelectChange>();
+  @Output() readonly selectionChange: EventEmitter<XcuSelectChange> =
+    new EventEmitter<XcuSelectChange>();
 
   /** Event emitted when the select panel has been toggled. */
-  @Output() readonly openedChange: EventEmitter<boolean> = new EventEmitter<
-    boolean
-  >();
+  @Output() readonly openedChange: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
   /** Event emitted when the select has been opened. */
-  @Output('opened') readonly _openedStream: Observable<
-    void
-  > = this.openedChange.pipe(
-    filter((o) => o),
-    map(() => {})
-  );
+  @Output('opened') readonly _openedStream: Observable<void> =
+    this.openedChange.pipe(
+      filter((o) => o),
+      map(() => {})
+    );
 
   /** Event emitted when the select has been closed. */
-  @Output('closed') readonly _closedStream: Observable<
-    void
-  > = this.openedChange.pipe(
-    filter((o) => !o),
-    map(() => {})
-  );
+  @Output('closed') readonly _closedStream: Observable<void> =
+    this.openedChange.pipe(
+      filter((o) => !o),
+      map(() => {})
+    );
 
   /**
    * Event that emits whenever the raw value of the select changes. This is here primarily
@@ -720,7 +717,7 @@ export class XcuSelectComponent
     if (this.multiple && value) {
       if (
         !Array.isArray(value) //&&
-        // (typeof ngDevMode === 'undefined' || ngDevMode)
+        // (false)
       ) {
         throw getXcuSelectNonArrayValueError();
       }
@@ -757,7 +754,7 @@ export class XcuSelectComponent
           // Treat null as a special reset value.
           return option.value != null && this._compareWith(option.value, value);
         } catch (error) {
-          // if (typeof ngDevMode === 'undefined' || ngDevMode) {
+          // if (false) {
           //   // Notify developers of errors in their comparator.
           //   console.warn(error);
           // }

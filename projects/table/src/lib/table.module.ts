@@ -1,11 +1,60 @@
 import { NgModule } from '@angular/core';
-import { XcuTableComponent } from './table.component';
-import { XcuHeadComponent } from './head/head.component';
-import { XcuCellComponent } from './cell/cell.component';
+import {
+  XcuCell,
+  XcuCellDef,
+  XcuColumnDef,
+  XcuFooterCell,
+  XcuFooterCellDef,
+  XcuHeaderCell,
+  XcuHeaderCellDef,
+} from './cell';
+import {
+  XcuCellOutlet,
+  XcuFooterRow,
+  XcuFooterRowDef,
+  XcuHeaderRow,
+  XcuHeaderRowDef,
+  XcuNoDataRow,
+  XcuRow,
+  XcuRowDef,
+} from './row';
+import {
+  DataRowOutlet,
+  FooterRowOutlet,
+  HeaderRowOutlet,
+  NoDataRowOutlet,
+  XcuRecycleRows,
+  XcuTable,
+} from './table';
+import { XcuTextColumn } from './text-column';
 
+const EXPORTED_DECLARATIONS = [
+  XcuTable,
+  XcuRowDef,
+  XcuCellDef,
+  XcuCellOutlet,
+  XcuHeaderCellDef,
+  XcuFooterCellDef,
+  XcuColumnDef,
+  XcuCell,
+  XcuRow,
+  XcuHeaderCell,
+  XcuFooterCell,
+  XcuHeaderRow,
+  XcuHeaderRowDef,
+  XcuFooterRow,
+  XcuFooterRowDef,
+  DataRowOutlet,
+  HeaderRowOutlet,
+  FooterRowOutlet,
+  XcuTextColumn,
+  XcuNoDataRow,
+  XcuRecycleRows,
+  NoDataRowOutlet,
+];
 @NgModule({
-  declarations: [XcuTableComponent, XcuHeadComponent, XcuCellComponent],
+  exports: EXPORTED_DECLARATIONS,
+  declarations: EXPORTED_DECLARATIONS,
   imports: [],
-  exports: [XcuTableComponent, XcuHeadComponent, XcuCellComponent],
 })
 export class XcuTableModule {}
