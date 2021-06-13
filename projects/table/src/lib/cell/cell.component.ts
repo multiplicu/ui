@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'xcu-simple-cell, td, td[xcu-simple-cell], div[xcu-simple-cell]',
+  selector: 'xcu-simple-cell, td[xcu-simple-cell], div[xcu-simple-cell]',
   exportAs: 'xcuTableCell',
   host: {
     class: 'table-cell typography',

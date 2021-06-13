@@ -103,6 +103,10 @@
         "dist/ui/table/table",
         "dist/ui/table"
       ],
+      "sort": [
+        "dist/ui/sort/sort",
+        "dist/ui/sort"
+      ],
       "stepper": [
         "dist/ui/stepper/stepper",
         "dist/ui/stepper"

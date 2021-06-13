@@ -12,6 +12,7 @@ export * from './lib/row';
 export * from './lib/sticky-position-listener';
 export * from './lib/sticky-styler';
 export * from './lib/table';
+export * from './lib/table-data-source';
 export * from './lib/table-errors';
 export * from './lib/table.module';
 export * from './lib/table/table.component';

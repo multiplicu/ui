@@ -38,6 +38,8 @@ ng build list &&
 ng build snackbar &&
 ### SLIDE-OVER ###
 ng build slide-over &&
+### SORT ###
+ng build sort &&
 ### TABLE ###
 ng build table &&
 ### PANEL ###

@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'xcu-simple-head, th, th[xcu-simple-head], div[xcu-simple-head]',
+  selector: 'xcu-simple-head, th[xcu-simple-head], div[xcu-simple-head]',
   exportAs: 'xcuTableHead',
   host: {
     class: 'table-head typography',

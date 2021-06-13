@@ -5,8 +5,8 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// import { XcuPaginator } from '@angular/material/paginator';
-// import { Sort, XcuSort } from '@angular/material/sort';
+// import { XcuPaginator } from '@multiplicu/ui/paginator';
+import { Sort, XcuSort } from '@multiplicu/ui/sort';
 import { DataSource, _isNumberValue } from '@multiplicu/ui/core';
 import {
   BehaviorSubject,
@@ -376,8 +376,8 @@ export class _XcuTableDataSource<
       // If the page index is set beyond the page, reduce it to the last page.
       if (paginator.pageIndex > 0) {
         const lastPageIndex =
-          Xcuh.ceil(paginator.length / paginator.pageSize) - 1 || 0;
-        const newPageIndex = Xcuh.min(paginator.pageIndex, lastPageIndex);
+          Math.ceil(paginator.length / paginator.pageSize) - 1 || 0;
+        const newPageIndex = Math.min(paginator.pageIndex, lastPageIndex);
 
         if (newPageIndex !== paginator.pageIndex) {
           paginator.pageIndex = newPageIndex;
@@ -425,7 +425,5 @@ export class _XcuTableDataSource<
  * interactions. If your app needs to support more advanced use cases, consider implementing your
  * own `DataSource`.
  */
-export class XcuTableDataSource<T> extends _XcuTableDataSource<
-  T,
-  XcuPaginator
-> {}
+export class XcuTableDataSource<T> extends _XcuTableDataSource<T> {} //,
+// XcuPaginator

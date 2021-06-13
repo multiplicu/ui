@@ -38,6 +38,8 @@ ng build list --configuration production &&
 ng build snackbar --configuration production &&
 ### SLIDE-OVER ###
 ng build slide-over --configuration production &&
+### SORT ###
+ng build sort --configuration production &&
 ### TABLE ###
 ng build table --configuration production &&
 ### PANEL ###
