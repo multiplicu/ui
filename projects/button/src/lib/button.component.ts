@@ -33,8 +33,8 @@ class XcuButtonBase {
   public constructor(public elementRef: ElementRef) {}
 }
 
-const _XcuButtonMixinBase: CanDisableCtor &
-  typeof XcuButtonBase = mixinDisabled(XcuButtonBase);
+const _XcuButtonMixinBase: CanDisableCtor & typeof XcuButtonBase =
+  mixinDisabled(XcuButtonBase);
 
 @Component({
   selector: `button[xcu-button],
@@ -44,6 +44,9 @@ const _XcuButtonMixinBase: CanDisableCtor &
     button[xcu-button--tertiary],
     button[xcu-button--warning],
     button[xcu-button--raised]`,
+  host: {
+    type: 'button',
+  },
   exportAs: 'xcuButton',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
@@ -52,7 +55,8 @@ const _XcuButtonMixinBase: CanDisableCtor &
 })
 export class XcuButtonComponent
   extends _XcuButtonMixinBase
-  implements OnChanges {
+  implements OnChanges
+{
   @HostBinding('attr.disabled')
   public get isDisabled(): boolean {
     return this.disabled || null;
