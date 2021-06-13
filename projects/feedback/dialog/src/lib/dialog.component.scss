@@ -124,7 +124,7 @@
 
     margin-bottom: 3.2rem;
     margin-top: 3.2rem;
-    max-width: 51.2rem;
+    max-width: var(--dialog__max-width, 51.2rem);
     vertical-align: middle;
     width: 100%;
   }
