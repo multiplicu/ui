@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'xcu-cell, td, td[xcu-cell], div[xcu-cell]',
+  selector: 'xcu-simple-cell, td, td[xcu-simple-cell], div[xcu-simple-cell]',
   exportAs: 'xcuTableCell',
   host: {
     class: 'table-cell typography',
@@ -17,7 +17,7 @@ import {
   changeDetection: ChangeDetectionStrategy.Default,
   encapsulation: ViewEncapsulation.None,
 })
-export class XcuCellComponent {
+export class XcuSimpleCellComponent {
   @HostBinding('style.text-align')
   @Input()
   public justify: 'start' | 'end' = 'start';

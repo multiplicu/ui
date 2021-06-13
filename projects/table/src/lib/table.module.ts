@@ -8,6 +8,8 @@ import {
   XcuHeaderCell,
   XcuHeaderCellDef,
 } from './cell';
+import { XcuSimpleCellComponent } from './cell/cell.component';
+import { XcuSimpleHeadComponent } from './head/head.component';
 import {
   XcuCellOutlet,
   XcuFooterRow,
@@ -26,6 +28,7 @@ import {
   XcuRecycleRows,
   XcuTable,
 } from './table';
+import { XcuSimpleTableComponent } from './table/table.component';
 import { XcuTextColumn } from './text-column';
 
 const EXPORTED_DECLARATIONS = [
@@ -51,6 +54,9 @@ const EXPORTED_DECLARATIONS = [
   XcuNoDataRow,
   XcuRecycleRows,
   NoDataRowOutlet,
+  XcuSimpleTableComponent,
+  XcuSimpleHeadComponent,
+  XcuSimpleCellComponent,
 ];
 @NgModule({
   exports: EXPORTED_DECLARATIONS,
