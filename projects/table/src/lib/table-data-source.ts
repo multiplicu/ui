@@ -5,7 +5,7 @@
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// import { XcuPaginator } from '@multiplicu/ui/paginator';
+import { XcuPaginator } from '@multiplicu/ui/paginator';
 import { Sort, XcuSort } from '@multiplicu/ui/sort';
 import { DataSource, _isNumberValue } from '@multiplicu/ui/core';
 import {
@@ -425,5 +425,7 @@ export class _XcuTableDataSource<
  * interactions. If your app needs to support more advanced use cases, consider implementing your
  * own `DataSource`.
  */
-export class XcuTableDataSource<T> extends _XcuTableDataSource<T> {} //,
-// XcuPaginator
+export class XcuTableDataSource<T> extends _XcuTableDataSource<
+  T,
+  XcuPaginator
+> {}

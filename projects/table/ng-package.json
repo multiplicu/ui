@@ -5,11 +5,13 @@
     "entryFile": "src/public-api.ts",
     "umdModuleIds": {
       "@multiplicu/ui/core": "@multiplicu/ui/core",
+      "@multiplicu/ui/paginator": "@multiplicu/ui/paginator",
       "@multiplicu/ui/sort": "@multiplicu/ui/sort"
     }
   },
   "allowedNonPeerDependencies": [
     "@multiplicu/ui/core",
+    "@multiplicu/ui/paginator",
     "@multiplicu/ui/sort"
   ]
 }

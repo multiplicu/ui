@@ -71,9 +71,7 @@ th,
   }
 
   @media (min-width: 480px) {
-    border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: var(--border-color);
   }
 }
 
@@ -89,9 +87,7 @@ tbody {
   td,
   .table-cell {
     @media (min-width: 480px) {
-      border-bottom-style: solid;
       border-bottom-width: 1px;
-      border-bottom-color: var(--border-color);
     }
   }
 }

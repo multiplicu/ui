@@ -83,6 +83,10 @@
         "dist/ui/navigation/page-nav/page-nav",
         "dist/ui/navigation/page-nav"
       ],
+      "paginator": [
+        "dist/ui/paginator/paginator",
+        "dist/ui/paginator"
+      ],
       "checkbox": [
         "dist/ui/form/checkbox/checkbox",
         "dist/ui/form/checkbox"

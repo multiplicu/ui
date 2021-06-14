@@ -1055,6 +1055,37 @@
           }
         }
       }
+    },
+    "paginator": {
+      "projectType": "library",
+      "root": "projects/paginator",
+      "sourceRoot": "projects/paginator/src",
+      "prefix": "xcu",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/paginator/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/paginator/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/paginator/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/paginator/src/test.ts",
+            "tsConfig": "projects/paginator/tsconfig.spec.json",
+            "karmaConfig": "projects/paginator/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "core"

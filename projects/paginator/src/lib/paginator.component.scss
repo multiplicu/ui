@@ -1,0 +1,77 @@
+$padding: 0;
+$page-size-margin-right: 0.8rem;
+
+$items-per-page-label-margin: 0 0.8rem;
+$selector-margin: 0 0.8rem;
+// $selector-trigger-width: 56px;
+// $selector-trigger-outline-width: 64px;
+// $selector-trigger-fill-width: 64px;
+
+$range-label-margin: 0 2.4rem;
+$button-icon-size: 2.4rem;
+
+.xcu-paginator {
+  display: block;
+}
+
+// Note: this wrapper element is only used to get the flexbox vertical centering to work
+// with the `min-height` on IE11. It can be removed if we drop support for IE.
+.xcu-paginator-outer-container {
+  display: flex;
+}
+
+.xcu-paginator-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: $padding;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+}
+
+.xcu-paginator-page-size {
+  display: flex;
+  align-items: baseline;
+  margin-right: $page-size-margin-right;
+
+  [dir='rtl'] & {
+    margin-right: 0;
+    margin-left: $page-size-margin-right;
+  }
+}
+
+.xcu-paginator-page-size-label {
+  margin: $items-per-page-label-margin;
+}
+
+.xcu-paginator-page-size-select {
+  margin: $selector-margin;
+  // width: $selector-trigger-width;
+
+  &.xcu-form-field-appearance-outline {
+    // width: $selector-trigger-outline-width;
+  }
+
+  &.xcu-form-field-appearance-fill {
+    // width: $selector-trigger-fill-width;
+  }
+}
+
+.xcu-paginator-range-label {
+  margin: $range-label-margin;
+}
+
+.xcu-paginator-range-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.xcu-paginator-icon {
+  width: $button-icon-size;
+  fill: currentColor;
+
+  [dir='rtl'] & {
+    transform: rotate(180deg);
+  }
+}
