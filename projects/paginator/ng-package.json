@@ -1,0 +1,19 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/ui/paginator",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@multiplicu/ui/core": "@multiplicu/ui/core",
+      "@multiplicu/ui/button": "@multiplicu/ui/button",
+      "@multiplicu/ui/form/form-field": "@multiplicu/ui/form/form-field",
+      "@multiplicu/ui/form/input": "@multiplicu/ui/form/input"
+    }
+  },
+  "allowedNonPeerDependencies": [
+    "@multiplicu/ui/core",
+    "@multiplicu/ui/button",
+    "@multiplicu/ui/form/form-field",
+    "@multiplicu/ui/form/input"
+  ]
+}

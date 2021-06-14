@@ -74,6 +74,7 @@
 .input-wrapper {
   display: flex;
   align-items: center;
+  max-width: var(--paragraph--max-width);
 }
 
 // Affix stylings

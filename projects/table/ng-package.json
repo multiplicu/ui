@@ -2,6 +2,16 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ui/table",
   "lib": {
-    "entryFile": "src/public-api.ts"
-  }
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@multiplicu/ui/core": "@multiplicu/ui/core",
+      "@multiplicu/ui/paginator": "@multiplicu/ui/paginator",
+      "@multiplicu/ui/sort": "@multiplicu/ui/sort"
+    }
+  },
+  "allowedNonPeerDependencies": [
+    "@multiplicu/ui/core",
+    "@multiplicu/ui/paginator",
+    "@multiplicu/ui/sort"
+  ]
 }

@@ -1,0 +1,55 @@
+<div class="xcu-paginator-outer-container">
+  <div class="xcu-paginator-container">
+    <div class="xcu-paginator-page-size" *ngIf="!hidePageSize">
+      <div class="xcu-paginator-page-size-label">
+        {{_intl.itemsPerPageLabel}}
+      </div>
+
+      <xcu-form-field *ngIf="_displayedPageSizeOptions.length > 1" [formGroup]="pageSizeForm"
+        class="xcu-paginator-page-size-select">
+        <select xcu-native-control formControlName="pageSize" [attr.aria-label]="_intl.itemsPerPageLabel">
+          <option *ngFor="let pageSizeOption of _displayedPageSizeOptions" [ngValue]="pageSizeOption">
+            {{pageSizeOption}}
+          </option>
+        </select>
+      </xcu-form-field>
+
+      <div class="xcu-paginator-page-size-value" *ngIf="_displayedPageSizeOptions.length <= 1">{{pageSize}}</div>
+    </div>
+
+    <div class="xcu-paginator-range-actions">
+      <div class="xcu-paginator-range-label">
+        {{_intl.getRangeLabel(pageIndex, pageSize, length)}}
+      </div>
+
+      <button xcu-button--tertiary class="tooltip xcu-paginator-navigation-first" (click)="firstPage()"
+        [attr.aria-label]="_intl.firstPageLabel" [attr.aria-label]="_intl.firstPageLabel"
+        [disabled]="_previousButtonsDisabled()" *ngIf="showFirstLastButtons">
+        <svg class="xcu-paginator-icon" viewBox="0 0 24 24" focusable="false">
+          <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z" />
+        </svg>
+      </button>
+      <button xcu-button--tertiary class="tooltip xcu-paginator-navigation-previous" (click)="previousPage()"
+        [attr.aria-label]="_intl.previousPageLabel" [attr.aria-label]="_intl.previousPageLabel"
+        [disabled]="_previousButtonsDisabled()">
+        <svg class="xcu-paginator-icon" viewBox="0 0 24 24" focusable="false">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+      </button>
+      <button xcu-button--tertiary class="tooltip xcu-paginator-navigation-next" (click)="nextPage()"
+        [attr.aria-label]="_intl.nextPageLabel" [attr.aria-label]="_intl.nextPageLabel"
+        [disabled]="_nextButtonsDisabled()">
+        <svg class="xcu-paginator-icon" viewBox="0 0 24 24" focusable="false">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+        </svg>
+      </button>
+      <button xcu-button--tertiary class="tooltip xcu-paginator-navigation-last" (click)="lastPage()"
+        [attr.aria-label]="_intl.lastPageLabel" [attr.aria-label]="_intl.lastPageLabel"
+        [disabled]="_nextButtonsDisabled()" *ngIf="showFirstLastButtons">
+        <svg class="xcu-paginator-icon" viewBox="0 0 24 24" focusable="false">
+          <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>

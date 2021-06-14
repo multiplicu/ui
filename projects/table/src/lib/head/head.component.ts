@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'xcu-head, th, th[xcu-head], div[xcu-head]',
+  selector: 'xcu-simple-head, th[xcu-simple-head], div[xcu-simple-head]',
   exportAs: 'xcuTableHead',
   host: {
     class: 'table-head typography',
@@ -18,7 +18,7 @@ import {
   changeDetection: ChangeDetectionStrategy.Default,
   encapsulation: ViewEncapsulation.None,
 })
-export class XcuHeadComponent {
+export class XcuSimpleHeadComponent {
   @HostBinding('style.text-align')
   @Input()
   public justify: 'start' | 'end' = 'start';
