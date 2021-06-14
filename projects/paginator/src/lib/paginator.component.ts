@@ -1,3 +1,4 @@
+import { OnChanges, SimpleChanges } from '@angular/core';
 /**
  * @license
  * Copyright Google LLC All Rights Reserved.
@@ -21,6 +22,7 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import {
   BooleanInput,
   CanDisable,
@@ -109,8 +111,11 @@ export abstract class _XcuPaginatorBase<
     }
   >
   extends _XcuPaginatorMixinBase
-  implements OnDestroy, OnInit, CanDisable, HasInitialized
+  implements OnDestroy, OnChanges, OnInit, CanDisable, HasInitialized
 {
+  public pageSizeForm: FormGroup;
+  private _pageSizeFormChanges: Subscription;
+
   private _initialized: boolean;
   private _intlChanges: Subscription;
 
@@ -188,9 +193,11 @@ export abstract class _XcuPaginatorBase<
   constructor(
     public _intl: XcuPaginatorIntl,
     private _changeDetectorRef: ChangeDetectorRef,
+    private _fb: FormBuilder,
     defaults?: O
   ) {
     super();
+
     this._intlChanges = _intl.changes.subscribe(() =>
       this._changeDetectorRef.markForCheck()
     );
@@ -215,6 +222,14 @@ export abstract class _XcuPaginatorBase<
         this._showFirstLastButtons = showFirstLastButtons;
       }
     }
+
+    this.pageSizeForm = this._fb.group({
+      pageSize: [defaults?.pageSize || ''],
+    });
+
+    this._pageSizeFormChanges = this.pageSizeForm.valueChanges.subscribe(
+      (val: { pageSize: number }) => this._changePageSize(+val.pageSize)
+    );
   }
 
   ngOnInit() {
@@ -223,8 +238,20 @@ export abstract class _XcuPaginatorBase<
     this._markInitialized();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.pageSize) {
+      this.pageSizeForm.patchValue(
+        {
+          pageSize: +changes.pageSize.currentValue,
+        },
+        { emitEvent: false }
+      );
+    }
+  }
+
   ngOnDestroy() {
     this._intlChanges.unsubscribe();
+    this._pageSizeFormChanges.unsubscribe();
   }
 
   /** Advances to the next page if it exists. */
@@ -392,11 +419,12 @@ export class XcuPaginator extends _XcuPaginatorBase<XcuPaginatorDefaultOptions> 
   constructor(
     intl: XcuPaginatorIntl,
     changeDetectorRef: ChangeDetectorRef,
+    _fb: FormBuilder,
     @Optional()
     @Inject(XCU_PAGINATOR_DEFAULT_OPTIONS)
     defaults?: XcuPaginatorDefaultOptions
   ) {
-    super(intl, changeDetectorRef, defaults);
+    super(intl, changeDetectorRef, _fb, defaults);
 
     if (defaults && defaults.formFieldAppearance != null) {
       this._formFieldAppearance = defaults.formFieldAppearance;

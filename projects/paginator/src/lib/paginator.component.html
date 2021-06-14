@@ -5,10 +5,10 @@
         {{_intl.itemsPerPageLabel}}
       </div>
 
-      <xcu-form-field *ngIf="_displayedPageSizeOptions.length > 1" class="xcu-paginator-page-size-select">
-        <select xcu-native-control [value]="pageSize" [disabled]="disabled" [attr.aria-label]="_intl.itemsPerPageLabel"
-          (selectionChange)="_changePageSize($event.value)">
-          <option *ngFor="let pageSizeOption of _displayedPageSizeOptions" [value]="pageSizeOption">
+      <xcu-form-field *ngIf="_displayedPageSizeOptions.length > 1" [formGroup]="pageSizeForm"
+        class="xcu-paginator-page-size-select">
+        <select xcu-native-control formControlName="pageSize" [attr.aria-label]="_intl.itemsPerPageLabel">
+          <option *ngFor="let pageSizeOption of _displayedPageSizeOptions" [ngValue]="pageSizeOption">
             {{pageSizeOption}}
           </option>
         </select>
