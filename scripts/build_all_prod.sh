@@ -40,7 +40,10 @@ ng build snackbar --configuration production &&
 ng build slide-over --configuration production &&
 ### SORT ###
 ng build sort --configuration production &&
+### PAGINATOR ###
+ng build paginator --configuration production &&
 ### TABLE ###
+npm run copyDist &&
 ng build table --configuration production &&
 ### PANEL ###
 ng build panel --configuration production &&
