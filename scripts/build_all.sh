@@ -40,7 +40,10 @@ ng build snackbar &&
 ng build slide-over &&
 ### SORT ###
 ng build sort &&
+### PAGINATOR ###
+ng build paginator &&
 ### TABLE ###
+npm run copyDist &&
 ng build table &&
 ### PANEL ###
 ng build panel &&
