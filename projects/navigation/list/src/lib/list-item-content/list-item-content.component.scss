@@ -1,6 +1,7 @@
 .list-item__content {
   display: flex;
   align-items: center;
+  width: var(--list-item-content__width, fit-content);
 
   svg {
     fill: var(--list-icon__fill, currentColor);
