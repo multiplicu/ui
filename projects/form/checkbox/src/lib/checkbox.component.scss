@@ -27,6 +27,10 @@
 
   &.disabled {
     cursor: default;
+
+    .xcu-checkbox-label {
+      color: var(--textcolor--secondary);
+    }
   }
 
   &:focus {

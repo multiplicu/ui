@@ -71,7 +71,8 @@ export const XCU_RADIO_GROUP = new InjectionToken<
  */
 @Directive()
 export abstract class _XcuRadioGroupBase<T extends _XcuRadioButtonBase>
-  implements AfterContentInit, ControlValueAccessor {
+  implements AfterContentInit, ControlValueAccessor
+{
   /** Selected value for the radio group. */
   private _value: any = null;
 
@@ -325,8 +326,8 @@ abstract class XcuRadioButtonBase {
   constructor(public _elementRef: ElementRef) {}
 }
 
-const _XcuRadioButtonMixinBase: HasTabIndexCtor &
-  typeof XcuRadioButtonBase = mixinTabIndex(XcuRadioButtonBase);
+const _XcuRadioButtonMixinBase: HasTabIndexCtor & typeof XcuRadioButtonBase =
+  mixinTabIndex(XcuRadioButtonBase);
 
 /**
  * Base class with all of the `XcuRadioButton` functionality.
@@ -335,7 +336,8 @@ const _XcuRadioButtonMixinBase: HasTabIndexCtor &
 @Directive()
 export abstract class _XcuRadioButtonBase
   extends _XcuRadioButtonMixinBase
-  implements OnInit, OnDestroy, HasTabIndex {
+  implements OnInit, OnDestroy, HasTabIndex
+{
   private _uniqueId: string = `xcu-radio-${++nextUniqueId}`;
 
   /** The unique ID for the radio button. */
@@ -591,8 +593,8 @@ export abstract class _XcuRadioButtonBase
   styleUrls: ['./radio.component.scss'],
   host: {
     class: 'xcu-radio',
-    '[class.xcu-radio-checked]': 'checked',
-    '[class.xcu-radio-disabled]': 'disabled',
+    '[class.xcu-radio--checked]': 'checked',
+    '[class.xcu-radio--disabled]': 'disabled',
     '[attr.tabindex]': 'disabled ? null : -1',
     '[attr.id]': 'id',
     '[attr.aria-label]': 'null',

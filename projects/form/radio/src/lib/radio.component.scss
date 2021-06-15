@@ -26,8 +26,12 @@
     --radio-font-size: 1.4rem;
   }
 
-  &.disabled {
+  &.xcu-radio--disabled {
     cursor: default;
+
+    .xcu-radio-label {
+      color: var(--textcolor--secondary);
+    }
   }
 
   &:focus {
@@ -52,7 +56,7 @@
       will-change: border-color;
     }
 
-    &.xcu-radio-checked label {
+    &.xcu-radio--checked label {
       border-color: rgba(var(--theme-rgb--primary), 0.45);
     }
   }
