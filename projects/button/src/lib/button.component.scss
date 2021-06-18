@@ -57,7 +57,10 @@
   --xcu-button__width: var(--button__width, auto);
   --xcu-button__font-size: var(--button__font-size, 1.4rem);
   --xcu-button__line-height: var(--button__line-height, 2rem);
-  --xcu-button__font-weight: var(--button__font-weight, 600);
+  --xcu-button__font-weight: var(
+    --button__font-weight,
+    var(--font-weight--semi-bold)
+  );
   --xcu-button__border-width: var(--button__border-width, 1px);
 
   background-color: var(--xcu-button__background-color);
@@ -70,7 +73,7 @@
   align-items: center;
   font-family: inherit;
   font-size: var(--xcu-button__font-size);
-  font-weight: var(--xcu-button__font-weight, 600);
+  font-weight: var(--xcu-button__font-weight, var(--font-weight--semi-bold));
   min-height: var(--xcu-button__height);
   line-height: var(--xcu-button__line-height);
   // margin-right: 16px;
