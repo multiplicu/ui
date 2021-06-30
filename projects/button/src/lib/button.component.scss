@@ -222,6 +222,14 @@
     color: var(--button__color, var(--textcolor));
   }
 
+  &.xcu-button--anchor:not([disabled]) {
+    --button__color: var(--theme--primary);
+    --button__background-color: transparent;
+    --button__color--hover: var(--theme--primary);
+    --button__padding: 0 0.4rem;
+    --button__height: 1em;
+  }
+
   &.xcu-button--warning:not([disabled]) {
     --xcu-button__ring-color: var(--button__ring-color, var(--color--warning));
     --xcu-button__background-color: var(
