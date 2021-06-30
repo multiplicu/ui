@@ -1,0 +1,84 @@
+:host {
+  --status-gray: #d1d5db;
+  --status-red: var(--color--warning);
+  --status-orange: #9c4221;
+  --status-yellow: #fbbf24;
+  --status-green: var(--color--hippie-green);
+  --status-teal: #285e61;
+  --status-blue: #2c5282;
+  --status-indigo: #434190;
+  --status-purple: #553c9a;
+  --status-pink: #97266d;
+
+  --status-color: var(--status-gray);
+
+  position: relative;
+  background-color: transparent;
+  padding-left: 1.6rem;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-right: 0.8rem;
+    transform: translateY(-50%);
+    border-radius: 1em;
+    background-color: var(--status-color);
+  }
+
+  // Colors
+  &.gray {
+    --status-color: var(--status-gray);
+  }
+
+  &.red,
+  &.error {
+    --status-color: var(--status-red);
+  }
+
+  &.orange {
+    --status-color: var(--status-orange);
+  }
+
+  &.yellow,
+  &.warning {
+    --status-color: var(--status-yellow);
+  }
+
+  &.green,
+  &.success {
+    --status-color: var(--status-green);
+  }
+
+  &.teal {
+    --status-color: var(--status-teal);
+  }
+
+  &.blue,
+  &.info {
+    --status-color: var(--status-blue);
+  }
+
+  &.indigo {
+    --status-color: var(--status-indigo);
+  }
+
+  &.purple {
+    --status-color: var(--status-purple);
+  }
+
+  &.pink {
+    --status-color: var(--status-pink);
+  }
+
+  &.primary {
+    --status-color: var(--theme--primary);
+  }
+
+  &.secondary {
+    --status-color: var(--theme--secondary);
+  }
+}
