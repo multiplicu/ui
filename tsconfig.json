@@ -111,6 +111,10 @@
         "dist/ui/sort/sort",
         "dist/ui/sort"
       ],
+      "status": [
+        "dist/ui/status/status",
+        "dist/ui/status"
+      ],
       "stepper": [
         "dist/ui/stepper/stepper",
         "dist/ui/stepper"

@@ -40,6 +40,8 @@ ng build snackbar &&
 ng build slide-over &&
 ### SORT ###
 ng build sort &&
+### STATUS ###
+ng build status &&
 ### PAGINATOR ###
 ng build paginator &&
 ### TABLE ###
