@@ -1,6 +1,6 @@
 <div class="mobile-nav" [class.mobile-nav--active]="isActive">
   <a (click)="toggle($event)" href="#">
-    Navigation
+    {{ mobileNavTitle || 'Navigation' }}
 
     <svg fill="currentColor" viewBox="0 0 20 20" height="20" width="20" class="nav__arrow">
       <path fill-rule="evenodd"
@@ -14,7 +14,11 @@
 
 <nav *ngIf="links" class="links" role="navigation" aria-label="Local">
   <ng-container *ngFor="let link of links">
-    <a *ngIf="!link.links" [routerLink]="'.'" [fragment]="link.fragment || ''">{{ link.title }}</a>
+    <a *ngIf="!link.onClick && !link.links" [class.active]="link.isActive" [routerLink]="'.'"
+      [fragment]="link.fragment || ''">{{ link.title }}</a>
+    <a *ngIf="link.onClick && !link.links" [class.active]="link.isActive" (click)="link.onClick()">{{ link.title }}</a>
     <div *ngIf="link.links" xcu-switcher [link]="link" class="xcu-switcher"></div>
   </ng-container>
+
+  <ng-content #links></ng-content>
 </nav>

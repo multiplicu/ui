@@ -1,3 +1,5 @@
+$padding-bottom: 0.8rem;
+
 [data-theme='light'] :host {
   --local-nav__border-color: var(--color--gray-200);
 }
@@ -7,6 +9,8 @@
 }
 
 :host {
+  --xcu-link-color--active: var(--link-color--active, var(--theme--primary));
+
   border-bottom: 1px solid var(--local-nav__border-color);
 
   .xcu-local-nav {
@@ -19,6 +23,7 @@
     a {
       border-bottom: 1px solid var(--local-nav__border-color);
       border-top: 1px solid var(--local-nav__border-color);
+      cursor: pointer;
       display: flex;
       font-weight: var(--font-weight--semi-bold);
       justify-content: space-between;
@@ -32,16 +37,26 @@
 
     a {
       align-items: center;
+      border-bottom-width: 0.2rem;
+      border-color: var(--xcu-border-color, transparent);
       color: var(--textcolor);
+      cursor: pointer;
       display: flex;
       font-size: 1.6rem;
       font-weight: 600;
       justify-content: space-between;
       line-height: 24px;
-      padding: 16px 24px 16px 0;
+      padding: 0.8rem 0.8rem 0.6rem;
+      transition: border-color 0.2s ease;
+      will-change: border-color;
 
       &:hover {
         color: var(--theme--primary);
+      }
+
+      &.active {
+        --xcu-border-color: var(--xcu-link-color--active);
+        color: var(--xcu-link-color--active);
       }
     }
   }

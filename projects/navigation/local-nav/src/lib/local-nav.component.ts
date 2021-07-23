@@ -4,6 +4,7 @@ import {
   ElementRef,
   Input,
 } from '@angular/core';
+
 import { NavLink } from '@multiplicu/ui/core';
 
 /**
@@ -17,9 +18,10 @@ const NAV_HOST_ATTRIBUTES = ['xcu-local-nav'];
   exportAs: 'xcuLocalNav',
   templateUrl: './local-nav.component.html',
   styleUrls: ['./local-nav.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuLocalNavComponent {
+  @Input() public mobileNavTitle: string = 'Navigation';
   @Input() public links: NavLink[];
   @Input() public isActive: boolean;
 
