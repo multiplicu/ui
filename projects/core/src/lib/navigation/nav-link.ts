@@ -7,4 +7,5 @@ export interface NavLink {
   dividerPosition?: 'ABOVE' | 'BELOW' | 'NONE';
   icon?: string;
   external?: boolean;
+  isActive?: boolean;
 }
