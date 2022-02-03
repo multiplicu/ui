@@ -6,6 +6,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
+
 import { coerceBooleanProperty } from '@multiplicu/ui/core';
 
 @Component({
@@ -42,16 +43,16 @@ export class XcuBannerComponent {
     this._isFitWidth = coerceBooleanProperty(value);
   }
 
-  /** Whether the banner should be dismissable. Defaults to 'true' */
-  private _isDismissable: boolean = true;
+  /** Whether the banner should be dismissible. Defaults to 'true' */
+  private _isDismissible: boolean = true;
 
   @Input()
-  public get dismissable(): any {
-    return this._isDismissable;
+  public get dismissible(): any {
+    return this._isDismissible;
   }
 
-  public set dismissable(value: any) {
-    this._isDismissable = coerceBooleanProperty(value);
+  public set dismissible(value: any) {
+    this._isDismissible = coerceBooleanProperty(value);
   }
 
   /** Whether the banner should float instead of span the whole width. Defaults to 'false' */

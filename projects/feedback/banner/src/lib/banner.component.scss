@@ -122,11 +122,12 @@
 .title {
   font-weight: var(--font-weight--semi-bold);
   color: var(--xcu-banner--color);
-  overflow: hidden;
+  // overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  // white-space: nowrap;
   margin: 0;
   padding: 0;
+  max-width: fit-content;
 
   .short {
     @media (min-width: 768px) {
