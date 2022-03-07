@@ -1,4 +1,9 @@
 import {
+  CanDisableCtor,
+  coerceBooleanProperty,
+  mixinDisabled,
+} from '@multiplicu/ui/core';
+import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -9,11 +14,6 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import {
-  CanDisableCtor,
-  coerceBooleanProperty,
-  mixinDisabled,
-} from '@multiplicu/ui/core';
 
 /**
  * List of classes to add to XcuButton instances based on host attributes to
@@ -131,6 +131,11 @@ export class XcuButtonComponent
     a[xcu-button--warning],
     a[xcu-button--raised],
     a[xcu-button--anchor]`,
+  host: {
+    role: 'button',
+    type: '',
+    class: 'xcu-button',
+  },
   exportAs: 'xcuButton, xcuAnchor',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
