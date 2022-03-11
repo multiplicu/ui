@@ -2,14 +2,7 @@
   "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../../dist/ui/navigation/mega-menu",
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdModuleIds": {
-      "@multiplicu/ui/navigation/toggle": "@multiplicu/ui/navigation/toggle",
-      "@multiplicu/ui/badge": "@multiplicu/ui/badge",
-      "@multiplicu/ui/button": "@multiplicu/ui/button",
-      "@multiplicu/ui/core": "@multiplicu/ui/core",
-      "@multiplicu/ui/keycodes": "@multiplicu/ui/keycodes"
-    }
+    "entryFile": "src/public-api.ts"
   },
   "allowedNonPeerDependencies": [
     "@multiplicu/ui/navigation/toggle",
