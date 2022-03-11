@@ -2,10 +2,7 @@
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
   "dest": "../../dist/ui/slide-over",
   "lib": {
-    "entryFile": "src/public-api.ts",
-    "umdModuleIds": {
-      "@multiplicu/ui/core": "@multiplicu/ui/core"
-    }
+    "entryFile": "src/public-api.ts"
   },
   "allowedNonPeerDependencies": ["@multiplicu/ui/core"]
 }
