@@ -132,10 +132,10 @@
 
 .dialog__content {
   background-color: var(--dialog__background-color);
-  padding: 1.6rem;
+  padding: var(--dialog-content__padding--tablet, 1.6rem);
 
   @media (min-width: 640px) {
-    padding: 2.4rem 2.4rem 1.6rem;
+    padding: var(--dialog-content__padding, 2.4rem 2.4rem 1.6rem);
   }
 }
 
