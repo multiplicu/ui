@@ -7,13 +7,20 @@
 }
 
 :host {
+  --xcu-list-group__margin-bottom: var(--list-group__margin-bottom, 3.2rem);
+  --xcu-list-group__padding-bottom: var(--list-group__padding-bottom, 1.6rem);
 }
 
 :host-context(.xcu-list):not(:last-of-type) {
-  margin-bottom: 3.2rem;
-  padding-bottom: 1.6rem;
+  margin-bottom: var(--xcu-list-group__margin-bottom);
+  padding-bottom: var(--xcu-list-group__padding-bottom);
 }
 
 :host-context(.divided):not(:last-of-type) {
   border-bottom: 1px solid var(--list-group__border-color);
+}
+
+:host-context(.dense):not(:last-of-type) {
+  --list-group__margin-bottom: 0.8rem;
+  --list-group__padding-bottom: 0.8rem;
 }
