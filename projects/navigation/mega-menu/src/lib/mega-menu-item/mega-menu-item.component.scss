@@ -1,10 +1,67 @@
 :host {
-  --icon-bg-color: var(--theme--primary);
+  --xcu-mega-menu-item__border-radius: var(
+    --mega-menu-item__border-radius,
+    0.2rem
+  );
+  --xcu-mega-menu-item__padding: var(--mega-menu-item__padding, 1.2rem);
+  --xcu-mega-menu-item__margin: var(--mega-menu-item__margin, -1.2rem);
+  --xcu-mega-menu-item__background-color--hover: var(
+    --mega-menu-item__background-color--hover,
+    var(--color--gray-50)
+  );
+
+  // Title
+  --xcu-mega-menu-title__font-weight: var(
+    --mega-menu-title__font-weight,
+    var(--font-weight--bold)
+  );
+  --xcu-mega-menu-title__color: var(--mega-menu-title__color, var(--textcolor));
+  --xcu-mega-menu-title__align: var(--mega-menu-title__align, center);
+  --xcu-mega-menu-title__display: var(--mega-menu-title__display, flex);
+
+  // Description
+  --xcu-mega-menu-description__color: var(
+    --mega-menu-description__color,
+    var(--textcolor--secondary)
+  );
+  --xcu-mega-menu-description__margin-bottom: var(
+    --mega-menu-description__margin-bottom,
+    0
+  );
+
+  // Icon
+  --xcu-mega-menu-icon__background-color: var(
+    --mega-menu-icon__background-color,
+    var(--theme--primary)
+  );
+  --xcu-mega-menu-icon__height: var(--mega-menu-icon__height, 4.8rem);
+  --xcu-mega-menu-icon__width: var(--mega-menu-icon__width, 4.8rem);
+  --xcu-mega-menu-icon__border-radius: var(
+    --mega-menu-icon__border-radius,
+    0.2rem
+  );
+  --xcu-mega-menu-icon__align: var(--mega-menu-icon__align, center);
+  --xcu-mega-menu-icon__justify: var(--mega-menu-icon__justify, center);
+  --xcu-mega-menu-icon__margin--right: var(
+    --mega-menu-icon__margin--right,
+    1.6rem
+  );
+
+  // Badge
+  --xcu-mega-menu-badge__margin--left: var(
+    --mega-menu-badge__margin--left,
+    1.2rem
+  );
 
   display: flex;
   align-items: flex-start;
+  padding: var(--xcu-mega-menu-item__padding);
+  margin: var(--xcu-mega-menu-item__margin);
+  border-radius: var(--xcu-mega-menu-item__border-radius);
 
   &:hover {
+    background-color: var(--xcu-mega-menu-item__background-color--hover);
+
     .title > :first-child {
       color: var(--mega-menu-title__color--hover, var(--textcolor));
     }
@@ -21,25 +78,25 @@
 .icon {
   flex-shrink: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 4.8rem;
-  width: 4.8rem;
-  border-radius: 2px;
-  background-color: var(--icon-bg-color);
+  align-items: var(--xcu-mega-menu-icon__align);
+  justify-content: var(--xcu-mega-menu-icon__justify);
+  height: var(--xcu-mega-menu-icon__height);
+  width: var(--xcu-mega-menu-icon__width);
+  border-radius: var(--xcu-mega-menu-icon__border-radius);
+  background-color: var(--xcu-mega-menu-icon__background-color);
 
   & + div {
-    margin-left: 1.6rem;
+    margin-left: var(--xcu-mega-menu-icon__margin--right);
   }
 }
 
 .title {
-  display: flex;
-  align-items: center;
+  display: var(--xcu-mega-menu-title__display);
+  align-items: var(--xcu-mega-menu-title__align);
 
   & > :first-child {
-    font-weight: var(--font-weight--bold);
-    color: var(--mega-menu-title__color, var(--textcolor));
+    font-weight: var(xcu-mega-menu-title__font-weight);
+    color: var(--xcu-mega-menu-title__color);
   }
 }
 
@@ -47,9 +104,10 @@
   --font-size: 1.4rem;
   --baseline-offset: 2px;
 
-  color: var(--mega-menu-description__color, var(--textcolor--secondary));
+  color: var(--xcu-mega-menu-description__color);
+  margin-bottom: var(--xcu-mega-menu-description__margin-bottom);
 }
 
 [xcu-badge] {
-  margin-left: 1.2rem;
+  margin-left: var(--xcu-mega-menu-badge__margin--left);
 }
