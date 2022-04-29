@@ -108,7 +108,6 @@
 
   display: grid;
   gap: var(--mega-menu__gap, 3.2rem);
-  // grid-gap: 3.2rem;
   grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 
   background-color: var(--xcu-mega-menu__background-color);

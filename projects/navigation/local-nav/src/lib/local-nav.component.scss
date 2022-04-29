@@ -19,6 +19,7 @@ $padding-bottom: 0.8rem;
 
   .mobile-nav {
     display: none;
+    width: 100%;
 
     a {
       border-bottom: 1px solid var(--local-nav__border-color);
@@ -34,6 +35,7 @@ $padding-bottom: 0.8rem;
 
   nav {
     display: flex;
+    width: 100%;
 
     a {
       align-items: center;
@@ -77,6 +79,7 @@ $padding-bottom: 0.8rem;
 
     .mobile-nav {
       display: block;
+      width: 100%;
 
       &--active {
         .nav__arrow {
@@ -86,6 +89,7 @@ $padding-bottom: 0.8rem;
 
       &--active + nav {
         display: flex;
+        width: 100%;
       }
     }
 

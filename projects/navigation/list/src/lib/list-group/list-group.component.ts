@@ -23,8 +23,6 @@ export class XcuListSubheader {
   public toggleCollapse(): boolean {
     this.isCollapsed = !this.isCollapsed;
 
-    console.log(this.isCollapsed);
-
     return this.isCollapsed;
   }
 }
@@ -40,6 +38,14 @@ export class XcuListSubheader {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class XcuListGroupComponent {
+  private _dense: boolean = false;
+
+  @HostBinding('class.dense')
+  @Input()
+  public get dense(): any {
+    return this._dense;
+  }
+
   @ContentChild(XcuListSubheader)
   public header!: XcuListSubheader;
 
