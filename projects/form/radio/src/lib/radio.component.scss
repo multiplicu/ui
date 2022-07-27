@@ -15,15 +15,19 @@
 }
 
 :host {
-  --radio-width: fit-content;
-  --radio-input-width: 1.6rem;
+  --xcu-radio-width: var(--radio-width, fit-content);
+  --xcu-radio-input-width: var(--radio-input-width, 1.6rem);
+  --xcu-radio-align: var(--radio-align, flex-start);
+  --xcu-radio-justify: var(--radio-justify, flex-start);
+  --xcu-radio-padding: var(--radio-padding, 0);
+  --xcu-radio-input-margin: var(--radio-input-margin, 0);
 
   display: flex;
-  width: var(--radio-width, fit-content);
+  width: var(--xcu-radio-width);
 
   &.xcu-radio--small {
-    --radio-input-width: 1.6rem;
-    --radio-font-size: 1.4rem;
+    --xcu-radio-input-width: var(--radio-input-width, 1.6rem);
+    --xcu-radio-font-size: var(--radio-font-size, 1.4rem);
   }
 
   &.xcu-radio--disabled {
@@ -45,13 +49,13 @@
   }
 
   &.bordered {
-    --radio-padding: 0.8rem 1.2rem;
-    --radio-border-radius: 2px;
-    --radio-border-width: 2px;
+    --xcu-radio-padding: var(--radio-padding, 0.8rem 1.2rem);
+    --xcu-radio-border-radius: var(--radio-border-radius, 2px);
+    --xcu-radio-border-width: var(--radio-border-width, 2px);
 
     label {
-      border-radius: var(--radio-border-radius, 2px);
-      border-width: var(--radio-border-width, 2px);
+      border-radius: var(--xcu-radio-border-radius);
+      border-width: var(--xcu-radio-border-width);
       transition: border-color 0.1s ease;
       will-change: border-color;
     }
@@ -63,19 +67,19 @@
 }
 
 label {
-  --radio-flex-direction: row;
+  --xcu-radio-flex-direction: var(--radio-flex-direction, row);
 
   cursor: pointer;
   display: flex;
-  flex-direction: var(--radio-flex-direction, row);
-  align-items: var(--radio-align, flex-start);
-  padding: var(--radio-padding, 0);
+  flex-direction: var(--xcu-radio-flex-direction);
+  align-items: var(--xcu-radio-align);
+  padding: var(--xcu-radio-padding);
   width: 100%;
-  justify-content: var(--radio-justify, flex-start);
+  justify-content: var(--xcu-radio-justify);
 
   &.radio--align-end {
-    --radio-flex-direction: row-reverse;
-    --radio-justify: flex-end;
+    --xcu-radio-flex-direction: row-reverse;
+    --xcu-radio-justify: flex-end;
   }
 }
 
@@ -83,10 +87,14 @@ label {
   height: 2rem;
   display: flex;
   align-items: center;
-  margin: var(--radio-input-margin, 0);
+  margin: var(--xcu-radio-input-margin);
 }
 
 .xcu-radio-input {
+  --xcu-radio-color: var(--radio-color, var(--theme--primary));
+  --xcu-radio-background-color: var(--radio-background-color, initial);
+  --xcu-radio-border-color: var(--radio-border-color, var(--theme--primary));
+
   appearance: none;
   color-adjust: exact;
   cursor: inherit;
@@ -95,11 +103,11 @@ label {
   background-origin: border-box;
   user-select: none;
   flex-shrink: 0;
-  height: var(--radio-input-width);
-  width: var(--radio-input-width);
-  color: var(--radio-color, var(--theme--primary));
-  background-color: var(--radio-background-color, initial);
-  border: 2px solid var(--radio-border-color, var(--theme--primary));
+  height: var(--xcu-radio-input-width);
+  width: var(--xcu-radio-input-width);
+  color: var(--xcu-radio-color);
+  background-color: var(--xcu-radio-background-color);
+  border: 2px solid var(--xcu-radio-border-color);
   border-radius: 100%;
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
@@ -108,16 +116,22 @@ label {
   margin: 0;
 
   &:checked {
-    background-image: var(--radio__background-image);
-    border-color: transparent;
-    background-color: var(
+    --xcu-radio-background-color--selected: var(
       --radio-background-color--selected,
       var(--theme--primary)
     );
+    --xcu-radio-color--selected: var(
+      --radio-color--selected,
+      var(--theme--background)
+    );
+
+    background-image: var(--xcu-radio__background-image);
+    border-color: transparent;
+    background-color: var(--xcu-radio-background-color--selected);
     background-size: 100% 100%;
     background-position: 50%;
     background-repeat: no-repeat;
-    color: var(--radio-color--selected, var(--theme--background));
+    color: var(--xcu-radio-color--selected);
   }
 
   &:focus {
@@ -143,25 +157,26 @@ label {
 .xcu-radio-label {
   display: flex;
   align-items: center;
-  gap: var(--radio-padding, 1.2rem);
+  gap: var(--xcu-radio-padding, 1.2rem);
   font-weight: var(--font-weight--semi-bold);
   color: var(--textcolor);
 }
 
 .label-container {
-  --radio-label-margin: 0 0 0 1.2rem;
+  --xcu-radio-label-margin: var(--radio-label-margin, 0 0 0 1.2rem);
+  --xcu-radio-label-width: var(--radio-label-width, auto);
 
   display: inline-flex;
   flex-direction: column;
-  font-size: var(--radio-font-size, 1.4rem);
-  margin: var(--radio-label-margin, 0 0 0 1.2rem);
+  font-size: var(--xcu-radio-font-size);
+  margin: var(--xcu-radio-label-margin);
   line-height: 2rem;
   color: var(--textcolor--secondary);
   font-weight: var(--font-weight--medium);
-  width: var(--radio-label-width, auto);
+  width: var(--xcu-radio-label-width);
 }
 .radio--align-end .label-container {
-  --radio-label-margin: 0 1.2rem 0 0;
+  --xcu-radio-label-margin: var(--radio-label-margin, 0 1.2rem 0 0);
 }
 
 .end {

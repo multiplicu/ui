@@ -900,7 +900,7 @@ export class XcuSelectComponent
       );
     } else {
       valueToEmit = this.selected
-        ? (this.selected as XcuOptionComponent).value
+        ? (this.selected as XcuOptionComponent)?.value
         : fallbackValue;
     }
 
