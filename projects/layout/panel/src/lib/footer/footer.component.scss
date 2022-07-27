@@ -5,7 +5,7 @@
 
 [data-theme='dark'] :host {
   --bordered__border-color: rgba(0, 0, 0, 0.15);
-  --colored__background-color: #27313f;
+  --colored__background-color: var(--color--gray-700);
 }
 
 :host {
