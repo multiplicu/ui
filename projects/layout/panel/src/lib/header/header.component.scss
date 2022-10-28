@@ -1,12 +1,15 @@
-[data-theme='light'] :host {
-  --bordered__border-color: rgba(0, 0, 0, 0.05);
-}
-
-[data-theme='dark'] :host {
-  --bordered__border-color: rgba(0, 0, 0, 0.15);
-}
-
 :host {
+  --xcu-panel-content__background-color: var(
+    --panel-content__background-color,
+    var(--theme--surface-variant)
+  );
+  --xcu-panel-content__color: var(
+    --panel-content__color,
+    var(--theme--on-surface-variant)
+  );
+
+  background-color: var(--xcu-panel-content__background-color);
+  color: var(--xcu-panel-content__color);
   padding: var(--header--padding, 2.4rem);
   border-bottom: 1px solid transparent;
 
@@ -21,6 +24,6 @@
   }
 
   &.bordered {
-    border-color: var(--bordered__border-color);
+    border-color: var(--theme--outline);
   }
 }

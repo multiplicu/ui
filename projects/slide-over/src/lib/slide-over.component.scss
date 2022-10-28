@@ -46,7 +46,7 @@
 }
 
 .overlay {
-  --bg-opacity: 0.75;
+  --bg-opacity: 0.38;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -56,8 +56,7 @@
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 0.5s;
-  background-color: var(--color--gray-500);
-  background-color: rgba(var(--color-rgb--gray-500), var(--bg-opacity));
+  background-color: rgb(var(--color-rgb--black) / var(--bg-opacity));
 }
 
 .slide-over {
@@ -96,7 +95,7 @@
 }
 
 .panel__content {
-  background: var(--theme--background-accent);
+  background: var(--theme--surface);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   display: flex;
@@ -136,7 +135,7 @@
     transition-property: background-color, border-color, color, fill, stroke,
       opacity, box-shadow, transform;
 
-    color: var(--textcolor-reverse);
+    color: var(--theme--on-secondary-container);
     padding: 0;
     line-height: 1rem;
     cursor: pointer;

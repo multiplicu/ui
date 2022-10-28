@@ -1,9 +1,3 @@
-[data-theme='dark'] :host {
-  &.primary {
-    color: var(--color--bunker, #101820);
-  }
-}
-
 :host {
   --bg-gray: #f4f5f7;
   --bg-red: #fde8e7;
@@ -108,11 +102,11 @@
 
   &.primary {
     background-color: var(--theme--primary);
-    color: #fff;
+    color: var(--theme--on-primary);
   }
 
   &.secondary {
     background-color: var(--theme--secondary);
-    color: var(--textcolor);
+    color: var(--theme--on-secondary);
   }
 }

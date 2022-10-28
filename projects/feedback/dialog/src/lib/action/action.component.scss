@@ -21,15 +21,15 @@
 
   &.warning {
     .xcu-button {
-      --button__background-color: var(--color--warning);
-      --button__background-color--hover: #ea4747;
-      --button__background-color--active: var(--color--warning);
-      --button__color: var(--color--white);
-      --button__color--hover: var(--color--white);
-      --button__color--active: var(--color--white);
+      --button__background-color: var(--theme--error);
+      --button__background-color--hover: var(--theme--error);
+      --button__background-color--active: var(--theme--error);
+      --button__color: var(--theme--on-error);
+      --button__color--hover: var(--theme--on-error);
+      --button__color--active: var(--theme--on-error);
 
       &:focus {
-        --xcu-ring-color: var(--color--warning);
+        --xcu-ring-color: var(--theme--error);
         // border: var(--button__border-width) solid transparent;
         // box-shadow: 0 0 0 3px rgba(248, 180, 180, 0.45);
       }

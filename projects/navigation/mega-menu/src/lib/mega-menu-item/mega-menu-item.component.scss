@@ -95,7 +95,7 @@
   align-items: var(--xcu-mega-menu-title__align);
 
   & > :first-child {
-    font-weight: var(xcu-mega-menu-title__font-weight);
+    font-weight: var(--xcu-mega-menu-title__font-weight);
     color: var(--xcu-mega-menu-title__color);
   }
 }

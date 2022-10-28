@@ -12,6 +12,7 @@ import { coerceBooleanProperty } from '@multiplicu/ui/core';
 })
 export class XcuPanelComponent {
   private _depth: 'xs' | 'sm' | 'base' | 'md' | 'lg' | 'xl' | '2xl' = 'md';
+  private _bordered: boolean = false;
   private _well: boolean = false;
   private _wellOnGray: boolean = false;
 
@@ -35,6 +36,16 @@ export class XcuPanelComponent {
 
     (this._getHostElement() as HTMLElement).classList.remove(...depthClasses);
     (this._getHostElement() as HTMLElement).classList.add(`depth--${value}`);
+  }
+
+  @HostBinding('class.bordered')
+  @Input()
+  public get bordered(): any {
+    return this._bordered;
+  }
+
+  public set bordered(value: any) {
+    this._bordered = coerceBooleanProperty(value);
   }
 
   @HostBinding('class.well')

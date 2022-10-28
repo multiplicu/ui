@@ -1,4 +1,15 @@
 :host {
+  --xcu-panel-content__background-color: var(
+    --panel-content__background-color,
+    var(--theme--surface-variant)
+  );
+  --xcu-panel-content__color: var(
+    --panel-content__color,
+    var(--theme--on-surface-variant)
+  );
+
+  background-color: var(--xcu-panel-content__background-color);
+  color: var(--xcu-panel-content__color);
   border-top: 1px solid transparent;
   padding: var(--content--padding, 2.4rem);
 
