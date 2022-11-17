@@ -71,8 +71,7 @@
   padding-right: 0.8rem;
   display: flex;
   align-items: center;
-  color: #9fa6b2;
-  color: rgba(159, 166, 178, var(--text-opacity));
+  color: var(--theme--on-surface-variant);
   height: 3.6rem;
 }
 
@@ -88,11 +87,21 @@
   // --margin-bottom: 8px;
   --xcu-form-field__affix--border-color: var(
     --form-field__affix--border-color,
-    var(--theme--outline)
+    rgb(var(--theme-rgb--on-surface) / 0.6)
+  );
+  --xcu-form-field__affix--background-color: var(
+    --form-field__affix--background-color,
+    var(--color--surface-1)
+  );
+  --xcu-form-field__affix--color: var(
+    --form-field__affix--color,
+    var(--theme--on-surface-variant)
   );
 
   align-items: center;
+  background-color: var(--xcu-form-field__affix--background-color);
   border: 1px solid var(--xcu-form-field__affix--border-color);
+  color: var(--xcu-form-field__affix--color);
   display: flex;
   font-size: var(--font-size--small);
   // margin-bottom: var(--margin-bottom, 0);
