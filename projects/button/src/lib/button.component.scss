@@ -24,7 +24,7 @@
     var(--theme--on-primary)
   );
   // --button__color--focus: var(--textcolor);
-  --xcu-button__padding: var(--button__padding, 0 1.2rem);
+  --xcu-button__padding: var(--button__padding, 0 2.4rem);
   --xcu-button__height: var(--button__height, 3.6rem);
   --xcu-button__width: var(--button__width, auto);
   --xcu-button__font-size: var(--button__font-size, 1.4rem);
@@ -56,11 +56,12 @@
   text-decoration: none;
   transition: filter 0.2s ease-in-out 0s, border 0.2s ease-in-out 0s,
     box-shadow 0.2s ease-in-out 0s, background-color 0.2s ease-in-out 0s,
-    opacity 0.2s ease-in-out 0s;
+    opacity 0.2s ease-in-out 0s, padding 0.2s ease-in-out 0s;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  will-change: filter, background-color, color, border, box-shadow, opacity;
+  will-change: filter, background-color, color, border, box-shadow, opacity,
+    padding;
   width: var(--xcu-button__width);
 
   &:visited {
@@ -287,12 +288,13 @@
 }
 
 .xcu-button__label {
+  --xcu-button__label--width: var(--button__label--width, 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   white-space: normal;
-  width: 100%;
+  width: var(--xcu-button__label--width);
 }
 
 xcu-mark {
