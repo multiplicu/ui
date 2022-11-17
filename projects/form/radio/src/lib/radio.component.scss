@@ -1,85 +1,120 @@
 [data-theme='light'] :host {
-  --radio-border-color: var(--color--gray-300);
   --radio__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
   --check__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
-  --focus__box-shadow: 0 0 0 3px rgb(0 79 113 / 0.45);
-  --disabled__background-color: #b0b0b0;
 }
 
 [data-theme='dark'] :host {
-  --radio-border-color: var(--color--gray-600);
-  --radio__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
-  --check__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
-  --focus__box-shadow: 0 0 0 3px rgb(87 193 142 / 0.45);
-  --disabled__background-color: #686868;
+  --radio__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+  --check__background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
 }
 
 :host {
-  --xcu-radio-width: var(--radio-width, fit-content);
-  --xcu-radio-input-width: var(--radio-input-width, 1.6rem);
-  --xcu-radio-align: var(--radio-align, flex-start);
-  --xcu-radio-justify: var(--radio-justify, flex-start);
-  --xcu-radio-padding: var(--radio-padding, 0);
-  --xcu-radio-input-margin: var(--radio-input-margin, 0);
+  --xcu-radio__align: var(--radio__align, flex-start);
+  --xcu-radio__color: var(--radio__color, var(--theme--on-surface-variant));
+  --xcu-radio__background-color: var(--radio__background-color, transparent);
+  --xcu-radio__justify: var(--radio__justify, flex-start);
+  --xcu-radio__padding: var(--radio__padding, 0);
+  --xcu-radio__width: var(--radio__width, fit-content);
+  --xcu-radio-input__margin: var(--radio-input__margin, 0);
+  --xcu-radio-input__width: var(--radio-input__width, 1.6rem);
 
+  background-color: var(--xcu-radio__background-color);
+  border-radius: var(--xcu-radio__border-radius);
+  color: var(--xcu-radio__color);
   display: flex;
-  width: var(--xcu-radio-width);
+  width: var(--xcu-radio__width);
 
   &.xcu-radio--small {
-    --xcu-radio-input-width: var(--radio-input-width, 1.6rem);
-    --xcu-radio-font-size: var(--radio-font-size, 1.4rem);
+    --xcu-radio-input__width: var(--radio-input__width, 1.6rem);
+    --xcu-radio__font-size: var(--radio__font-size, 1.4rem);
   }
 
   &.xcu-radio--disabled {
+    --radio__border-color: rgb(var(--theme-rgb--on-surface-variant) / 0.12);
+    --radio__color: rgb(var(--theme-rgb--on-surface) / 0.38);
     cursor: default;
+    pointer-events: none;
 
     .xcu-radio-label {
-      color: var(--textcolor--secondary);
+      cursor: default;
     }
   }
 
+  &:hover {
+    --radio__color: var(--theme--on-surface);
+    --radio__background-color: var(--theme--surface);
+  }
+
   &:focus {
+    --radio__border-color: var(--theme--on-surface);
     outline: 2px solid transparent;
   }
 
   &.check {
+    .xcu-radio-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  }
+
+  &:not(.check) {
     .xcu-radio-input:checked {
-      background-image: var(--check__background-image);
+      background-image: var(--radio__background-image);
     }
   }
 
   &.bordered {
-    --xcu-radio-padding: var(--radio-padding, 0.8rem 1.2rem);
-    --xcu-radio-border-radius: var(--radio-border-radius, 2px);
-    --xcu-radio-border-width: var(--radio-border-width, 2px);
+    --xcu-radio__padding: var(--radio__padding, 0.8rem 1.2rem);
+    --xcu-radio__border-radius: var(--radio__border-radius, 2px);
+    --xcu-radio__border-width: var(--radio__border-width, 1px);
+    --xcu-radio__border-color: var(
+      --radio__border-color,
+      var(--theme--outline)
+    );
 
     label {
-      border-radius: var(--xcu-radio-border-radius);
-      border-width: var(--xcu-radio-border-width);
+      border-radius: var(--xcu-radio__border-radius);
+      border-width: var(--xcu-radio__border-width);
+      border-color: var(--xcu-radio__border-color);
       transition: border-color 0.1s ease;
       will-change: border-color;
     }
 
-    &.xcu-radio--checked label {
-      border-color: rgba(var(--theme-rgb--primary), 0.45);
+    &.xcu-radio--checked {
+      --radio__background-color: var(--theme--secondary-container);
+      --radio__border-color: var(--theme--on-secondary-container);
+      --radio__color: var(--theme--on-secondary-container);
+
+      label {
+        // border-color: var(--theme-rgb--primary);
+      }
     }
   }
 }
 
 label {
-  --xcu-radio-flex-direction: var(--radio-flex-direction, row);
+  --xcu-radio__flex-direction: var(--radio__flex-direction, row);
+  --xcu-radio-label__color: var(--radio-label__color, var(--xcu-radio__color));
 
+  color: var(--xcu-radio__color);
   cursor: pointer;
   display: flex;
-  flex-direction: var(--xcu-radio-flex-direction);
-  align-items: var(--xcu-radio-align);
-  padding: var(--xcu-radio-padding);
+  flex-direction: var(--xcu-radio__flex-direction);
+  align-items: var(--xcu-radio__align);
+  padding: var(--xcu-radio__padding);
   width: 100%;
-  justify-content: var(--xcu-radio-justify);
+  justify-content: var(--xcu-radio__justify);
 
   &.radio--align-end {
-    --xcu-radio-flex-direction: row-reverse;
-    --xcu-radio-justify: flex-end;
+    --xcu-radio__flex-direction: row-reverse;
+    --xcu-radio__justify: flex-end;
   }
 }
 
@@ -87,27 +122,30 @@ label {
   height: 2rem;
   display: flex;
   align-items: center;
-  margin: var(--xcu-radio-input-margin);
+  margin: var(--xcu-radio-input__margin);
 }
 
 .xcu-radio-input {
-  --xcu-radio-color: var(--radio-color, var(--theme--primary));
-  --xcu-radio-background-color: var(--radio-background-color, initial);
-  --xcu-radio-border-color: var(--radio-border-color, var(--theme--primary));
+  --xcu-radio__color: var(--radio__color, var(--theme--on-surface-variant));
+  --xcu-radio-input__background-color: var(
+    --radio-input__background-color,
+    initial
+  );
+  --xcu-radio__border-color: var(--radio__border-color, var(--theme--outline));
 
   appearance: none;
-  color-adjust: exact;
+  print-color-adjust: exact;
   cursor: inherit;
   display: inline-block;
   vertical-align: middle;
   background-origin: border-box;
   user-select: none;
   flex-shrink: 0;
-  height: var(--xcu-radio-input-width);
-  width: var(--xcu-radio-input-width);
-  color: var(--xcu-radio-color);
-  background-color: var(--xcu-radio-background-color);
-  border: 2px solid var(--xcu-radio-border-color);
+  height: var(--xcu-radio-input__width);
+  width: var(--xcu-radio-input__width);
+  color: var(--xcu-radio__color);
+  background-color: var(--xcu-radio-input__background-color);
+  border: 2px solid var(--xcu-radio__border-color);
   border-radius: 100%;
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
@@ -116,36 +154,36 @@ label {
   margin: 0;
 
   &:checked {
-    --xcu-radio-background-color--selected: var(
-      --radio-background-color--selected,
-      var(--theme--primary)
+    --xcu-radio__background-color--selected: var(
+      --radio__background-color--selected,
+      var(--theme--on-secondary-container)
     );
-    --xcu-radio-color--selected: var(
-      --radio-color--selected,
+    --xcu-radio__color--selected: var(
+      --radio__color--selected,
       var(--theme--background)
     );
 
     background-image: var(--xcu-radio__background-image);
     border-color: transparent;
-    background-color: var(--xcu-radio-background-color--selected);
+    background-color: var(--xcu-radio__background-color--selected);
     background-size: 100% 100%;
     background-position: 50%;
     background-repeat: no-repeat;
-    color: var(--xcu-radio-color--selected);
+    color: var(--xcu-radio__color--selected);
   }
 
   &:focus {
     outline: none;
-    box-shadow: var(--focus__box-shadow);
-    border-color: var(--theme--primary);
+    box-shadow: 0 0 0 3px rgb(var(--theme-rgb--on-secondary-container) / 0.45);
+    border-color: var(--theme--on-secondary-container);
 
     &:invalid {
-      box-shadow: 0 0 0 3px rgb(211 47 47 / 0.45);
+      box-shadow: 0 0 0 3px rgb(var(--theme-rgb--error) / 0.45);
     }
   }
 
   &:invalid {
-    border-color: var(--color--warning);
+    border-color: var(--theme--error);
   }
 
   &[disabled],
@@ -157,26 +195,26 @@ label {
 .xcu-radio-label {
   display: flex;
   align-items: center;
-  gap: var(--xcu-radio-padding, 1.2rem);
+  gap: var(--xcu-radio__padding, 1.2rem);
   font-weight: var(--font-weight--semi-bold);
-  color: var(--textcolor);
+  color: var(--xcu-radio__color);
 }
 
 .label-container {
-  --xcu-radio-label-margin: var(--radio-label-margin, 0 0 0 1.2rem);
-  --xcu-radio-label-width: var(--radio-label-width, auto);
+  --xcu-radio-label__margin: var(--radio-label__margin, 0 0 0 1.2rem);
+  --xcu-radio-label__width: var(--radio-label__width, auto);
 
   display: inline-flex;
   flex-direction: column;
-  font-size: var(--xcu-radio-font-size);
-  margin: var(--xcu-radio-label-margin);
+  font-size: var(--xcu-radio__font-size);
+  margin: var(--xcu-radio-label__margin);
   line-height: 2rem;
-  color: var(--textcolor--secondary);
+  color: var(--xcu-radio__color);
   font-weight: var(--font-weight--medium);
-  width: var(--xcu-radio-label-width);
+  width: var(--xcu-radio-label__width);
 }
 .radio--align-end .label-container {
-  --xcu-radio-label-margin: var(--radio-label-margin, 0 1.2rem 0 0);
+  --xcu-radio-label__margin: var(--radio-label__margin, 0 1.2rem 0 0);
 }
 
 .end {
@@ -185,4 +223,10 @@ label {
   &:empty {
     display: none;
   }
+}
+
+.start,
+.end {
+  --xcu-radio-icon__color: var(--radio-icon__color, inherit);
+  color: var(--xcu-radio-icon__color);
 }

@@ -1,9 +1,43 @@
-<label #radioLabel [attr.for]="inputId" [class.radio--align-end]="labelPosition == 'before'">
+<label
+  #radioLabel
+  [attr.for]="inputId"
+  [class.radio--align-end]="labelPosition == 'before'"
+>
   <span class="xcu-radio-input__container">
-    <input #input class="xcu-radio-input" type="radio" [id]="inputId" [required]="required" [checked]="checked"
-      [disabled]="disabled" [tabIndex]="tabIndex" [attr.name]="name" [attr.value]="value" [attr.aria-label]="ariaLabel"
-      [attr.aria-labelledBy]="ariaLabelledby" [attr.aria-describedby]="ariaDescribedby"
-      (change)="_onInputChange($event)" (click)="_onInputClick($event)">
+    <input
+      #input
+      class="xcu-radio-input"
+      type="radio"
+      [id]="inputId"
+      [required]="required"
+      [checked]="checked"
+      [disabled]="disabled"
+      [tabIndex]="tabIndex"
+      [attr.name]="name"
+      [attr.value]="value"
+      [attr.aria-label]="ariaLabel"
+      [attr.aria-labelledBy]="ariaLabelledby"
+      [attr.aria-describedby]="ariaDescribedby"
+      (change)="_onInputChange($event)"
+      (click)="_onInputClick($event)"
+    />
+
+    <svg
+      *ngIf="check && checked"
+      class="check"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      width="24"
+      height="24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
   </span>
 
   <ng-content select=".start"></ng-content>
