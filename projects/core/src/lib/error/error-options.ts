@@ -7,13 +7,13 @@
  */
 
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm } from '@angular/forms';
+import { UntypedFormControl, FormGroupDirective, NgForm } from '@angular/forms';
 
 /** Error state matcher that matches when a control is invalid and dirty. */
 @Injectable()
 export class ShowOnDirtyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
-    control: FormControl | null,
+    control: UntypedFormControl | null,
     form: FormGroupDirective | NgForm | null
   ): boolean {
     return !!(
@@ -28,7 +28,7 @@ export class ShowOnDirtyErrorStateMatcher implements ErrorStateMatcher {
 @Injectable({ providedIn: 'root' })
 export class ErrorStateMatcher {
   isErrorState(
-    control: FormControl | null,
+    control: UntypedFormControl | null,
     form: FormGroupDirective | NgForm | null
   ): boolean {
     return !!(

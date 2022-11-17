@@ -22,7 +22,7 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import {
   BooleanInput,
   CanDisable,
@@ -113,7 +113,7 @@ export abstract class _XcuPaginatorBase<
   extends _XcuPaginatorMixinBase
   implements OnDestroy, OnChanges, OnInit, CanDisable, HasInitialized
 {
-  public pageSizeForm: FormGroup;
+  public pageSizeForm: UntypedFormGroup;
   private _pageSizeFormChanges: Subscription;
 
   private _initialized: boolean;
@@ -193,7 +193,7 @@ export abstract class _XcuPaginatorBase<
   constructor(
     public _intl: XcuPaginatorIntl,
     private _changeDetectorRef: ChangeDetectorRef,
-    private _fb: FormBuilder,
+    private _fb: UntypedFormBuilder,
     defaults?: O
   ) {
     super();
@@ -419,7 +419,7 @@ export class XcuPaginator extends _XcuPaginatorBase<XcuPaginatorDefaultOptions> 
   constructor(
     intl: XcuPaginatorIntl,
     changeDetectorRef: ChangeDetectorRef,
-    _fb: FormBuilder,
+    _fb: UntypedFormBuilder,
     @Optional()
     @Inject(XCU_PAGINATOR_DEFAULT_OPTIONS)
     defaults?: XcuPaginatorDefaultOptions
