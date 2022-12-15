@@ -32,8 +32,8 @@ class XcuInputBase {
     public ngControl: NgControl
   ) {}
 }
-const _XcuInputMixinBase: CanUpdateErrorStateCtor &
-  typeof XcuInputBase = mixinErrorState(XcuInputBase);
+const _XcuInputMixinBase: CanUpdateErrorStateCtor & typeof XcuInputBase =
+  mixinErrorState(XcuInputBase);
 
 @Component({
   selector: 'input[xcu-input], textarea[xcu-input], select[xcu-native-control]',
@@ -56,7 +56,8 @@ const _XcuInputMixinBase: CanUpdateErrorStateCtor &
 })
 export class XcuInputComponent
   extends _XcuInputMixinBase
-  implements XcuFormFieldControl<any>, DoCheck, CanUpdateErrorState {
+  implements XcuFormFieldControl<any>, DoCheck, CanUpdateErrorState
+{
   protected _uid = `xcu-input-${nextUniqueId++}`;
   protected _previousNativeValue: any;
   private _inputValueAccessor: { value: any };
@@ -90,6 +91,12 @@ export class XcuInputComponent
    * @docs-private
    */
   public autofilled: boolean = false;
+
+  /**
+   * Implemented as part of XcuFormFieldControl.
+   * @docs-private
+   */
+  public element!: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
   /**
    * Implemented as part of XcuFormFieldControl.
@@ -227,8 +234,9 @@ export class XcuInputComponent
   /** Checks whether the input is invalid based on the native validation. */
   protected _isBadInput(): boolean {
     // The `validity` property won't be present on platform-server.
-    let validity: ValidityState = (this._elementRef
-      .nativeElement as HTMLInputElement).validity;
+    let validity: ValidityState = (
+      this._elementRef.nativeElement as HTMLInputElement
+    ).validity;
     return validity && validity.badInput;
   }
 
@@ -256,13 +264,10 @@ export class XcuInputComponent
   ) {
     super(_defaultErrorStateMatcher, _parentForm, _parentFormGroup, ngControl);
 
-    const element:
-      | HTMLInputElement
-      | HTMLSelectElement
-      | HTMLTextAreaElement = this._elementRef.nativeElement;
-    const nodeName = element.nodeName.toLowerCase();
+    this.element = this._elementRef.nativeElement;
+    const nodeName = this.element.nodeName.toLowerCase();
 
-    this._inputValueAccessor = element;
+    this._inputValueAccessor = this.element;
     this._previousNativeValue = this.value;
 
     // Force setter to be called in case id was not specified.
@@ -272,7 +277,7 @@ export class XcuInputComponent
     this._isTextarea = nodeName === 'textarea';
 
     if (this._isNativeSelect) {
-      this.controlType = (element as HTMLSelectElement).multiple
+      this.controlType = (this.element as HTMLSelectElement).multiple
         ? 'xcu-native-select-multiple'
         : 'xcu-native-select';
     }
