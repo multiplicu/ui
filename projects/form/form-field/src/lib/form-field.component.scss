@@ -78,11 +78,11 @@
 .input-wrapper {
   --xcu-input-wrapper__background-color: var(
     --input-wrapper__background-color,
-    rgb(var(--theme-rgb--on-surface) / 0.04)
+    var(--theme--surface-container-highest)
   );
   --xcu-input-wrapper__border-color: var(
     --input-wrapper__border-color,
-    rgb(var(--theme-rgb--on-surface) / 0.6)
+    var(--theme--outline)
   );
 
   background-color: var(--xcu-input-wrapper__background-color);
@@ -91,6 +91,7 @@
   display: flex;
   align-items: center;
   max-width: var(--paragraph--max-width);
+  position: relative;
 
   &:focus-within,
   &:has(.xcu-input-element:invalid) {
@@ -106,10 +107,12 @@
   &:hover {
     --xcu-input-wrapper__background-color--hover: var(
       --input-wrapper__background-color--hover,
-      rgb(var(--theme-rgb--on-surface) / 0.08)
+      rgb(var(--theme-rgb--on-surface) / 0.04)
     );
 
-    background-color: var(--xcu-input-wrapper__background-color--hover);
+    .state-layer {
+      background: var(--xcu-input-wrapper__background-color--hover);
+    }
   }
 
   &:has(.xcu-input-element:invalid) {
@@ -123,6 +126,19 @@
     );
     --xcu-input-wrapper__border-color: rgb(var(--theme-rgb--on-surface) / 0.12);
   }
+
+  &:not(.xcu-form-field--disabled):hover .state-layer {
+    visibility: visible;
+  }
+}
+
+.state-layer {
+  border-radius: inherit;
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+
+  visibility: hidden;
 }
 
 // Affix stylings
