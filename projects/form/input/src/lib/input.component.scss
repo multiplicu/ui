@@ -65,6 +65,10 @@
   //   --xcu-input__background-color: rgb(var(--theme-rgb--on-surface) / 0.04);
   //   --xcu-input__border-color: rgb(var(--theme-rgb--on-surface) / 0.12);
   // }
+
+  &::-webkit-input-placeholder {
+    color: rgb(var(--theme-rgb--on-surface) / 0.38);
+  }
 }
 
 :host(select) {
