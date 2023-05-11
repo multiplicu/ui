@@ -26,7 +26,7 @@
   &.colored {
     --xcu-panel--footer__background-color: var(
       --panel--footer__background-color,
-      var(--theme--surface-container)
+      var(--color--surface-2)
     );
     background-color: var(--xcu-panel--footer__background-color);
   }
