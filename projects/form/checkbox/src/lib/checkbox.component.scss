@@ -97,7 +97,7 @@ label {
   --xcu-checkbox__border-radius: var(--checkbox__border-radius, 2px);
 
   appearance: none;
-  color-adjust: exact;
+  print-color-adjust: exact;
   cursor: inherit;
   display: inline-block;
   vertical-align: middle;
